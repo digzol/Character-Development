@@ -5,7 +5,7 @@
         <label>improve random skill</label>
         <description>Increases a random skill by 1 level.</description>
         <iconPath>UI/Icons/Medical/IconImmune</iconPath>
-        <rarity>Legendary</rarity>
+        <rarity>Rare</rarity>
         <workerClass>WantsAndQuirks.RewardWorker_RandomSkill</workerClass>
     </WantsAndQuirks.RewardDef>
 

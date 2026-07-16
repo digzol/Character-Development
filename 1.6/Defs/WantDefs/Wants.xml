@@ -125,7 +125,7 @@
         <label>new outfit</label>
         <description>I want to wear a new piece of clothing.</description>
         <iconPath>UI/WantIcons/Outfit</iconPath>
-        <reward>800</reward>
+        <reward>200</reward>
         <commonality>1</commonality>
         <workerClass>WantsAndQuirks.WantWorker_NewOutfit</workerClass>
     </WantsAndQuirks.WantDef>
@@ -135,7 +135,7 @@
         <label>new weapon</label>
         <description>I want to equip a new weapon.</description>
         <iconPath>UI/WantIcons/Weapon</iconPath>
-        <reward>800</reward>
+        <reward>200</reward>
         <commonality>1</commonality>
         <workerClass>WantsAndQuirks.WantWorker_EquipWeapon</workerClass>
     </WantsAndQuirks.WantDef>
