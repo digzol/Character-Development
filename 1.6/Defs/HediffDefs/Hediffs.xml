@@ -23,7 +23,7 @@
   <HediffDef>
     <defName>WQ_Hediff_FastWalker</defName>
     <label>fast walker</label>
-    <description>Moves faster.</description>
+    <description>Moves with greater efficiency due to the fast walker quirk.</description>
     <hediffClass>HediffWithComps</hediffClass>
     <isBad>false</isBad>
     <stages>
