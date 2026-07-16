@@ -1,0 +1,46 @@
+using UnityEngine;
+using Verse;
+
+namespace WantsAndQuirks
+{
+    public class WantsAndQuirksSettings : ModSettings
+    {
+        public bool enableWantsSystem = true;
+        public bool enableCharactersMenu = true;
+        public int bubblesPerRoll = 10;
+        public bool rerollBubblesOnSelection = false;
+        public int pointsNeededForReward = 1000;
+        public int startingWantsCount = 1;
+        public IntRange wantGenerationFrequencyDays = new IntRange(1, 20);
+
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            Scribe_Values.Look(ref enableWantsSystem, "enableWantsSystem", true);
+            Scribe_Values.Look(ref enableCharactersMenu, "enableCharactersMenu", true);
+            Scribe_Values.Look(ref bubblesPerRoll, "bubblesPerRoll", 10);
+            Scribe_Values.Look(ref rerollBubblesOnSelection, "rerollBubblesOnSelection", false);
+            Scribe_Values.Look(ref pointsNeededForReward, "pointsNeededForReward", 1000);
+            Scribe_Values.Look(ref startingWantsCount, "startingWantsCount", 1);
+            Scribe_Values.Look(ref wantGenerationFrequencyDays, "wantGenerationFrequencyDays", new IntRange(1, 20));
+        }
+
+        public void DoSettingsWindowContents(Rect inRect)
+        {
+            var ls = new Listing_Standard();
+            ls.Begin(inRect);
+            ls.CheckboxLabeled("WQ_EnableWantsSystem".Translate(), ref enableWantsSystem);
+            ls.CheckboxLabeled("WQ_EnableCharactersMenu".Translate(), ref enableCharactersMenu);
+            ls.Label("WQ_BubblesPerRoll".Translate(bubblesPerRoll));
+            bubblesPerRoll = (int)ls.Slider(bubblesPerRoll, 1, 50);
+            ls.CheckboxLabeled("WQ_RerollBubblesOnSelection".Translate(), ref rerollBubblesOnSelection);
+            ls.Label("WQ_PointsNeededForReward".Translate(pointsNeededForReward));
+            pointsNeededForReward = (int)ls.Slider(pointsNeededForReward, 100, 5000);
+            ls.Label("WQ_StartingWantsCount".Translate(startingWantsCount));
+            startingWantsCount = (int)ls.Slider(startingWantsCount, 0, 4);
+            ls.Label("WQ_WantGenerationFrequency".Translate(wantGenerationFrequencyDays.min, wantGenerationFrequencyDays.max));
+            ls.IntRange(ref wantGenerationFrequencyDays, 1, 60);
+            ls.End();
+        }
+    }
+}

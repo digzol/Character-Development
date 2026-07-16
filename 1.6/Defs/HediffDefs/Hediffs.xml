@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <HediffDef>
+    <defName>WQ_BoostImmunity</defName>
+    <label>immune system boost</label>
+    <description>A temporary boost to immunity gain speed.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>60000</disappearsAfterTicks>
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <statOffsets>
+          <ImmunityGainSpeed>0.25</ImmunityGainSpeed>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <HediffDef>
+    <defName>WQ_Hediff_FastWalker</defName>
+    <label>fast walker</label>
+    <description>Moves faster.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <stages>
+      <li>
+        <statOffsets>
+          <MoveSpeed>0.4</MoveSpeed>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+</Defs>

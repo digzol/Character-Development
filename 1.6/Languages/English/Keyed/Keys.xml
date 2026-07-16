@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+  <WQ_EnableWantsSystem>Enable wants system</WQ_EnableWantsSystem>
+  <WQ_EnableCharactersMenu>Enable characters menu</WQ_EnableCharactersMenu>
+  <WQ_BubblesPerRoll>How many bubbles should generate per roll? ({0})</WQ_BubblesPerRoll>
+  <WQ_RerollBubblesOnSelection>Reroll all bubbles on selection</WQ_RerollBubblesOnSelection>
+  <WQ_PointsNeededForReward>Character points needed for reward: {0}</WQ_PointsNeededForReward>
+  <WQ_StartingWantsCount>Starting wants count: {0}</WQ_StartingWantsCount>
+  <WQ_WantGenerationFrequency>Want generation frequency: {0} - {1} days</WQ_WantGenerationFrequency>
+  <WQ_Wants>Wants</WQ_Wants>
+  <WQ_NoActiveWants>No active wants.</WQ_NoActiveWants>
+  <WQ_CharacterPoints>Character points</WQ_CharacterPoints>
+  <WQ_RewardPoints>Reward points: {0}</WQ_RewardPoints>
+  <WQ_NewWantGenerated>{0} wants something. Check {0_possessive} wants tab.</WQ_NewWantGenerated>
+  <WQ_WantCompleted>{0} fulfilled a want: {1}</WQ_WantCompleted>
+  <WQ_RewardPointEarned>{0} earned a reward point!</WQ_RewardPointEarned>
+  <WQ_NotEnoughRewardPoints>Not enough reward points.</WQ_NotEnoughRewardPoints>
+  <WQ_PawnWants>{0}'s wants</WQ_PawnWants>
+  <WQ_OnCompletion>On completion:</WQ_OnCompletion>
+  <WQ_CharacterPointsReward>+{0} character points</WQ_CharacterPointsReward>
+  <WQ_CausedByMentalBreak>Caused by mental break</WQ_CausedByMentalBreak>
+  <WQ_Quirks>Quirks</WQ_Quirks>
+  <WQ_ProgressBarDesc>This bar will fill as you complete wants from characters.</WQ_ProgressBarDesc>
+  <WQ_CharactersWithWants>Characters with unfulfilled wants:</WQ_CharactersWithWants>
+  <WQ_WantsCount>{0} wants</WQ_WantsCount>
+  <WQ_AvailableRewards>Available rewards: {0}</WQ_AvailableRewards>
+  <WQ_ClaimInstruction>Click to claim and register to a character.\nMore rewards will appear here when existing bubbles are claimed.</WQ_ClaimInstruction>
+  <WQ_QuirksInfoText>Bigger bubbles are more rare, while smaller ones may appear often.\n\nQuirks may be removed at any time through the wants menu on the effected character.</WQ_QuirksInfoText>
+  <WQ_BestowReward>Bestow reward</WQ_BestowReward>
+  <WQ_BestowRewardDesc>Select a character to receive {0}.</WQ_BestowRewardDesc>
+</LanguageData>

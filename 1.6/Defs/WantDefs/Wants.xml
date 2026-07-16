@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantSeeAurora</defName>
+        <label>see an aurora</label>
+        <description>I want to see an aurora in the sky.</description>
+        <iconPath>UI/Icons/Medical/IconImmune</iconPath>
+        <reward>1200</reward>
+        <commonality>1</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_SeeAurora</workerClass>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantEatLavishMeal</defName>
+        <label>eat a lavish meal</label>
+        <description>I want to eat a lavish meal.</description>
+        <iconPath>UI/Icons/Medical/IconImmune</iconPath>
+        <reward>800</reward>
+        <commonality>1</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_Thought</workerClass>
+        <completedByThought>AteLavishMeal</completedByThought>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantGetLovin</defName>
+        <label>get lovin'</label>
+        <description>I want to get some lovin'.</description>
+        <iconPath>UI/Icons/Medical/IconImmune</iconPath>
+        <reward>500</reward>
+        <commonality>1</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_Thought</workerClass>
+        <completedByThought>GotSomeLovin</completedByThought>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantImpressiveRoom</defName>
+        <label>impressive room</label>
+        <description>I want to live in an impressive room.</description>
+        <iconPath>UI/Icons/Medical/IconImmune</iconPath>
+        <reward>1500</reward>
+        <commonality>1</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_RoomStat</workerClass>
+        <roomStat>Impressiveness</roomStat>
+        <roomStatThreshold>80</roomStatThreshold>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantPrettierRoom</defName>
+        <label>prettier room</label>
+        <description>I want my room to be prettier.</description>
+        <iconPath>UI/Icons/Medical/IconImmune</iconPath>
+        <reward>1000</reward>
+        <commonality>1</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_RoomStat</workerClass>
+        <roomStat>Beauty</roomStat>
+        <roomStatThreshold>2</roomStatThreshold>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantBionic</defName>
+        <label>get a bionic</label>
+        <description>I want to get a bionic implant.</description>
+        <iconPath>UI/Icons/Medical/IconImmune</iconPath>
+        <reward>2000</reward>
+        <commonality>0.8</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_Bionic</workerClass>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantTakeDrug</defName>
+        <label>take some drugs</label>
+        <description>I want to take some recreational drugs.</description>
+        <iconPath>UI/Icons/Medical/IconImmune</iconPath>
+        <reward>600</reward>
+        <commonality>1.2</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_TakeDrug</workerClass>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantFeelCatharsis</defName>
+        <label>feel catharsis</label>
+        <description>I want to feel catharsis.</description>
+        <iconPath>UI/Icons/Medical/IconImmune</iconPath>
+        <reward>1000</reward>
+        <commonality>1</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_Thought</workerClass>
+        <completedByThought>Catharsis</completedByThought>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantGetMarried</defName>
+        <label>get married</label>
+        <description>I want to get married.</description>
+        <iconPath>UI/Icons/Medical/IconImmune</iconPath>
+        <reward>2000</reward>
+        <commonality>0.5</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_GetMarried</workerClass>
+        <completedByThought>GotMarried</completedByThought>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantDefeatMechCluster</defName>
+        <label>defeat mech cluster</label>
+        <description>I want to see a mech cluster defeated.</description>
+        <iconPath>UI/Icons/Medical/IconImmune</iconPath>
+        <reward>1500</reward>
+        <commonality>0.8</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_Thought</workerClass>
+        <completedByThought>DefeatedMechCluster</completedByThought>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantDefeatInsectHive</defName>
+        <label>defeat insect hive</label>
+        <description>I want to see an insect hive defeated.</description>
+        <iconPath>UI/Icons/Medical/IconImmune</iconPath>
+        <reward>1500</reward>
+        <commonality>0.8</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_Thought</workerClass>
+        <completedByThought>DefeatedInsectHive</completedByThought>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantNewOutfit</defName>
+        <label>new outfit</label>
+        <description>I want to wear a new piece of clothing.</description>
+        <iconPath>UI/Icons/Medical/IconImmune</iconPath>
+        <reward>800</reward>
+        <commonality>1</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_NewOutfit</workerClass>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantEquipWeapon</defName>
+        <label>new weapon</label>
+        <description>I want to equip a new weapon.</description>
+        <iconPath>UI/Icons/Medical/IconImmune</iconPath>
+        <reward>800</reward>
+        <commonality>1</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_EquipWeapon</workerClass>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantResurrection</defName>
+        <label>experience resurrection</label>
+        <description>I want to experience being resurrected.</description>
+        <iconPath>UI/Icons/Medical/IconImmune</iconPath>
+        <reward>3000</reward>
+        <commonality>0.1</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_Resurrection</workerClass>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantBondWithAnimal</defName>
+        <label>bond with animal</label>
+        <description>I want to bond with an animal.</description>
+        <iconPath>UI/Icons/Medical/IconImmune</iconPath>
+        <reward>1500</reward>
+        <commonality>0.5</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_BondWithAnimal</workerClass>
+    </WantsAndQuirks.WantDef>
+</Defs>

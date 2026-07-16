@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <WantsAndQuirks.RewardDef>
+        <defName>WQ_RewardRandomSkill</defName>
+        <label>improve random skill</label>
+        <description>Increases a random skill by 1 level.</description>
+        <iconPath>UI/Icons/Medical/IconImmune</iconPath>
+        <rarity>Legendary</rarity>
+        <workerClass>WantsAndQuirks.RewardWorker_RandomSkill</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef>
+        <defName>WQ_RewardBoostImmune</defName>
+        <label>boost immune system</label>
+        <description>Gain a temporary boost to the immune system.</description>
+        <iconPath>UI/Icons/Medical/IconImmune</iconPath>
+        <rarity>Common</rarity>
+        <workerClass>WantsAndQuirks.RewardWorker_BoostImmuneSystem</workerClass>
+        <hediff>WQ_BoostImmunity</hediff>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef>
+        <defName>WQ_RewardRandomInspiration</defName>
+        <label>random inspiration</label>
+        <description>Bestows a random inspiration on the character.</description>
+        <iconPath>UI/Icons/Medical/IconImmune</iconPath>
+        <rarity>Uncommon</rarity>
+        <workerClass>WantsAndQuirks.RewardWorker_RandomInspiration</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef>
+        <defName>WQ_Quirk_LikesFood</defName>
+        <label>likes food</label>
+        <description>Receives a small mood boost when eating any food.</description>
+        <iconPath>UI/Icons/Medical/IconImmune</iconPath>
+        <rarity>Common</rarity>
+        <isQuirk>true</isQuirk>
+        <workerClass>WantsAndQuirks.QuirkWorker_LikesFood</workerClass>
+        <thought>WQ_Thought_LikesFood</thought>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef>
+        <defName>WQ_Quirk_LikesClothing</defName>
+        <label>likes clothing</label>
+        <description>Receives a small mood boost when equipping new apparel.</description>
+        <iconPath>UI/Icons/Medical/IconImmune</iconPath>
+        <rarity>Common</rarity>
+        <isQuirk>true</isQuirk>
+        <workerClass>WantsAndQuirks.QuirkWorker_LikesClothing</workerClass>
+        <thought>WQ_Thought_LikesClothing</thought>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef>
+        <defName>WQ_Quirk_LikesWeapon</defName>
+        <label>likes weapons</label>
+        <description>Receives a small mood boost when equipping a new weapon.</description>
+        <iconPath>UI/Icons/Medical/IconImmune</iconPath>
+        <rarity>Common</rarity>
+        <isQuirk>true</isQuirk>
+        <workerClass>WantsAndQuirks.QuirkWorker_LikesWeapon</workerClass>
+        <thought>WQ_Thought_LikesWeapon</thought>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef>
+        <defName>WQ_Quirk_FastWalker</defName>
+        <label>fast walker</label>
+        <description>Permanently moves slightly faster.</description>
+        <iconPath>UI/Icons/Medical/IconImmune</iconPath>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <workerClass>WantsAndQuirks.RewardWorker_HediffQuirk</workerClass>
+        <hediff>WQ_Hediff_FastWalker</hediff>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef>
+        <defName>WQ_Quirk_EarlyBird</defName>
+        <label>early bird</label>
+        <description>Gets a mood boost during the morning hours.</description>
+        <iconPath>UI/Icons/Medical/IconImmune</iconPath>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+    </WantsAndQuirks.RewardDef>
+</Defs>

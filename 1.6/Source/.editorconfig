@@ -1,0 +1,13 @@
+﻿[*.cs]
+
+# IDE0058: Expression value is never used
+dotnet_diagnostic.IDE0058.severity = none
+dotnet_diagnostic.IDE0002.severity = error
+[*.cs]
+csharp_new_line_before_open_brace = all
+csharp_new_line_before_else = true
+csharp_new_line_before_catch = true
+csharp_new_line_before_finally = true
+csharp_preserve_single_line_statements = false
+csharp_style_prefer_separate_attribute_list_lines = true:warning
+csharp_style_prefer_is_null_check_over_reference_equality = true:warning
