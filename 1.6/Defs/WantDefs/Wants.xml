@@ -59,7 +59,7 @@
     <WantsAndQuirks.WantDef>
         <defName>WQ_WantBiggerRoom</defName>
         <label>bigger room</label>
-        <description>I want a bigger room.</description>
+        <description>My room feels cramped.</description>
         <iconPath>UI/WantIcons/Bedroom</iconPath>
         <reward>1000</reward>
         <commonality>1</commonality>
@@ -71,7 +71,7 @@
     <WantsAndQuirks.WantDef>
         <defName>WQ_WantBionic</defName>
         <label>get a bionic</label>
-        <description>I want a bionic implant installed on me.</description>
+        <description>I want a bionic implant installed.</description>
         <iconPath>UI/WantIcons/Bionic</iconPath>
         <reward>2000</reward>
         <commonality>0.8</commonality>
@@ -177,8 +177,8 @@
     <WantsAndQuirks.WantDef>
         <defName>WQ_WantAttendedParty</defName>
         <label>attend a party</label>
-        <description>I want to attend a party.</description>
-        <iconPath>UI/WantIcons/Catharsis</iconPath>
+        <description>I want to attend a fun party.</description>
+        <iconPath>UI/WantIcons/Party</iconPath>
         <reward>1000</reward>
         <commonality>1</commonality>
         <workerClass>WantsAndQuirks.WantWorker_Thought</workerClass>
@@ -189,18 +189,19 @@
         <defName>WQ_WantDefeatFactionLeader</defName>
         <label>defeat faction leader</label>
         <description>I want us to defeat a hostile faction leader.</description>
-        <iconPath>UI/WantIcons/Weapon</iconPath>
+        <iconPath>UI/WantIcons/FactionLeader</iconPath>
         <reward>3000</reward>
         <commonality>0.3</commonality>
         <workerClass>WantsAndQuirks.WantWorker_Thought</workerClass>
         <completedByThought>DefeatedHostileFactionLeader</completedByThought>
+        <invalidNonViolent>true</invalidNonViolent>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef MayRequire="Ludeon.RimWorld.Royalty">
         <defName>WQ_WantBecomePsycaster</defName>
         <label>become a psycaster</label>
         <description>I want to tap into the psychic powers and become a psycaster.</description>
-        <iconPath>UI/WantIcons/Bionic</iconPath>
+        <iconPath>UI/WantIcons/Psycaster</iconPath>
         <reward>2500</reward>
         <commonality>0.5</commonality>
         <workerClass>WantsAndQuirks.WantWorker_BecomePsycaster</workerClass>
@@ -210,7 +211,7 @@
         <defName>WQ_WantBecomeParent</defName>
         <label>become a parent</label>
         <description>I want to become a parent and raise a child.</description>
-        <iconPath>UI/WantIcons/Marriage</iconPath>
+        <iconPath>UI/WantIcons/Baby</iconPath>
         <reward>2000</reward>
         <commonality>0.5</commonality>
         <workerClass>WantsAndQuirks.WantWorker_BecomeParent</workerClass>
@@ -220,7 +221,7 @@
         <defName>WQ_WantBecomeNoble</defName>
         <label>become noble</label>
         <description>I want to be a noble.</description>
-        <iconPath>UI/WantIcons/Bionic</iconPath>
+        <iconPath>UI/WantIcons/Noble</iconPath>
         <reward>2000</reward>
         <commonality>0.5</commonality>
         <workerClass>WantsAndQuirks.WantWorker_BecomeNoble</workerClass>
@@ -231,7 +232,7 @@
         <defName>WQ_WantBecomeIdeologicalFigure</defName>
         <label>become an ideological figure</label>
         <description>I want a role in our ideoligion.</description>
-        <iconPath>UI/WantIcons/Catharsis</iconPath>
+        <iconPath>UI/WantIcons/Figure</iconPath>
         <reward>2000</reward>
         <commonality>0.5</commonality>
         <workerClass>WantsAndQuirks.WantWorker_BecomeIdeologicalFigure</workerClass>
@@ -241,7 +242,7 @@
         <defName>WQ_WantBecomeLeader</defName>
         <label>become leader</label>
         <description>I want to lead our ideoligion.</description>
-        <iconPath>UI/WantIcons/Catharsis</iconPath>
+        <iconPath>UI/WantIcons/Lead</iconPath>
         <reward>3000</reward>
         <commonality>0.2</commonality>
         <workerClass>WantsAndQuirks.WantWorker_BecomeLeader</workerClass>
@@ -251,7 +252,7 @@
         <defName>WQ_WantBecomeMechanitor</defName>
         <label>become a mechanitor</label>
         <description>I want to be a mechanitor.</description>
-        <iconPath>UI/WantIcons/Bionic</iconPath>
+        <iconPath>UI/WantIcons/Mechanitor</iconPath>
         <reward>2500</reward>
         <commonality>0.5</commonality>
         <workerClass>WantsAndQuirks.WantWorker_HasHediff</workerClass>
@@ -262,7 +263,7 @@
         <defName>WQ_WantFormPsychicBond</defName>
         <label>form a psychic bond</label>
         <description>I want a psychic bond with my partner.</description>
-        <iconPath>UI/WantIcons/Lovin</iconPath>
+        <iconPath>UI/WantIcons/PsychicBond</iconPath>
         <reward>2000</reward>
         <commonality>0.5</commonality>
         <workerClass>WantsAndQuirks.WantWorker_HasHediff</workerClass>
@@ -273,7 +274,7 @@
         <defName>WQ_WantCureCataracts</defName>
         <label>cure cataracts</label>
         <description>I want my cataracts removed.</description>
-        <iconPath>UI/WantIcons/Bionic</iconPath>
+        <iconPath>UI/WantIcons/Medical</iconPath>
         <reward>1500</reward>
         <commonality>1</commonality>
         <workerClass>WantsAndQuirks.WantWorker_CureHediff</workerClass>
@@ -284,7 +285,7 @@
         <defName>WQ_WantCureHearingLoss</defName>
         <label>cure hearing loss</label>
         <description>I want my hearing fixed.</description>
-        <iconPath>UI/WantIcons/Bionic</iconPath>
+        <iconPath>UI/WantIcons/Medical</iconPath>
         <reward>1500</reward>
         <commonality>1</commonality>
         <workerClass>WantsAndQuirks.WantWorker_CureHediff</workerClass>
@@ -301,11 +302,11 @@
         <workerClass>WantsAndQuirks.WantWorker_ImproveComposure</workerClass>
     </WantsAndQuirks.WantDef>
 
-    <WantsAndQuirks.WantDef MayRequire="ferny.TraumaAndIntegrity">
+    <WantsAndQuirks.WantDef MayRequire="ferny.TraumaAndIntegrity,ferny.ProgressionTherapy">
         <defName>WQ_WantResolveTraumaticTrait</defName>
         <label>resolve traumatic trait</label>
         <description>I want to lose my traumatic trait.</description>
-        <iconPath>UI/WantIcons/Catharsis</iconPath>
+        <iconPath>UI/WantIcons/Trauma</iconPath>
         <reward>2500</reward>
         <commonality>0.5</commonality>
         <workerClass>WantsAndQuirks.WantWorker_ResolveTraumaticTrait</workerClass>
@@ -325,7 +326,7 @@
         <defName>WQ_WantBecomeRich</defName>
         <label>become rich</label>
         <description>I want our colony to become very wealthy (over 100,000 wealth).</description>
-        <iconPath>UI/WantIcons/Outfit</iconPath>
+        <iconPath>UI/WantIcons/Money</iconPath>
         <reward>2000</reward>
         <commonality>0.5</commonality>
         <workerClass>WantsAndQuirks.WantWorker_ColonyWealth</workerClass>
@@ -336,7 +337,7 @@
         <defName>WQ_WantBecomeExtremelyRich</defName>
         <label>become extremely rich</label>
         <description>I want our colony to become extremely wealthy (over 300,000 wealth).</description>
-        <iconPath>UI/WantIcons/Outfit</iconPath>
+        <iconPath>UI/WantIcons/Money</iconPath>
         <reward>3000</reward>
         <commonality>0.3</commonality>
         <workerClass>WantsAndQuirks.WantWorker_ColonyWealth</workerClass>
@@ -347,7 +348,7 @@
         <defName>WQ_WantCompleteMachineBody</defName>
         <label>complete machine body</label>
         <description>I want a complete machine body.</description>
-        <iconPath>UI/WantIcons/Bionic</iconPath>
+        <iconPath>UI/WantIcons/Cyborg</iconPath>
         <reward>4000</reward>
         <commonality>0.3</commonality>
         <workerClass>WantsAndQuirks.WantWorker_Bionic</workerClass>
@@ -358,7 +359,7 @@
         <defName>WQ_WantTryHumanMeat</defName>
         <label>try human meat</label>
         <description>I want to try human meat.</description>
-        <iconPath>UI/WantIcons/Meal</iconPath>
+        <iconPath>UI/WantIcons/Meat</iconPath>
         <reward>2500</reward>
         <commonality>0.3</commonality>
         <workerClass>WantsAndQuirks.WantWorker_ThoughtAny</workerClass>
@@ -385,7 +386,7 @@
         <defName>WQ_WantBlackoutDrunk</defName>
         <label>get blackout drunk</label>
         <description>I want to get blackout drunk.</description>
-        <iconPath>UI/WantIcons/Drugs</iconPath>
+        <iconPath>UI/WantIcons/Drunk</iconPath>
         <reward>1500</reward>
         <commonality>0.8</commonality>
         <workerClass>WantsAndQuirks.WantWorker_HasHediff</workerClass>
@@ -398,7 +399,7 @@
         <defName>WQ_WantBleeding</defName>
         <label>bleed</label>
         <description>I want to bleed.</description>
-        <iconPath>UI/WantIcons/Catharsis</iconPath>
+        <iconPath>UI/WantIcons/Bleed</iconPath>
         <reward>1500</reward>
         <commonality>0.5</commonality>
         <workerClass>WantsAndQuirks.WantWorker_Bleeding</workerClass>
@@ -410,7 +411,7 @@
         <defName>WQ_WantLearnFirearms</defName>
         <label>learn how to operate firearms</label>
         <description>I want to learn how to use firearms.</description>
-        <iconPath>UI/WantIcons/Weapon</iconPath>
+        <iconPath>UI/WantIcons/Gun</iconPath>
         <reward>1500</reward>
         <commonality>0.8</commonality>
         <workerClass>WantsAndQuirks.WantWorker_HasTrait</workerClass>
@@ -423,7 +424,7 @@
         <defName>WQ_WantLearnHighTech</defName>
         <label>learn to operate high-tech equipment</label>
         <description>I want to learn to operate high-tech equipment.</description>
-        <iconPath>UI/WantIcons/Bionic</iconPath>
+        <iconPath>UI/WantIcons/HighTechGun</iconPath>
         <reward>2000</reward>
         <commonality>0.5</commonality>
         <workerClass>WantsAndQuirks.WantWorker_HasTrait</workerClass>
@@ -436,7 +437,7 @@
         <defName>WQ_WantLearnDriving</defName>
         <label>learn how to drive</label>
         <description>I want to learn how to drive.</description>
-        <iconPath>UI/WantIcons/Outfit</iconPath>
+        <iconPath>UI/WantIcons/Drive</iconPath>
         <reward>1500</reward>
         <commonality>0.8</commonality>
         <workerClass>WantsAndQuirks.WantWorker_HasTrait</workerClass>
@@ -449,7 +450,7 @@
         <defName>WQ_WantLearnAerialPiloting</defName>
         <label>learn how to fly</label>
         <description>I want to learn how to fly.</description>
-        <iconPath>UI/WantIcons/Aurora</iconPath>
+        <iconPath>UI/WantIcons/Pilot</iconPath>
         <reward>2000</reward>
         <commonality>0.5</commonality>
         <workerClass>WantsAndQuirks.WantWorker_HasTrait</workerClass>
@@ -462,7 +463,7 @@
         <defName>WQ_WantLearnOrbitalPiloting</defName>
         <label>learn orbital piloting</label>
         <description>I want to learn orbital piloting.</description>
-        <iconPath>UI/WantIcons/Aurora</iconPath>
+        <iconPath>UI/WantIcons/Orbital</iconPath>
         <reward>2500</reward>
         <commonality>0.3</commonality>
         <workerClass>WantsAndQuirks.WantWorker_HasTrait</workerClass>
@@ -475,7 +476,7 @@
         <defName>WQ_WantLearnFluentSpeech</defName>
         <label>learn to speak fluently</label>
         <description>I want to learn to speak fluently.</description>
-        <iconPath>UI/WantIcons/Catharsis</iconPath>
+        <iconPath>UI/WantIcons/Speak</iconPath>
         <reward>1500</reward>
         <commonality>0.8</commonality>
         <workerClass>WantsAndQuirks.WantWorker_HasTrait</workerClass>
