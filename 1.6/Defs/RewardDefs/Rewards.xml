@@ -105,7 +105,7 @@
         <defName>WQ_RewardRandomSkill</defName>
         <label>improve random skill</label>
         <description>Increases a random skill by 1 level.</description>
-        <iconPath>UI/Icons/Medical/IconImmune</iconPath>
+        <iconPath>UI/RewardIcons/RandomSkill</iconPath>
         <rarity>Rare</rarity>
         <workerClass>WantsAndQuirks.RewardWorker_RandomSkill</workerClass>
     </WantsAndQuirks.RewardDef>
@@ -114,7 +114,7 @@
         <defName>WQ_RewardBoostImmune</defName>
         <label>boost immune system</label>
         <description>Gain a temporary boost to the immune system.</description>
-        <iconPath>UI/Icons/Medical/IconImmune</iconPath>
+        <iconPath>UI/RewardIcons/Immunity</iconPath>
         <rarity>Common</rarity>
         <workerClass>WantsAndQuirks.RewardWorker_BoostImmuneSystem</workerClass>
         <hediff>WQ_BoostImmunity</hediff>
@@ -253,7 +253,7 @@
         <defName>WQ_Quirk_EarlyBird</defName>
         <label>early bird</label>
         <description>Gets a mood boost during the morning hours.</description>
-        <iconPath>UI/Icons/Medical/IconImmune</iconPath>
+        <iconPath>UI/Icons/RewardIcons/EarlyBird</iconPath>
         <rarity>Uncommon</rarity>
         <isQuirk>true</isQuirk>
     </WantsAndQuirks.RewardDef>
