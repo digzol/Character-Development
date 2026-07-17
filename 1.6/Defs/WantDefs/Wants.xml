@@ -19,6 +19,7 @@
         <commonality>1</commonality>
         <workerClass>WantsAndQuirks.WantWorker_Thought</workerClass>
         <completedByThought>AteLavishMeal</completedByThought>
+        <minimumTechLevel>Neolithic</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef>
@@ -42,6 +43,7 @@
         <workerClass>WantsAndQuirks.WantWorker_RoomStat</workerClass>
         <roomStat>Impressiveness</roomStat>
         <roomStatThreshold>80</roomStatThreshold>
+        <minimumTechLevel>Neolithic</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef>
@@ -54,6 +56,7 @@
         <workerClass>WantsAndQuirks.WantWorker_PrettierRoom</workerClass>
         <roomStat>Beauty</roomStat>
         <roomStatThreshold>2</roomStatThreshold>
+        <minimumTechLevel>Neolithic</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef>
@@ -66,6 +69,7 @@
         <workerClass>WantsAndQuirks.WantWorker_RoomStat</workerClass>
         <roomStat>Space</roomStat>
         <roomStatThreshold>100</roomStatThreshold>
+        <minimumTechLevel>Neolithic</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef>
@@ -76,6 +80,7 @@
         <reward>2000</reward>
         <commonality>0.8</commonality>
         <workerClass>WantsAndQuirks.WantWorker_Bionic</workerClass>
+        <minimumTechLevel>Industrial</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef>
@@ -86,6 +91,7 @@
         <reward>600</reward>
         <commonality>1.2</commonality>
         <workerClass>WantsAndQuirks.WantWorker_TakeDrug</workerClass>
+        <minimumTechLevel>Neolithic</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef>
@@ -108,6 +114,7 @@
         <commonality>0.5</commonality>
         <workerClass>WantsAndQuirks.WantWorker_GetMarried</workerClass>
         <completedByThought>GotMarried</completedByThought>
+        <minimumTechLevel>Neolithic</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef>
@@ -120,6 +127,7 @@
         <workerClass>WantsAndQuirks.WantWorker_Thought</workerClass>
         <completedByThought>DefeatedMechCluster</completedByThought>
         <invalidNonViolent>true</invalidNonViolent>
+        <minimumTechLevel>Spacer</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef>
@@ -132,6 +140,7 @@
         <workerClass>WantsAndQuirks.WantWorker_Thought</workerClass>
         <completedByThought>DefeatedInsectHive</completedByThought>
         <invalidNonViolent>true</invalidNonViolent>
+        <minimumTechLevel>Medieval</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef>
@@ -142,6 +151,7 @@
         <reward>200</reward>
         <commonality>1</commonality>
         <workerClass>WantsAndQuirks.WantWorker_NewOutfit</workerClass>
+        <minimumTechLevel>Neolithic</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef>
@@ -162,6 +172,7 @@
         <reward>3000</reward>
         <commonality>0.1</commonality>
         <workerClass>WantsAndQuirks.WantWorker_Resurrection</workerClass>
+        <minimumTechLevel>Medieval</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef>
@@ -183,6 +194,7 @@
         <commonality>1</commonality>
         <workerClass>WantsAndQuirks.WantWorker_Thought</workerClass>
         <completedByThought>AttendedParty</completedByThought>
+        <minimumTechLevel>Medieval</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef>
@@ -195,6 +207,7 @@
         <workerClass>WantsAndQuirks.WantWorker_Thought</workerClass>
         <completedByThought>DefeatedHostileFactionLeader</completedByThought>
         <invalidNonViolent>true</invalidNonViolent>
+        <minimumTechLevel>Neolithic</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef MayRequire="Ludeon.RimWorld.Royalty">
@@ -205,6 +218,7 @@
         <reward>2500</reward>
         <commonality>0.5</commonality>
         <workerClass>WantsAndQuirks.WantWorker_BecomePsycaster</workerClass>
+        <minimumTechLevel>Medieval</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef MayRequire="Ludeon.RimWorld.Biotech">
@@ -226,6 +240,7 @@
         <commonality>0.5</commonality>
         <workerClass>WantsAndQuirks.WantWorker_BecomeNoble</workerClass>
         <discoveryRequirementFaction>Empire</discoveryRequirementFaction>
+        <minimumTechLevel>Medieval</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef MayRequire="Ludeon.RimWorld.Ideology">
@@ -236,6 +251,7 @@
         <reward>2000</reward>
         <commonality>0.5</commonality>
         <workerClass>WantsAndQuirks.WantWorker_BecomeIdeologicalFigure</workerClass>
+        <minimumTechLevel>Neolithic</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef MayRequire="Ludeon.RimWorld.Ideology">
@@ -246,6 +262,7 @@
         <reward>3000</reward>
         <commonality>0.2</commonality>
         <workerClass>WantsAndQuirks.WantWorker_BecomeLeader</workerClass>
+        <minimumTechLevel>Neolithic</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef MayRequire="Ludeon.RimWorld.Biotech">
@@ -257,6 +274,7 @@
         <commonality>0.5</commonality>
         <workerClass>WantsAndQuirks.WantWorker_HasHediff</workerClass>
         <targetHediff>MechlinkImplant</targetHediff>
+        <minimumTechLevel>Industrial</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef MayRequire="Ludeon.RimWorld.Biotech">
@@ -268,6 +286,7 @@
         <commonality>0.5</commonality>
         <workerClass>WantsAndQuirks.WantWorker_HasHediff</workerClass>
         <targetHediff>PsychicBond</targetHediff>
+        <minimumTechLevel>Neolithic</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef>
@@ -279,6 +298,7 @@
         <commonality>1</commonality>
         <workerClass>WantsAndQuirks.WantWorker_CureHediff</workerClass>
         <targetHediff>Cataract</targetHediff>
+        <minimumTechLevel>Neolithic</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef>
@@ -290,6 +310,7 @@
         <commonality>1</commonality>
         <workerClass>WantsAndQuirks.WantWorker_CureHediff</workerClass>
         <targetHediff>HearingLoss</targetHediff>
+        <minimumTechLevel>Neolithic</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef MayRequire="ferny.ProgressionTherapy">
@@ -300,6 +321,7 @@
         <reward>1500</reward>
         <commonality>0.8</commonality>
         <workerClass>WantsAndQuirks.WantWorker_ImproveComposure</workerClass>
+        <minimumTechLevel>Medieval</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef MayRequire="ferny.TraumaAndIntegrity,ferny.ProgressionTherapy">
@@ -310,6 +332,7 @@
         <reward>2500</reward>
         <commonality>0.5</commonality>
         <workerClass>WantsAndQuirks.WantWorker_ResolveTraumaticTrait</workerClass>
+        <minimumTechLevel>Medieval</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef>
@@ -320,6 +343,7 @@
         <reward>1500</reward>
         <commonality>1</commonality>
         <workerClass>WantsAndQuirks.WantWorker_Propose</workerClass>
+        <minimumTechLevel>Neolithic</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef>
@@ -330,6 +354,7 @@
         <reward>2000</reward>
         <commonality>0.5</commonality>
         <workerClass>WantsAndQuirks.WantWorker_ColonyWealth</workerClass>
+        <minimumTechLevel>Neolithic</minimumTechLevel>
         <wealthThreshold>100000</wealthThreshold>
     </WantsAndQuirks.WantDef>
 
@@ -341,6 +366,7 @@
         <reward>3000</reward>
         <commonality>0.3</commonality>
         <workerClass>WantsAndQuirks.WantWorker_ColonyWealth</workerClass>
+        <minimumTechLevel>Medieval</minimumTechLevel>
         <wealthThreshold>300000</wealthThreshold>
     </WantsAndQuirks.WantDef>
 
@@ -353,6 +379,7 @@
         <commonality>0.3</commonality>
         <workerClass>WantsAndQuirks.WantWorker_Bionic</workerClass>
         <countThreshold>6</countThreshold>
+        <minimumTechLevel>Industrial</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef>
@@ -380,6 +407,7 @@
         <workerClass>WantsAndQuirks.WantWorker_HasHediff</workerClass>
         <targetHediff>DrugOverdose</targetHediff>
         <isMentalBreakWant>true</isMentalBreakWant>
+        <minimumTechLevel>Neolithic</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef>
@@ -393,6 +421,7 @@
         <targetHediff>AlcoholHigh</targetHediff>
         <targetHediffSeverity>0.6</targetHediffSeverity>
         <isMentalBreakWant>true</isMentalBreakWant>
+        <minimumTechLevel>Neolithic</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef>
@@ -418,6 +447,7 @@
         <targetTraits>
             <li>PE_FirearmProficiency</li>
         </targetTraits>
+        <minimumTechLevel>Neolithic</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef MayRequire="ferny.ProgressionEducation">
@@ -431,6 +461,7 @@
         <targetTraits>
             <li>PE_HighTechProficiency</li>
         </targetTraits>
+        <minimumTechLevel>Industrial</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef MayRequire="ferny.ProgressionEducation,SmashPhil.VehicleFramework">
@@ -444,6 +475,7 @@
         <targetTraits>
             <li>PE_AutomobileDrivingProficiency</li>
         </targetTraits>
+        <minimumTechLevel>Industrial</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef MayRequire="ferny.ProgressionEducation,SmashPhil.VehicleFramework">
@@ -457,6 +489,7 @@
         <targetTraits>
             <li>PE_AerialPilotingProficiency</li>
         </targetTraits>
+        <minimumTechLevel>Industrial</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef MayRequire="ferny.ProgressionEducation,ludeon.rimworld.odyssey">
@@ -470,6 +503,7 @@
         <targetTraits>
             <li>PE_OrbitalPilotingProficiency</li>
         </targetTraits>
+        <minimumTechLevel>Industrial</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef MayRequire="ferny.ProgressionEducation">
@@ -494,6 +528,7 @@
         <commonality>0.5</commonality>
         <workerClass>WantsAndQuirks.WantWorker_EquipQuality</workerClass>
         <targetQuality>Masterwork</targetQuality>
+        <minimumTechLevel>Medieval</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef>
@@ -505,6 +540,7 @@
         <commonality>0.2</commonality>
         <workerClass>WantsAndQuirks.WantWorker_EquipQuality</workerClass>
         <targetQuality>Legendary</targetQuality>
+        <minimumTechLevel>Medieval</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef>
@@ -553,6 +589,7 @@
         <workerClass>WantsAndQuirks.WantWorker_HasHediff</workerClass>
         <targetHediff>Joywire</targetHediff>
         <discoveryRequirementThing>Joywire</discoveryRequirementThing>
+        <minimumTechLevel>Industrial</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef>
@@ -613,6 +650,7 @@
         <commonality>1</commonality>
         <workerClass>WantsAndQuirks.WantWorker_CureHediff</workerClass>
         <targetHediff>Asthma</targetHediff>
+        <minimumTechLevel>Neolithic</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef>
@@ -649,6 +687,7 @@
         <commonality>1</commonality>
         <workerClass>WantsAndQuirks.WantWorker_DiscoverFaction</workerClass>
         <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
+        <minimumTechLevel>Neolithic</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef MayRequire="Ludeon.RimWorld.Biotech,ferny.discoveries">
@@ -660,6 +699,7 @@
         <commonality>1</commonality>
         <workerClass>WantsAndQuirks.WantWorker_DiscoverXenotype</workerClass>
         <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
+        <minimumTechLevel>Neolithic</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef MayRequire="ferny.discoveries">
@@ -671,6 +711,7 @@
         <commonality>1</commonality>
         <workerClass>WantsAndQuirks.WantWorker_DiscoverBuilding</workerClass>
         <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
+        <minimumTechLevel>Neolithic</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef>
@@ -735,7 +776,7 @@
     <WantsAndQuirks.WantDef>
         <defName>WQ_WantEatFood</defName>
         <label>eat {0}</label>
-        <description>I want to eat a {0}.</description>
+        <description>I'm interested in {0}.</description>
         <iconPath>UI/WantIcons/Meal</iconPath>
         <reward>500</reward>
         <commonality>1</commonality>
@@ -774,6 +815,7 @@
         <commonality>0.5</commonality>
         <workerClass>WantsAndQuirks.WantWorker_MarryLover</workerClass>
         <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
+        <minimumTechLevel>Neolithic</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef>
@@ -785,6 +827,7 @@
         <commonality>0.5</commonality>
         <workerClass>WantsAndQuirks.WantWorker_MakeQuality</workerClass>
         <targetQuality>Masterwork</targetQuality>
+        <minimumTechLevel>Neolithic</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef>
@@ -796,6 +839,7 @@
         <commonality>0.2</commonality>
         <workerClass>WantsAndQuirks.WantWorker_MakeQuality</workerClass>
         <targetQuality>Legendary</targetQuality>
+        <minimumTechLevel>Neolithic</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef MayRequire="ferny.discoveries">
@@ -817,6 +861,7 @@
         <reward>500</reward>
         <commonality>1</commonality>
         <workerClass>WantsAndQuirks.WantWorker_Trade</workerClass>
+        <minimumTechLevel>Neolithic</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef>
@@ -828,6 +873,7 @@
         <commonality>1</commonality>
         <workerClass>WantsAndQuirks.WantWorker_NewEntertainmentBuilding</workerClass>
         <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
+        <minimumTechLevel>Medieval</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef MayRequire="ludeon.rimworld.odyssey">
@@ -838,6 +884,8 @@
         <reward>2500</reward>
         <commonality>0.5</commonality>
         <workerClass>WantsAndQuirks.WantWorker_SeeSpace</workerClass>
+        <maximumTechLevel>Industrial</maximumTechLevel>
+        <minimumTechLevel>Medieval</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef MayRequire="ferny.TraumaAndIntegrity">
@@ -859,6 +907,7 @@
         <reward>2500</reward>
         <commonality>0.5</commonality>
         <workerClass>WantsAndQuirks.WantWorker_ResolveTraumaticPassion</workerClass>
+        <minimumTechLevel>Medieval</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef MayRequire="Ludeon.RimWorld.Biotech,ferny.discoveries">
@@ -869,6 +918,7 @@
         <reward>3000</reward>
         <commonality>0.1</commonality>
         <workerClass>WantsAndQuirks.WantWorker_BecomeXenotype</workerClass>
+        <minimumTechLevel>Medieval</minimumTechLevel>
         <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
     </WantsAndQuirks.WantDef>
 
