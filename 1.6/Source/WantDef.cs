@@ -24,6 +24,8 @@ namespace WantsAndQuirks
         public int countThreshold = 1;
         public List<ThoughtDef> targetThoughts;
         public List<TraitDef> targetTraits;
+        public QualityCategory targetQuality;
+        public int opinionThreshold;
 
         [Unsaved(false)]
         private WantWorker workerInt;

@@ -478,4 +478,129 @@
             <li>PE_FluentSpeechProficiency</li>
         </targetTraits>
     </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantEquipMasterwork</defName>
+        <label>equip something masterwork</label>
+        <description>I want to equip something masterwork.</description>
+        <iconPath>UI/WantIcons/Outfit</iconPath>
+        <reward>2000</reward>
+        <commonality>0.5</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_EquipQuality</workerClass>
+        <targetQuality>Masterwork</targetQuality>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantEquipLegendary</defName>
+        <label>equip something legendary</label>
+        <description>I want to equip something legendary.</description>
+        <iconPath>UI/WantIcons/Outfit</iconPath>
+        <reward>3000</reward>
+        <commonality>0.2</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_EquipQuality</workerClass>
+        <targetQuality>Legendary</targetQuality>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantBecomeLiked</defName>
+        <label>become liked</label>
+        <description>I want to become liked.</description>
+        <iconPath>UI/WantIcons/Catharsis</iconPath>
+        <reward>2000</reward>
+        <commonality>0.5</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_OpinionCount</workerClass>
+        <opinionThreshold>20</opinionThreshold>
+        <countThreshold>10</countThreshold>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantBecomeDisliked</defName>
+        <label>become disliked</label>
+        <description>I want to become disliked.</description>
+        <iconPath>UI/WantIcons/Weapon</iconPath>
+        <reward>2000</reward>
+        <commonality>0.3</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_OpinionCount</workerClass>
+        <opinionThreshold>-20</opinionThreshold>
+        <countThreshold>10</countThreshold>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantBeautifulLover</defName>
+        <label>beautiful lover</label>
+        <description>I want a beautiful lover.</description>
+        <iconPath>UI/WantIcons/Lovin</iconPath>
+        <reward>1500</reward>
+        <commonality>0.5</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_BeautifulLover</workerClass>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantJoywire</defName>
+        <label>joywire</label>
+        <description>I want a joywire.</description>
+        <iconPath>UI/WantIcons/Bionic</iconPath>
+        <reward>1500</reward>
+        <commonality>0.5</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_HasHediff</workerClass>
+        <targetHediff>Joywire</targetHediff>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantDeadRival</defName>
+        <label>dead rival</label>
+        <description>I want my rival dead.</description>
+        <iconPath>UI/WantIcons/Weapon</iconPath>
+        <reward>2000</reward>
+        <commonality>0.5</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_ThoughtAny</workerClass>
+        <targetThoughts>
+            <li>PawnWithBadOpinionDied</li>
+            <li>KilledMyRival</li>
+        </targetThoughts>
+    </WantsAndQuirks.WantDef>
+    
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantGetInspiration</defName>
+        <label>be inspired</label>
+        <description>I want to be inspired.</description>
+        <iconPath>UI/WantIcons/Catharsis</iconPath>
+        <reward>1000</reward>
+        <commonality>1</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_Inspired</workerClass>
+    </WantsAndQuirks.WantDef>
+    
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantBecomeGrandparent</defName>
+        <label>become a grandparent</label>
+        <description>I want to become a grandparent.</description>
+        <iconPath>UI/WantIcons/Lovin</iconPath>
+        <reward>2000</reward>
+        <commonality>0.5</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_BecomeGrandparent</workerClass>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef MayRequire="Ludeon.RimWorld.Royalty">
+        <defName>WQ_WantHearAnimaScream</defName>
+        <label>hear an anima scream</label>
+        <description>I want to hear an anima scream.</description>
+        <iconPath>UI/WantIcons/Catharsis</iconPath>
+        <reward>1500</reward>
+        <commonality>0.5</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_ThoughtAny</workerClass>
+        <targetThoughts>
+            <li>AnimaScream</li>
+        </targetThoughts>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantCureAsthma</defName>
+        <label>get rid of my asthma</label>
+        <description>I want to get rid of my asthma.</description>
+        <iconPath>UI/WantIcons/Bionic</iconPath>
+        <reward>1500</reward>
+        <commonality>1</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_CureHediff</workerClass>
+        <targetHediff>Asthma</targetHediff>
+    </WantsAndQuirks.WantDef>
 </Defs>

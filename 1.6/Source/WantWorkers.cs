@@ -189,4 +189,73 @@ namespace WantsAndQuirks
     {
         public override bool IsSatisfied(Pawn pawn) => pawn.health?.hediffSet?.BleedRateTotal >= def.targetHediffSeverity;
     }
+
+    public class WantWorker_EquipQuality : WantWorker
+    {
+        public override bool IsSatisfied(Pawn pawn)
+        {
+            if (pawn.equipment?.Primary != null && pawn.equipment.Primary.TryGetQuality(out var q1) && q1 >= def.targetQuality) return true;
+            if (pawn.apparel?.WornApparel != null)
+            {
+                var worn = pawn.apparel.WornApparel;
+                for (int i = 0; i < worn.Count; i++)
+                {
+                    if (worn[i].TryGetQuality(out var q2) && q2 >= def.targetQuality) return true;
+                }
+            }
+            return false;
+        }
+    }
+
+    public class WantWorker_OpinionCount : WantWorker
+    {
+        public override bool IsSatisfied(Pawn pawn)
+        {
+            int count = 0;
+            var pawns = pawn.MapHeld?.mapPawns?.FreeColonistsSpawned;
+            if (pawns == null) return false;
+            for (int i = 0; i < pawns.Count; i++)
+            {
+                var other = pawns[i];
+                if (other != pawn && other.relations != null)
+                {
+                    if (def.opinionThreshold > 0 && other.relations.OpinionOf(pawn) >= def.opinionThreshold) count++;
+                    else if (def.opinionThreshold < 0 && other.relations.OpinionOf(pawn) <= def.opinionThreshold) count++;
+                }
+            }
+            return count >= def.countThreshold;
+        }
+    }
+
+    public class WantWorker_BeautifulLover : WantWorker
+    {
+        public override bool IsSatisfied(Pawn pawn)
+        {
+            var partners = LovePartnerRelationUtility.ExistingLovePartners(pawn, allowDead: false);
+            for (int i = 0; i < partners.Count; i++)
+            {
+                if (partners[i].otherPawn.GetStatValue(StatDefOf.PawnBeauty) >= 1f) return true;
+            }
+            return false;
+        }
+    }
+
+    public class WantWorker_Inspired : WantWorker
+    {
+        public override bool IsSatisfied(Pawn pawn) => pawn.InspirationDef != null;
+    }
+
+    public class WantWorker_BecomeGrandparent : WantWorker
+    {
+        public override bool CanGenerate(Pawn pawn) => pawn.relations != null && pawn.relations.ChildrenCount > 0;
+        public override bool IsSatisfied(Pawn pawn)
+        {
+            if (pawn.relations == null) return false;
+            foreach (var child in pawn.relations.Children)
+            {
+                if (child.relations != null && child.relations.ChildrenCount > 0) return true;
+            }
+            return false;
+        }
+    }
 }
