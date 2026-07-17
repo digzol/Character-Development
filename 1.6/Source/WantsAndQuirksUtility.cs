@@ -50,9 +50,22 @@ namespace WantsAndQuirks
             }
         }
 
+        public const int CharacterPointsMax = 1000;
+
+        public static void AddCharacterPoints(int amount)
+        {
+            State.characterPoints = Mathf.Clamp(State.characterPoints + amount, 0, CharacterPointsMax);
+            while (State.characterPoints >= WantsAndQuirksMod.settings.pointsNeededForReward)
+            {
+                State.characterPoints -= WantsAndQuirksMod.settings.pointsNeededForReward;
+                State.rewardPoints++;
+                Messages.Message("WQ_RewardPointEarned".Translate(), null, MessageTypeDefOf.PositiveEvent, false);
+            }
+        }
+
         public static void CompleteWant(Pawn pawn, PawnWantsData data, ActiveWant want)
         {
-            State.characterPoints += want.def.reward;
+            AddCharacterPoints(want.def.reward);
             if (PawnUtility.ShouldSendNotificationAbout(pawn))
             {
                 var text = !string.IsNullOrEmpty(want.def.fulfilledText) ? want.def.fulfilledText.Formatted(pawn.Named("PAWN"), want.def.LabelCap) : "WQ_WantCompleted".Translate(pawn.Named("PAWN"), want.def.LabelCap);
@@ -165,16 +178,6 @@ namespace WantsAndQuirks
             }
 
             CheckWants(pawn, WantTriggerType.None);
-
-            if (State.characterPoints >= WantsAndQuirksMod.settings.pointsNeededForReward)
-            {
-                State.characterPoints -= WantsAndQuirksMod.settings.pointsNeededForReward;
-                State.rewardPoints++;
-                if (PawnUtility.ShouldSendNotificationAbout(pawn))
-                {
-                    Messages.Message("WQ_RewardPointEarned".Translate(pawn.Named("PAWN")), pawn, MessageTypeDefOf.PositiveEvent, false);
-                }
-            }
 
             if (data.activeWants.Count < 4 && Find.TickManager.TicksGame >= data.nextWantTick)
             {

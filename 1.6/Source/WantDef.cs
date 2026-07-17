@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -19,6 +20,10 @@ namespace WantsAndQuirks
         public TechLevel maximumTechLevel = TechLevel.Undefined;
         public string fulfilledText;
         public HediffDef targetHediff;
+        public float targetHediffSeverity;
+        public int countThreshold = 1;
+        public List<ThoughtDef> targetThoughts;
+        public List<TraitDef> targetTraits;
 
         [Unsaved(false)]
         private WantWorker workerInt;

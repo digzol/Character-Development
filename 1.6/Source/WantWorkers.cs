@@ -45,7 +45,7 @@ namespace WantsAndQuirks
 
     public class WantWorker_Bionic : WantWorker
     {
-        public override bool IsSatisfied(Pawn pawn) => pawn.health?.hediffSet?.CountAddedAndImplantedParts() > 0;
+        public override bool IsSatisfied(Pawn pawn) => pawn.health?.hediffSet?.CountAddedAndImplantedParts() >= def.countThreshold;
     }
 
     public class WantWorker_GetMarried : WantWorker_Thought
@@ -137,7 +137,11 @@ namespace WantsAndQuirks
 
     public class WantWorker_HasHediff : WantWorker
     {
-        public override bool IsSatisfied(Pawn pawn) => pawn.health.hediffSet.HasHediff(def.targetHediff);
+        public override bool IsSatisfied(Pawn pawn)
+        {
+            var hd = pawn.health.hediffSet.GetFirstHediffOfDef(def.targetHediff);
+            return hd != null && hd.Severity >= def.targetHediffSeverity;
+        }
     }
 
     public class WantWorker_CureHediff : WantWorker
@@ -153,5 +157,36 @@ namespace WantsAndQuirks
     public class WantWorker_ResolveTraumaticTrait : WantWorker
     {
         public override bool IsSatisfied(Pawn pawn) => !TherapyCompat.HasTraumaticTrait(pawn);
+    }
+
+    public class WantWorker_ThoughtAny : WantWorker
+    {
+        public override bool IsSatisfied(Pawn pawn)
+        {
+            if (def.targetThoughts.NullOrEmpty() || pawn.needs?.mood?.thoughts?.memories == null) return false;
+            foreach (var t in def.targetThoughts)
+            {
+                if (pawn.needs.mood.thoughts.memories.GetFirstMemoryOfDef(t) != null) return true;
+            }
+            return false;
+        }
+    }
+
+    public class WantWorker_HasTrait : WantWorker
+    {
+        public override bool IsSatisfied(Pawn pawn)
+        {
+            if (def.targetTraits.NullOrEmpty() || pawn.story?.traits == null) return false;
+            foreach (var t in def.targetTraits)
+            {
+                if (pawn.story.traits.HasTrait(t)) return true;
+            }
+            return false;
+        }
+    }
+
+    public class WantWorker_Bleeding : WantWorker
+    {
+        public override bool IsSatisfied(Pawn pawn) => pawn.health?.hediffSet?.BleedRateTotal >= def.targetHediffSeverity;
     }
 }

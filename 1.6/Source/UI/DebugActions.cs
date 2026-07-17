@@ -118,7 +118,7 @@ namespace WantsAndQuirks
         [DebugAction("Wants and Quirks", "Add 100 character points", false, false, actionType = DebugActionType.Action, allowedGameStates = AllowedGameStates.PlayingOnMap)]
         public static void AddCharPoints()
         {
-            State.characterPoints += 100;
+            WantsAndQuirksUtility.AddCharacterPoints(100);
         }
 
         [DebugAction("Wants and Quirks", "Add 1 reward point", false, false, actionType = DebugActionType.Action, allowedGameStates = AllowedGameStates.PlayingOnMap)]

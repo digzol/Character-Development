@@ -27,7 +27,7 @@ namespace WantsAndQuirks
         private bool wasDraggingNode;
         private bool hasSignificantDrag;
 
-        public override Vector2 RequestedTabSize => new Vector2(1200f, 600f);
+        public override Vector2 RequestedTabSize => new Vector2(1200f, 500f);
 
         public override void PreOpen()
         {
@@ -260,7 +260,7 @@ namespace WantsAndQuirks
                 var rectPlus = new Rect(barRect.xMax - lineHeight, barRect.y - lineHeight, lineHeight, lineHeight);
                 if (Widgets.ButtonImage(rectPlus.ContractedBy(4f), TexButton.Plus))
                 {
-                    State.characterPoints += 100;
+                    WantsAndQuirksUtility.AddCharacterPoints(100);
                 }
                 if (Mouse.IsOver(rectPlus))
                 {
@@ -269,7 +269,7 @@ namespace WantsAndQuirks
                 var rectMinus = new Rect(rectPlus.xMin - lineHeight, barRect.y - lineHeight, lineHeight, lineHeight);
                 if (Widgets.ButtonImage(rectMinus.ContractedBy(4f), TexButton.Minus))
                 {
-                    State.characterPoints -= 100;
+                    WantsAndQuirksUtility.AddCharacterPoints(-100);
                 }
                 if (Mouse.IsOver(rectMinus))
                 {
@@ -398,8 +398,8 @@ namespace WantsAndQuirks
                 GUI.DrawTexture(nodeRect, BubbleTex);
                 GUI.color = Color.white;
 
-                var iconSize = r * (0.6f + (r / 140f) * 0.35f);
-                var iconRect = new Rect(nodeCenter.x - iconSize / 2f, nodeCenter.y - iconSize * 0.8f, iconSize, iconSize);
+                var iconSize = r * (0.6f + (r / 140f));
+                var iconRect = new Rect(nodeCenter.x - iconSize / 2f, nodeCenter.y - iconSize * 0.65f, iconSize, iconSize);
                 if (node.def.requiresItem && node.item != null && node.item.uiIcon != null)
                 {
                     GUI.DrawTexture(iconRect, node.item.uiIcon);
@@ -409,7 +409,7 @@ namespace WantsAndQuirks
                     GUI.DrawTexture(iconRect, node.def.Icon);
                 }
                 Text.Anchor = TextAnchor.MiddleCenter;
-                var textRect = new Rect(nodeRect.x - 5, nodeCenter.y, nodeRect.width + 5, nodeRect.height / 2f);
+                var textRect = new Rect(nodeRect.x - 15, nodeCenter.y - 5 , nodeRect.width + 30, (nodeRect.height / 2f) + 10);
                 Text.Font = GameFont.Tiny;
                 Widgets.Label(textRect, node.LabelCap);
                 TooltipHandler.TipRegion(nodeRect, $"{node.LabelCap}\n\n{node.Description}");
@@ -435,14 +435,14 @@ namespace WantsAndQuirks
             switch (rarity)
             {
                 case RewardRarity.Legendary:
-                    return 90f;
+                    return 63f;
                 case RewardRarity.Rare:
-                    return 70f;
+                    return 49;
                 case RewardRarity.Uncommon:
-                    return 60f;
+                    return 42;
                 case RewardRarity.Common:
                 default:
-                    return 40f;
+                    return 32;
             }
         }
 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Verse;
 
@@ -24,6 +25,13 @@ namespace WantsAndQuirks
                     rewardNodes[i].drawPos = rewardNodes[i].pos;
                 }
             }
+        }
+
+        public static void Reset()
+        {
+            characterPoints = 0;
+            rewardPoints = 0;
+            rewardNodes = new List<RewardNode>();
         }
     }
 }

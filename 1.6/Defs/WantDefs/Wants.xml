@@ -341,4 +341,141 @@
         <workerClass>WantsAndQuirks.WantWorker_ColonyWealth</workerClass>
         <wealthThreshold>300000</wealthThreshold>
     </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantCompleteMachineBody</defName>
+        <label>complete machine body</label>
+        <description>I want a complete machine body.</description>
+        <iconPath>UI/WantIcons/Bionic</iconPath>
+        <reward>4000</reward>
+        <commonality>0.3</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_Bionic</workerClass>
+        <countThreshold>6</countThreshold>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantTryHumanMeat</defName>
+        <label>try human meat</label>
+        <description>I want to try human meat.</description>
+        <iconPath>UI/WantIcons/Meal</iconPath>
+        <reward>2500</reward>
+        <commonality>0.3</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_ThoughtAny</workerClass>
+        <targetThoughts>
+            <li>AteHumanlikeMeatDirect</li>
+            <li>AteHumanlikeMeatAsIngredient</li>
+        </targetThoughts>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantOverdose</defName>
+        <label>overdose</label>
+        <description>I want to overdose.</description>
+        <iconPath>UI/WantIcons/Drugs</iconPath>
+        <reward>2000</reward>
+        <commonality>0.5</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_HasHediff</workerClass>
+        <targetHediff>DrugOverdose</targetHediff>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantBlackoutDrunk</defName>
+        <label>get blackout drunk</label>
+        <description>I want to get blackout drunk.</description>
+        <iconPath>UI/WantIcons/Drugs</iconPath>
+        <reward>1500</reward>
+        <commonality>0.8</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_HasHediff</workerClass>
+        <targetHediff>AlcoholHigh</targetHediff>
+        <targetHediffSeverity>0.6</targetHediffSeverity>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantBleeding</defName>
+        <label>bleed</label>
+        <description>I want to bleed.</description>
+        <iconPath>UI/WantIcons/Catharsis</iconPath>
+        <reward>1500</reward>
+        <commonality>0.5</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_Bleeding</workerClass>
+        <targetHediffSeverity>0.4</targetHediffSeverity>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef MayRequire="ferny.ProgressionEducation">
+        <defName>WQ_WantLearnFirearms</defName>
+        <label>learn how to operate firearms</label>
+        <description>I want to learn how to use firearms.</description>
+        <iconPath>UI/WantIcons/Weapon</iconPath>
+        <reward>1500</reward>
+        <commonality>0.8</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_HasTrait</workerClass>
+        <targetTraits>
+            <li>PE_FirearmProficiency</li>
+        </targetTraits>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef MayRequire="ferny.ProgressionEducation">
+        <defName>WQ_WantLearnHighTech</defName>
+        <label>learn to operate high-tech equipment</label>
+        <description>I want to learn to operate high-tech equipment.</description>
+        <iconPath>UI/WantIcons/Bionic</iconPath>
+        <reward>2000</reward>
+        <commonality>0.5</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_HasTrait</workerClass>
+        <targetTraits>
+            <li>PE_HighTechProficiency</li>
+        </targetTraits>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef MayRequire="ferny.ProgressionEducation,SmashPhil.VehicleFramework">
+        <defName>WQ_WantLearnDriving</defName>
+        <label>learn how to drive</label>
+        <description>I want to learn how to drive.</description>
+        <iconPath>UI/WantIcons/Outfit</iconPath>
+        <reward>1500</reward>
+        <commonality>0.8</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_HasTrait</workerClass>
+        <targetTraits>
+            <li>PE_AutomobileDrivingProficiency</li>
+        </targetTraits>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef MayRequire="ferny.ProgressionEducation,SmashPhil.VehicleFramework">
+        <defName>WQ_WantLearnAerialPiloting</defName>
+        <label>learn how to fly</label>
+        <description>I want to learn how to fly.</description>
+        <iconPath>UI/WantIcons/Aurora</iconPath>
+        <reward>2000</reward>
+        <commonality>0.5</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_HasTrait</workerClass>
+        <targetTraits>
+            <li>PE_AerialPilotingProficiency</li>
+        </targetTraits>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef MayRequire="ferny.ProgressionEducation,ludeon.rimworld.odyssey">
+        <defName>WQ_WantLearnOrbitalPiloting</defName>
+        <label>learn orbital piloting</label>
+        <description>I want to learn orbital piloting.</description>
+        <iconPath>UI/WantIcons/Aurora</iconPath>
+        <reward>2500</reward>
+        <commonality>0.3</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_HasTrait</workerClass>
+        <targetTraits>
+            <li>PE_OrbitalPilotingProficiency</li>
+        </targetTraits>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef MayRequire="ferny.ProgressionEducation">
+        <defName>WQ_WantLearnFluentSpeech</defName>
+        <label>learn to speak fluently</label>
+        <description>I want to learn to speak fluently.</description>
+        <iconPath>UI/WantIcons/Catharsis</iconPath>
+        <reward>1500</reward>
+        <commonality>0.8</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_HasTrait</workerClass>
+        <targetTraits>
+            <li>PE_FluentSpeechProficiency</li>
+        </targetTraits>
+    </WantsAndQuirks.WantDef>
 </Defs>
