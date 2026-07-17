@@ -124,7 +124,7 @@
         <defName>WQ_RewardRandomInspiration</defName>
         <label>random inspiration</label>
         <description>Bestows a random inspiration on the character.</description>
-        <iconPath>UI/Icons/Medical/IconImmune</iconPath>
+        <iconPath>UI/RewardIcons/RandomInspiration</iconPath>
         <rarity>Uncommon</rarity>
         <workerClass>WantsAndQuirks.RewardWorker_Inspiration</workerClass>
     </WantsAndQuirks.RewardDef>
@@ -133,7 +133,7 @@
         <defName>WQ_RewardInspiration_GoFrenzy</defName>
         <label>go frenzy</label>
         <description>Grants a go frenzy.</description>
-        <iconPath>UI/Icons/Medical/IconImmune</iconPath>
+        <iconPath>UI/RewardIcons/GoFrenzy</iconPath>
         <rarity>Rare</rarity>
         <workerClass>WantsAndQuirks.RewardWorker_Inspiration</workerClass>
         <inspirationDef>Frenzy_Go</inspirationDef>
@@ -143,7 +143,7 @@
         <defName>WQ_RewardInspiration_WorkFrenzy</defName>
         <label>work frenzy</label>
         <description>Grants a work frenzy.</description>
-        <iconPath>UI/Icons/Medical/IconImmune</iconPath>
+        <iconPath>UI/RewardIcons/WorkFrenzy</iconPath>
         <rarity>Rare</rarity>
         <workerClass>WantsAndQuirks.RewardWorker_Inspiration</workerClass>
         <inspirationDef>Frenzy_Work</inspirationDef>
@@ -153,7 +153,7 @@
         <defName>WQ_RewardInspiration_ShootFrenzy</defName>
         <label>shoot frenzy</label>
         <description>Grants a shoot frenzy.</description>
-        <iconPath>UI/Icons/Medical/IconImmune</iconPath>
+        <iconPath>UI/RewardIcons/ShootFrenzy</iconPath>
         <rarity>Rare</rarity>
         <workerClass>WantsAndQuirks.RewardWorker_Inspiration</workerClass>
         <inspirationDef>Frenzy_Shoot</inspirationDef>
@@ -163,7 +163,7 @@
         <defName>WQ_RewardInspiration_Creativity</defName>
         <label>inspired creativity</label>
         <description>Grants inspired creativity.</description>
-        <iconPath>UI/Icons/Medical/IconImmune</iconPath>
+        <iconPath>UI/RewardIcons/Creativity</iconPath>
         <rarity>Rare</rarity>
         <workerClass>WantsAndQuirks.RewardWorker_Inspiration</workerClass>
         <inspirationDef>Inspired_Creativity</inspirationDef>
@@ -173,7 +173,7 @@
         <defName>WQ_RewardInspiration_Recruitment</defName>
         <label>inspired recruitment</label>
         <description>Grants inspired recruitment.</description>
-        <iconPath>UI/Icons/Medical/IconImmune</iconPath>
+        <iconPath>UI/RewardIcons/Recruitment</iconPath>
         <rarity>Rare</rarity>
         <workerClass>WantsAndQuirks.RewardWorker_Inspiration</workerClass>
         <inspirationDef>Inspired_Recruitment</inspirationDef>
@@ -183,7 +183,7 @@
         <defName>WQ_RewardInspiration_Taming</defName>
         <label>inspired taming</label>
         <description>Grants inspired taming.</description>
-        <iconPath>UI/Icons/Medical/IconImmune</iconPath>
+        <iconPath>UI/RewardIcons/InspiredTaming</iconPath>
         <rarity>Rare</rarity>
         <workerClass>WantsAndQuirks.RewardWorker_Inspiration</workerClass>
         <inspirationDef>Inspired_Taming</inspirationDef>
@@ -193,7 +193,7 @@
         <defName>WQ_RewardInspiration_Trade</defName>
         <label>inspired trade</label>
         <description>Grants inspired trade.</description>
-        <iconPath>UI/Icons/Medical/IconImmune</iconPath>
+        <iconPath>UI/RewardIcons/InspiredTrade</iconPath>
         <rarity>Rare</rarity>
         <workerClass>WantsAndQuirks.RewardWorker_Inspiration</workerClass>
         <inspirationDef>Inspired_Trade</inspirationDef>
@@ -240,8 +240,8 @@
         <defName>WQ_Quirk_FastWalker</defName>
         <label>fast walker</label>
         <description>Permanently moves slightly faster.</description>
-        <iconPath>UI/Icons/Medical/IconImmune</iconPath>
-        <rarity>Uncommon</rarity>
+        <iconPath>UI/RewardIcons/FastWalker</iconPath>
+        <rarity>Rare</rarity>
         <isQuirk>true</isQuirk>
         <workerClass>WantsAndQuirks.RewardWorker_HediffQuirk</workerClass>
         <hediff>WQ_Hediff_FastWalker</hediff>
@@ -265,14 +265,14 @@
         <workerClass>WantsAndQuirks.RewardWorker_HealScar</workerClass>
     </WantsAndQuirks.RewardDef>
 
-    <WantsAndQuirks.RewardDef>
+    <!-- <WantsAndQuirks.RewardDef>
         <defName>WQ_RewardRestoreBodyPart</defName>
         <label>restore body part</label>
         <description>Miraculously restores a missing body part.</description>
         <iconPath>UI/Icons/Medical/IconImmune</iconPath>
         <rarity>Legendary</rarity>
         <workerClass>WantsAndQuirks.RewardWorker_RestoreBodyPart</workerClass>
-    </WantsAndQuirks.RewardDef>
+    </WantsAndQuirks.RewardDef> -->
 
     <!-- <WantsAndQuirks.RewardDef>
         <defName>WQ_RewardRandomPassion</defName>
@@ -287,7 +287,7 @@
         <defName>WQ_RewardImproveComposure</defName>
         <label>improve composure</label>
         <description>Improves composure by 5%.</description>
-        <iconPath>UI/Icons/Medical/IconImmune</iconPath>
+        <iconPath>UI/WantIcons/Composure</iconPath>
         <rarity>Common</rarity>
         <workerClass>WantsAndQuirks.RewardWorker_ImproveComposure</workerClass>
     </WantsAndQuirks.RewardDef>
@@ -296,7 +296,7 @@
         <defName>WQ_Quirk_NightOwl</defName>
         <label>night owl</label>
         <description>Gets a mood boost during the night.</description>
-        <iconPath>UI/Icons/Medical/IconImmune</iconPath>
+        <iconPath>UI/RewardIcons/NightOwl</iconPath>
         <rarity>Uncommon</rarity>
         <isQuirk>true</isQuirk>
     </WantsAndQuirks.RewardDef>

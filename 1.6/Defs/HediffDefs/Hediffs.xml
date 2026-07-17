@@ -29,7 +29,7 @@
     <stages>
       <li>
         <statOffsets>
-          <MoveSpeed>0.4</MoveSpeed>
+          <MoveSpeed>0.25</MoveSpeed>
         </statOffsets>
       </li>
     </stages>

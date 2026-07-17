@@ -91,7 +91,7 @@
     <WantsAndQuirks.WantDef>
         <defName>WQ_WantFeelCatharsis</defName>
         <label>feel catharsis</label>
-        <description>It's been a while since i've felt real change. I want to feel catharsis.</description>
+        <description>I want to feel a burden lifted off of me.</description>
         <iconPath>UI/WantIcons/Catharsis</iconPath>
         <reward>1000</reward>
         <commonality>1</commonality>
@@ -116,7 +116,7 @@
         <description>I want us to defeat a mech cluster.</description>
         <iconPath>UI/WantIcons/MechCluster</iconPath>
         <reward>1500</reward>
-        <commonality>0.8</commonality>
+        <commonality>0.3</commonality>
         <workerClass>WantsAndQuirks.WantWorker_Thought</workerClass>
         <completedByThought>DefeatedMechCluster</completedByThought>
         <invalidNonViolent>true</invalidNonViolent>
@@ -128,7 +128,7 @@
         <description>I want us to defeat an insect hive.</description>
         <iconPath>UI/WantIcons/Hive</iconPath>
         <reward>1500</reward>
-        <commonality>0.8</commonality>
+        <commonality>0.3</commonality>
         <workerClass>WantsAndQuirks.WantWorker_Thought</workerClass>
         <completedByThought>DefeatedInsectHive</completedByThought>
         <invalidNonViolent>true</invalidNonViolent>
@@ -200,7 +200,7 @@
     <WantsAndQuirks.WantDef MayRequire="Ludeon.RimWorld.Royalty">
         <defName>WQ_WantBecomePsycaster</defName>
         <label>become a psycaster</label>
-        <description>I want to tap into the psychic powers and become a psycaster.</description>
+        <description>I want to tap into the psychic energies and become a psycaster.</description>
         <iconPath>UI/WantIcons/Psycaster</iconPath>
         <reward>2500</reward>
         <commonality>0.5</commonality>
@@ -295,8 +295,8 @@
     <WantsAndQuirks.WantDef MayRequire="ferny.ProgressionTherapy">
         <defName>WQ_WantImproveComposure</defName>
         <label>improve composure</label>
-        <description>I want better composure.</description>
-        <iconPath>UI/WantIcons/Catharsis</iconPath>
+        <description>I want to get better at emotional regulation.</description>
+        <iconPath>UI/WantIcons/Composure</iconPath>
         <reward>1500</reward>
         <commonality>0.8</commonality>
         <workerClass>WantsAndQuirks.WantWorker_ImproveComposure</workerClass>
@@ -361,7 +361,7 @@
         <description>I want to try human meat.</description>
         <iconPath>UI/WantIcons/Meat</iconPath>
         <reward>2500</reward>
-        <commonality>0.3</commonality>
+        <commonality>0.1</commonality>
         <workerClass>WantsAndQuirks.WantWorker_ThoughtAny</workerClass>
         <targetThoughts>
             <li>AteHumanlikeMeatDirect</li>
@@ -510,7 +510,7 @@
     <WantsAndQuirks.WantDef>
         <defName>WQ_WantBecomeLiked</defName>
         <label>become liked</label>
-        <description>I want to become liked.</description>
+        <description>I think people should like me.</description>
         <iconPath>UI/WantIcons/Catharsis</iconPath>
         <reward>2000</reward>
         <commonality>0.5</commonality>
@@ -523,7 +523,7 @@
     <WantsAndQuirks.WantDef>
         <defName>WQ_WantBecomeDisliked</defName>
         <label>become disliked</label>
-        <description>I want to become disliked.</description>
+        <description>I'm a failure, I want people to all see that.</description>
         <iconPath>UI/WantIcons/Weapon</iconPath>
         <reward>2000</reward>
         <commonality>0.3</commonality>
@@ -536,7 +536,7 @@
     <WantsAndQuirks.WantDef>
         <defName>WQ_WantBeautifulLover</defName>
         <label>beautiful lover</label>
-        <description>I want a beautiful lover.</description>
+        <description>I want someone beautiful to call mine.</description>
         <iconPath>UI/WantIcons/Lovin</iconPath>
         <reward>1500</reward>
         <commonality>0.5</commonality>
@@ -546,7 +546,7 @@
     <WantsAndQuirks.WantDef>
         <defName>WQ_WantJoywire</defName>
         <label>joywire</label>
-        <description>I want a joywire.</description>
+        <description>I want to have a joywire.</description>
         <iconPath>UI/WantIcons/Bionic</iconPath>
         <reward>1500</reward>
         <commonality>0.5</commonality>
@@ -558,7 +558,7 @@
     <WantsAndQuirks.WantDef>
         <defName>WQ_WantDeadRival</defName>
         <label>dead rival</label>
-        <description>I want my rival dead.</description>
+        <description>I want them dead.</description>
         <iconPath>UI/WantIcons/Weapon</iconPath>
         <reward>2000</reward>
         <commonality>0.5</commonality>
@@ -573,7 +573,7 @@
     <WantsAndQuirks.WantDef>
         <defName>WQ_WantGetInspiration</defName>
         <label>be inspired</label>
-        <description>I want to be inspired.</description>
+        <description>I want to feel an inspiration.</description>
         <iconPath>UI/WantIcons/Catharsis</iconPath>
         <reward>1000</reward>
         <commonality>1</commonality>
@@ -583,7 +583,7 @@
     <WantsAndQuirks.WantDef>
         <defName>WQ_WantBecomeGrandparent</defName>
         <label>become a grandparent</label>
-        <description>I want to become a grandparent.</description>
+        <description>I'd love to live to have grandchildren.</description>
         <iconPath>UI/WantIcons/Lovin</iconPath>
         <reward>2000</reward>
         <commonality>0.5</commonality>
@@ -607,7 +607,7 @@
     <WantsAndQuirks.WantDef>
         <defName>WQ_WantCureAsthma</defName>
         <label>get rid of my asthma</label>
-        <description>I want to get rid of my asthma.</description>
+        <description>This asthma is killing me.</description>
         <iconPath>UI/WantIcons/Bionic</iconPath>
         <reward>1500</reward>
         <commonality>1</commonality>
@@ -618,7 +618,7 @@
     <WantsAndQuirks.WantDef>
         <defName>WQ_WantKillSomeone</defName>
         <label>kill someone</label>
-        <description>I want to kill someone.</description>
+        <description>I feel the urge to end someone's life.</description>
         <iconPath>UI/WantIcons/Weapon</iconPath>
         <reward>2000</reward>
         <commonality>0.3</commonality>
@@ -632,8 +632,8 @@
     <WantsAndQuirks.WantDef MayRequire="ferny.discoveries">
         <defName>WQ_WantDiscoverAnimal</defName>
         <label>discover {0}</label>
-        <description>I want to discover a {0}.</description>
-        <iconPath>UI/WantIcons/Bond</iconPath>
+        <description>I've heard of the {0} and i'd like us to discover one.</description>
+        <iconPath>UI/WantIcons/DiscoverAnimal</iconPath>
         <reward>1500</reward>
         <commonality>1</commonality>
         <workerClass>WantsAndQuirks.WantWorker_DiscoverAnimal</workerClass>
@@ -643,8 +643,8 @@
     <WantsAndQuirks.WantDef MayRequire="ferny.discoveries">
         <defName>WQ_WantDiscoverFaction</defName>
         <label>meet {0}</label>
-        <description>I want to meet the faction {0}.</description>
-        <iconPath>UI/WantIcons/Catharsis</iconPath>
+        <description>I've heard of {0} and i'd like us to meet them.</description>
+        <iconPath>UI/WantIcons/Meet</iconPath>
         <reward>1500</reward>
         <commonality>1</commonality>
         <workerClass>WantsAndQuirks.WantWorker_DiscoverFaction</workerClass>
@@ -654,8 +654,8 @@
     <WantsAndQuirks.WantDef MayRequire="Ludeon.RimWorld.Biotech,ferny.discoveries">
         <defName>WQ_WantDiscoverXenotype</defName>
         <label>meet a {0}</label>
-        <description>I want to meet a {0} xenotype.</description>
-        <iconPath>UI/WantIcons/Catharsis</iconPath>
+        <description>I've heard of the {0} xenotype, and i'd like us to meet one.</description>
+        <iconPath>UI/WantIcons/DiscoverXeno</iconPath>
         <reward>1500</reward>
         <commonality>1</commonality>
         <workerClass>WantsAndQuirks.WantWorker_DiscoverXenotype</workerClass>
@@ -665,8 +665,8 @@
     <WantsAndQuirks.WantDef MayRequire="ferny.discoveries">
         <defName>WQ_WantDiscoverBuilding</defName>
         <label>see a {0}</label>
-        <description>I want to see a {0}.</description>
-        <iconPath>UI/WantIcons/Bedroom</iconPath>
+        <description>I've heard of a {0}, and i'd like us to see it.</description>
+        <iconPath>UI/WantIcons/Discover</iconPath>
         <reward>1500</reward>
         <commonality>1</commonality>
         <workerClass>WantsAndQuirks.WantWorker_DiscoverBuilding</workerClass>
@@ -685,14 +685,50 @@
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef>
-        <defName>WQ_WantSkillLevel</defName>
+        <defName>WQ_WantSkillLevel1</defName>
+        <label>be decent at {0}</label>
+        <description>I want to reach level 5 in my {0} skill.</description>
+        <iconPath>UI/WantIcons/Catharsis</iconPath>
+        <reward>1000</reward>
+        <commonality>0.5</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_SkillLevel</workerClass>
+        <skillLevelThreshold>5</skillLevelThreshold>
+        <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantSkillLevel2</defName>
         <label>be good at {0}</label>
+        <description>I want to reach level 8 in my {0} skill.</description>
+        <iconPath>UI/WantIcons/Catharsis</iconPath>
+        <reward>1500</reward>
+        <commonality>0.5</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_SkillLevel</workerClass>
+        <skillLevelThreshold>10</skillLevelThreshold>
+        <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantSkillLevel3</defName>
+        <label>be great at {0}</label>
         <description>I want to reach level 15 in my {0} skill.</description>
         <iconPath>UI/WantIcons/Catharsis</iconPath>
-        <reward>2000</reward>
+        <reward>3500</reward>
         <commonality>0.5</commonality>
         <workerClass>WantsAndQuirks.WantWorker_SkillLevel</workerClass>
         <skillLevelThreshold>15</skillLevelThreshold>
+        <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantSkillLevel4</defName>
+        <label>master my {0}</label>
+        <description>I want to reach level 20 in my {0} skill.</description>
+        <iconPath>UI/WantIcons/Catharsis</iconPath>
+        <reward>5000</reward>
+        <commonality>0.3</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_SkillLevel</workerClass>
+        <skillLevelThreshold>20</skillLevelThreshold>
         <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
     </WantsAndQuirks.WantDef>
 
@@ -776,7 +812,7 @@
     <WantsAndQuirks.WantDef>
         <defName>WQ_WantTrade</defName>
         <label>trade</label>
-        <description>I want to trade.</description>
+        <description>I would like to initiate a trade.</description>
         <iconPath>UI/WantIcons/Catharsis</iconPath>
         <reward>500</reward>
         <commonality>1</commonality>
@@ -786,7 +822,7 @@
     <WantsAndQuirks.WantDef>
         <defName>WQ_WantNewEntertainmentBuilding</defName>
         <label>a new {0} entertainment building</label>
-        <description>I want a new {0} entertainment building in the colony.</description>
+        <description>I would like a new {0} entertainment building in the colony.</description>
         <iconPath>UI/WantIcons/Bedroom</iconPath>
         <reward>1000</reward>
         <commonality>1</commonality>
@@ -831,7 +867,7 @@
         <description>I want to become a {0}.</description>
         <iconPath>UI/WantIcons/Catharsis</iconPath>
         <reward>3000</reward>
-        <commonality>0.5</commonality>
+        <commonality>0.1</commonality>
         <workerClass>WantsAndQuirks.WantWorker_BecomeXenotype</workerClass>
         <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
     </WantsAndQuirks.WantDef>
@@ -842,7 +878,7 @@
         <description>I want to link with an anima tree.</description>
         <iconPath>UI/WantIcons/Catharsis</iconPath>
         <reward>1500</reward>
-        <commonality>0.5</commonality>
+        <commonality>0.2</commonality>
         <workerClass>WantsAndQuirks.WantWorker_Ritual</workerClass>
         <targetRitual>AnimaTreeLinking</targetRitual>
         <discoveryRequirementThing>Plant_TreeAnima</discoveryRequirementThing>
@@ -854,7 +890,7 @@
         <description>I want to connect with a guaranlen tree.</description>
         <iconPath>UI/WantIcons/Catharsis</iconPath>
         <reward>1500</reward>
-        <commonality>0.5</commonality>
+        <commonality>0.2</commonality>
         <workerClass>WantsAndQuirks.WantWorker_Ritual</workerClass>
         <targetRitual>TreeConnection</targetRitual>
         <discoveryRequirementThing>Plant_TreeGauranlen</discoveryRequirementThing>
