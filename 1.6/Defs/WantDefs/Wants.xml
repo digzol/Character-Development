@@ -24,7 +24,7 @@
     <WantsAndQuirks.WantDef>
         <defName>WQ_WantGetLovin</defName>
         <label>get lovin'</label>
-        <description>I want to get some lovin'.</description>
+        <description>I'd love to get some lovin'.</description>
         <iconPath>UI/WantIcons/Lovin</iconPath>
         <reward>500</reward>
         <commonality>1</commonality>
@@ -35,7 +35,7 @@
     <WantsAndQuirks.WantDef>
         <defName>WQ_WantImpressiveRoom</defName>
         <label>impressive room</label>
-        <description>I want to live in an impressive room.</description>
+        <description>I want to live somewhere that feels great.</description>
         <iconPath>UI/WantIcons/Bedroom</iconPath>
         <reward>1500</reward>
         <commonality>1</commonality>
@@ -47,7 +47,7 @@
     <WantsAndQuirks.WantDef>
         <defName>WQ_WantPrettierRoom</defName>
         <label>prettier room</label>
-        <description>I want my room to be prettier.</description>
+        <description>My room could use a touch up.</description>
         <iconPath>UI/WantIcons/Bedroom</iconPath>
         <reward>1000</reward>
         <commonality>1</commonality>
@@ -59,7 +59,7 @@
     <WantsAndQuirks.WantDef>
         <defName>WQ_WantBionic</defName>
         <label>get a bionic</label>
-        <description>I want to get a bionic implant.</description>
+        <description>I want a bionic implant installed on me.</description>
         <iconPath>UI/WantIcons/Bionic</iconPath>
         <reward>2000</reward>
         <commonality>0.8</commonality>
@@ -69,7 +69,7 @@
     <WantsAndQuirks.WantDef>
         <defName>WQ_WantTakeDrug</defName>
         <label>take some drugs</label>
-        <description>I want to take some recreational drugs.</description>
+        <description>I'm interested in taking drugs.</description>
         <iconPath>UI/WantIcons/Drugs</iconPath>
         <reward>600</reward>
         <commonality>1.2</commonality>
@@ -79,7 +79,7 @@
     <WantsAndQuirks.WantDef>
         <defName>WQ_WantFeelCatharsis</defName>
         <label>feel catharsis</label>
-        <description>I want to feel catharsis.</description>
+        <description>It's been a while since i've felt real change. I want to feel catharsis.</description>
         <iconPath>UI/WantIcons/Catharsis</iconPath>
         <reward>1000</reward>
         <commonality>1</commonality>
@@ -90,7 +90,7 @@
     <WantsAndQuirks.WantDef>
         <defName>WQ_WantGetMarried</defName>
         <label>get married</label>
-        <description>I want to get married.</description>
+        <description>I want to feel what its like to be truly united with another.</description>
         <iconPath>UI/WantIcons/Marriage</iconPath>
         <reward>2000</reward>
         <commonality>0.5</commonality>
@@ -101,29 +101,31 @@
     <WantsAndQuirks.WantDef>
         <defName>WQ_WantDefeatMechCluster</defName>
         <label>defeat mech cluster</label>
-        <description>I want to see a mech cluster defeated.</description>
+        <description>I want us to defeat a mech cluster.</description>
         <iconPath>UI/WantIcons/MechCluster</iconPath>
         <reward>1500</reward>
         <commonality>0.8</commonality>
         <workerClass>WantsAndQuirks.WantWorker_Thought</workerClass>
         <completedByThought>DefeatedMechCluster</completedByThought>
+		<invalidNonViolent>true</invalidNonViolent>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef>
         <defName>WQ_WantDefeatInsectHive</defName>
         <label>defeat insect hive</label>
-        <description>I want to see an insect hive defeated.</description>
+        <description>I want us to defeat an insect hive.</description>
         <iconPath>UI/WantIcons/Hive</iconPath>
         <reward>1500</reward>
         <commonality>0.8</commonality>
         <workerClass>WantsAndQuirks.WantWorker_Thought</workerClass>
         <completedByThought>DefeatedInsectHive</completedByThought>
+		<invalidNonViolent>true</invalidNonViolent>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef>
         <defName>WQ_WantNewOutfit</defName>
         <label>new outfit</label>
-        <description>I want to wear a new piece of clothing.</description>
+        <description>I could use a new piece of clothing.</description>
         <iconPath>UI/WantIcons/Outfit</iconPath>
         <reward>200</reward>
         <commonality>1</commonality>
@@ -133,7 +135,7 @@
     <WantsAndQuirks.WantDef>
         <defName>WQ_WantEquipWeapon</defName>
         <label>new weapon</label>
-        <description>I want to equip a new weapon.</description>
+        <description>I'd like to try a new weapon.</description>
         <iconPath>UI/WantIcons/Weapon</iconPath>
         <reward>200</reward>
         <commonality>1</commonality>
@@ -153,7 +155,7 @@
     <WantsAndQuirks.WantDef>
         <defName>WQ_WantBondWithAnimal</defName>
         <label>bond with animal</label>
-        <description>I want to bond with an animal.</description>
+        <description>I want to become friends with an animal.</description>
         <iconPath>UI/WantIcons/Bond</iconPath>
         <reward>1500</reward>
         <commonality>0.5</commonality>
