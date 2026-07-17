@@ -64,7 +64,7 @@ namespace WantsAndQuirks
                     else
                     {
                         State.rewardNodes.Remove(node);
-                        var replacement = WantsAndQuirksUtility.GenerateSingleRewardBubble();
+                        var replacement = WantsAndQuirksUtility.GenerateSingleRewardBubble(State.rewardNodes);
                         if (replacement != null)
                         {
                             State.rewardNodes.Add(replacement);

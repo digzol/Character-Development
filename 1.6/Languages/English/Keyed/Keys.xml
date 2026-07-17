@@ -28,4 +28,7 @@
   <WQ_QuirksInfoText>Bigger bubbles are more rare, while smaller ones may appear often.\n\nQuirks may be removed at any time through the wants menu on the effected character.</WQ_QuirksInfoText>
   <WQ_BestowReward>Bestow reward</WQ_BestowReward>
   <WQ_BestowRewardDesc>Select a character to receive {0}.</WQ_BestowRewardDesc>
+  <WQ_ScarHealed>{0}'s scar was miraculously healed.</WQ_ScarHealed>
+  <WQ_PartRestored>{0}'s missing {1} was miraculously restored.</WQ_PartRestored>
+  <WQ_PassionGained>{0} gained a new passion for {1}.</WQ_PassionGained>
 </LanguageData>

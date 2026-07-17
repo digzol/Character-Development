@@ -67,28 +67,36 @@ namespace WantsAndQuirks
             var list = new List<RewardNode>();
             for (int i = 0; i < WantsAndQuirksMod.settings.bubblesPerRoll; i++)
             {
-                list.Add(GenerateSingleRewardBubble());
+                var node = GenerateSingleRewardBubble(list);
+                if (node != null)
+                {
+                    list.Add(node);
+                }
             }
             State.rewardNodes = list;
         }
 
-        public static RewardNode GenerateSingleRewardBubble()
+        public static RewardNode GenerateSingleRewardBubble(List<RewardNode> existingNodes)
         {
-            var validChoices = new List<Pair<RewardDef, ThingDef>>();
             var map = Find.AnyPlayerHomeMap ?? Find.CurrentMap;
-            foreach (var rDef in DefDatabase<RewardDef>.AllDefsListForReading)
+            if (map is null)
+                return null;
+            var validDefs = DefDatabase<RewardDef>.AllDefsListForReading.Where(rDef => 
             {
-                if (rDef.Worker.TryGenerateItem(map, out var item))
-                {
-                    validChoices.Add(new Pair<RewardDef, ThingDef>(rDef, item));
-                }
-            }
+                var items = rDef.Worker.GetValidItems(map);
+                return items.Any(item => !existingNodes.Any(n => n.def == rDef && n.item == item));
+            });
 
-            var chosen = validChoices.RandomElementByWeight(r => GetRarityWeight(r.First.rarity));
+            if (!validDefs.TryRandomElementByWeight(r => GetRarityWeight(r.rarity), out var chosenDef))
+                return null;
+
+            var validItems = chosenDef.Worker.GetValidItems(map).Where(item => !existingNodes.Any(n => n.def == chosenDef && n.item == item));
+            var chosenItem = validItems.RandomElement();
+
             var node = new RewardNode
             {
-                def = chosen.First,
-                item = chosen.Second,
+                def = chosenDef,
+                item = chosenItem,
                 pos = new Vector2(Rand.Range(-100f, 100f), Rand.Range(-100f, 100f))
             };
             node.drawPos = node.pos;
@@ -99,15 +107,15 @@ namespace WantsAndQuirks
         {
             if (rarity == RewardRarity.Legendary)
             {
-                return 0.008f;
+                return 0.05f;
             }
             if (rarity == RewardRarity.Rare)
             {
-                return 0.05f;
+                return 0.2f;
             }
             if (rarity == RewardRarity.Uncommon)
             {
-                return 0.4f;
+                return 0.5f;
             }
             return 1f;
         }

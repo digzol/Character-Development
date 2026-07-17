@@ -98,4 +98,56 @@ namespace WantsAndQuirks
     {
         public override bool IsCompleted(Pawn pawn, WantTriggerType triggerType) => triggerType == WantTriggerType.BondedWithAnimal;
     }
+
+    public class WantWorker_BecomePsycaster : WantWorker
+    {
+        public override bool CanGenerate(Pawn pawn)
+        {
+            return base.CanGenerate(pawn) && !pawn.HasPsylink;
+        }
+
+        public override bool IsCompleted(Pawn pawn, WantTriggerType triggerType)
+        {
+            return pawn.HasPsylink;
+        }
+    }
+
+    public class WantWorker_BecomeParent : WantWorker
+    {
+        public override bool CanGenerate(Pawn pawn)
+        {
+            return base.CanGenerate(pawn) && pawn.relations.ChildrenCount == 0;
+        }
+
+        public override bool IsCompleted(Pawn pawn, WantTriggerType triggerType)
+        {
+            return pawn.relations.ChildrenCount > 0;
+        }
+    }
+
+    public class WantWorker_Propose : WantWorker
+    {
+        public override bool CanGenerate(Pawn pawn)
+        {
+            return base.CanGenerate(pawn) && pawn.relations.GetFirstDirectRelationPawn(PawnRelationDefOf.Lover) != null && pawn.relations.GetFirstDirectRelationPawn(PawnRelationDefOf.Fiance) == null && pawn.GetFirstSpouse() == null;
+        }
+
+        public override bool IsCompleted(Pawn pawn, WantTriggerType triggerType)
+        {
+            return pawn.relations.GetFirstDirectRelationPawn(PawnRelationDefOf.Fiance) != null || pawn.GetFirstSpouse() != null;
+        }
+    }
+
+    public class WantWorker_ColonyWealth : WantWorker
+    {
+        public override bool CanGenerate(Pawn pawn)
+        {
+            return base.CanGenerate(pawn) && pawn.MapHeld != null && pawn.MapHeld.wealthWatcher.WealthTotal < def.wealthThreshold;
+        }
+
+        public override bool IsCompleted(Pawn pawn, WantTriggerType triggerType)
+        {
+            return pawn.MapHeld != null && pawn.MapHeld.wealthWatcher.WealthTotal >= def.wealthThreshold;
+        }
+    }
 }

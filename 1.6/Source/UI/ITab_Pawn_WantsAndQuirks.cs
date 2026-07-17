@@ -21,7 +21,7 @@ namespace WantsAndQuirks
         public ITab_Pawn_WantsAndQuirks()
         {
             labelKey = "WQ_Wants";
-            size = new Vector2(600f, 350f);
+            size = new Vector2(600f, 390f);
         }
 
         public override bool IsVisible
@@ -38,6 +38,7 @@ namespace WantsAndQuirks
         public override void FillTab()
         {
             var pawn = SelPawn;
+            size = new Vector2(600f, 400f);
             var data = pawn.GetWantsData();
             var rect = new Rect(0f, 0f, size.x, size.y);
 
@@ -45,7 +46,7 @@ namespace WantsAndQuirks
             rect = rect.ContractedBy(10f);
 
             var leftRect = new Rect(rect.x, rect.y, rect.width * 0.70f, rect.height);
-            var rightRect = new Rect(leftRect.xMax + 10f, rect.y, rect.width * 0.30f - 10f, rect.height);
+            var rightRect = new Rect(leftRect.xMax, rect.y, rect.width * 0.30f, rect.height);
 
             DrawWants(leftRect, pawn, data);
             DrawQuirks(rightRect, pawn, data);
@@ -85,13 +86,13 @@ namespace WantsAndQuirks
                 GUI.DrawTexture(iconRect, want.def.Icon);
                 GUI.color = Color.white;
 
-                var textRect = new Rect(iconRect.xMax + 15f, wantRect.y + 5f, wantRect.width - 70f - 140f, wantRect.height - 10f);
-                Text.Font = GameFont.Medium;
+                var textRect = new Rect(iconRect.xMax + 15f, wantRect.y + 10, wantRect.width - 70f - 140f, wantRect.height - 10f);
+                Text.Font = GameFont.Small;
                 Widgets.Label(new Rect(textRect.x, textRect.y, textRect.width, 32f), $"<i>{want.def.LabelCap}</i>");
 
                 Text.Font = GameFont.Tiny;
                 GUI.color = new Color(0.9f, 0.9f, 0.9f);
-                Widgets.Label(new Rect(textRect.x, textRect.y + 28f, textRect.width, textRect.height - 20f), want.def.description);
+                Widgets.Label(new Rect(textRect.x, textRect.y + 20f, textRect.width, textRect.height - 20f), want.def.description);
                 GUI.color = Color.white;
 
                 var infoRect = new Rect(wantRect.xMax - 140f, wantRect.y + 15f, 110f, 50f);

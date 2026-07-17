@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using RimWorld;
 using Verse;
 
@@ -7,10 +8,9 @@ namespace WantsAndQuirks
     {
         public RewardDef def;
 
-        public virtual bool TryGenerateItem(Map map, out ThingDef item)
+        public virtual IEnumerable<ThingDef> GetValidItems(Map map)
         {
-            item = null;
-            return !def.requiresItem;
+            if (!def.requiresItem) yield return null;
         }
 
         public virtual bool CanBestowOn(Pawn pawn)

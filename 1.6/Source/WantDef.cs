@@ -14,6 +14,7 @@ namespace WantsAndQuirks
         public ThoughtDef completedByThought;
         public RoomStatDef roomStat;
         public float roomStatThreshold;
+        public float wealthThreshold;
         public TechLevel minimumTechLevel = TechLevel.Undefined;
         public TechLevel maximumTechLevel = TechLevel.Undefined;
         public string fulfilledText;

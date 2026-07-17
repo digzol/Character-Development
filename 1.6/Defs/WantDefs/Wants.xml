@@ -161,4 +161,78 @@
         <commonality>0.5</commonality>
         <workerClass>WantsAndQuirks.WantWorker_BondWithAnimal</workerClass>
     </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantAttendedParty</defName>
+        <label>attend a party</label>
+        <description>I want to attend a party.</description>
+        <iconPath>UI/WantIcons/Catharsis</iconPath>
+        <reward>1000</reward>
+        <commonality>1</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_Thought</workerClass>
+        <completedByThought>AttendedParty</completedByThought>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantDefeatFactionLeader</defName>
+        <label>defeat faction leader</label>
+        <description>I want us to defeat a hostile faction leader.</description>
+        <iconPath>UI/WantIcons/Weapon</iconPath>
+        <reward>3000</reward>
+        <commonality>0.3</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_Thought</workerClass>
+        <completedByThought>DefeatedHostileFactionLeader</completedByThought>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef MayRequire="Ludeon.RimWorld.Royalty">
+        <defName>WQ_WantBecomePsycaster</defName>
+        <label>become a psycaster</label>
+        <description>I want to tap into the psychic powers and become a psycaster.</description>
+        <iconPath>UI/WantIcons/Bionic</iconPath>
+        <reward>2500</reward>
+        <commonality>0.5</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_BecomePsycaster</workerClass>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef MayRequire="Ludeon.RimWorld.Biotech">
+        <defName>WQ_WantBecomeParent</defName>
+        <label>become a parent</label>
+        <description>I want to become a parent and raise a child.</description>
+        <iconPath>UI/WantIcons/Marriage</iconPath>
+        <reward>2000</reward>
+        <commonality>0.5</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_BecomeParent</workerClass>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantPropose</defName>
+        <label>propose</label>
+        <description>I want to propose to my lover.</description>
+        <iconPath>UI/WantIcons/Marriage</iconPath>
+        <reward>1500</reward>
+        <commonality>1</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_Propose</workerClass>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantBecomeRich</defName>
+        <label>become rich</label>
+        <description>I want our colony to become very wealthy (over 100,000 wealth).</description>
+        <iconPath>UI/WantIcons/Outfit</iconPath>
+        <reward>2000</reward>
+        <commonality>0.5</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_ColonyWealth</workerClass>
+        <wealthThreshold>100000</wealthThreshold>
+    </WantsAndQuirks.WantDef>
+    
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantBecomeExtremelyRich</defName>
+        <label>become extremely rich</label>
+        <description>I want our colony to become extremely wealthy (over 300,000 wealth).</description>
+        <iconPath>UI/WantIcons/Outfit</iconPath>
+        <reward>3000</reward>
+        <commonality>0.3</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_ColonyWealth</workerClass>
+        <wealthThreshold>300000</wealthThreshold>
+    </WantsAndQuirks.WantDef>
 </Defs>

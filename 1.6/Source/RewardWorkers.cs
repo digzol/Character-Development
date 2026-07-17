@@ -71,11 +71,65 @@ namespace WantsAndQuirks
         }
     }
 
+    public class RewardWorker_HealScar : RewardWorker
+    {
+        public override bool CanBestowOn(Pawn pawn)
+        {
+            return base.CanBestowOn(pawn) && pawn.health.hediffSet.hediffs.Any(h => h.IsPermanent());
+        }
+
+        public override void OnAcquired(Pawn pawn, Quirk quirk)
+        {
+            if (pawn.health.hediffSet.hediffs.Where(h => h.IsPermanent()).TryRandomElement(out var scar))
+            {
+                pawn.health.RemoveHediff(scar);
+                Messages.Message("WQ_ScarHealed".Translate(pawn.Named("PAWN")), pawn, MessageTypeDefOf.PositiveEvent);
+            }
+        }
+    }
+
+    public class RewardWorker_RestoreBodyPart : RewardWorker
+    {
+        public override bool CanBestowOn(Pawn pawn)
+        {
+            return base.CanBestowOn(pawn) && pawn.health.hediffSet.GetMissingPartsCommonAncestors().Any();
+        }
+
+        public override void OnAcquired(Pawn pawn, Quirk quirk)
+        {
+            if (pawn.health.hediffSet.GetMissingPartsCommonAncestors().TryRandomElement(out var missing))
+            {
+                pawn.health.RestorePart(missing.Part, null, true);
+                Messages.Message("WQ_PartRestored".Translate(pawn.Named("PAWN"), missing.Part.def.label), pawn, MessageTypeDefOf.PositiveEvent);
+            }
+        }
+    }
+
+    public class RewardWorker_RandomPassion : RewardWorker
+    {
+        public override bool CanBestowOn(Pawn pawn)
+        {
+            return base.CanBestowOn(pawn) && pawn.skills.skills.Any(s => s.passion != Passion.Major && !s.TotallyDisabled);
+        }
+
+        public override void OnAcquired(Pawn pawn, Quirk quirk)
+        {
+            if (pawn.skills.skills.Where(s => s.passion != Passion.Major && !s.TotallyDisabled).TryRandomElement(out var skill))
+            {
+                skill.passion = skill.passion == Passion.None ? Passion.Minor : Passion.Major;
+                Messages.Message("WQ_PassionGained".Translate(pawn.Named("PAWN"), skill.def.label), pawn, MessageTypeDefOf.PositiveEvent);
+            }
+        }
+    }
+
     public class QuirkWorker_LikesFood : RewardWorker
     {
-        public override bool TryGenerateItem(Map map, out ThingDef item)
+        public override IEnumerable<ThingDef> GetValidItems(Map map)
         {
-            return map.listerThings.ThingsInGroup(ThingRequestGroup.FoodSourceNotPlantOrTree).Select(t => t.def).Where(d => d.IsNutritionGivingIngestible && d.IsCorpse is false).Distinct().TryRandomElement(out item);
+            var things = map.listerThings.ThingsInGroup(ThingRequestGroup.FoodSourceNotPlantOrTree);
+            return things.Select(t => t.def)
+                .Where(d => d.IsNutritionGivingIngestible && !d.IsCorpse)
+                .Distinct();
         }
 
         public override void Notify_Ingested(Pawn pawn, Quirk quirk, Thing ingestible)
@@ -89,9 +143,10 @@ namespace WantsAndQuirks
 
     public class QuirkWorker_LikesClothing : RewardWorker
     {
-        public override bool TryGenerateItem(Map map, out ThingDef item)
+        public override IEnumerable<ThingDef> GetValidItems(Map map)
         {
-            return map.listerThings.ThingsInGroup(ThingRequestGroup.Apparel).Select(t => t.def).Distinct().TryRandomElement(out item);
+            var things = map.listerThings.ThingsInGroup(ThingRequestGroup.Apparel);
+            return things.Select(t => t.def).Distinct();
         }
 
         public override void Notify_ApparelAdded(Pawn pawn, Quirk quirk, Apparel apparel)
@@ -105,11 +160,11 @@ namespace WantsAndQuirks
 
     public class QuirkWorker_LikesWeapon : RewardWorker
     {
-        public override bool TryGenerateItem(Map map, out ThingDef item)
+        public override IEnumerable<ThingDef> GetValidItems(Map map)
         {
             var weapons = map.listerThings.ThingsInGroup(ThingRequestGroup.Weapon).Select(t => t.def);
-            var eq = map.mapPawns.FreeColonists.SelectMany(p => p.equipment?.AllEquipmentListForReading ?? new List<ThingWithComps>()).Select(t => t.def);
-            return weapons.Concat(eq).Distinct().TryRandomElement(out item);
+            var eq = map.mapPawns.FreeColonists.SelectMany(p => p.equipment.AllEquipmentListForReading).Select(t => t.def);
+            return weapons.Concat(eq).Distinct();
         }
 
         public override void Notify_EquipmentAdded(Pawn pawn, Quirk quirk, ThingWithComps eq)

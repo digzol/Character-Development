@@ -187,4 +187,40 @@
         <rarity>Uncommon</rarity>
         <isQuirk>true</isQuirk>
     </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef>
+        <defName>WQ_RewardHealScar</defName>
+        <label>heal scar</label>
+        <description>Miraculously heals a single permanent injury or scar.</description>
+        <iconPath>UI/Icons/Medical/IconImmune</iconPath>
+        <rarity>Rare</rarity>
+        <workerClass>WantsAndQuirks.RewardWorker_HealScar</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef>
+        <defName>WQ_RewardRestoreBodyPart</defName>
+        <label>restore body part</label>
+        <description>Miraculously restores a missing body part.</description>
+        <iconPath>UI/Icons/Medical/IconImmune</iconPath>
+        <rarity>Legendary</rarity>
+        <workerClass>WantsAndQuirks.RewardWorker_RestoreBodyPart</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef>
+        <defName>WQ_RewardRandomPassion</defName>
+        <label>new passion</label>
+        <description>Gain a new passion in a random skill, or upgrade a minor passion to a major one.</description>
+        <iconPath>UI/Icons/Medical/IconImmune</iconPath>
+        <rarity>Rare</rarity>
+        <workerClass>WantsAndQuirks.RewardWorker_RandomPassion</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef>
+        <defName>WQ_Quirk_NightOwl</defName>
+        <label>night owl</label>
+        <description>Gets a mood boost during the night.</description>
+        <iconPath>UI/Icons/Medical/IconImmune</iconPath>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+    </WantsAndQuirks.RewardDef>
 </Defs>
