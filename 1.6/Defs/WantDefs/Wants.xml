@@ -51,7 +51,7 @@
         <iconPath>UI/WantIcons/Bedroom</iconPath>
         <reward>1000</reward>
         <commonality>1</commonality>
-        <workerClass>WantsAndQuirks.WantWorker_RoomStat</workerClass>
+        <workerClass>WantsAndQuirks.WantWorker_PrettierRoom</workerClass>
         <roomStat>Beauty</roomStat>
         <roomStatThreshold>2</roomStatThreshold>
     </WantsAndQuirks.WantDef>

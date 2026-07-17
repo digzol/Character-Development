@@ -7,7 +7,7 @@ namespace WantsAndQuirks
     {
         public override ThoughtState CurrentStateInternal(Pawn p)
         {
-            if (p.CanHaveWants() && p.GetWantsData().quirks.Contains(DefsOf.WQ_Quirk_EarlyBird))
+            if (p.CanHaveWants() && p.GetWantsData().quirks.Any(q => q.def == DefsOf.WQ_Quirk_EarlyBird))
             {
                 var hour = GenLocalDate.HourInteger(p);
                 if (hour >= 6 && hour < 12)

@@ -32,7 +32,7 @@ namespace WantsAndQuirks
             Widgets.Label(new Rect(0f, 0f, inRect.width, 35f), "WQ_BestowReward".Translate());
             Text.Font = GameFont.Small;
 
-            var rewardName = node.def.LabelCap;
+            var rewardName = node.LabelCap;
             var description = "WQ_BestowRewardDesc".Translate(rewardName.Colorize(ColorLibrary.SkyBlue));
             var descHeight = Text.CalcHeight(description, inRect.width);
             Widgets.Label(new Rect(0f, 35f, inRect.width, descHeight), description);
@@ -54,7 +54,9 @@ namespace WantsAndQuirks
                 if (Widgets.ButtonInvisible(rowRect))
                 {
                     State.rewardPoints--;
-                    WantsAndQuirksUtility.AddQuirk(p, p.GetWantsData(), node.def);
+                    var quirk = new Quirk(node.def, node.item);
+                    p.GetWantsData().quirks.Add(quirk);
+                    node.def.Worker.OnAcquired(p, quirk);
                     SoundDefOf.Quest_Succeded.PlayOneShotOnCamera();
 
                     if (WantsAndQuirksMod.settings.rerollBubblesOnSelection)

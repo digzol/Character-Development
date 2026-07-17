@@ -16,7 +16,7 @@ namespace WantsAndQuirks
                 var data = pawn.GetWantsData();
                 foreach (var quirk in data.quirks)
                 {
-                    quirk.Worker.Notify_ApparelAdded(pawn, apparel);
+                    quirk.def.Worker.Notify_ApparelAdded(pawn, quirk, apparel);
                 }
             }
         }

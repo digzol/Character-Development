@@ -1,4 +1,3 @@
-using System.Linq;
 using RimWorld;
 using Verse;
 
@@ -29,6 +28,14 @@ namespace WantsAndQuirks
         {
             var room = pawn.ownership?.OwnedRoom;
             return room != null && room.GetStat(def.roomStat) >= def.roomStatThreshold;
+        }
+    }
+
+    public class WantWorker_PrettierRoom : WantWorker_RoomStat
+    {
+        public override bool CanGenerate(Pawn pawn)
+        {
+            return base.CanGenerate(pawn) && pawn.ownership?.OwnedBed != null;
         }
     }
 

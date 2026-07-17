@@ -21,7 +21,7 @@ namespace WantsAndQuirks
         public ITab_Pawn_WantsAndQuirks()
         {
             labelKey = "WQ_Wants";
-            size = new Vector2(600f, 450f);
+            size = new Vector2(600f, 350f);
         }
 
         public override bool IsVisible
@@ -163,13 +163,17 @@ namespace WantsAndQuirks
                 Text.Anchor = TextAnchor.MiddleLeft;
                 Widgets.Label(new Rect(quirkRect.x + 5f, quirkRect.y, quirkRect.width - 30f, quirkRect.height), quirk.LabelCap);
                 Text.Anchor = TextAnchor.UpperLeft;
+                if (Mouse.IsOver(quirkRect))
+                {
+                    TooltipHandler.TipRegion(quirkRect, quirk.Description);
+                }
 
                 var btnRect = new Rect(quirkRect.xMax - 20f, quirkRect.y + 2f, 20f, 20f);
                 Text.Font = GameFont.Medium;
                 GUI.color = Color.gray;
                 if (Widgets.ButtonText(btnRect, "x", drawBackground: false))
                 {
-                    data.quirks[i].Worker.OnRemoved(pawn);
+                    data.quirks[i].def.Worker.OnRemoved(pawn, quirk);
                     data.quirks.RemoveAt(i);
                     SoundDefOf.Click.PlayOneShotOnCamera();
                     break;

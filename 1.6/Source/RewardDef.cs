@@ -20,7 +20,9 @@ namespace WantsAndQuirks
         public string iconPath;
         public HediffDef hediff;
         public bool isQuirk;
+        public bool requiresItem;
         public ThoughtDef thought;
+        public SkillDef skill;
 
         [Unsaved(false)]
         private RewardWorker workerInt;

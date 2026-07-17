@@ -4,6 +4,7 @@ using System.Runtime.CompilerServices;
 using RimWorld;
 using UnityEngine;
 using Verse;
+using Verse.Sound;
 
 namespace WantsAndQuirks
 {
@@ -54,7 +55,9 @@ namespace WantsAndQuirks
             State.characterPoints += want.def.reward;
             if (PawnUtility.ShouldSendNotificationAbout(pawn))
             {
-                Messages.Message("WQ_WantCompleted".Translate(pawn.Named("PAWN"), want.def.LabelCap), pawn, MessageTypeDefOf.PositiveEvent, false);
+                var text = !string.IsNullOrEmpty(want.def.fulfilledText) ? want.def.fulfilledText.Formatted(pawn.Named("PAWN"), want.def.LabelCap) : "WQ_WantCompleted".Translate(pawn.Named("PAWN"), want.def.LabelCap);
+                Messages.Message(text, pawn, MessageTypeDefOf.PositiveEvent, false);
+                DefsOf.WQ_WantCompleted.PlayOneShotOnCamera();
             }
             data.activeWants.Remove(want);
         }
@@ -71,10 +74,21 @@ namespace WantsAndQuirks
 
         public static RewardNode GenerateSingleRewardBubble()
         {
-            var chosen = DefDatabase<RewardDef>.AllDefsListForReading.RandomElementByWeight(r => GetRarityWeight(r.rarity));
+            var validChoices = new List<Pair<RewardDef, ThingDef>>();
+            var map = Find.AnyPlayerHomeMap ?? Find.CurrentMap;
+            foreach (var rDef in DefDatabase<RewardDef>.AllDefsListForReading)
+            {
+                if (rDef.Worker.TryGenerateItem(map, out var item))
+                {
+                    validChoices.Add(new Pair<RewardDef, ThingDef>(rDef, item));
+                }
+            }
+
+            var chosen = validChoices.RandomElementByWeight(r => GetRarityWeight(r.First.rarity));
             var node = new RewardNode
             {
-                def = chosen,
+                def = chosen.First,
+                item = chosen.Second,
                 pos = new Vector2(Rand.Range(-100f, 100f), Rand.Range(-100f, 100f))
             };
             node.drawPos = node.pos;
@@ -98,21 +112,21 @@ namespace WantsAndQuirks
             return 1f;
         }
 
-        public static void AddWant(Pawn pawn, PawnWantsData data, WantDef def)
+        public static void AddWant(Pawn pawn, PawnWantsData data, WantDef def, bool sendNotification = true)
         {
             data.activeWants.Add(new ActiveWant { def = def, assignedTick = Find.TickManager.TicksGame });
-            if (PawnUtility.ShouldSendNotificationAbout(pawn))
+            if (sendNotification && PawnUtility.ShouldSendNotificationAbout(pawn))
             {
-                Messages.Message("WQ_NewWantGenerated".Translate(pawn.Named("PAWN")), pawn, MessageTypeDefOf.NeutralEvent, false);
+                Messages.Message("WQ_NewWantGenerated".Translate(pawn.Named("PAWN")), pawn, MessageTypeDefOf.PositiveEvent, false);
             }
         }
 
-        public static bool GenerateRandomWant(Pawn pawn, PawnWantsData data)
+        public static bool GenerateRandomWant(Pawn pawn, PawnWantsData data, bool sendNotification = true)
         {
             var availableDefs = DefDatabase<WantDef>.AllDefs.Where(x => !data.activeWants.Any(w => w.def == x) && x.Worker.CanGenerate(pawn)).ToList();
             if (availableDefs.TryRandomElementByWeight(x => x.commonality, out var chosenDef))
             {
-                AddWant(pawn, data, chosenDef);
+                AddWant(pawn, data, chosenDef, sendNotification);
                 return true;
             }
             return false;
@@ -122,13 +136,16 @@ namespace WantsAndQuirks
         {
             if (def.isQuirk)
             {
-                if (data.quirks.Contains(def))
+                if (data.quirks.Any(q => q.def == def))
                 {
                     return;
                 }
-                data.quirks.Add(def);
+                var quirk = new Quirk(def);
+                data.quirks.Add(quirk);
+                def.Worker.OnAcquired(pawn, quirk);
             }
-            def.Worker.OnAcquired(pawn);
+            else
+                def.Worker.OnAcquired(pawn, null);
         }
 
         public static void TickWants(Pawn pawn)
@@ -161,11 +178,11 @@ namespace WantsAndQuirks
 
         public static void InitializePawnWants(Pawn pawn, PawnWantsData data)
         {
+            data.nextWantTick = Find.TickManager.TicksGame + GetNextWantInterval();
             for (int i = 0; i < WantsAndQuirksMod.settings.startingWantsCount; i++)
             {
-                GenerateRandomWant(pawn, data);
+                GenerateRandomWant(pawn, data, false);
             }
-            data.nextWantTick = Find.TickManager.TicksGame + GetNextWantInterval();
         }
 
         private static int GetNextWantInterval()

@@ -1,24 +1,24 @@
-using UnityEngine;
 using Verse;
 
 namespace WantsAndQuirks
 {
-    public class RewardNode : IExposable
+    public class Quirk : IExposable
     {
         public RewardDef def;
         public ThingDef item;
-        public Vector2 pos;
-        public Vector2 velocity;
-        [Unsaved(false)]
-        public Vector2 drawPos;
-        [Unsaved(false)]
-        public Vector2 dampVelocity;
+
+        public Quirk() { }
+
+        public Quirk(RewardDef def, ThingDef item = null)
+        {
+            this.def = def;
+            this.item = item;
+        }
 
         public void ExposeData()
         {
             Scribe_Defs.Look(ref def, "def");
             Scribe_Defs.Look(ref item, "item");
-            Scribe_Values.Look(ref pos, "pos");
         }
 
         public string LabelCap => def.requiresItem ? string.Format(def.LabelCap, item.label).CapitalizeFirst() : def.LabelCap;

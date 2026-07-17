@@ -1,4 +1,5 @@
 using RimWorld;
+using Verse;
 
 namespace WantsAndQuirks
 {
@@ -6,6 +7,7 @@ namespace WantsAndQuirks
     public static class DefsOf
     {
         public static RewardDef WQ_Quirk_EarlyBird;
+        public static SoundDef WQ_WantCompleted;
         static DefsOf() => DefOfHelper.EnsureInitializedInCtor(typeof(DefsOf));
     }
 }

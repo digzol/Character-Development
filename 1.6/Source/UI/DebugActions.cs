@@ -93,7 +93,7 @@ namespace WantsAndQuirks
             var options = new List<DebugMenuOption>();
             foreach (var quirk in data.quirks.ToList())
             {
-                options.Add(new DebugMenuOption(quirk.LabelCap, DebugMenuOptionMode.Action, () =>
+                options.Add(new DebugMenuOption(quirk.def.LabelCap, DebugMenuOptionMode.Action, () =>
                 {
                     data.quirks.Remove(quirk);
                 }));

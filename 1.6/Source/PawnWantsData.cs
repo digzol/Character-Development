@@ -20,26 +20,27 @@ namespace WantsAndQuirks
     public class PawnWantsData : IExposable
     {
         public List<ActiveWant> activeWants;
-        public List<RewardDef> quirks;
+        public List<Quirk> quirks;
         public int nextWantTick;
 
         public PawnWantsData()
         {
             activeWants = new List<ActiveWant>();
-            quirks = new List<RewardDef>();
+            quirks = new List<Quirk>();
             nextWantTick = -1;
         }
 
         public void ExposeData()
         {
             Scribe_Collections.Look(ref activeWants, "activeWants", LookMode.Deep);
-            Scribe_Collections.Look(ref quirks, "quirks", LookMode.Def);
+            Scribe_Collections.Look(ref quirks, "quirks", LookMode.Deep);
             Scribe_Values.Look(ref nextWantTick, "nextWantTick", -1);
 
             if (Scribe.mode == LoadSaveMode.PostLoadInit)
             {
                 activeWants ??= new List<ActiveWant>();
-                quirks ??= new List<RewardDef>();
+                quirks ??= new List<Quirk>();
+                quirks.RemoveAll(q => q.def == null || (q.def.requiresItem && q.item == null));
             }
         }
     }

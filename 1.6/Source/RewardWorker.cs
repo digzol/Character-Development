@@ -7,31 +7,37 @@ namespace WantsAndQuirks
     {
         public RewardDef def;
 
-        public virtual void OnAcquired(Pawn pawn)
+        public virtual bool TryGenerateItem(Map map, out ThingDef item)
+        {
+            item = null;
+            return !def.requiresItem;
+        }
+
+        public virtual void OnAcquired(Pawn pawn, Quirk quirk)
         {
         }
 
-        public virtual void OnRemoved(Pawn pawn)
+        public virtual void OnRemoved(Pawn pawn, Quirk quirk)
         {
         }
 
-        public virtual void Notify_ApparelAdded(Pawn pawn, Apparel apparel)
+        public virtual void Notify_ApparelAdded(Pawn pawn, Quirk quirk, Apparel apparel)
         {
         }
 
-        public virtual void Notify_EquipmentAdded(Pawn pawn, ThingWithComps eq)
+        public virtual void Notify_EquipmentAdded(Pawn pawn, Quirk quirk, ThingWithComps eq)
         {
         }
 
-        public virtual void Notify_Ingested(Pawn pawn, Thing ingestible)
+        public virtual void Notify_Ingested(Pawn pawn, Quirk quirk, Thing ingestible)
         {
         }
 
-        protected void TryGainThought(Pawn pawn)
+        protected void TryGainThought(Pawn pawn, Quirk quirk)
         {
-            if (def.thought != null)
+            if (quirk.def.thought != null)
             {
-                pawn.needs?.mood?.thoughts?.memories?.TryGainMemory(def.thought);
+                pawn.needs?.mood?.thoughts?.memories?.TryGainMemory(quirk.def.thought);
             }
         }
     }

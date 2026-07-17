@@ -253,6 +253,30 @@ namespace WantsAndQuirks
             Widgets.Label(new Rect(barRect.xMax - 105f, barRect.y, 100f, 24f), WantsAndQuirksMod.settings.pointsNeededForReward.ToString());
             Text.Anchor = TextAnchor.MiddleCenter;
             Widgets.Label(barRect, State.characterPoints.ToString());
+
+            if (Prefs.DevMode && DebugSettings.godMode)
+            {
+                var lineHeight = Text.LineHeight;
+                var rectPlus = new Rect(barRect.xMax - lineHeight, barRect.y - lineHeight, lineHeight, lineHeight);
+                if (Widgets.ButtonImage(rectPlus.ContractedBy(4f), TexButton.Plus))
+                {
+                    State.characterPoints += 100;
+                }
+                if (Mouse.IsOver(rectPlus))
+                {
+                    TooltipHandler.TipRegion(rectPlus, "+ 100");
+                }
+                var rectMinus = new Rect(rectPlus.xMin - lineHeight, barRect.y - lineHeight, lineHeight, lineHeight);
+                if (Widgets.ButtonImage(rectMinus.ContractedBy(4f), TexButton.Minus))
+                {
+                    State.characterPoints -= 100;
+                }
+                if (Mouse.IsOver(rectMinus))
+                {
+                    TooltipHandler.TipRegion(rectMinus, "- 100");
+                }
+            }
+
             curY += 30f;
 
             Text.Font = GameFont.Tiny;
@@ -284,6 +308,7 @@ namespace WantsAndQuirks
                 if (Widgets.ButtonInvisible(rowRect))
                 {
                     CameraJumper.TryJumpAndSelect(p);
+                    InspectPaneUtility.OpenTab(typeof(ITab_Pawn_WantsAndQuirks));
                     SoundDefOf.Click.PlayOneShotOnCamera();
                 }
 
@@ -382,8 +407,8 @@ namespace WantsAndQuirks
 
                 var textRect = new Rect(nodeRect.x, nodeCenter.y - 5, nodeRect.width, nodeRect.height);
                 Text.Font = r > 30f ? GameFont.Small : GameFont.Tiny;
-                Widgets.Label(textRect, node.def.LabelCap);
-                TooltipHandler.TipRegion(nodeRect, $"{node.def.LabelCap}\n\n{node.def.description}");
+                Widgets.Label(textRect, node.LabelCap);
+                TooltipHandler.TipRegion(nodeRect, $"{node.LabelCap}\n\n{node.Description}");
                 Text.Anchor = TextAnchor.UpperLeft;
             }
             GUI.EndGroup();
@@ -406,14 +431,14 @@ namespace WantsAndQuirks
             switch (rarity)
             {
                 case RewardRarity.Legendary:
-                    return 55f;
+                    return 70f;
                 case RewardRarity.Rare:
-                    return 40f;
+                    return 50f;
                 case RewardRarity.Uncommon:
-                    return 30f;
+                    return 35f;
                 case RewardRarity.Common:
                 default:
-                    return 25f;
+                    return 20f;
             }
         }
 

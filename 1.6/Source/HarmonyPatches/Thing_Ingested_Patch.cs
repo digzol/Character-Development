@@ -1,5 +1,4 @@
 using HarmonyLib;
-using RimWorld;
 using Verse;
 
 namespace WantsAndQuirks
@@ -18,7 +17,7 @@ namespace WantsAndQuirks
                 var data = ingester.GetWantsData();
                 foreach (var quirk in data.quirks)
                 {
-                    quirk.Worker.Notify_Ingested(ingester, __instance);
+                    quirk.def.Worker.Notify_Ingested(ingester, quirk, __instance);
                 }
             }
         }
