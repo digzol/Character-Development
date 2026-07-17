@@ -16,7 +16,30 @@ namespace WantsAndQuirks
         DrugIngested,
         Resurrected,
         BondedWithAnimal,
-        FoodEaten
+        FoodEaten,
+        Traded,
+        RecipeCompleted,
+        SkillIncreased,
+        XenotypeChanged,
+        RitualCompleted
+    }
+
+    public struct WantWorkerContext
+    {
+        public WantTriggerType triggerType;
+        public Def contextDef;
+        public Pawn contextPawn;
+        public int contextAmount;
+        public string contextString;
+
+        public WantWorkerContext(WantTriggerType triggerType, Def contextDef = null, Pawn contextPawn = null, int contextAmount = 0, string contextString = null)
+        {
+            this.triggerType = triggerType;
+            this.contextDef = contextDef;
+            this.contextPawn = contextPawn;
+            this.contextAmount = contextAmount;
+            this.contextString = contextString;
+        }
     }
 
     public static class WantsAndQuirksUtility
@@ -37,24 +60,22 @@ namespace WantsAndQuirks
             return WantsAndQuirksMod.settings.enableWantsSystem && pawn.DestroyedOrNull() is false && pawn.RaceProps.Humanlike && pawn.IsColonist;
         }
 
-        public static void CheckWants(Pawn pawn, WantTriggerType triggerType)
+        public static void CheckWants(Pawn pawn, WantWorkerContext context)
         {
             var data = pawn.GetWantsData();
             for (int i = data.activeWants.Count - 1; i >= 0; i--)
             {
                 var want = data.activeWants[i];
-                if (want.def.Worker.IsCompleted(pawn, triggerType))
+                if (want.IsCompleted(pawn, context))
                 {
                     CompleteWant(pawn, data, want);
                 }
             }
         }
 
-        public const int CharacterPointsMax = 1000;
-
         public static void AddCharacterPoints(int amount)
         {
-            State.characterPoints = Mathf.Clamp(State.characterPoints + amount, 0, CharacterPointsMax);
+            State.characterPoints = Mathf.Max(State.characterPoints + amount, 0);
             while (State.characterPoints >= WantsAndQuirksMod.settings.pointsNeededForReward)
             {
                 State.characterPoints -= WantsAndQuirksMod.settings.pointsNeededForReward;
@@ -68,7 +89,7 @@ namespace WantsAndQuirks
             AddCharacterPoints(want.def.reward);
             if (PawnUtility.ShouldSendNotificationAbout(pawn))
             {
-                var text = !string.IsNullOrEmpty(want.def.fulfilledText) ? want.def.fulfilledText.Formatted(pawn.Named("PAWN"), want.def.LabelCap) : "WQ_WantCompleted".Translate(pawn.Named("PAWN"), want.def.LabelCap);
+                var text = !string.IsNullOrEmpty(want.def.fulfilledText) ? want.def.fulfilledText.Formatted(pawn.Named("PAWN"), want.LabelCap) : "WQ_WantCompleted".Translate(pawn.Named("PAWN"), want.LabelCap);
                 Messages.Message(text, pawn, MessageTypeDefOf.PositiveEvent, false);
                 DefsOf.WQ_WantCompleted.PlayOneShotOnCamera();
             }
@@ -78,64 +99,126 @@ namespace WantsAndQuirks
         public static void GenerateGlobalRewardBubbles()
         {
             var list = new List<RewardNode>();
-            for (int i = 0; i < WantsAndQuirksMod.settings.bubblesPerRoll; i++)
+            var total = WantsAndQuirksMod.settings.bubblesPerRoll;
+            var legendaryCount = 0;
+            var rareCount = 0;
+            var uncommonCount = 0;
+            var commonCount = 0;
+
+            for (int i = 0; i < total; i++)
             {
-                var node = GenerateSingleRewardBubble(list);
+                var roll = Rand.Value;
+                if (roll < 0.05f)
+                {
+                    legendaryCount++;
+                }
+                else if (roll < 0.20f)
+                {
+                    rareCount++;
+                }
+                else if (roll < 0.50f)
+                {
+                    uncommonCount++;
+                }
+                else
+                {
+                    commonCount++;
+                }
+            }
+
+            FillRewardSlots(list, RewardRarity.Legendary, legendaryCount);
+            FillRewardSlots(list, RewardRarity.Rare, rareCount);
+            FillRewardSlots(list, RewardRarity.Uncommon, uncommonCount);
+            FillRewardSlots(list, RewardRarity.Common, commonCount);
+
+            State.rewardNodes = list;
+        }
+
+        private static void FillRewardSlots(List<RewardNode> list, RewardRarity rarity, int count)
+        {
+            for (int i = 0; i < count; i++)
+            {
+                var node = GenerateNodeForRarity(list, rarity);
                 if (node != null)
                 {
                     list.Add(node);
                 }
             }
-            State.rewardNodes = list;
         }
 
         public static RewardNode GenerateSingleRewardBubble(List<RewardNode> existingNodes)
         {
+            var roll = Rand.Value;
+            var rarity = RewardRarity.Common;
+            if (roll < 0.05f)
+            {
+                rarity = RewardRarity.Legendary;
+            }
+            else if (roll < 0.20f)
+            {
+                rarity = RewardRarity.Rare;
+            }
+            else if (roll < 0.50f)
+            {
+                rarity = RewardRarity.Uncommon;
+            }
+
+            return GenerateNodeForRarity(existingNodes, rarity);
+        }
+
+        private static RewardNode GenerateNodeForRarity(List<RewardNode> existingNodes, RewardRarity rarity)
+        {
             var map = Find.AnyPlayerHomeMap ?? Find.CurrentMap;
-            if (map is null)
-                return null;
-            var validDefs = DefDatabase<RewardDef>.AllDefsListForReading.Where(rDef => 
-            {
-                var items = rDef.Worker.GetValidItems(map);
-                return items.Any(item => !existingNodes.Any(n => n.def == rDef && n.item == item));
-            });
-
-            if (!validDefs.TryRandomElementByWeight(r => GetRarityWeight(r.rarity), out var chosenDef))
+            if (map == null)
                 return null;
 
-            var validItems = chosenDef.Worker.GetValidItems(map).Where(item => !existingNodes.Any(n => n.def == chosenDef && n.item == item));
-            var chosenItem = validItems.RandomElement();
-
-            var node = new RewardNode
+            var validDefs = DefDatabase<RewardDef>.AllDefsListForReading.Where(rDef =>
             {
-                def = chosenDef,
-                item = chosenItem,
-                pos = new Vector2(Rand.Range(-100f, 100f), Rand.Range(-100f, 100f))
-            };
-            node.drawPos = node.pos;
-            return node;
+                if (rDef.rarity != rarity)
+                    return false;
+                if (rDef.requiresItem)
+                {
+                    var items = rDef.Worker.GetValidItems(map);
+                    return items.Any(item => !existingNodes.Any(n => n.def == rDef && n.item == item));
+                }
+                return !existingNodes.Any(n => n.def == rDef);
+            }).ToList();
+
+            if (validDefs.TryRandomElement(out var chosenDef))
+            {
+                ThingDef chosenItem = null;
+                if (chosenDef.requiresItem)
+                {
+                    var validItems = chosenDef.Worker.GetValidItems(map).Where(item => !existingNodes.Any(n => n.def == chosenDef && n.item == item));
+                    chosenItem = validItems.RandomElement();
+                }
+
+                var node = new RewardNode
+                {
+                    def = chosenDef,
+                    item = chosenItem,
+                    pos = new Vector2(Rand.Range(-100f, 100f), Rand.Range(-100f, 100f))
+                };
+                node.drawPos = node.pos;
+                return node;
+            }
+            return null;
         }
 
-        private static float GetRarityWeight(RewardRarity rarity)
+        public static void AddWant(Pawn pawn, PawnWantsData data, WantDef def, Def targetDef = null, bool sendNotification = true)
         {
-            if (rarity == RewardRarity.Legendary)
+            var want = targetDef != null ? new ActiveWantWithTarget { def = def, targetDef = targetDef, assignedTick = Find.TickManager.TicksGame } : new ActiveWant { def = def, assignedTick = Find.TickManager.TicksGame };
+            data.activeWants.Add(want);
+            if (sendNotification && PawnUtility.ShouldSendNotificationAbout(pawn))
             {
-                return 0.05f;
+                Messages.Message("WQ_NewWantGenerated".Translate(pawn.Named("PAWN")), pawn, MessageTypeDefOf.PositiveEvent, false);
             }
-            if (rarity == RewardRarity.Rare)
-            {
-                return 0.2f;
-            }
-            if (rarity == RewardRarity.Uncommon)
-            {
-                return 0.5f;
-            }
-            return 1f;
         }
 
-        public static void AddWant(Pawn pawn, PawnWantsData data, WantDef def, bool sendNotification = true)
+        public static void AddWantWithPawnTarget(Pawn pawn, PawnWantsData data, WantDef def, Pawn targetPawn, bool sendNotification = true)
         {
-            data.activeWants.Add(new ActiveWant { def = def, assignedTick = Find.TickManager.TicksGame });
+            var want = new ActiveWantWithPawnTarget { def = def, targetPawn = targetPawn, assignedTick = Find.TickManager.TicksGame };
+            data.activeWants.Add(want);
             if (sendNotification && PawnUtility.ShouldSendNotificationAbout(pawn))
             {
                 Messages.Message("WQ_NewWantGenerated".Translate(pawn.Named("PAWN")), pawn, MessageTypeDefOf.PositiveEvent, false);
@@ -144,10 +227,18 @@ namespace WantsAndQuirks
 
         public static bool GenerateRandomWant(Pawn pawn, PawnWantsData data, bool sendNotification = true)
         {
-            var availableDefs = DefDatabase<WantDef>.AllDefs.Where(x => !data.activeWants.Any(w => w.def == x) && x.Worker.CanHaveWant(pawn) && x.Worker.CanGenerate(pawn)).ToList();
+            var availableDefs = DefDatabase<WantDef>.AllDefsListForReading.Where(x => !x.isMentalBreakWant && !data.activeWants.Any(w => w.def == x) && x.Worker.CanHaveWant(pawn) && x.Worker.CanGenerate(pawn)).ToList();
             if (availableDefs.TryRandomElementByWeight(x => x.commonality, out var chosenDef))
             {
-                AddWant(pawn, data, chosenDef, sendNotification);
+                var targetPawn = chosenDef.Worker.GetRandomTargetPawn(pawn);
+                if (targetPawn != null)
+                {
+                    AddWantWithPawnTarget(pawn, data, chosenDef, targetPawn, sendNotification);
+                    return true;
+                }
+
+                var targetDef = chosenDef.Worker.GetRandomTarget(pawn);
+                AddWant(pawn, data, chosenDef, targetDef, sendNotification);
                 return true;
             }
             return false;
@@ -177,7 +268,7 @@ namespace WantsAndQuirks
                 InitializePawnWants(pawn, data);
             }
 
-            CheckWants(pawn, WantTriggerType.None);
+            CheckWants(pawn, new WantWorkerContext(WantTriggerType.None));
 
             if (data.activeWants.Count < 4 && Find.TickManager.TicksGame >= data.nextWantTick)
             {

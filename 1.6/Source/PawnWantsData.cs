@@ -9,11 +9,85 @@ namespace WantsAndQuirks
         public int assignedTick;
         public bool isMentalBreak;
 
-        public void ExposeData()
+        public virtual string LabelCap => def.LabelCap;
+        public virtual string Description => def.description;
+
+        public virtual void ExposeData()
         {
             Scribe_Defs.Look(ref def, "def");
             Scribe_Values.Look(ref assignedTick, "assignedTick");
             Scribe_Values.Look(ref isMentalBreak, "isMentalBreak", false);
+        }
+
+        public virtual bool IsCompleted(Pawn pawn, WantWorkerContext context)
+        {
+            return def.Worker.IsCompleted(pawn, context);
+        }
+    }
+
+    public class ActiveWantWithTarget : ActiveWant
+    {
+        public Def targetDef;
+
+        public override string LabelCap => def.label.Formatted(targetDef.label).CapitalizeFirst();
+        public override string Description => def.description.Formatted(targetDef.label);
+
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            Scribe_Defs.Look(ref targetDef, "targetDef");
+        }
+
+        public override bool IsCompleted(Pawn pawn, WantWorkerContext context)
+        {
+            if (def.Worker.IsTargetDiscovered(targetDef))
+            {
+                return true;
+            }
+            if (targetDef == context.contextDef)
+            {
+                return def.Worker.IsCompleted(pawn, context);
+            }
+            if (def.Worker.IsSatisfiedWithTarget(pawn, targetDef))
+            {
+                return true;
+            }
+            if (context.triggerType != WantTriggerType.None)
+            {
+                return false;
+            }
+            return base.IsCompleted(pawn, context);
+        }
+    }
+
+    public class ActiveWantWithPawnTarget : ActiveWant
+    {
+        public Pawn targetPawn;
+
+        public override string LabelCap => def.label.Formatted(targetPawn.LabelShort).CapitalizeFirst();
+        public override string Description => def.description.Formatted(targetPawn.LabelShort);
+
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            Scribe_References.Look(ref targetPawn, "targetPawn");
+        }
+
+        public override bool IsCompleted(Pawn pawn, WantWorkerContext context)
+        {
+            if (targetPawn == context.contextPawn)
+            {
+                return def.Worker.IsCompleted(pawn, context);
+            }
+            if (def.Worker.IsSatisfiedWithPawnTarget(pawn, targetPawn))
+            {
+                return true;
+            }
+            if (context.triggerType != WantTriggerType.None)
+            {
+                return false;
+            }
+            return base.IsCompleted(pawn, context);
         }
     }
 
@@ -40,6 +114,7 @@ namespace WantsAndQuirks
             {
                 activeWants ??= new List<ActiveWant>();
                 quirks ??= new List<Quirk>();
+                activeWants.RemoveAll(w => w.def == null || (w is ActiveWantWithTarget t && t.targetDef == null) || (w is ActiveWantWithPawnTarget tp && tp.targetPawn == null));
                 quirks.RemoveAll(q => q.def == null || (q.def.requiresItem && q.item == null));
             }
         }

@@ -1,6 +1,5 @@
 using HarmonyLib;
 using RimWorld;
-using Verse;
 
 namespace WantsAndQuirks
 {
@@ -12,12 +11,7 @@ namespace WantsAndQuirks
             var pawn = __instance.pawn;
             if (pawn.CanHaveWants())
             {
-                WantsAndQuirksUtility.CheckWants(pawn, WantTriggerType.ApparelAdded);
-                var data = pawn.GetWantsData();
-                foreach (var quirk in data.quirks)
-                {
-                    quirk.def.Worker.Notify_ApparelAdded(pawn, quirk, apparel);
-                }
+                WantsAndQuirksUtility.CheckWants(pawn, new WantWorkerContext(triggerType: WantTriggerType.ApparelAdded, contextDef: apparel.def));
             }
         }
     }

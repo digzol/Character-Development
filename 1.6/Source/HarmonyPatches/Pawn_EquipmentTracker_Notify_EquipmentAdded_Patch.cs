@@ -11,12 +11,7 @@ namespace WantsAndQuirks
             var pawn = __instance.pawn;
             if (pawn.CanHaveWants() && eq.def.IsWeapon)
             {
-                WantsAndQuirksUtility.CheckWants(pawn, WantTriggerType.WeaponEquipped);
-                var data = pawn.GetWantsData();
-                foreach (var quirk in data.quirks)
-                {
-                    quirk.def.Worker.Notify_EquipmentAdded(pawn, quirk, eq);
-                }
+                WantsAndQuirksUtility.CheckWants(pawn, new WantWorkerContext(triggerType: WantTriggerType.WeaponEquipped, contextDef: eq.def));
             }
         }
     }

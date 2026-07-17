@@ -31,4 +31,6 @@
   <WQ_ScarHealed>{0}'s scar was miraculously healed.</WQ_ScarHealed>
   <WQ_PartRestored>{0}'s missing {1} was miraculously restored.</WQ_PartRestored>
   <WQ_PassionGained>{0} gained a new passion for {1}.</WQ_PassionGained>
+  <WQ_MentalBreakWantReplaced>{PAWN_labelShort} developed an obsessive want due to a mental break: {1} (replaced {PAWN_possessive} want: {2}).</WQ_MentalBreakWantReplaced>
+  <WQ_MentalBreakWantAdded>{PAWN_labelShort} developed an obsessive want due to a mental break: {1}.</WQ_MentalBreakWantAdded>
 </LanguageData>

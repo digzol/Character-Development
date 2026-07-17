@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using RimWorld;
 using Verse;
 
 namespace WantsAndQuirks
@@ -10,7 +9,8 @@ namespace WantsAndQuirks
 
         public virtual IEnumerable<ThingDef> GetValidItems(Map map)
         {
-            if (!def.requiresItem) yield return null;
+            if (!def.requiresItem)
+                yield return null;
         }
 
         public virtual bool CanBestowOn(Pawn pawn)
@@ -23,14 +23,6 @@ namespace WantsAndQuirks
         }
 
         public virtual void OnRemoved(Pawn pawn, Quirk quirk)
-        {
-        }
-
-        public virtual void Notify_ApparelAdded(Pawn pawn, Quirk quirk, Apparel apparel)
-        {
-        }
-
-        public virtual void Notify_EquipmentAdded(Pawn pawn, Quirk quirk, ThingWithComps eq)
         {
         }
 

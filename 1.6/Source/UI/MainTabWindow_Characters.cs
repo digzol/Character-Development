@@ -1,4 +1,4 @@
-using System.Linq;
+using System.Collections.Generic;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -26,6 +26,7 @@ namespace WantsAndQuirks
         private Vector2 dragStartMousePos;
         private bool wasDraggingNode;
         private bool hasSignificantDrag;
+        private List<Pawn> tempPawns = new List<Pawn>();
 
         public override Vector2 RequestedTabSize => new Vector2(1200f, 500f);
 
@@ -48,7 +49,7 @@ namespace WantsAndQuirks
                 physicsTemperature = Mathf.Max(physicsTemperature, 100f);
             }
 
-            PhysicsTick(0.02f);
+            PhysicsTick(Time.deltaTime);
 
             var nodes = State.rewardNodes;
             foreach (var node in nodes)
@@ -288,16 +289,30 @@ namespace WantsAndQuirks
             Widgets.Label(new Rect(innerRect.x, curY, innerRect.width, 24f), "WQ_CharactersWithWants".Translate());
             curY += 24f;
 
-            var pawns = Find.Maps.SelectMany(m => m.mapPawns.FreeColonists).Where(p => p.CanHaveWants() && p.GetWantsData().activeWants.Count > 0).ToList();
+            tempPawns.Clear();
+            var maps = Find.Maps;
+            for (int i = 0; i < maps.Count; i++)
+            {
+                var colonists = maps[i].mapPawns.FreeColonists;
+                for (int j = 0; j < colonists.Count; j++)
+                {
+                    var p = colonists[j];
+                    if (p.CanHaveWants() && p.GetWantsData().activeWants.Count > 0)
+                    {
+                        tempPawns.Add(p);
+                    }
+                }
+            }
             var listRect = new Rect(innerRect.x, curY, innerRect.width, innerRect.height - (curY - innerRect.y) + 12);
-            var viewRect = new Rect(0, 0, listRect.width - 16f, (pawns.Count * 38f) + 8);
+            var viewRect = new Rect(0, 0, listRect.width - 16f, (tempPawns.Count * 38f) + 8);
 
             Widgets.DrawBoxSolid(listRect, PawnBgColor);
             Widgets.BeginScrollView(listRect, ref pawnListScrollPos, viewRect);
             var pY = 5f;
 
-            foreach (var p in pawns)
+            for (int i = 0; i < tempPawns.Count; i++)
             {
+                var p = tempPawns[i];
                 var rowRect = new Rect(5, pY, viewRect.width, 35f);
                 Widgets.DrawBoxSolid(rowRect, PawnRowColor);
                 if (Mouse.IsOver(rowRect))
@@ -409,7 +424,7 @@ namespace WantsAndQuirks
                     GUI.DrawTexture(iconRect, node.def.Icon);
                 }
                 Text.Anchor = TextAnchor.MiddleCenter;
-                var textRect = new Rect(nodeRect.x - 15, nodeCenter.y - 5 , nodeRect.width + 30, (nodeRect.height / 2f) + 10);
+                var textRect = new Rect(nodeRect.x - 15, nodeCenter.y - 5, nodeRect.width + 30, (nodeRect.height / 2f) + 10);
                 Text.Font = GameFont.Tiny;
                 Widgets.Label(textRect, node.LabelCap);
                 TooltipHandler.TipRegion(nodeRect, $"{node.LabelCap}\n\n{node.Description}");

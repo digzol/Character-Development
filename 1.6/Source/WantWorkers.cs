@@ -1,3 +1,4 @@
+using System.Linq;
 using RimWorld;
 using Verse;
 
@@ -60,27 +61,27 @@ namespace WantsAndQuirks
     {
         public override bool CanGenerate(Pawn pawn) => !pawn.WorkTagIsDisabled(WorkTags.Violent);
 
-        public override bool IsCompleted(Pawn pawn, WantTriggerType triggerType) => triggerType == WantTriggerType.WeaponEquipped;
+        public override bool IsCompleted(Pawn pawn, WantWorkerContext context) => context.triggerType == WantTriggerType.WeaponEquipped;
     }
 
     public class WantWorker_TakeDrug : WantWorker
     {
-        public override bool IsCompleted(Pawn pawn, WantTriggerType triggerType) => triggerType == WantTriggerType.DrugIngested;
+        public override bool IsCompleted(Pawn pawn, WantWorkerContext context) => context.triggerType == WantTriggerType.DrugIngested;
     }
 
     public class WantWorker_NewOutfit : WantWorker
     {
-        public override bool IsCompleted(Pawn pawn, WantTriggerType triggerType) => triggerType == WantTriggerType.ApparelAdded;
+        public override bool IsCompleted(Pawn pawn, WantWorkerContext context) => context.triggerType == WantTriggerType.ApparelAdded;
     }
 
     public class WantWorker_Resurrection : WantWorker
     {
-        public override bool IsCompleted(Pawn pawn, WantTriggerType triggerType) => triggerType == WantTriggerType.Resurrected;
+        public override bool IsCompleted(Pawn pawn, WantWorkerContext context) => context.triggerType == WantTriggerType.Resurrected;
     }
 
     public class WantWorker_BondWithAnimal : WantWorker
     {
-        public override bool IsCompleted(Pawn pawn, WantTriggerType triggerType) => triggerType == WantTriggerType.BondedWithAnimal;
+        public override bool IsCompleted(Pawn pawn, WantWorkerContext context) => context.triggerType == WantTriggerType.BondedWithAnimal;
     }
 
     public class WantWorker_BecomePsycaster : WantWorker
@@ -163,10 +164,12 @@ namespace WantsAndQuirks
     {
         public override bool IsSatisfied(Pawn pawn)
         {
-            if (def.targetThoughts.NullOrEmpty() || pawn.needs?.mood?.thoughts?.memories == null) return false;
+            if (def.targetThoughts.NullOrEmpty() || pawn.needs?.mood?.thoughts?.memories == null)
+                return false;
             foreach (var t in def.targetThoughts)
             {
-                if (pawn.needs.mood.thoughts.memories.GetFirstMemoryOfDef(t) != null) return true;
+                if (pawn.needs.mood.thoughts.memories.GetFirstMemoryOfDef(t) != null)
+                    return true;
             }
             return false;
         }
@@ -176,10 +179,12 @@ namespace WantsAndQuirks
     {
         public override bool IsSatisfied(Pawn pawn)
         {
-            if (def.targetTraits.NullOrEmpty() || pawn.story?.traits == null) return false;
+            if (def.targetTraits.NullOrEmpty() || pawn.story?.traits == null)
+                return false;
             foreach (var t in def.targetTraits)
             {
-                if (pawn.story.traits.HasTrait(t)) return true;
+                if (pawn.story.traits.HasTrait(t))
+                    return true;
             }
             return false;
         }
@@ -194,13 +199,15 @@ namespace WantsAndQuirks
     {
         public override bool IsSatisfied(Pawn pawn)
         {
-            if (pawn.equipment?.Primary != null && pawn.equipment.Primary.TryGetQuality(out var q1) && q1 >= def.targetQuality) return true;
+            if (pawn.equipment?.Primary != null && pawn.equipment.Primary.TryGetQuality(out var q1) && q1 >= def.targetQuality)
+                return true;
             if (pawn.apparel?.WornApparel != null)
             {
                 var worn = pawn.apparel.WornApparel;
                 for (int i = 0; i < worn.Count; i++)
                 {
-                    if (worn[i].TryGetQuality(out var q2) && q2 >= def.targetQuality) return true;
+                    if (worn[i].TryGetQuality(out var q2) && q2 >= def.targetQuality)
+                        return true;
                 }
             }
             return false;
@@ -211,16 +218,21 @@ namespace WantsAndQuirks
     {
         public override bool IsSatisfied(Pawn pawn)
         {
-            int count = 0;
+            var count = 0;
             var pawns = pawn.MapHeld?.mapPawns?.FreeColonistsSpawned;
-            if (pawns == null) return false;
+            if (pawns == null)
+                return false;
+            pawns.AddRange(pawn.relations.RelatedPawns);
+            pawns = pawns.Where(x => x.RaceProps.Humanlike).Distinct().ToList();
             for (int i = 0; i < pawns.Count; i++)
             {
                 var other = pawns[i];
                 if (other != pawn && other.relations != null)
                 {
-                    if (def.opinionThreshold > 0 && other.relations.OpinionOf(pawn) >= def.opinionThreshold) count++;
-                    else if (def.opinionThreshold < 0 && other.relations.OpinionOf(pawn) <= def.opinionThreshold) count++;
+                    if (def.opinionThreshold > 0 && other.relations.OpinionOf(pawn) >= def.opinionThreshold)
+                        count++;
+                    else if (def.opinionThreshold < 0 && other.relations.OpinionOf(pawn) <= def.opinionThreshold)
+                        count++;
                 }
             }
             return count >= def.countThreshold;
@@ -234,7 +246,8 @@ namespace WantsAndQuirks
             var partners = LovePartnerRelationUtility.ExistingLovePartners(pawn, allowDead: false);
             for (int i = 0; i < partners.Count; i++)
             {
-                if (partners[i].otherPawn.GetStatValue(StatDefOf.PawnBeauty) >= 1f) return true;
+                if (partners[i].otherPawn.GetStatValue(StatDefOf.PawnBeauty) >= 1f)
+                    return true;
             }
             return false;
         }
@@ -250,12 +263,298 @@ namespace WantsAndQuirks
         public override bool CanGenerate(Pawn pawn) => pawn.relations != null && pawn.relations.ChildrenCount > 0;
         public override bool IsSatisfied(Pawn pawn)
         {
-            if (pawn.relations == null) return false;
+            if (pawn.relations == null)
+                return false;
             foreach (var child in pawn.relations.Children)
             {
-                if (child.relations != null && child.relations.ChildrenCount > 0) return true;
+                if (child.relations != null && child.relations.ChildrenCount > 0)
+                    return true;
             }
             return false;
+        }
+    }
+
+    public class WantWorker_Record : WantWorker
+    {
+        public override bool IsSatisfied(Pawn pawn) => pawn.records?.GetValue(def.targetRecord) >= def.countThreshold;
+    }
+
+    public class WantWorker_DiscoverAnimal : WantWorker
+    {
+        public override bool CanGenerate(Pawn pawn) => GetRandomTarget(pawn) != null;
+        public override Def GetRandomTarget(Pawn pawn)
+        {
+            var undiscovered = DefDatabase<ThingDef>.AllDefsListForReading.Where(d => d.race != null && d.race.Animal && !DiscoveryCompat.IsDiscovered(d));
+            return undiscovered.TryRandomElement(out var result) ? result : null;
+        }
+        public override bool IsTargetDiscovered(Def target) => target is ThingDef animal && DiscoveryCompat.IsDiscovered(animal);
+    }
+
+    public class WantWorker_DiscoverFaction : WantWorker
+    {
+        public override bool CanGenerate(Pawn pawn) => GetRandomTarget(pawn) != null;
+        public override Def GetRandomTarget(Pawn pawn)
+        {
+            var undiscovered = DefDatabase<FactionDef>.AllDefsListForReading.Where(d => !d.isPlayer && !DiscoveryCompat.IsDiscovered(d));
+            return undiscovered.TryRandomElement(out var result) ? result : null;
+        }
+        public override bool IsTargetDiscovered(Def target) => target is FactionDef faction && DiscoveryCompat.IsDiscovered(faction);
+    }
+
+    public class WantWorker_DiscoverXenotype : WantWorker
+    {
+        public override bool CanGenerate(Pawn pawn) => GetRandomTarget(pawn) != null;
+        public override Def GetRandomTarget(Pawn pawn)
+        {
+            var undiscovered = DefDatabase<XenotypeDef>.AllDefsListForReading.Where(d => !DiscoveryCompat.IsDiscovered(d));
+            return undiscovered.TryRandomElement(out var result) ? result : null;
+        }
+        public override bool IsTargetDiscovered(Def target) => target is XenotypeDef xeno && DiscoveryCompat.IsDiscovered(xeno);
+    }
+
+    public class WantWorker_DiscoverBuilding : WantWorker
+    {
+        public override bool CanGenerate(Pawn pawn) => GetRandomTarget(pawn) != null;
+        public override Def GetRandomTarget(Pawn pawn)
+        {
+            var undiscovered = DefDatabase<ThingDef>.AllDefsListForReading.Where(d => d.building != null && !DiscoveryCompat.IsDiscovered(d));
+            return undiscovered.TryRandomElement(out var result) ? result : null;
+        }
+        public override bool IsTargetDiscovered(Def target) => target is ThingDef building && DiscoveryCompat.IsDiscovered(building);
+    }
+
+    public class WantWorker_EatFood : WantWorker
+    {
+        public override Def GetRandomTarget(Pawn pawn)
+        {
+            var foods = DefDatabase<ThingDef>.AllDefsListForReading.Where(d => d.IsIngestible && d.ingestible.preferability >= FoodPreferability.MealSimple);
+            return foods.TryRandomElement(out var result) ? result : null;
+        }
+        public override bool IsCompleted(Pawn pawn, WantWorkerContext context)
+        {
+            return context.triggerType == WantTriggerType.FoodEaten;
+        }
+    }
+
+    public class WantWorker_SkillLevel : WantWorker
+    {
+        public override Def GetRandomTarget(Pawn pawn)
+        {
+            var skills = pawn.skills.skills.Where(s => s.Level < 20).Select(s => s.def);
+            return skills.TryRandomElement(out var result) ? result : null;
+        }
+        public override bool IsSatisfied(Pawn pawn)
+        {
+            if (def.targetSkill != null)
+            {
+                return pawn.skills.GetSkill(def.targetSkill).Level >= def.skillLevelThreshold;
+            }
+            return false;
+        }
+        public override bool IsSatisfiedWithTarget(Pawn pawn, Def targetDef)
+        {
+            if (targetDef is SkillDef skill)
+            {
+                return pawn.skills.GetSkill(skill).Level >= def.skillLevelThreshold;
+            }
+            return false;
+        }
+        public override bool IsCompleted(Pawn pawn, WantWorkerContext context)
+        {
+            if (context.triggerType == WantTriggerType.SkillIncreased)
+            {
+                return context.contextAmount >= def.skillLevelThreshold;
+            }
+            return IsSatisfied(pawn);
+        }
+    }
+
+    public class WantWorker_GetLovinWith : WantWorker
+    {
+        public override Pawn GetRandomTargetPawn(Pawn pawn)
+        {
+            var partners = LovePartnerRelationUtility.ExistingLovePartners(pawn, allowDead: false);
+            return partners.TryRandomElement(out var result) ? result.otherPawn : null;
+        }
+        public override bool IsSatisfiedWithPawnTarget(Pawn pawn, Pawn targetPawn)
+        {
+            var thought = pawn.needs?.mood?.thoughts?.memories?.GetFirstMemoryOfDef(ThoughtDefOf.GotSomeLovin);
+            return thought != null && thought.otherPawn == targetPawn;
+        }
+    }
+
+    public class WantWorker_BeFriendsWith : WantWorker
+    {
+        public override Pawn GetRandomTargetPawn(Pawn pawn)
+        {
+            var colonists = pawn.MapHeld?.mapPawns?.FreeColonistsSpawned;
+            if (colonists == null)
+                return null;
+            colonists.AddRange(pawn.relations.RelatedPawns);
+            colonists = colonists.Where(x => x.RaceProps.Humanlike).Distinct().ToList();
+            var potential = colonists.Where(p => p != pawn && pawn.relations.OpinionOf(p) < 50);
+            return potential.TryRandomElement(out var result) ? result : null;
+        }
+        public override bool IsSatisfiedWithPawnTarget(Pawn pawn, Pawn targetPawn)
+        {
+            return pawn.relations.OpinionOf(targetPawn) >= 50;
+        }
+    }
+
+    public class WantWorker_MarryLover : WantWorker
+    {
+        public override Pawn GetRandomTargetPawn(Pawn pawn)
+        {
+            var fiance = pawn.relations.GetFirstDirectRelationPawn(PawnRelationDefOf.Fiance);
+            if (fiance != null)
+                return fiance;
+            var lover = pawn.relations.GetFirstDirectRelationPawn(PawnRelationDefOf.Lover);
+            return lover;
+        }
+        public override bool IsSatisfiedWithPawnTarget(Pawn pawn, Pawn targetPawn)
+        {
+            return pawn.relations.DirectRelationExists(PawnRelationDefOf.Spouse, targetPawn);
+        }
+    }
+
+    public class WantWorker_MakeQuality : WantWorker
+    {
+        public override bool IsCompleted(Pawn pawn, WantWorkerContext context)
+        {
+            return context.triggerType == WantTriggerType.RecipeCompleted && (QualityCategory)context.contextAmount >= def.targetQuality;
+        }
+    }
+
+    public class WantWorker_Trade : WantWorker
+    {
+        public override bool CanGenerate(Pawn pawn)
+        {
+            return !pawn.WorkTagIsDisabled(WorkTags.Social) && base.CanGenerate(pawn);
+        }
+        public override bool IsCompleted(Pawn pawn, WantWorkerContext context)
+        {
+            return context.triggerType == WantTriggerType.Traded;
+        }
+    }
+
+    public class WantWorker_NewEntertainmentBuilding : WantWorker
+    {
+        public override bool CanGenerate(Pawn pawn) => GetRandomTarget(pawn) != null;
+        public override Def GetRandomTarget(Pawn pawn)
+        {
+            var existingJoyKinds = pawn.MapHeld?.listerBuildings.allBuildingsColonist
+                .Where(b => b.def.building?.joyKind != null)
+                .Select(b => b.def.building.joyKind).ToHashSet();
+
+            var allJoyKinds = DefDatabase<JoyKindDef>.AllDefsListForReading;
+            var missing = allJoyKinds.Where(j => existingJoyKinds == null || !existingJoyKinds.Contains(j));
+            return missing.TryRandomElement(out var result) ? result : null;
+        }
+        public override bool IsSatisfiedWithTarget(Pawn pawn, Def targetDef)
+        {
+            if (targetDef is JoyKindDef joyKind && pawn.MapHeld != null)
+            {
+                return pawn.MapHeld.listerBuildings.allBuildingsColonist.Any(b => b.def.building?.joyKind == joyKind);
+            }
+            return false;
+        }
+    }
+
+    public class WantWorker_SeeSpace : WantWorker
+    {
+        public override bool IsSatisfied(Pawn pawn) => pawn.MapHeld?.Biome == BiomeDefOf.Space;
+    }
+
+    public class WantWorker_BecomeTempered : WantWorker
+    {
+        public override bool IsSatisfied(Pawn pawn)
+        {
+            return TherapyCompat.IsTempered(pawn);
+        }
+    }
+
+    public class WantWorker_Ritual : WantWorker
+    {
+        public override bool IsCompleted(Pawn pawn, WantWorkerContext context)
+        {
+            if (context.triggerType == WantTriggerType.RitualCompleted && context.contextDef == def.targetRitual)
+            {
+                if (def.targetRitualRole.NullOrEmpty() || context.contextString == def.targetRitualRole)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+    }
+
+    public class WantWorker_ImproveSkill : WantWorker
+    {
+        public override Def GetRandomTarget(Pawn pawn)
+        {
+            var skills = pawn.skills.skills.Where(s => s.Level < 20).Select(s => s.def);
+            return skills.TryRandomElement(out var result) ? result : null;
+        }
+
+        public override bool IsCompleted(Pawn pawn, WantWorkerContext context)
+        {
+            return context.triggerType == WantTriggerType.SkillIncreased;
+        }
+    }
+
+    public class WantWorker_ResolveTraumaticPassion : WantWorker
+    {
+        public override bool IsSatisfied(Pawn pawn)
+        {
+            return !TherapyCompat.HasTraumaticPassion(pawn);
+        }
+    }
+
+    public class WantWorker_BecomeXenotype : WantWorker
+    {
+        public override Def GetRandomTarget(Pawn pawn)
+        {
+            var discovered = DefDatabase<XenotypeDef>.AllDefsListForReading.Where(d => DiscoveryCompat.IsDiscovered(d) && pawn.genes?.Xenotype != d);
+            return discovered.TryRandomElement(out var result) ? result : null;
+        }
+
+        public override bool IsCompleted(Pawn pawn, WantWorkerContext context)
+        {
+            return context.triggerType == WantTriggerType.XenotypeChanged;
+        }
+
+        public override bool IsSatisfiedWithTarget(Pawn pawn, Def targetDef)
+        {
+            return pawn.genes?.Xenotype == targetDef as XenotypeDef;
+        }
+    }
+
+    public class WantWorker_BondWithDiscoveredAnimal : WantWorker
+    {
+        public override Def GetRandomTarget(Pawn pawn)
+        {
+            var discoveredAnimals = DefDatabase<ThingDef>.AllDefsListForReading.Where(d => d.race != null && d.race.Animal && DiscoveryCompat.IsDiscovered(d));
+            return discoveredAnimals.TryRandomElement(out var result) ? result : null;
+        }
+
+        public override bool IsSatisfiedWithTarget(Pawn pawn, Def targetDef)
+        {
+            if (targetDef is ThingDef animalDef && pawn.relations != null)
+            {
+                foreach (var rel in pawn.relations.DirectRelations)
+                {
+                    if (rel.def == PawnRelationDefOf.Bond && rel.otherPawn.def == animalDef)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        public override bool IsCompleted(Pawn pawn, WantWorkerContext context)
+        {
+            return context.triggerType == WantTriggerType.BondedWithAnimal;
         }
     }
 }

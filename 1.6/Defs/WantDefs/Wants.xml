@@ -119,7 +119,7 @@
         <commonality>0.8</commonality>
         <workerClass>WantsAndQuirks.WantWorker_Thought</workerClass>
         <completedByThought>DefeatedMechCluster</completedByThought>
-		<invalidNonViolent>true</invalidNonViolent>
+        <invalidNonViolent>true</invalidNonViolent>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef>
@@ -131,7 +131,7 @@
         <commonality>0.8</commonality>
         <workerClass>WantsAndQuirks.WantWorker_Thought</workerClass>
         <completedByThought>DefeatedInsectHive</completedByThought>
-		<invalidNonViolent>true</invalidNonViolent>
+        <invalidNonViolent>true</invalidNonViolent>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef>
@@ -224,6 +224,7 @@
         <reward>2000</reward>
         <commonality>0.5</commonality>
         <workerClass>WantsAndQuirks.WantWorker_BecomeNoble</workerClass>
+        <discoveryRequirementFaction>Empire</discoveryRequirementFaction>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef MayRequire="Ludeon.RimWorld.Ideology">
@@ -330,7 +331,7 @@
         <workerClass>WantsAndQuirks.WantWorker_ColonyWealth</workerClass>
         <wealthThreshold>100000</wealthThreshold>
     </WantsAndQuirks.WantDef>
-    
+
     <WantsAndQuirks.WantDef>
         <defName>WQ_WantBecomeExtremelyRich</defName>
         <label>become extremely rich</label>
@@ -365,6 +366,7 @@
             <li>AteHumanlikeMeatDirect</li>
             <li>AteHumanlikeMeatAsIngredient</li>
         </targetThoughts>
+        <isMentalBreakWant>true</isMentalBreakWant>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef>
@@ -376,6 +378,7 @@
         <commonality>0.5</commonality>
         <workerClass>WantsAndQuirks.WantWorker_HasHediff</workerClass>
         <targetHediff>DrugOverdose</targetHediff>
+        <isMentalBreakWant>true</isMentalBreakWant>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef>
@@ -388,6 +391,7 @@
         <workerClass>WantsAndQuirks.WantWorker_HasHediff</workerClass>
         <targetHediff>AlcoholHigh</targetHediff>
         <targetHediffSeverity>0.6</targetHediffSeverity>
+        <isMentalBreakWant>true</isMentalBreakWant>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef>
@@ -399,6 +403,7 @@
         <commonality>0.5</commonality>
         <workerClass>WantsAndQuirks.WantWorker_Bleeding</workerClass>
         <targetHediffSeverity>0.4</targetHediffSeverity>
+        <isMentalBreakWant>true</isMentalBreakWant>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef MayRequire="ferny.ProgressionEducation">
@@ -511,6 +516,7 @@
         <workerClass>WantsAndQuirks.WantWorker_OpinionCount</workerClass>
         <opinionThreshold>20</opinionThreshold>
         <countThreshold>10</countThreshold>
+        <isMentalBreakWant>true</isMentalBreakWant>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef>
@@ -523,6 +529,7 @@
         <workerClass>WantsAndQuirks.WantWorker_OpinionCount</workerClass>
         <opinionThreshold>-20</opinionThreshold>
         <countThreshold>10</countThreshold>
+        <isMentalBreakWant>true</isMentalBreakWant>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef>
@@ -544,6 +551,7 @@
         <commonality>0.5</commonality>
         <workerClass>WantsAndQuirks.WantWorker_HasHediff</workerClass>
         <targetHediff>Joywire</targetHediff>
+        <discoveryRequirementThing>Joywire</discoveryRequirementThing>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef>
@@ -558,8 +566,9 @@
             <li>PawnWithBadOpinionDied</li>
             <li>KilledMyRival</li>
         </targetThoughts>
+        <isMentalBreakWant>true</isMentalBreakWant>
     </WantsAndQuirks.WantDef>
-    
+
     <WantsAndQuirks.WantDef>
         <defName>WQ_WantGetInspiration</defName>
         <label>be inspired</label>
@@ -569,7 +578,7 @@
         <commonality>1</commonality>
         <workerClass>WantsAndQuirks.WantWorker_Inspired</workerClass>
     </WantsAndQuirks.WantDef>
-    
+
     <WantsAndQuirks.WantDef>
         <defName>WQ_WantBecomeGrandparent</defName>
         <label>become a grandparent</label>
@@ -591,6 +600,7 @@
         <targetThoughts>
             <li>AnimaScream</li>
         </targetThoughts>
+        <discoveryRequirementThing>Plant_TreeAnima</discoveryRequirementThing>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef>
@@ -603,4 +613,258 @@
         <workerClass>WantsAndQuirks.WantWorker_CureHediff</workerClass>
         <targetHediff>Asthma</targetHediff>
     </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantKillSomeone</defName>
+        <label>kill someone</label>
+        <description>I want to kill someone.</description>
+        <iconPath>UI/WantIcons/Weapon</iconPath>
+        <reward>2000</reward>
+        <commonality>0.3</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_Record</workerClass>
+        <targetRecord>KillsHumanlikes</targetRecord>
+        <countThreshold>1</countThreshold>
+        <invalidNonViolent>true</invalidNonViolent>
+        <isMentalBreakWant>true</isMentalBreakWant>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef MayRequire="ferny.discoveries">
+        <defName>WQ_WantDiscoverAnimal</defName>
+        <label>discover {0}</label>
+        <description>I want to discover a {0}.</description>
+        <iconPath>UI/WantIcons/Bond</iconPath>
+        <reward>1500</reward>
+        <commonality>1</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_DiscoverAnimal</workerClass>
+        <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef MayRequire="ferny.discoveries">
+        <defName>WQ_WantDiscoverFaction</defName>
+        <label>meet {0}</label>
+        <description>I want to meet the faction {0}.</description>
+        <iconPath>UI/WantIcons/Catharsis</iconPath>
+        <reward>1500</reward>
+        <commonality>1</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_DiscoverFaction</workerClass>
+        <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef MayRequire="Ludeon.RimWorld.Biotech,ferny.discoveries">
+        <defName>WQ_WantDiscoverXenotype</defName>
+        <label>meet a {0}</label>
+        <description>I want to meet a {0} xenotype.</description>
+        <iconPath>UI/WantIcons/Catharsis</iconPath>
+        <reward>1500</reward>
+        <commonality>1</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_DiscoverXenotype</workerClass>
+        <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef MayRequire="ferny.discoveries">
+        <defName>WQ_WantDiscoverBuilding</defName>
+        <label>see a {0}</label>
+        <description>I want to see a {0}.</description>
+        <iconPath>UI/WantIcons/Bedroom</iconPath>
+        <reward>1500</reward>
+        <commonality>1</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_DiscoverBuilding</workerClass>
+        <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantImproveSkill</defName>
+        <label>improve my {0}</label>
+        <description>I want to improve my {0} skill.</description>
+        <iconPath>UI/WantIcons/Catharsis</iconPath>
+        <reward>1000</reward>
+        <commonality>1</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_ImproveSkill</workerClass>
+        <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantSkillLevel</defName>
+        <label>be good at {0}</label>
+        <description>I want to reach level 15 in my {0} skill.</description>
+        <iconPath>UI/WantIcons/Catharsis</iconPath>
+        <reward>2000</reward>
+        <commonality>0.5</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_SkillLevel</workerClass>
+        <skillLevelThreshold>15</skillLevelThreshold>
+        <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantEatFood</defName>
+        <label>eat {0}</label>
+        <description>I want to eat a {0}.</description>
+        <iconPath>UI/WantIcons/Meal</iconPath>
+        <reward>500</reward>
+        <commonality>1</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_EatFood</workerClass>
+        <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantGetLovinWith</defName>
+        <label>get lovin' with {0}</label>
+        <description>I want to get lovin' with {0}.</description>
+        <iconPath>UI/WantIcons/Lovin</iconPath>
+        <reward>1500</reward>
+        <commonality>1</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_GetLovinWith</workerClass>
+        <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantBeFriendsWith</defName>
+        <label>be friends with {0}</label>
+        <description>I want to be friends with {0}.</description>
+        <iconPath>UI/WantIcons/Lovin</iconPath>
+        <reward>1000</reward>
+        <commonality>1</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_BeFriendsWith</workerClass>
+        <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantMarryLover</defName>
+        <label>marry {0}</label>
+        <description>I want to marry {0}.</description>
+        <iconPath>UI/WantIcons/Marriage</iconPath>
+        <reward>2000</reward>
+        <commonality>0.5</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_MarryLover</workerClass>
+        <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantMakeMasterwork</defName>
+        <label>make something masterwork</label>
+        <description>I want to make something masterwork.</description>
+        <iconPath>UI/WantIcons/Catharsis</iconPath>
+        <reward>2000</reward>
+        <commonality>0.5</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_MakeQuality</workerClass>
+        <targetQuality>Masterwork</targetQuality>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantMakeLegendary</defName>
+        <label>make something legendary</label>
+        <description>I want to make something legendary.</description>
+        <iconPath>UI/WantIcons/Catharsis</iconPath>
+        <reward>3000</reward>
+        <commonality>0.2</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_MakeQuality</workerClass>
+        <targetQuality>Legendary</targetQuality>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef MayRequire="ferny.discoveries">
+        <defName>WQ_WantBondWithDiscoveredAnimal</defName>
+        <label>bond with a {0}</label>
+        <description>I want to bond with a {0}.</description>
+        <iconPath>UI/WantIcons/Bond</iconPath>
+        <reward>2000</reward>
+        <commonality>0.5</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_BondWithDiscoveredAnimal</workerClass>
+        <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantTrade</defName>
+        <label>trade</label>
+        <description>I want to trade.</description>
+        <iconPath>UI/WantIcons/Catharsis</iconPath>
+        <reward>500</reward>
+        <commonality>1</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_Trade</workerClass>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantNewEntertainmentBuilding</defName>
+        <label>a new {0} entertainment building</label>
+        <description>I want a new {0} entertainment building in the colony.</description>
+        <iconPath>UI/WantIcons/Bedroom</iconPath>
+        <reward>1000</reward>
+        <commonality>1</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_NewEntertainmentBuilding</workerClass>
+        <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef MayRequire="ludeon.rimworld.odyssey">
+        <defName>WQ_WantSeeSpace</defName>
+        <label>see space</label>
+        <description>I want to see space.</description>
+        <iconPath>UI/WantIcons/Aurora</iconPath>
+        <reward>2500</reward>
+        <commonality>0.5</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_SeeSpace</workerClass>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef MayRequire="ferny.TraumaAndIntegrity">
+        <defName>WQ_WantBecomeTempered</defName>
+        <label>become tempered</label>
+        <description>I want to become tempered.</description>
+        <iconPath>UI/WantIcons/Catharsis</iconPath>
+        <reward>2500</reward>
+        <commonality>0.2</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_BecomeTempered</workerClass>
+        <isMentalBreakWant>true</isMentalBreakWant>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef MayRequire="ferny.ProgressionTherapy">
+        <defName>WQ_WantResolveTraumaticPassion</defName>
+        <label>resolve traumatic passion</label>
+        <description>I want to resolve my traumatic passion.</description>
+        <iconPath>UI/WantIcons/Catharsis</iconPath>
+        <reward>2500</reward>
+        <commonality>0.5</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_ResolveTraumaticPassion</workerClass>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef MayRequire="Ludeon.RimWorld.Biotech,ferny.discoveries">
+        <defName>WQ_WantBecomeXenotype</defName>
+        <label>become {0}</label>
+        <description>I want to become a {0}.</description>
+        <iconPath>UI/WantIcons/Catharsis</iconPath>
+        <reward>3000</reward>
+        <commonality>0.5</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_BecomeXenotype</workerClass>
+        <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef MayRequire="Ludeon.RimWorld.Royalty,ferny.discoveries">
+        <defName>WQ_WantLinkWithAnimaTree</defName>
+        <label>link with an anima tree</label>
+        <description>I want to link with an anima tree.</description>
+        <iconPath>UI/WantIcons/Catharsis</iconPath>
+        <reward>1500</reward>
+        <commonality>0.5</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_Ritual</workerClass>
+        <targetRitual>AnimaTreeLinking</targetRitual>
+        <discoveryRequirementThing>Plant_TreeAnima</discoveryRequirementThing>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef MayRequire="Ludeon.RimWorld.Ideology,ferny.discoveries">
+        <defName>WQ_WantConnectWithGuaranlenTree</defName>
+        <label>connect with a guaranlen tree</label>
+        <description>I want to connect with a guaranlen tree.</description>
+        <iconPath>UI/WantIcons/Catharsis</iconPath>
+        <reward>1500</reward>
+        <commonality>0.5</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_Ritual</workerClass>
+        <targetRitual>TreeConnection</targetRitual>
+        <discoveryRequirementThing>Plant_TreeGauranlen</discoveryRequirementThing>
+    </WantsAndQuirks.WantDef>
+
+    <MentalBreakDef>
+        <defName>WQ_MentalBreakWant</defName>
+        <label>existential crisis</label>
+        <mentalState>Wander_Sad</mentalState>
+        <baseCommonality>1</baseCommonality>
+        <intensity>Minor</intensity>
+        <workerClass>WantsAndQuirks.MentalBreakWorker_WantBreak</workerClass>
+    </MentalBreakDef>
 </Defs>

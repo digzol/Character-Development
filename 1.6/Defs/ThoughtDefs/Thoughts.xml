@@ -14,11 +14,12 @@
 
   <ThoughtDef>
     <defName>WQ_Thought_LikesClothing</defName>
-    <durationDays>0.5</durationDays>
+    <workerClass>WantsAndQuirks.ThoughtWorker_LikesClothing</workerClass>
+    <validWhileDespawned>true</validWhileDespawned>
     <stages>
       <li>
-        <label>new outfit</label>
-        <description>I really like clothing!</description>
+        <label>wearing liked clothing</label>
+        <description>I am wearing a piece of clothing that I really like!</description>
         <baseMoodEffect>3</baseMoodEffect>
       </li>
     </stages>
@@ -26,11 +27,12 @@
 
   <ThoughtDef>
     <defName>WQ_Thought_LikesWeapon</defName>
-    <durationDays>0.5</durationDays>
+    <workerClass>WantsAndQuirks.ThoughtWorker_LikesWeapon</workerClass>
+    <validWhileDespawned>true</validWhileDespawned>
     <stages>
       <li>
-        <label>new weapon</label>
-        <description>I really like weapons!</description>
+        <label>wielding liked weapon</label>
+        <description>I am wielding a weapon that I really like!</description>
         <baseMoodEffect>3</baseMoodEffect>
       </li>
     </stages>

@@ -107,7 +107,7 @@
         <description>Increases a random skill by 1 level.</description>
         <iconPath>UI/RewardIcons/RandomSkill</iconPath>
         <rarity>Rare</rarity>
-        <workerClass>WantsAndQuirks.RewardWorker_RandomSkill</workerClass>
+        <workerClass>WantsAndQuirks.RewardWorker_Skill</workerClass>
     </WantsAndQuirks.RewardDef>
 
     <WantsAndQuirks.RewardDef>
@@ -126,7 +126,7 @@
         <description>Bestows a random inspiration on the character.</description>
         <iconPath>UI/Icons/Medical/IconImmune</iconPath>
         <rarity>Uncommon</rarity>
-        <workerClass>WantsAndQuirks.RewardWorker_RandomInspiration</workerClass>
+        <workerClass>WantsAndQuirks.RewardWorker_Inspiration</workerClass>
     </WantsAndQuirks.RewardDef>
 
     <WantsAndQuirks.RewardDef>
@@ -135,7 +135,7 @@
         <description>Grants a go frenzy.</description>
         <iconPath>UI/Icons/Medical/IconImmune</iconPath>
         <rarity>Rare</rarity>
-        <workerClass>WantsAndQuirks.RewardWorker_RandomInspiration</workerClass>
+        <workerClass>WantsAndQuirks.RewardWorker_Inspiration</workerClass>
         <inspirationDef>Frenzy_Go</inspirationDef>
     </WantsAndQuirks.RewardDef>
 
@@ -145,7 +145,7 @@
         <description>Grants a work frenzy.</description>
         <iconPath>UI/Icons/Medical/IconImmune</iconPath>
         <rarity>Rare</rarity>
-        <workerClass>WantsAndQuirks.RewardWorker_RandomInspiration</workerClass>
+        <workerClass>WantsAndQuirks.RewardWorker_Inspiration</workerClass>
         <inspirationDef>Frenzy_Work</inspirationDef>
     </WantsAndQuirks.RewardDef>
 
@@ -155,7 +155,7 @@
         <description>Grants a shoot frenzy.</description>
         <iconPath>UI/Icons/Medical/IconImmune</iconPath>
         <rarity>Rare</rarity>
-        <workerClass>WantsAndQuirks.RewardWorker_RandomInspiration</workerClass>
+        <workerClass>WantsAndQuirks.RewardWorker_Inspiration</workerClass>
         <inspirationDef>Frenzy_Shoot</inspirationDef>
     </WantsAndQuirks.RewardDef>
 
@@ -165,7 +165,7 @@
         <description>Grants inspired creativity.</description>
         <iconPath>UI/Icons/Medical/IconImmune</iconPath>
         <rarity>Rare</rarity>
-        <workerClass>WantsAndQuirks.RewardWorker_RandomInspiration</workerClass>
+        <workerClass>WantsAndQuirks.RewardWorker_Inspiration</workerClass>
         <inspirationDef>Inspired_Creativity</inspirationDef>
     </WantsAndQuirks.RewardDef>
 
@@ -175,7 +175,7 @@
         <description>Grants inspired recruitment.</description>
         <iconPath>UI/Icons/Medical/IconImmune</iconPath>
         <rarity>Rare</rarity>
-        <workerClass>WantsAndQuirks.RewardWorker_RandomInspiration</workerClass>
+        <workerClass>WantsAndQuirks.RewardWorker_Inspiration</workerClass>
         <inspirationDef>Inspired_Recruitment</inspirationDef>
     </WantsAndQuirks.RewardDef>
 
@@ -185,7 +185,7 @@
         <description>Grants inspired taming.</description>
         <iconPath>UI/Icons/Medical/IconImmune</iconPath>
         <rarity>Rare</rarity>
-        <workerClass>WantsAndQuirks.RewardWorker_RandomInspiration</workerClass>
+        <workerClass>WantsAndQuirks.RewardWorker_Inspiration</workerClass>
         <inspirationDef>Inspired_Taming</inspirationDef>
     </WantsAndQuirks.RewardDef>
 
@@ -195,7 +195,7 @@
         <description>Grants inspired trade.</description>
         <iconPath>UI/Icons/Medical/IconImmune</iconPath>
         <rarity>Rare</rarity>
-        <workerClass>WantsAndQuirks.RewardWorker_RandomInspiration</workerClass>
+        <workerClass>WantsAndQuirks.RewardWorker_Inspiration</workerClass>
         <inspirationDef>Inspired_Trade</inspirationDef>
     </WantsAndQuirks.RewardDef>
 
@@ -222,7 +222,6 @@
         <isQuirk>true</isQuirk>
         <requiresItem>true</requiresItem>
         <workerClass>WantsAndQuirks.QuirkWorker_LikesClothing</workerClass>
-        <thought>WQ_Thought_LikesClothing</thought>
     </WantsAndQuirks.RewardDef>
 
     <WantsAndQuirks.RewardDef>
@@ -235,7 +234,6 @@
         <isQuirk>true</isQuirk>
         <requiresItem>true</requiresItem>
         <workerClass>WantsAndQuirks.QuirkWorker_LikesWeapon</workerClass>
-        <thought>WQ_Thought_LikesWeapon</thought>
     </WantsAndQuirks.RewardDef>
 
     <WantsAndQuirks.RewardDef>
@@ -301,5 +299,15 @@
         <iconPath>UI/Icons/Medical/IconImmune</iconPath>
         <rarity>Uncommon</rarity>
         <isQuirk>true</isQuirk>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef>
+        <defName>WQ_RewardInspiration_Surgery</defName>
+        <label>inspired surgery</label>
+        <description>Grants inspired surgery.</description>
+        <iconPath>UI/Icons/Medical/IconImmune</iconPath>
+        <rarity>Rare</rarity>
+        <workerClass>WantsAndQuirks.RewardWorker_Inspiration</workerClass>
+        <inspirationDef>Inspired_Surgery</inspirationDef>
     </WantsAndQuirks.RewardDef>
 </Defs>

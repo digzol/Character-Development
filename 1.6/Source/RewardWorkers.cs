@@ -7,24 +7,34 @@ namespace WantsAndQuirks
 {
     public class RewardWorker_Skill : RewardWorker
     {
-        public override void OnAcquired(Pawn pawn, Quirk quirk)
+        public override bool CanBestowOn(Pawn pawn)
         {
-            var record = pawn.skills.GetSkill(def.skill);
-            if (!record.TotallyDisabled && record.Level < 20)
+            if (def.skill != null && (pawn.skills.GetSkill(def.skill).TotallyDisabled || pawn.skills.GetSkill(def.skill).Level >= 20))
             {
-                record.Level++;
+                return false;
             }
+            if (def.skill == null && pawn.skills.skills.Any(s => !s.TotallyDisabled && s.Level < 20) is false)
+            {
+                return false;
+            }
+            return base.CanBestowOn(pawn);
         }
-    }
 
-    public class RewardWorker_RandomSkill : RewardWorker
-    {
         public override void OnAcquired(Pawn pawn, Quirk quirk)
         {
-            if (pawn.skills.skills.Where(s => !s.TotallyDisabled && s.Level < 20).TryRandomElement(out var skill))
+            var skills = pawn.skills.skills.Where(s => !s.TotallyDisabled && s.Level < 20);
+            SkillRecord skill;
+            if (def.skill != null)
             {
-                skill.Level++;
+                skill = skills.FirstOrDefault(x => x.def == def.skill);
+                if (skill == null)
+                    return;
             }
+            else
+            {
+                skill = skills.RandomElement();
+            }
+            skill.Level++;
         }
     }
 
@@ -36,7 +46,7 @@ namespace WantsAndQuirks
         }
     }
 
-    public class RewardWorker_RandomInspiration : RewardWorker
+    public class RewardWorker_Inspiration : RewardWorker
     {
         public override void OnAcquired(Pawn pawn, Quirk quirk)
         {
@@ -156,14 +166,6 @@ namespace WantsAndQuirks
             var things = map.listerThings.ThingsInGroup(ThingRequestGroup.Apparel);
             return things.Select(t => t.def).Distinct();
         }
-
-        public override void Notify_ApparelAdded(Pawn pawn, Quirk quirk, Apparel apparel)
-        {
-            if (apparel.def == quirk.item)
-            {
-                TryGainThought(pawn, quirk);
-            }
-        }
     }
 
     public class QuirkWorker_LikesWeapon : RewardWorker
@@ -173,14 +175,6 @@ namespace WantsAndQuirks
             var weapons = map.listerThings.ThingsInGroup(ThingRequestGroup.Weapon).Select(t => t.def);
             var eq = map.mapPawns.FreeColonists.SelectMany(p => p.equipment.AllEquipmentListForReading).Select(t => t.def);
             return weapons.Concat(eq).Distinct();
-        }
-
-        public override void Notify_EquipmentAdded(Pawn pawn, Quirk quirk, ThingWithComps eq)
-        {
-            if (eq.def == quirk.item)
-            {
-                TryGainThought(pawn, quirk);
-            }
         }
     }
 }

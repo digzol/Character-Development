@@ -9,8 +9,34 @@ namespace WantsAndQuirks
 
         public bool CanHaveWant(Pawn pawn)
         {
-            if (def.minimumTechLevel != TechLevel.Undefined && (int)Faction.OfPlayer.def.techLevel < (int)def.minimumTechLevel) return false;
-            if (def.maximumTechLevel != TechLevel.Undefined && (int)Faction.OfPlayer.def.techLevel > (int)def.maximumTechLevel) return false;
+            if (def.minimumTechLevel != TechLevel.Undefined && (int)Faction.OfPlayer.def.techLevel < (int)def.minimumTechLevel)
+            {
+                return false;
+            }
+
+            if (def.maximumTechLevel != TechLevel.Undefined && (int)Faction.OfPlayer.def.techLevel > (int)def.maximumTechLevel)
+            {
+                return false;
+            }
+
+            if (DiscoveryCompat.IsActive)
+            {
+                if (def.discoveryRequirementThing != null && !DiscoveryCompat.IsDiscovered(def.discoveryRequirementThing))
+                {
+                    return false;
+                }
+
+                if (def.discoveryRequirementFaction != null && !DiscoveryCompat.IsDiscovered(def.discoveryRequirementFaction))
+                {
+                    return false;
+                }
+
+                if (def.discoveryRequirementXenotype != null && !DiscoveryCompat.IsDiscovered(def.discoveryRequirementXenotype))
+                {
+                    return false;
+                }
+            }
+
             return def.PassesRecipientFilter(pawn);
         }
         public virtual bool IsSatisfied(Pawn pawn)
@@ -22,9 +48,28 @@ namespace WantsAndQuirks
             return !IsSatisfied(pawn);
         }
 
-        public virtual bool IsCompleted(Pawn pawn, WantTriggerType triggerType)
+        public virtual bool IsCompleted(Pawn pawn, WantWorkerContext context)
         {
             return IsSatisfied(pawn);
         }
+
+        public virtual Pawn GetRandomTargetPawn(Pawn pawn)
+        {
+            return null;
+        }
+
+        public virtual bool IsSatisfiedWithPawnTarget(Pawn pawn, Pawn targetPawn)
+        {
+            return false;
+        }
+
+        public virtual Def GetRandomTarget(Pawn pawn)
+        {
+            return null;
+        }
+
+        public virtual bool IsTargetDiscovered(Def target) => false;
+
+        public virtual bool IsSatisfiedWithTarget(Pawn pawn, Def targetDef) => false;
     }
 }

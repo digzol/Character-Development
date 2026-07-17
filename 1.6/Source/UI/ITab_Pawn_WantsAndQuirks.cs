@@ -88,11 +88,11 @@ namespace WantsAndQuirks
 
                 var textRect = new Rect(iconRect.xMax + 15f, wantRect.y + 10, wantRect.width - 70f - 140f, wantRect.height - 10f);
                 Text.Font = GameFont.Small;
-                Widgets.Label(new Rect(textRect.x, textRect.y, textRect.width, 32f), $"<i>{want.def.LabelCap}</i>");
+                Widgets.Label(new Rect(textRect.x, textRect.y, textRect.width, 32f), $"<i>{want.LabelCap}</i>");
 
                 Text.Font = GameFont.Tiny;
                 GUI.color = new Color(0.9f, 0.9f, 0.9f);
-                Widgets.Label(new Rect(textRect.x, textRect.y + 20f, textRect.width, textRect.height - 20f), want.def.description);
+                Widgets.Label(new Rect(textRect.x, textRect.y + 20f, textRect.width, textRect.height - 20f), want.Description);
                 GUI.color = Color.white;
 
                 var infoRect = new Rect(wantRect.xMax - 140f, wantRect.y + 15f, 110f, 50f);

@@ -26,6 +26,16 @@ namespace WantsAndQuirks
         public List<TraitDef> targetTraits;
         public QualityCategory targetQuality;
         public int opinionThreshold;
+        public ThingDef discoveryRequirementThing;
+        public FactionDef discoveryRequirementFaction;
+        public XenotypeDef discoveryRequirementXenotype;
+        public RecordDef targetRecord;
+        public SkillDef targetSkill;
+        public int skillLevelThreshold;
+        public JoyKindDef joyKind;
+        public PreceptDef targetRitual;
+        public string targetRitualRole;
+        public bool isMentalBreakWant;
 
         [Unsaved(false)]
         private WantWorker workerInt;

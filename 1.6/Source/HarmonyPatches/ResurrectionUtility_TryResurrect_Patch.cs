@@ -11,7 +11,7 @@ namespace WantsAndQuirks
         {
             if (__result && pawn.CanHaveWants())
             {
-                WantsAndQuirksUtility.CheckWants(pawn, WantTriggerType.Resurrected);
+                WantsAndQuirksUtility.CheckWants(pawn, new WantWorkerContext(triggerType: WantTriggerType.Resurrected));
             }
         }
     }
