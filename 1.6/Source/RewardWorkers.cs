@@ -40,11 +40,19 @@ namespace WantsAndQuirks
     {
         public override void OnAcquired(Pawn pawn, Quirk quirk)
         {
-            var inspirationDef = pawn.mindState.inspirationHandler.GetRandomAvailableInspirationDef();
+            var inspirationDef = def.inspirationDef ?? pawn.mindState.inspirationHandler.GetRandomAvailableInspirationDef();
             if (inspirationDef != null)
             {
                 pawn.mindState.inspirationHandler.TryStartInspiration(inspirationDef);
             }
+        }
+    }
+
+    public class RewardWorker_ImproveComposure : RewardWorker
+    {
+        public override void OnAcquired(Pawn pawn, Quirk quirk)
+        {
+            TherapyCompat.ImproveComposure(pawn);
         }
     }
 

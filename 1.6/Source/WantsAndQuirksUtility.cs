@@ -131,7 +131,7 @@ namespace WantsAndQuirks
 
         public static bool GenerateRandomWant(Pawn pawn, PawnWantsData data, bool sendNotification = true)
         {
-            var availableDefs = DefDatabase<WantDef>.AllDefs.Where(x => !data.activeWants.Any(w => w.def == x) && x.Worker.CanGenerate(pawn)).ToList();
+            var availableDefs = DefDatabase<WantDef>.AllDefs.Where(x => !data.activeWants.Any(w => w.def == x) && x.Worker.CanHaveWant(pawn) && x.Worker.CanGenerate(pawn)).ToList();
             if (availableDefs.TryRandomElementByWeight(x => x.commonality, out var chosenDef))
             {
                 AddWant(pawn, data, chosenDef, sendNotification);

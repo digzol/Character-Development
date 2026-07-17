@@ -49,7 +49,7 @@
         <defName>WQ_RewardSkill_Plants</defName>
         <iconPath>UI/RewardIcons/PlantsSkill</iconPath>
         <label>improve plants</label>
-        <description>Increases the Plants skill by 1 level.</description>
+        <description>Increases the plants skill by 1 level.</description>
         <skill>Plants</skill>
     </WantsAndQuirks.RewardDef>
 
@@ -127,6 +127,76 @@
         <iconPath>UI/Icons/Medical/IconImmune</iconPath>
         <rarity>Uncommon</rarity>
         <workerClass>WantsAndQuirks.RewardWorker_RandomInspiration</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef>
+        <defName>WQ_RewardInspiration_GoFrenzy</defName>
+        <label>go frenzy</label>
+        <description>Grants a go frenzy.</description>
+        <iconPath>UI/Icons/Medical/IconImmune</iconPath>
+        <rarity>Rare</rarity>
+        <workerClass>WantsAndQuirks.RewardWorker_RandomInspiration</workerClass>
+        <inspirationDef>Frenzy_Go</inspirationDef>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef>
+        <defName>WQ_RewardInspiration_WorkFrenzy</defName>
+        <label>work frenzy</label>
+        <description>Grants a work frenzy.</description>
+        <iconPath>UI/Icons/Medical/IconImmune</iconPath>
+        <rarity>Rare</rarity>
+        <workerClass>WantsAndQuirks.RewardWorker_RandomInspiration</workerClass>
+        <inspirationDef>Frenzy_Work</inspirationDef>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef>
+        <defName>WQ_RewardInspiration_ShootFrenzy</defName>
+        <label>shoot frenzy</label>
+        <description>Grants a shoot frenzy.</description>
+        <iconPath>UI/Icons/Medical/IconImmune</iconPath>
+        <rarity>Rare</rarity>
+        <workerClass>WantsAndQuirks.RewardWorker_RandomInspiration</workerClass>
+        <inspirationDef>Frenzy_Shoot</inspirationDef>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef>
+        <defName>WQ_RewardInspiration_Creativity</defName>
+        <label>inspired creativity</label>
+        <description>Grants inspired creativity.</description>
+        <iconPath>UI/Icons/Medical/IconImmune</iconPath>
+        <rarity>Rare</rarity>
+        <workerClass>WantsAndQuirks.RewardWorker_RandomInspiration</workerClass>
+        <inspirationDef>Inspired_Creativity</inspirationDef>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef>
+        <defName>WQ_RewardInspiration_Recruitment</defName>
+        <label>inspired recruitment</label>
+        <description>Grants inspired recruitment.</description>
+        <iconPath>UI/Icons/Medical/IconImmune</iconPath>
+        <rarity>Rare</rarity>
+        <workerClass>WantsAndQuirks.RewardWorker_RandomInspiration</workerClass>
+        <inspirationDef>Inspired_Recruitment</inspirationDef>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef>
+        <defName>WQ_RewardInspiration_Taming</defName>
+        <label>inspired taming</label>
+        <description>Grants inspired taming.</description>
+        <iconPath>UI/Icons/Medical/IconImmune</iconPath>
+        <rarity>Rare</rarity>
+        <workerClass>WantsAndQuirks.RewardWorker_RandomInspiration</workerClass>
+        <inspirationDef>Inspired_Taming</inspirationDef>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef>
+        <defName>WQ_RewardInspiration_Trade</defName>
+        <label>inspired trade</label>
+        <description>Grants inspired trade.</description>
+        <iconPath>UI/Icons/Medical/IconImmune</iconPath>
+        <rarity>Rare</rarity>
+        <workerClass>WantsAndQuirks.RewardWorker_RandomInspiration</workerClass>
+        <inspirationDef>Inspired_Trade</inspirationDef>
     </WantsAndQuirks.RewardDef>
 
     <WantsAndQuirks.RewardDef>
@@ -213,6 +283,15 @@
         <iconPath>UI/Icons/Medical/IconImmune</iconPath>
         <rarity>Rare</rarity>
         <workerClass>WantsAndQuirks.RewardWorker_RandomPassion</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="ferny.ProgressionTherapy">
+        <defName>WQ_RewardImproveComposure</defName>
+        <label>improve composure</label>
+        <description>Improves composure by 5%.</description>
+        <iconPath>UI/Icons/Medical/IconImmune</iconPath>
+        <rarity>Common</rarity>
+        <workerClass>WantsAndQuirks.RewardWorker_ImproveComposure</workerClass>
     </WantsAndQuirks.RewardDef>
 
     <WantsAndQuirks.RewardDef>

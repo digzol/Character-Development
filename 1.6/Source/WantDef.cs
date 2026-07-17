@@ -18,6 +18,7 @@ namespace WantsAndQuirks
         public TechLevel minimumTechLevel = TechLevel.Undefined;
         public TechLevel maximumTechLevel = TechLevel.Undefined;
         public string fulfilledText;
+        public HediffDef targetHediff;
 
         [Unsaved(false)]
         private WantWorker workerInt;

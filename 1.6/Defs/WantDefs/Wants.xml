@@ -57,6 +57,18 @@
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef>
+        <defName>WQ_WantBiggerRoom</defName>
+        <label>bigger room</label>
+        <description>I want a bigger room.</description>
+        <iconPath>UI/WantIcons/Bedroom</iconPath>
+        <reward>1000</reward>
+        <commonality>1</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_RoomStat</workerClass>
+        <roomStat>Space</roomStat>
+        <roomStatThreshold>100</roomStatThreshold>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
         <defName>WQ_WantBionic</defName>
         <label>get a bionic</label>
         <description>I want a bionic implant installed on me.</description>
@@ -202,6 +214,100 @@
         <reward>2000</reward>
         <commonality>0.5</commonality>
         <workerClass>WantsAndQuirks.WantWorker_BecomeParent</workerClass>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef MayRequire="Ludeon.RimWorld.Royalty">
+        <defName>WQ_WantBecomeNoble</defName>
+        <label>become noble</label>
+        <description>I want to be a noble.</description>
+        <iconPath>UI/WantIcons/Bionic</iconPath>
+        <reward>2000</reward>
+        <commonality>0.5</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_BecomeNoble</workerClass>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef MayRequire="Ludeon.RimWorld.Ideology">
+        <defName>WQ_WantBecomeIdeologicalFigure</defName>
+        <label>become an ideological figure</label>
+        <description>I want a role in our ideoligion.</description>
+        <iconPath>UI/WantIcons/Catharsis</iconPath>
+        <reward>2000</reward>
+        <commonality>0.5</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_BecomeIdeologicalFigure</workerClass>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef MayRequire="Ludeon.RimWorld.Ideology">
+        <defName>WQ_WantBecomeLeader</defName>
+        <label>become leader</label>
+        <description>I want to lead our ideoligion.</description>
+        <iconPath>UI/WantIcons/Catharsis</iconPath>
+        <reward>3000</reward>
+        <commonality>0.2</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_BecomeLeader</workerClass>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef MayRequire="Ludeon.RimWorld.Biotech">
+        <defName>WQ_WantBecomeMechanitor</defName>
+        <label>become a mechanitor</label>
+        <description>I want to be a mechanitor.</description>
+        <iconPath>UI/WantIcons/Bionic</iconPath>
+        <reward>2500</reward>
+        <commonality>0.5</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_HasHediff</workerClass>
+        <targetHediff>MechlinkImplant</targetHediff>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef MayRequire="Ludeon.RimWorld.Biotech">
+        <defName>WQ_WantFormPsychicBond</defName>
+        <label>form a psychic bond</label>
+        <description>I want a psychic bond with my partner.</description>
+        <iconPath>UI/WantIcons/Lovin</iconPath>
+        <reward>2000</reward>
+        <commonality>0.5</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_HasHediff</workerClass>
+        <targetHediff>PsychicBond</targetHediff>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantCureCataracts</defName>
+        <label>cure cataracts</label>
+        <description>I want my cataracts removed.</description>
+        <iconPath>UI/WantIcons/Bionic</iconPath>
+        <reward>1500</reward>
+        <commonality>1</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_CureHediff</workerClass>
+        <targetHediff>Cataract</targetHediff>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantCureHearingLoss</defName>
+        <label>cure hearing loss</label>
+        <description>I want my hearing fixed.</description>
+        <iconPath>UI/WantIcons/Bionic</iconPath>
+        <reward>1500</reward>
+        <commonality>1</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_CureHediff</workerClass>
+        <targetHediff>HearingLoss</targetHediff>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef MayRequire="ferny.ProgressionTherapy">
+        <defName>WQ_WantImproveComposure</defName>
+        <label>improve composure</label>
+        <description>I want better composure.</description>
+        <iconPath>UI/WantIcons/Catharsis</iconPath>
+        <reward>1500</reward>
+        <commonality>0.8</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_ImproveComposure</workerClass>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef MayRequire="ferny.TraumaAndIntegrity">
+        <defName>WQ_WantResolveTraumaticTrait</defName>
+        <label>resolve traumatic trait</label>
+        <description>I want to lose my traumatic trait.</description>
+        <iconPath>UI/WantIcons/Catharsis</iconPath>
+        <reward>2500</reward>
+        <commonality>0.5</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_ResolveTraumaticTrait</workerClass>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef>

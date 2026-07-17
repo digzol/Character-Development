@@ -23,6 +23,7 @@ namespace WantsAndQuirks
         public bool requiresItem;
         public ThoughtDef thought;
         public SkillDef skill;
+        public InspirationDef inspirationDef;
 
         [Unsaved(false)]
         private RewardWorker workerInt;
