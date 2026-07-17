@@ -69,13 +69,12 @@ namespace WantsAndQuirks
         {
             if (!p.RaceProps.Humanlike)
                 return;
-            var data = p.GetWantsData();
             var options = new List<DebugMenuOption>();
             foreach (var def in DefDatabase<RewardDef>.AllDefs.OrderBy(d => d.label))
             {
                 options.Add(new DebugMenuOption(def.LabelCap, DebugMenuOptionMode.Action, () =>
                 {
-                    WantsAndQuirksUtility.AddQuirk(p, data, def);
+                    WantsAndQuirksUtility.AddQuirk(p, def, null);
                 }));
             }
             Find.WindowStack.Add(new Dialog_DebugOptionListLister(options));

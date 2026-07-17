@@ -99,11 +99,11 @@ namespace WantsAndQuirks
         {
             if (rarity == RewardRarity.Legendary)
             {
-                return 0.02f;
+                return 0.008f;
             }
             if (rarity == RewardRarity.Rare)
             {
-                return 0.1f;
+                return 0.05f;
             }
             if (rarity == RewardRarity.Uncommon)
             {
@@ -132,20 +132,19 @@ namespace WantsAndQuirks
             return false;
         }
 
-        public static void AddQuirk(Pawn pawn, PawnWantsData data, RewardDef def)
+        public static void AddQuirk(Pawn pawn, RewardDef def, ThingDef item)
         {
+            var data = pawn.GetWantsData();
+            if (data.quirks.Any(q => q.def == def))
+            {
+                return;
+            }
+            var quirk = new Quirk(def, item);
             if (def.isQuirk)
             {
-                if (data.quirks.Any(q => q.def == def))
-                {
-                    return;
-                }
-                var quirk = new Quirk(def);
-                data.quirks.Add(quirk);
-                def.Worker.OnAcquired(pawn, quirk);
+                pawn.GetWantsData().quirks.Add(quirk);
             }
-            else
-                def.Worker.OnAcquired(pawn, null);
+            def.Worker.OnAcquired(pawn, quirk);
         }
 
         public static void TickWants(Pawn pawn)

@@ -75,7 +75,7 @@ namespace WantsAndQuirks
     {
         public override bool TryGenerateItem(Map map, out ThingDef item)
         {
-            return map.listerThings.ThingsInGroup(ThingRequestGroup.FoodSourceNotPlantOrTree).Select(t => t.def).Where(d => d.IsNutritionGivingIngestible).Distinct().TryRandomElement(out item);
+            return map.listerThings.ThingsInGroup(ThingRequestGroup.FoodSourceNotPlantOrTree).Select(t => t.def).Where(d => d.IsNutritionGivingIngestible && d.IsCorpse is false).Distinct().TryRandomElement(out item);
         }
 
         public override void Notify_Ingested(Pawn pawn, Quirk quirk, Thing ingestible)

@@ -1,12 +1,11 @@
 using System;
-using System.Collections.Generic;
 using RimWorld;
 using UnityEngine;
 using Verse;
 
 namespace WantsAndQuirks
 {
-    public class WantDef : Def
+    public class WantDef : WQ_BaseDef
     {
         public Type workerClass = typeof(WantWorker);
         public string iconPath;
@@ -15,11 +14,6 @@ namespace WantsAndQuirks
         public ThoughtDef completedByThought;
         public RoomStatDef roomStat;
         public float roomStatThreshold;
-        public List<XenotypeDef> invalidXenotypes;
-        public List<XenotypeDef> requiredXenotypes;
-        public List<TraitDef> invalidTraits;
-        public List<GeneDef> invalidGenes;
-        public bool invalidNonViolent;
         public TechLevel minimumTechLevel = TechLevel.Undefined;
         public TechLevel maximumTechLevel = TechLevel.Undefined;
         public string fulfilledText;

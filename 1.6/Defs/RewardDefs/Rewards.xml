@@ -9,7 +9,7 @@
         <defName>WQ_RewardSkill_Shooting</defName>
         <iconPath>UI/RewardIcons/ShootingSkill</iconPath>
         <label>improve shooting</label>
-        <description>Increases the Shooting skill by 1 level.</description>
+        <description>Increases the shooting skill by 1 level.</description>
         <skill>Shooting</skill>
     </WantsAndQuirks.RewardDef>
 
@@ -17,7 +17,7 @@
         <defName>WQ_RewardSkill_Melee</defName>
         <iconPath>UI/RewardIcons/MeleeSkill</iconPath>
         <label>improve melee</label>
-        <description>Increases the Melee skill by 1 level.</description>
+        <description>Increases the melee skill by 1 level.</description>
         <skill>Melee</skill>
     </WantsAndQuirks.RewardDef>
 
@@ -25,7 +25,7 @@
         <defName>WQ_RewardSkill_Construction</defName>
         <iconPath>UI/RewardIcons/ConstructionSkill</iconPath>
         <label>improve construction</label>
-        <description>Increases the Construction skill by 1 level.</description>
+        <description>Increases the construction skill by 1 level.</description>
         <skill>Construction</skill>
     </WantsAndQuirks.RewardDef>
 
@@ -33,7 +33,7 @@
         <defName>WQ_RewardSkill_Mining</defName>
         <iconPath>UI/RewardIcons/MiningSkill</iconPath>
         <label>improve mining</label>
-        <description>Increases the Mining skill by 1 level.</description>
+        <description>Increases the mining skill by 1 level.</description>
         <skill>Mining</skill>
     </WantsAndQuirks.RewardDef>
 
@@ -41,7 +41,7 @@
         <defName>WQ_RewardSkill_Cooking</defName>
         <iconPath>UI/RewardIcons/CookingSkill</iconPath>
         <label>improve cooking</label>
-        <description>Increases the Cooking skill by 1 level.</description>
+        <description>Increases the cooking skill by 1 level.</description>
         <skill>Cooking</skill>
     </WantsAndQuirks.RewardDef>
 
@@ -57,7 +57,7 @@
         <defName>WQ_RewardSkill_Animals</defName>
         <iconPath>UI/RewardIcons/AnimalsSkill</iconPath>
         <label>improve animals</label>
-        <description>Increases the Animals skill by 1 level.</description>
+        <description>Increases the animals skill by 1 level.</description>
         <skill>Animals</skill>
     </WantsAndQuirks.RewardDef>
 
@@ -65,7 +65,7 @@
         <defName>WQ_RewardSkill_Crafting</defName>
         <iconPath>UI/RewardIcons/CraftingSkill</iconPath>
         <label>improve crafting</label>
-        <description>Increases the Crafting skill by 1 level.</description>
+        <description>Increases the crafting skill by 1 level.</description>
         <skill>Crafting</skill>
     </WantsAndQuirks.RewardDef>
 
@@ -73,7 +73,7 @@
         <defName>WQ_RewardSkill_Artistic</defName>
         <iconPath>UI/RewardIcons/ArtisticSkill</iconPath>
         <label>improve artistic</label>
-        <description>Increases the Artistic skill by 1 level.</description>
+        <description>Increases the artistic skill by 1 level.</description>
         <skill>Artistic</skill>
     </WantsAndQuirks.RewardDef>
 
@@ -81,7 +81,7 @@
         <defName>WQ_RewardSkill_Medicine</defName>
         <iconPath>UI/RewardIcons/MedicineSkill</iconPath>
         <label>improve medicine</label>
-        <description>Increases the Medicine skill by 1 level.</description>
+        <description>Increases the medicine skill by 1 level.</description>
         <skill>Medicine</skill>
     </WantsAndQuirks.RewardDef>
 
@@ -89,7 +89,7 @@
         <defName>WQ_RewardSkill_Social</defName>
         <iconPath>UI/RewardIcons/SocialSkill</iconPath>
         <label>improve social</label>
-        <description>Increases the Social skill by 1 level.</description>
+        <description>Increases the social skill by 1 level.</description>
         <skill>Social</skill>
     </WantsAndQuirks.RewardDef>
 
@@ -97,7 +97,7 @@
         <defName>WQ_RewardSkill_Intellectual</defName>
         <iconPath>UI/RewardIcons/IntellectualSkill</iconPath>
         <label>improve intellectual</label>
-        <description>Increases the Intellectual skill by 1 level.</description>
+        <description>Increases the intellectual skill by 1 level.</description>
         <skill>Intellectual</skill>
     </WantsAndQuirks.RewardDef>
 

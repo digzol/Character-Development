@@ -27,7 +27,7 @@ namespace WantsAndQuirks
         private bool wasDraggingNode;
         private bool hasSignificantDrag;
 
-        public override Vector2 RequestedTabSize => new Vector2(1000f, 400f);
+        public override Vector2 RequestedTabSize => new Vector2(1200f, 600f);
 
         public override void PreOpen()
         {
@@ -398,15 +398,19 @@ namespace WantsAndQuirks
                 GUI.DrawTexture(nodeRect, BubbleTex);
                 GUI.color = Color.white;
 
-                var iconRect = new Rect(nodeCenter.x - 12f, nodeCenter.y - 18f, 24f, 24f);
-                if (node.def.Icon != BaseContent.WhiteTex && node.def.Icon != null)
+                var iconSize = r * (0.6f + (r / 140f) * 0.35f);
+                var iconRect = new Rect(nodeCenter.x - iconSize / 2f, nodeCenter.y - iconSize * 0.8f, iconSize, iconSize);
+                if (node.def.requiresItem && node.item != null && node.item.uiIcon != null)
+                {
+                    GUI.DrawTexture(iconRect, node.item.uiIcon);
+                }
+                else if (node.def.Icon != BaseContent.WhiteTex && node.def.Icon != null)
                 {
                     GUI.DrawTexture(iconRect, node.def.Icon);
                 }
                 Text.Anchor = TextAnchor.MiddleCenter;
-
-                var textRect = new Rect(nodeRect.x, nodeCenter.y - 5, nodeRect.width, nodeRect.height);
-                Text.Font = r > 30f ? GameFont.Small : GameFont.Tiny;
+                var textRect = new Rect(nodeRect.x - 5, nodeCenter.y, nodeRect.width + 5, nodeRect.height / 2f);
+                Text.Font = GameFont.Tiny;
                 Widgets.Label(textRect, node.LabelCap);
                 TooltipHandler.TipRegion(nodeRect, $"{node.LabelCap}\n\n{node.Description}");
                 Text.Anchor = TextAnchor.UpperLeft;
@@ -431,14 +435,14 @@ namespace WantsAndQuirks
             switch (rarity)
             {
                 case RewardRarity.Legendary:
-                    return 70f;
+                    return 90f;
                 case RewardRarity.Rare:
-                    return 50f;
+                    return 70f;
                 case RewardRarity.Uncommon:
-                    return 35f;
+                    return 60f;
                 case RewardRarity.Common:
                 default:
-                    return 20f;
+                    return 40f;
             }
         }
 

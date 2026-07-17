@@ -13,6 +13,11 @@ namespace WantsAndQuirks
             return !def.requiresItem;
         }
 
+        public virtual bool CanBestowOn(Pawn pawn)
+        {
+            return def.PassesRecipientFilter(pawn);
+        }
+
         public virtual void OnAcquired(Pawn pawn, Quirk quirk)
         {
         }

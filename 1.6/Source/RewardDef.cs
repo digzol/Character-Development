@@ -13,7 +13,7 @@ namespace WantsAndQuirks
         Legendary
     }
 
-    public class RewardDef : Def
+    public class RewardDef : WQ_BaseDef
     {
         public Type workerClass = typeof(RewardWorker);
         public RewardRarity rarity = RewardRarity.Common;
