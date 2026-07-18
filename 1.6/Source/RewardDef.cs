@@ -45,6 +45,17 @@ namespace WantsAndQuirks
             }
         }
 
-        public Texture2D Icon => iconInt ??= ContentFinder<Texture2D>.Get(iconPath, true);
+        public Texture2D Icon
+        {
+            get
+            {
+                var path = iconPath;
+                if (path.NullOrEmpty() && gene != null)
+                {
+                    path = gene.iconPath;
+                }
+                return iconInt ??= ContentFinder<Texture2D>.Get(path, true);
+            }
+        }
     }
 }

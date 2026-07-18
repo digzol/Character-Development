@@ -34,4 +34,7 @@
   <WQ_MentalBreakWantReplaced>{PAWN_labelShort} developed an obsessive want due to a mental break: {1} (replaced {PAWN_possessive} want: {2}).</WQ_MentalBreakWantReplaced>
   <WQ_MentalBreakWantAdded>{PAWN_labelShort} developed an obsessive want due to a mental break: {1}.</WQ_MentalBreakWantAdded>
   <WQ_ConfirmRemoveQuirk>Are you sure you want to remove the quirk {0}?</WQ_ConfirmRemoveQuirk>
+  <WQ_NoValidRecipients>There are no valid possible recipients for this reward.</WQ_NoValidRecipients>
+  <WQ_WantsSubtitle>These desires can be fulfilled at any time, and do not expire.</WQ_WantsSubtitle>
+  <WQ_AddQuirks>Add quirks</WQ_AddQuirks>
 </LanguageData>

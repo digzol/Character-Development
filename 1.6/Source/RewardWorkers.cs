@@ -48,6 +48,13 @@ namespace WantsAndQuirks
 
     public class RewardWorker_Inspiration : RewardWorker
     {
+        public override bool CanBestowOn(Pawn pawn, ThingDef item = null, Pawn targetPawn = null)
+        {
+            if (pawn.Inspiration != null)
+                return false;
+            return base.CanBestowOn(pawn, item, targetPawn);
+        }
+
         public override void OnAcquired(Pawn pawn, Quirk quirk)
         {
             var inspirationDef = def.inspirationDef ?? pawn.mindState.inspirationHandler.GetRandomAvailableInspirationDef();

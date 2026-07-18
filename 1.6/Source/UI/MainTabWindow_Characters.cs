@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -489,7 +490,16 @@ namespace WantsAndQuirks
                 return;
             }
 
-            Find.WindowStack.Add(new Dialog_BestowReward(node, this));
+            var recipients = PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_OfPlayerFaction
+                .Where(p => p.CanHaveWants() && node.def.Worker.CanBestowOn(p, node.item, node.pawnTarget)).ToList();
+
+            if (recipients.Count == 0)
+            {
+                Messages.Message("WQ_NoValidRecipients".Translate(), MessageTypeDefOf.RejectInput, false);
+                return;
+            }
+
+            Find.WindowStack.Add(new Dialog_BestowReward(node, this, recipients));
         }
     }
 }

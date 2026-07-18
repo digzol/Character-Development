@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
 using UnityEngine;
@@ -11,14 +12,16 @@ namespace WantsAndQuirks
     {
         private readonly RewardNode node;
         private readonly MainTabWindow_Characters parentWindow;
+        private readonly List<Pawn> recipients;
         private Vector2 scrollPos;
 
         public override Vector2 InitialSize => new Vector2(450f, 600f);
 
-        public Dialog_BestowReward(RewardNode node, MainTabWindow_Characters parentWindow)
+        public Dialog_BestowReward(RewardNode node, MainTabWindow_Characters parentWindow, List<Pawn> recipients)
         {
             this.node = node;
             this.parentWindow = parentWindow;
+            this.recipients = recipients;
             forcePause = true;
             absorbInputAroundWindow = true;
             closeOnClickedOutside = true;
@@ -37,17 +40,14 @@ namespace WantsAndQuirks
             var descHeight = Text.CalcHeight(description, inRect.width);
             Widgets.Label(new Rect(0f, 35f, inRect.width, descHeight), description);
 
-            var pawns = PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_OfPlayerFaction
-                .Where(p => p.CanHaveWants() && node.def.Worker.CanBestowOn(p, node.item, node.pawnTarget)).ToList();
-
             var listTop = 35f + descHeight + 10f;
             var listRect = new Rect(0f, listTop, inRect.width, inRect.height - listTop - 50f);
             var rowHeight = 50f;
-            var viewRect = new Rect(0f, 0f, listRect.width - 16f, pawns.Count * rowHeight);
+            var viewRect = new Rect(0f, 0f, listRect.width - 16f, recipients.Count * rowHeight);
 
             Widgets.BeginScrollView(listRect, ref scrollPos, viewRect);
             var curY = 0f;
-            foreach (var p in pawns)
+            foreach (var p in recipients)
             {
                 var rowRect = new Rect(0f, curY, viewRect.width, rowHeight - 4f);
 

@@ -59,7 +59,13 @@ namespace WantsAndQuirks
 
             Text.Font = GameFont.Medium;
             Widgets.Label(new Rect(rect.x, curY, rect.width, 30f), "WQ_PawnWants".Translate(pawn));
-            curY += 35f;
+            curY += 30f;
+
+            Text.Font = GameFont.Tiny;
+            GUI.color = Color.gray;
+            Widgets.Label(new Rect(rect.x, curY, rect.width, 20f), "WQ_WantsSubtitle".Translate());
+            GUI.color = Color.white;
+            curY += 20f;
 
             if (data.activeWants.Count == 0)
             {
@@ -148,6 +154,15 @@ namespace WantsAndQuirks
             Text.Font = GameFont.Medium;
             Widgets.Label(new Rect(rect.x, curY, rect.width, 30f), "WQ_Quirks".Translate());
             curY += 30f;
+            Text.Font = GameFont.Small;
+
+            var redirectBtnRect = new Rect(rect.x, curY, rect.width, 18f);
+            if (Widgets.ButtonText(redirectBtnRect, "WQ_AddQuirks".Translate()))
+            {
+                Find.MainTabsRoot.SetCurrentTab(DefsOf.WQ_CharactersMenu);
+                SoundDefOf.Click.PlayOneShotOnCamera();
+            }
+            curY += 20f;
 
             var listRect = new Rect(rect.x, curY, rect.width, rect.height - (curY - rect.y));
             Widgets.DrawBoxSolid(listRect, QuirkContainerColor);

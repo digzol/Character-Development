@@ -18,6 +18,7 @@ namespace WantsAndQuirks
         [MayRequire("vanillaexpanded.vcooking")]
         public static JoyKindDef VCE_Confectionery;
         public static SoundDef WQ_WantCompleted;
+        public static MainButtonDef WQ_CharactersMenu;
         static DefsOf() => DefOfHelper.EnsureInitializedInCtor(typeof(DefsOf));
     }
 }
