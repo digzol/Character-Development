@@ -179,7 +179,11 @@ namespace WantsAndQuirks
                 rarity = RewardRarity.Uncommon;
             }
 
-            return GenerateNodeForRarity(existingNodes, rarity);
+            return GenerateNodeForRarity(existingNodes, rarity) ??
+            GenerateNodeForRarity(existingNodes, RewardRarity.Common) ??
+            GenerateNodeForRarity(existingNodes, RewardRarity.Uncommon) ??
+            GenerateNodeForRarity(existingNodes, RewardRarity.Rare) ??
+            GenerateNodeForRarity(existingNodes, RewardRarity.Legendary);
         }
 
         private static RewardNode GenerateNodeForRarity(List<RewardNode> existingNodes, RewardRarity rarity)

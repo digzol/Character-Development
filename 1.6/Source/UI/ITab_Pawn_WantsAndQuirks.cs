@@ -184,9 +184,13 @@ namespace WantsAndQuirks
                 GUI.color = Color.gray;
                 if (Widgets.ButtonText(btnRect, "x", drawBackground: false))
                 {
-                    data.quirks[i].def.Worker.OnRemoved(pawn, quirk);
-                    data.quirks.RemoveAt(i);
-                    SoundDefOf.Click.PlayOneShotOnCamera();
+                    var qIndex = i;
+                    Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("WQ_ConfirmRemoveQuirk".Translate(quirk.LabelCap), () =>
+                    {
+                        quirk.def.Worker.OnRemoved(pawn, quirk);
+                        data.quirks.RemoveAt(qIndex);
+                        SoundDefOf.Click.PlayOneShotOnCamera();
+                    }));
                     break;
                 }
                 GUI.color = Color.white;

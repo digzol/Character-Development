@@ -562,4 +562,22 @@ namespace WantsAndQuirks
             return context.triggerType == WantTriggerType.BondedWithAnimal;
         }
     }
+
+    public class WantWorker_DeadRival : WantWorker
+    {
+        public override bool CanGenerate(Pawn pawn) => GetRandomTargetPawn(pawn) != null && base.CanGenerate(pawn);
+
+        public override Pawn GetRandomTargetPawn(Pawn pawn)
+        {
+            if (pawn.MapHeld == null)
+                return null;
+            var potential = pawn.MapHeld.mapPawns.AllPawnsSpawned.Where(p => p != pawn && p.RaceProps.Humanlike && !p.Dead && pawn.relations.OpinionOf(p) <= -20 && !pawn.relations.RelatedPawns.Contains(p));
+            return potential.TryRandomElement(out var result) ? result : null;
+        }
+
+        public override bool IsSatisfiedWithPawnTarget(Pawn pawn, Pawn targetPawn)
+        {
+            return targetPawn == null || targetPawn.Dead || targetPawn.Destroyed;
+        }
+    }
 }

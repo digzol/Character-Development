@@ -604,17 +604,14 @@
 
     <WantsAndQuirks.WantDef>
         <defName>WQ_WantDeadRival</defName>
-        <label>dead rival</label>
-        <description>I want them dead.</description>
+        <label>dead rival {0}</label>
+        <description>I want {0} dead.</description>
         <iconPath>UI/WantIcons/Weapon</iconPath>
         <reward>2000</reward>
         <commonality>0.5</commonality>
-        <workerClass>WantsAndQuirks.WantWorker_ThoughtAny</workerClass>
-        <targetThoughts>
-            <li>PawnWithBadOpinionDied</li>
-            <li>KilledMyRival</li>
-        </targetThoughts>
+        <workerClass>WantsAndQuirks.WantWorker_DeadRival</workerClass>
         <isMentalBreakWant>true</isMentalBreakWant>
+        <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef>

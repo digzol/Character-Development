@@ -33,4 +33,5 @@
   <WQ_PassionGained>{0} gained a new passion for {1}.</WQ_PassionGained>
   <WQ_MentalBreakWantReplaced>{PAWN_labelShort} developed an obsessive want due to a mental break: {1} (replaced {PAWN_possessive} want: {2}).</WQ_MentalBreakWantReplaced>
   <WQ_MentalBreakWantAdded>{PAWN_labelShort} developed an obsessive want due to a mental break: {1}.</WQ_MentalBreakWantAdded>
+  <WQ_ConfirmRemoveQuirk>Are you sure you want to remove the quirk {0}?</WQ_ConfirmRemoveQuirk>
 </LanguageData>
