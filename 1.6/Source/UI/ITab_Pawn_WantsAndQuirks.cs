@@ -164,7 +164,11 @@ namespace WantsAndQuirks
                 Widgets.DrawBoxSolid(quirkRect, QuirkBgColor);
 
                 var iconRect = new Rect(quirkRect.x + 4f, quirkRect.y + 4f, 32f, 32f);
-                var tex = quirk.def.requiresItem && quirk.item?.uiIcon != null ? quirk.item.uiIcon : quirk.def.Icon;
+                Texture tex = quirk.def.requiresItem && quirk.item?.uiIcon != null ? quirk.item.uiIcon : quirk.def.Icon;
+                if (quirk.def.requiresPawn && quirk.pawnTarget != null)
+                {
+                    tex = PortraitsCache.Get(quirk.pawnTarget, new Vector2(32f, 32f), Rot4.South, cameraZoom: 1.2f);
+                }
                 if (tex != null)
                 {
                     GUI.DrawTexture(iconRect, tex);

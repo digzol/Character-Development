@@ -310,4 +310,70 @@
         <workerClass>WantsAndQuirks.RewardWorker_Inspiration</workerClass>
         <inspirationDef>Inspired_Surgery</inspirationDef>
     </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef>
+        <defName>WQ_Quirk_LikesRecreationBuilding</defName>
+        <label>likes {0}</label>
+        <description>Receives a mood boost when using {0}.</description>
+        <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
+        <iconPath>UI/Icons/Medical/IconImmune</iconPath>
+        <rarity>Common</rarity>
+        <isQuirk>true</isQuirk>
+        <requiresItem>true</requiresItem>
+        <workerClass>WantsAndQuirks.QuirkWorker_LikesRecreationBuilding</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef>
+        <defName>WQ_Quirk_LikesPerson</defName>
+        <label>likes {0}</label>
+        <description>Enjoys the company of {0}.</description>
+        <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
+        <iconPath>UI/Icons/Medical/IconImmune</iconPath>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <requiresPawn>true</requiresPawn>
+        <workerClass>WantsAndQuirks.RewardWorker_PawnRelation</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef>
+        <defName>WQ_Quirk_DislikesPerson</defName>
+        <label>dislikes {0}</label>
+        <description>Dislikes the company of {0}.</description>
+        <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
+        <iconPath>UI/Icons/Medical/IconImmune</iconPath>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <requiresPawn>true</requiresPawn>
+        <workerClass>WantsAndQuirks.RewardWorker_PawnRelation</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef>
+        <defName>WQ_Quirk_LovesPerson</defName>
+        <label>loves {0}</label>
+        <description>Loves the company of {0}.</description>
+        <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
+        <iconPath>UI/Icons/Medical/IconImmune</iconPath>
+        <rarity>Rare</rarity>
+        <isQuirk>true</isQuirk>
+        <requiresPawn>true</requiresPawn>
+        <workerClass>WantsAndQuirks.RewardWorker_PawnRelation</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef>
+        <defName>WQ_RewardRandomTrait</defName>
+        <label>random trait</label>
+        <description>Gains a random trait.</description>
+        <iconPath>UI/Icons/Medical/IconImmune</iconPath>
+        <rarity>Legendary</rarity>
+        <workerClass>WantsAndQuirks.RewardWorker_RandomTrait</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef>
+        <defName>WQ_RewardRemoveTrait</defName>
+        <label>remove trait</label>
+        <description>Removes a random trait.</description>
+        <iconPath>UI/Icons/Medical/IconImmune</iconPath>
+        <rarity>Legendary</rarity>
+        <workerClass>WantsAndQuirks.RewardWorker_RemoveTrait</workerClass>
+    </WantsAndQuirks.RewardDef>
 </Defs>

@@ -7,7 +7,7 @@ namespace WantsAndQuirks
 {
     public class RewardWorker_Skill : RewardWorker
     {
-        public override bool CanBestowOn(Pawn pawn, ThingDef item = null)
+        public override bool CanBestowOn(Pawn pawn, ThingDef item = null, Pawn targetPawn = null)
         {
             if (def.skill != null && (pawn.skills.GetSkill(def.skill).TotallyDisabled || pawn.skills.GetSkill(def.skill).Level >= 20))
             {
@@ -17,7 +17,7 @@ namespace WantsAndQuirks
             {
                 return false;
             }
-            return base.CanBestowOn(pawn, item);
+            return base.CanBestowOn(pawn, item, targetPawn);
         }
 
         public override void OnAcquired(Pawn pawn, Quirk quirk)
@@ -91,9 +91,9 @@ namespace WantsAndQuirks
 
     public class RewardWorker_HealScar : RewardWorker
     {
-        public override bool CanBestowOn(Pawn pawn, ThingDef item = null)
+        public override bool CanBestowOn(Pawn pawn, ThingDef item = null, Pawn targetPawn = null)
         {
-            return base.CanBestowOn(pawn, item) && pawn.health.hediffSet.hediffs.Any(h => h.IsPermanent());
+            return base.CanBestowOn(pawn, item, targetPawn) && pawn.health.hediffSet.hediffs.Any(h => h.IsPermanent());
         }
 
         public override void OnAcquired(Pawn pawn, Quirk quirk)
@@ -108,9 +108,9 @@ namespace WantsAndQuirks
 
     public class RewardWorker_RestoreBodyPart : RewardWorker
     {
-        public override bool CanBestowOn(Pawn pawn, ThingDef item = null)
+        public override bool CanBestowOn(Pawn pawn, ThingDef item = null, Pawn targetPawn = null)
         {
-            return base.CanBestowOn(pawn, item) && pawn.health.hediffSet.GetMissingPartsCommonAncestors().Any();
+            return base.CanBestowOn(pawn, item, targetPawn) && pawn.health.hediffSet.GetMissingPartsCommonAncestors().Any();
         }
 
         public override void OnAcquired(Pawn pawn, Quirk quirk)
@@ -125,9 +125,9 @@ namespace WantsAndQuirks
 
     public class RewardWorker_RandomPassion : RewardWorker
     {
-        public override bool CanBestowOn(Pawn pawn, ThingDef item = null)
+        public override bool CanBestowOn(Pawn pawn, ThingDef item = null, Pawn targetPawn = null)
         {
-            return base.CanBestowOn(pawn, item) && pawn.skills.skills.Any(s => s.passion != Passion.Major && !s.TotallyDisabled);
+            return base.CanBestowOn(pawn, item, targetPawn) && pawn.skills.skills.Any(s => s.passion != Passion.Major && !s.TotallyDisabled);
         }
 
         public override void OnAcquired(Pawn pawn, Quirk quirk)
@@ -154,9 +154,9 @@ namespace WantsAndQuirks
         {
             if (ingestible.def == quirk.item)
             {
-                if (ThoughtMaker.MakeThought(quirk.def.thought) is Thought_Memory_LikesFood thought)
+                if (ThoughtMaker.MakeThought(quirk.def.thought) is Thought_Memory_LikesThing thought)
                 {
-                    thought.foodDef = quirk.item;
+                    thought.thingDef = quirk.item;
                     pawn.needs?.mood?.thoughts?.memories?.TryGainMemory(thought);
                 }
                 else
@@ -183,6 +183,62 @@ namespace WantsAndQuirks
             var weapons = map.listerThings.ThingsInGroup(ThingRequestGroup.Weapon).Select(t => t.def);
             var eq = map.mapPawns.FreeColonists.SelectMany(p => p.equipment.AllEquipmentListForReading).Select(t => t.def);
             return weapons.Concat(eq).Distinct();
+        }
+    }
+
+    public class RewardWorker_PawnRelation : RewardWorker
+    {
+        public override IEnumerable<Pawn> GetValidPawns(Map map)
+        {
+            return map.mapPawns.FreeColonistsSpawned;
+        }
+
+        public override bool CanBestowOn(Pawn pawn, ThingDef item = null, Pawn targetPawn = null)
+        {
+            if (targetPawn == null || targetPawn == pawn)
+                return false;
+            return base.CanBestowOn(pawn, item, targetPawn);
+        }
+    }
+
+    public class QuirkWorker_LikesRecreationBuilding : RewardWorker
+    {
+        public override IEnumerable<ThingDef> GetValidItems(Map map)
+        {
+            return map.listerBuildings.allBuildingsColonist
+                .Select(b => b.def)
+                .Where(d => d.building?.joyKind != null)
+                .Distinct();
+        }
+    }
+
+    public class RewardWorker_RandomTrait : RewardWorker
+    {
+        public override void OnAcquired(Pawn pawn, Quirk quirk)
+        {
+            var traitDef = DefDatabase<TraitDef>.AllDefsListForReading.Where(t => !pawn.story.traits.HasTrait(t)).RandomElementWithFallback();
+            if (traitDef != null)
+            {
+                var degree = PawnGenerator.RandomTraitDegree(traitDef);
+                pawn.story.traits.GainTrait(new Trait(traitDef, degree));
+            }
+        }
+    }
+
+    public class RewardWorker_RemoveTrait : RewardWorker
+    {
+        public override bool CanBestowOn(Pawn pawn, ThingDef item = null, Pawn targetPawn = null)
+        {
+            return base.CanBestowOn(pawn, item, targetPawn) && pawn.story?.traits?.allTraits?.Any(t => !t.Suppressed) == true;
+        }
+
+        public override void OnAcquired(Pawn pawn, Quirk quirk)
+        {
+            var trait = pawn.story.traits.allTraits.Where(t => !t.Suppressed).RandomElementWithFallback();
+            if (trait != null)
+            {
+                pawn.story.traits.RemoveTrait(trait);
+            }
         }
     }
 }

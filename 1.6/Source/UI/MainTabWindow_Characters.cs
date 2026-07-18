@@ -419,6 +419,10 @@ namespace WantsAndQuirks
                 {
                     GUI.DrawTexture(iconRect, node.item.uiIcon);
                 }
+                else if (node.def.requiresPawn && node.pawnTarget != null)
+                {
+                    GUI.DrawTexture(iconRect, PortraitsCache.Get(node.pawnTarget, new Vector2(iconSize, iconSize), Rot4.South, cameraZoom: 1.2f));
+                }
                 else if (node.def.Icon != BaseContent.WhiteTex && node.def.Icon != null)
                 {
                     GUI.DrawTexture(iconRect, node.def.Icon);

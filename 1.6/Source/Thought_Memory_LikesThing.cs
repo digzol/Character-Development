@@ -3,16 +3,16 @@ using Verse;
 
 namespace WantsAndQuirks
 {
-    public class Thought_Memory_LikesFood : Thought_Memory
+    public class Thought_Memory_LikesThing : Thought_Memory
     {
-        public ThingDef foodDef;
+        public ThingDef thingDef;
 
         public override string LabelCap
         {
             get
             {
-                if (foodDef != null)
-                    return def.stages[0].label.Formatted(foodDef.label).CapitalizeFirst();
+                if (thingDef != null)
+                    return def.stages[0].label.Formatted(thingDef.label).CapitalizeFirst();
                 return base.LabelCap;
             }
         }
@@ -21,8 +21,8 @@ namespace WantsAndQuirks
         {
             get
             {
-                if (foodDef != null)
-                    return def.stages[0].description.Formatted(foodDef.label);
+                if (thingDef != null)
+                    return def.stages[0].description.Formatted(thingDef.label);
                 return base.Description;
             }
         }
@@ -30,7 +30,7 @@ namespace WantsAndQuirks
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Defs.Look(ref foodDef, "foodDef");
+            Scribe_Defs.Look(ref thingDef, "thingDef");
         }
     }
 }

@@ -152,7 +152,7 @@ namespace WantsAndQuirks
                 activeWants ??= new List<ActiveWant>();
                 quirks ??= new List<Quirk>();
                 activeWants.RemoveAll(w => w.def == null || (w is ActiveWantWithTarget t && t.targetDef == null) || (w is ActiveWantWithPawnTarget tp && tp.targetPawn == null));
-                quirks.RemoveAll(q => q.def == null || (q.def.requiresItem && q.item == null));
+                quirks.RemoveAll(q => q.def == null || (q.def.requiresItem && q.item == null) || (q.def.requiresPawn && q.pawnTarget == null));
             }
         }
     }

@@ -21,6 +21,7 @@ namespace WantsAndQuirks
         public HediffDef hediff;
         public bool isQuirk;
         public bool requiresItem;
+        public bool requiresPawn;
         public ThoughtDef thought;
         public SkillDef skill;
         public InspirationDef inspirationDef;

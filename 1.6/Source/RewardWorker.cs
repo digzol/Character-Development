@@ -13,7 +13,13 @@ namespace WantsAndQuirks
                 yield return null;
         }
 
-        public virtual bool CanBestowOn(Pawn pawn, ThingDef item = null)
+        public virtual IEnumerable<Pawn> GetValidPawns(Map map)
+        {
+            if (!def.requiresPawn)
+                yield break;
+        }
+
+        public virtual bool CanBestowOn(Pawn pawn, ThingDef item = null, Pawn targetPawn = null)
         {
             if (def.isQuirk)
             {
@@ -21,7 +27,7 @@ namespace WantsAndQuirks
                 for (int i = 0; i < quirks.Count; i++)
                 {
                     var q = quirks[i];
-                    if (q.def == def && q.item == item)
+                    if (q.def == def && q.item == item && q.pawnTarget == targetPawn)
                         return false;
                 }
             }

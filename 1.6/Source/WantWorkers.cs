@@ -322,7 +322,7 @@ namespace WantsAndQuirks
         public override bool CanGenerate(Pawn pawn) => GetRandomTarget(pawn) != null;
         public override Def GetRandomTarget(Pawn pawn)
         {
-            var undiscovered = DefDatabase<ThingDef>.AllDefsListForReading.Where(d => d.building != null && !DiscoveryCompat.IsDiscovered(d));
+            var undiscovered = DefDatabase<ThingDef>.AllDefsListForReading.Where(d => d.building != null && d.IsFrame is false && d.IsBlueprint is false && !DiscoveryCompat.IsDiscovered(d));
             return undiscovered.TryRandomElement(out var result) ? result : null;
         }
         public override bool IsTargetDiscovered(Def target) => target is ThingDef building && DiscoveryCompat.IsDiscovered(building);
@@ -440,6 +440,59 @@ namespace WantsAndQuirks
         {
             return context.triggerType == WantTriggerType.Traded;
         }
+    }
+
+    public class WantWorker_HostDinnerParty : WantWorker
+    {
+        public override bool IsCompleted(Pawn pawn, WantWorkerContext context) => context.triggerType == WantTriggerType.HostedParty;
+    }
+
+    public class WantWorker_SeeNewPlace : WantWorker
+    {
+        public override bool IsCompleted(Pawn pawn, WantWorkerContext context) => context.triggerType == WantTriggerType.SawNewPlace;
+    }
+
+    public class WantWorker_NewSettlement : WantWorker
+    {
+        public override bool IsCompleted(Pawn pawn, WantWorkerContext context) => context.triggerType == WantTriggerType.NewSettlement;
+    }
+
+    public class WantWorker_TakeSpecificDrug : WantWorker
+    {
+        public override Def GetRandomTarget(Pawn pawn)
+        {
+            var drugs = DefDatabase<ThingDef>.AllDefsListForReading.Where(d => d.IsDrug);
+            return drugs.TryRandomElement(out var result) ? result : null;
+        }
+
+        public override bool IsCompleted(Pawn pawn, WantWorkerContext context)
+        {
+            return context.triggerType == WantTriggerType.DrugIngested;
+        }
+    }
+
+    public class WantWorker_FallInLoveWithXenotype : WantWorker
+    {
+        public override Def GetRandomTarget(Pawn pawn)
+        {
+            var xenos = DefDatabase<XenotypeDef>.AllDefsListForReading;
+            return xenos.TryRandomElement(out var result) ? result : null;
+        }
+
+        public override bool IsCompleted(Pawn pawn, WantWorkerContext context)
+        {
+            return context.triggerType == WantTriggerType.FellInLove;
+        }
+    }
+
+    public class WantWorker_LeaveFaction : WantWorker
+    {
+        public override bool IsCompleted(Pawn pawn, WantWorkerContext context) => context.triggerType == WantTriggerType.LeftFaction;
+    }
+
+    public class WantWorker_Die : WantWorker
+    {
+        public override bool IsCompleted(Pawn pawn, WantWorkerContext context) => context.triggerType == WantTriggerType.Died;
     }
 
     public class WantWorker_NewEntertainmentBuilding : WantWorker

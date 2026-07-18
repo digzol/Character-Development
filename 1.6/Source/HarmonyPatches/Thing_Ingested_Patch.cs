@@ -12,7 +12,7 @@ namespace WantsAndQuirks
             {
                 if (__instance.def.IsDrug)
                 {
-                    WantsAndQuirksUtility.CheckWants(ingester, new WantWorkerContext(triggerType: WantTriggerType.DrugIngested));
+                    WantsAndQuirksUtility.CheckWants(ingester, new WantWorkerContext(triggerType: WantTriggerType.DrugIngested, contextDef: __instance.def));
                 }
                 if (__instance.def.IsIngestible)
                 {

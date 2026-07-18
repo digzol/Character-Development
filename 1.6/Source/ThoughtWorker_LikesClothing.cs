@@ -20,7 +20,7 @@ namespace WantsAndQuirks
                     for (int j = 0; j < worn.Count; j++)
                     {
                         if (worn[j].def == quirk.item)
-                            return true;
+                            return ThoughtState.ActiveAtStage(0, quirk.item.label);
                     }
                 }
             }

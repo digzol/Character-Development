@@ -21,7 +21,13 @@ namespace WantsAndQuirks
         RecipeCompleted,
         SkillIncreased,
         XenotypeChanged,
-        RitualCompleted
+        RitualCompleted,
+        HostedParty,
+        SawNewPlace,
+        NewSettlement,
+        FellInLove,
+        LeftFaction,
+        Died
     }
 
     public struct WantWorkerContext
@@ -207,16 +213,24 @@ namespace WantsAndQuirks
             if (validDefs.TryRandomElement(out var chosenDef))
             {
                 ThingDef chosenItem = null;
+                Pawn chosenPawn = null;
                 if (chosenDef.requiresItem)
                 {
                     var validItems = chosenDef.Worker.GetValidItems(map).Where(item => !existingNodes.Any(n => n.def == chosenDef && n.item == item));
                     chosenItem = validItems.RandomElement();
+                }
+                else if (chosenDef.requiresPawn)
+                {
+                    var validPawns = chosenDef.Worker.GetValidPawns(map).Where(p => !existingNodes.Any(n => n.def == chosenDef && n.pawnTarget == p));
+                    if (!validPawns.TryRandomElement(out chosenPawn))
+                        return null;
                 }
 
                 var node = new RewardNode
                 {
                     def = chosenDef,
                     item = chosenItem,
+                    pawnTarget = chosenPawn,
                     pos = new Vector2(Rand.Range(-100f, 100f), Rand.Range(-100f, 100f))
                 };
                 node.drawPos = node.pos;
@@ -264,14 +278,14 @@ namespace WantsAndQuirks
             return false;
         }
 
-        public static void AddQuirk(Pawn pawn, RewardDef def, ThingDef item)
+        public static void AddQuirk(Pawn pawn, RewardDef def, ThingDef item, Pawn targetPawn = null)
         {
             var data = pawn.GetWantsData();
-            if (data.quirks.Any(q => q.def == def && q.item == item))
+            if (data.quirks.Any(q => q.def == def && q.item == item && q.pawnTarget == targetPawn))
             {
                 return;
             }
-            var quirk = new Quirk(def, item);
+            var quirk = new Quirk(def, item, targetPawn);
             if (def.isQuirk)
             {
                 data.quirks.Add(quirk);

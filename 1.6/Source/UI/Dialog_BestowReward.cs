@@ -38,7 +38,7 @@ namespace WantsAndQuirks
             Widgets.Label(new Rect(0f, 35f, inRect.width, descHeight), description);
 
             var pawns = PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_OfPlayerFaction
-                .Where(p => p.CanHaveWants() && node.def.Worker.CanBestowOn(p, node.item)).ToList();
+                .Where(p => p.CanHaveWants() && node.def.Worker.CanBestowOn(p, node.item, node.pawnTarget)).ToList();
 
             var listTop = 35f + descHeight + 10f;
             var listRect = new Rect(0f, listTop, inRect.width, inRect.height - listTop - 50f);
@@ -54,7 +54,7 @@ namespace WantsAndQuirks
                 if (Widgets.ButtonInvisible(rowRect))
                 {
                     State.rewardPoints--;
-                    WantsAndQuirksUtility.AddQuirk(p, node.def, node.item);
+                    WantsAndQuirksUtility.AddQuirk(p, node.def, node.item, node.pawnTarget);
                     SoundDefOf.Quest_Succeded.PlayOneShotOnCamera();
 
                     if (WantsAndQuirksMod.settings.rerollBubblesOnSelection)

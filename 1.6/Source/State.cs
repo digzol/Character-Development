@@ -18,7 +18,7 @@ namespace WantsAndQuirks
 
             if (Scribe.mode == LoadSaveMode.PostLoadInit)
             {
-                rewardNodes.RemoveAll(n => n.def == null || (n.def.requiresItem && n.item == null));
+                rewardNodes.RemoveAll(n => n.def == null || (n.def.requiresItem && n.item == null) || (n.def.requiresPawn && n.pawnTarget == null));
                 for (int i = 0; i < rewardNodes.Count; i++)
                 {
                     rewardNodes[i].drawPos = rewardNodes[i].pos;

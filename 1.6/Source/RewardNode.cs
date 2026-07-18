@@ -7,6 +7,7 @@ namespace WantsAndQuirks
     {
         public RewardDef def;
         public ThingDef item;
+        public Pawn pawnTarget;
         public Vector2 pos;
         public Vector2 velocity;
         [Unsaved(false)]
@@ -18,10 +19,11 @@ namespace WantsAndQuirks
         {
             Scribe_Defs.Look(ref def, "def");
             Scribe_Defs.Look(ref item, "item");
+            Scribe_References.Look(ref pawnTarget, "pawnTarget");
             Scribe_Values.Look(ref pos, "pos");
         }
 
-        public string LabelCap => def.requiresItem ? string.Format(def.LabelCap, item.label).CapitalizeFirst() : def.LabelCap;
-        public string Description => def.requiresItem ? string.Format(def.description, item.label) : def.description;
+        public string LabelCap => def.requiresItem ? string.Format(def.LabelCap, item.label).CapitalizeFirst() : (def.requiresPawn && pawnTarget != null ? string.Format(def.LabelCap, pawnTarget.LabelShort).CapitalizeFirst() : def.LabelCap);
+        public string Description => def.requiresItem ? string.Format(def.description, item.label) : (def.requiresPawn && pawnTarget != null ? string.Format(def.description, pawnTarget.LabelShort) : def.description);
     }
 }

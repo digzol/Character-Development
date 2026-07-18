@@ -961,4 +961,80 @@
         <intensity>Minor</intensity>
         <workerClass>WantsAndQuirks.MentalBreakWorker_WantBreak</workerClass>
     </MentalBreakDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantHostDinnerParty</defName>
+        <label>host a party</label>
+        <description>I want to host a fun party.</description>
+        <iconPath>UI/WantIcons/Party</iconPath>
+        <reward>1000</reward>
+        <commonality>1</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_HostDinnerParty</workerClass>
+        <minimumTechLevel>Medieval</minimumTechLevel>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantSeeNewPlace</defName>
+        <label>see a new place</label>
+        <description>I want to travel and see a new place.</description>
+        <iconPath>UI/WantIcons/Discover</iconPath>
+        <reward>1200</reward>
+        <commonality>0.8</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_SeeNewPlace</workerClass>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantLiveNewSettlement</defName>
+        <label>live in a new settlement</label>
+        <description>I want us to pack up and settle somewhere new.</description>
+        <iconPath>UI/WantIcons/Discover</iconPath>
+        <reward>3000</reward>
+        <commonality>0.2</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_NewSettlement</workerClass>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantTakeSpecificDrug</defName>
+        <label>take {0}</label>
+        <description>I want to take some {0}.</description>
+        <iconPath>UI/WantIcons/Drugs</iconPath>
+        <reward>800</reward>
+        <commonality>1.5</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_TakeSpecificDrug</workerClass>
+        <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
+        <minimumTechLevel>Neolithic</minimumTechLevel>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef MayRequire="Ludeon.RimWorld.Biotech">
+        <defName>WQ_WantFallInLoveWithXenotype</defName>
+        <label>fall in love with a {0}</label>
+        <description>I want to fall in love with a {0}.</description>
+        <iconPath>UI/WantIcons/Lovin</iconPath>
+        <reward>2500</reward>
+        <commonality>0.5</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_FallInLoveWithXenotype</workerClass>
+        <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantLeaveFaction</defName>
+        <label>leave the faction</label>
+        <description>I want to leave this place forever.</description>
+        <iconPath>UI/WantIcons/Catharsis</iconPath>
+        <reward>3000</reward>
+        <commonality>0.1</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_LeaveFaction</workerClass>
+        <isMentalBreakWant>true</isMentalBreakWant>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantDie</defName>
+        <label>die</label>
+        <description>I want to die.</description>
+        <iconPath>UI/WantIcons/Catharsis</iconPath>
+        <reward>3000</reward>
+        <commonality>0.1</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_Die</workerClass>
+        <isMentalBreakWant>true</isMentalBreakWant>
+    </WantsAndQuirks.WantDef>
 </Defs>

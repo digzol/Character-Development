@@ -2,7 +2,7 @@
 <Defs>
   <ThoughtDef>
     <defName>WQ_Thought_LikesFood</defName>
-    <thoughtClass>WantsAndQuirks.Thought_Memory_LikesFood</thoughtClass>
+    <thoughtClass>WantsAndQuirks.Thought_Memory_LikesThing</thoughtClass>
     <durationDays>0.25</durationDays>
     <stages>
       <li>
@@ -19,7 +19,7 @@
     <validWhileDespawned>true</validWhileDespawned>
     <stages>
       <li>
-        <label>wearing liked clothing</label>
+        <label>wearing {0}</label>
         <description>I am wearing a piece of clothing that I really like!</description>
         <baseMoodEffect>3</baseMoodEffect>
       </li>
@@ -32,7 +32,7 @@
     <validWhileDespawned>true</validWhileDespawned>
     <stages>
       <li>
-        <label>wielding liked weapon</label>
+        <label>wielding {0}</label>
         <description>I am wielding a weapon that I really like!</description>
         <baseMoodEffect>3</baseMoodEffect>
       </li>
@@ -61,6 +61,58 @@
         <label>night owl</label>
         <description>I love the night!</description>
         <baseMoodEffect>5</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>WQ_Thought_LikesRecreationBuilding</defName>
+    <thoughtClass>WantsAndQuirks.Thought_Memory_LikesThing</thoughtClass>
+    <durationDays>0.25</durationDays>
+    <stages>
+      <li>
+        <label>used {0}</label>
+        <description>I used my favorite recreation building!</description>
+        <baseMoodEffect>3</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>WQ_Thought_LikesPerson</defName>
+    <thoughtClass>Thought_SituationalSocial</thoughtClass>
+    <workerClass>WantsAndQuirks.ThoughtWorker_Quirk_LikesPerson</workerClass>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>favorable opinion</label>
+        <baseOpinionOffset>15</baseOpinionOffset>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>WQ_Thought_DislikesPerson</defName>
+    <thoughtClass>Thought_SituationalSocial</thoughtClass>
+    <workerClass>WantsAndQuirks.ThoughtWorker_Quirk_DislikesPerson</workerClass>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>poor opinion</label>
+        <baseOpinionOffset>-15</baseOpinionOffset>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>WQ_Thought_LovesPerson</defName>
+    <thoughtClass>Thought_SituationalSocial</thoughtClass>
+    <workerClass>WantsAndQuirks.ThoughtWorker_Quirk_LovesPerson</workerClass>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>deep affection</label>
+        <baseOpinionOffset>30</baseOpinionOffset>
       </li>
     </stages>
   </ThoughtDef>

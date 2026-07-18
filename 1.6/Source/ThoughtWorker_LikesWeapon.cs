@@ -16,7 +16,7 @@ namespace WantsAndQuirks
                 var quirk = quirks[i];
                 if (quirk.def == DefsOf.WQ_Quirk_LikesWeapon && p.equipment.Primary?.def == quirk.item)
                 {
-                    return true;
+                    return ThoughtState.ActiveAtStage(0, quirk.item.label);
                 }
             }
 
