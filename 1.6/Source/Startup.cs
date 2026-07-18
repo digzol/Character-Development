@@ -17,7 +17,7 @@ namespace WantsAndQuirks
                 {
                     if (def.inspectorTabsResolved[i].GetType() == charTabType)
                     {
-                        insertIndex = i;
+                        insertIndex = i + 2;
                         break;
                     }
                 }
