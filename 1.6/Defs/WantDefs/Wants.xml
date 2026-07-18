@@ -248,7 +248,7 @@
         <label>become an ideological figure</label>
         <description>I want a role in our ideoligion.</description>
         <iconPath>UI/WantIcons/Figure</iconPath>
-        <reward>2000</reward>
+        <reward>800</reward>
         <commonality>0.5</commonality>
         <workerClass>WantsAndQuirks.WantWorker_BecomeIdeologicalFigure</workerClass>
         <minimumTechLevel>Neolithic</minimumTechLevel>
@@ -439,7 +439,7 @@
     <WantsAndQuirks.WantDef MayRequire="ferny.ProgressionEducation">
         <defName>WQ_WantLearnFirearms</defName>
         <label>learn how to operate firearms</label>
-        <description>I want to learn how to use firearms.</description>
+        <description>I'd like to understand guns.</description>
         <iconPath>UI/WantIcons/Gun</iconPath>
         <reward>1500</reward>
         <commonality>0.8</commonality>
@@ -456,7 +456,7 @@
     <WantsAndQuirks.WantDef MayRequire="ferny.ProgressionEducation">
         <defName>WQ_WantLearnHighTech</defName>
         <label>learn to operate high-tech equipment</label>
-        <description>I want to learn to operate high-tech equipment.</description>
+        <description>I'd like to understand high-tech equipment.</description>
         <iconPath>UI/WantIcons/HighTechGun</iconPath>
         <reward>2000</reward>
         <commonality>0.5</commonality>
@@ -470,7 +470,7 @@
     <WantsAndQuirks.WantDef MayRequire="ferny.ProgressionEducation,SmashPhil.VehicleFramework">
         <defName>WQ_WantLearnDriving</defName>
         <label>learn how to drive</label>
-        <description>I want to learn how to drive.</description>
+        <description>I'd like to learn how to drive.</description>
         <iconPath>UI/WantIcons/Drive</iconPath>
         <reward>1500</reward>
         <commonality>0.8</commonality>
@@ -488,7 +488,7 @@
     <WantsAndQuirks.WantDef MayRequire="ferny.ProgressionEducation,SmashPhil.VehicleFramework">
         <defName>WQ_WantLearnAerialPiloting</defName>
         <label>learn how to fly</label>
-        <description>I want to learn how to fly.</description>
+        <description>I'd like to learn how to fly.</description>
         <iconPath>UI/WantIcons/Pilot</iconPath>
         <reward>2000</reward>
         <commonality>0.5</commonality>
@@ -505,7 +505,7 @@
     <WantsAndQuirks.WantDef MayRequire="ferny.ProgressionEducation,ludeon.rimworld.odyssey">
         <defName>WQ_WantLearnOrbitalPiloting</defName>
         <label>learn orbital piloting</label>
-        <description>I want to learn orbital piloting.</description>
+        <description>I'd like to learn orbital piloting.</description>
         <iconPath>UI/WantIcons/Orbital</iconPath>
         <reward>2500</reward>
         <commonality>0.3</commonality>
@@ -519,7 +519,7 @@
     <WantsAndQuirks.WantDef MayRequire="ferny.ProgressionEducation">
         <defName>WQ_WantLearnFluentSpeech</defName>
         <label>learn to speak fluently</label>
-        <description>I want to learn to speak fluently.</description>
+        <description>I'd like to learn to speak fluently.</description>
         <iconPath>UI/WantIcons/Speak</iconPath>
         <reward>1500</reward>
         <commonality>0.8</commonality>
@@ -532,7 +532,7 @@
     <WantsAndQuirks.WantDef>
         <defName>WQ_WantEquipMasterwork</defName>
         <label>equip something masterwork</label>
-        <description>I want to equip something masterwork.</description>
+        <description>I'd like to equip something masterwork.</description>
         <iconPath>UI/WantIcons/Outfit</iconPath>
         <reward>2000</reward>
         <commonality>0.5</commonality>
@@ -544,7 +544,7 @@
     <WantsAndQuirks.WantDef>
         <defName>WQ_WantEquipLegendary</defName>
         <label>equip something legendary</label>
-        <description>I want to equip something legendary.</description>
+        <description>I'd like to equip something legendary.</description>
         <iconPath>UI/WantIcons/Outfit</iconPath>
         <reward>3000</reward>
         <commonality>0.2</commonality>
@@ -773,7 +773,7 @@
 
     <WantsAndQuirks.WantDef>
         <defName>WQ_WantSkillLevel4</defName>
-        <label>master my {0}</label>
+        <label>become a master of {0}</label>
         <description>I want to reach level 20 in my {0} skill.</description>
         <iconPath>UI/WantIcons/Catharsis</iconPath>
         <reward>5000</reward>
