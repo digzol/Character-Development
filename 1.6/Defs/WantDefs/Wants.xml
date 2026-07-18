@@ -703,7 +703,7 @@
     <WantsAndQuirks.WantDef MayRequire="Ludeon.RimWorld.Biotech,ferny.discoveries">
         <defName>WQ_WantDiscoverXenotype</defName>
         <label>meet a {0}</label>
-        <description>I've heard of the {0} xenotype, and i'd like us to meet one.</description>
+        <description>I've heard of {0} people, and i'd like us to meet one.</description>
         <iconPath>UI/WantIcons/DiscoverXeno</iconPath>
         <reward>1500</reward>
         <commonality>1</commonality>
