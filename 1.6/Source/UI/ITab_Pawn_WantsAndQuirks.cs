@@ -16,7 +16,7 @@ namespace WantsAndQuirks
         private static Color QuirkContainerColor => new ColorInt(123, 121, 118).ToColor;
         private static Color QuirkBgColor => new ColorInt(70, 68, 66).ToColor;
         private static Color PointsColor => new ColorInt(166, 187, 194).ToColor;
-        private static Color MentalBreakTextColor => new ColorInt(184, 133, 134).ToColor;
+        private static Color MentalBreakTextColor => new ColorInt(57, 45, 45).ToColor;
 
         public ITab_Pawn_WantsAndQuirks()
         {
