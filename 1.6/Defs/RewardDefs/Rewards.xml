@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
     <WantsAndQuirks.RewardDef Name="WQ_RewardSkillBase" Abstract="True">
-        <rarity>Rare</rarity>
+        <rarity>Legendary</rarity>
         <workerClass>WantsAndQuirks.RewardWorker_Skill</workerClass>
     </WantsAndQuirks.RewardDef>
 
@@ -380,11 +380,100 @@
     <WantsAndQuirks.RewardDef MayRequire="Ludeon.RimWorld.Biotech">
         <defName>WQ_Quirk_Sleepy</defName>
         <label>sleepy</label>
-        <description>Grants a sleepy gene.</description>
+        <description>Gets tired faster than others.</description>
         <iconPath>UI/Icons/Genes/Gene_Sleepy</iconPath>
         <rarity>Uncommon</rarity>
         <isQuirk>true</isQuirk>
         <gene>Sleepy</gene>
         <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
     </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="Ludeon.RimWorld.Biotech">
+        <defName>WQ_Quirk_KindInstinct</defName>
+        <label>kind instinct</label>
+        <description>High in trait agreeableness and are very conscientious. They rarely insult others and will sometimes offer kind words to brighten the moods of those around them. They also never judge people by their appearance.</description>
+        <iconPath>UI/Icons/Genes/Gene_KindInstinct</iconPath>
+        <rarity>Rare</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>KindInstinct</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="Ludeon.RimWorld.Biotech">
+        <defName>WQ_Quirk_ViolenceDisabled</defName>
+        <label>violence disabled</label>
+        <description>Emotionally and mentally incapable of engaging in violence. They are overwhelmingly resistant to and horrified by the idea of hurting another.</description>
+        <iconPath>UI/Icons/Genes/Gene_ViolenceDisabled</iconPath>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>ViolenceDisabled</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="Ludeon.RimWorld.Biotech">
+        <defName>WQ_Quirk_IndoorDweller</defName>
+        <label>indoor dweller</label>
+        <description>Doesn't mind staying indoors for as long as needed.</description>
+        <iconPath>UI/Icons/Genes/Gene_CaveDweller</iconPath>
+        <rarity>Rare</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>CaveDweller</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="Ludeon.RimWorld.Biotech">
+        <defName>WQ_Quirk_MaxTemp_SmallIncrease</defName>
+        <label>heat tolerant</label>
+        <description>Can tolerate higher temperatures better than average.</description>
+        <iconPath>UI/Icons/Genes/Gene_MaxTemp_SmallIncrease</iconPath>
+        <rarity>Rare</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>MaxTemp_SmallIncrease</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="Ludeon.RimWorld.Biotech">
+        <defName>WQ_Quirk_MinTemp_SmallDecrease</defName>
+        <label>cold tolerant</label>
+        <description>Can tolerate lower temperatures better than average.</description>
+        <iconPath>UI/Icons/Genes/Gene_MinTemp_SmallDecrease</iconPath>
+        <rarity>Rare</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>MinTemp_SmallDecrease</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="Ludeon.RimWorld.Biotech">
+        <defName>WQ_Quirk_Beauty_Pretty</defName>
+        <label>attractive</label>
+        <description>Emits a natural beauty.</description>
+        <iconPath>UI/Icons/Genes/Gene_Beauty_Pretty</iconPath>
+        <rarity>Rare</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>Beauty_Pretty</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="Ludeon.RimWorld.Biotech">
+        <defName>WQ_Quirk_Libido_Low</defName>
+        <label>low libido</label>
+        <description>Has a lower-than-average interest in sexual activity.</description>
+        <iconPath>UI/Icons/Genes/Gene_Libido_Low</iconPath>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>Libido_Low</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="Ludeon.RimWorld.Biotech">
+        <defName>WQ_Quirk_Libido_High</defName>
+        <label>high libido</label>
+        <description>Has a higher-than-average interest in sexual activity.</description>
+        <iconPath>UI/Icons/Genes/Gene_Libido_High</iconPath>
+        <rarity>Rare</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>Libido_High</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
 </Defs>

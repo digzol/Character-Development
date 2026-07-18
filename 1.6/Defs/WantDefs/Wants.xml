@@ -1061,7 +1061,7 @@
         <defName>WQ_WantLoseWeight</defName>
         <label>lose weight</label>
         <description>I want to lose some body fat.</description>
-        <iconPath>UI/WantIcons/Catharsis</iconPath>
+        <iconPath>UI/WantIcons/Fat</iconPath>
         <reward>1500</reward>
         <commonality>1</commonality>
         <workerClass>WantsAndQuirks.WantWorker_LoseWeight</workerClass>
@@ -1071,7 +1071,7 @@
         <defName>WQ_WantGainMuscle</defName>
         <label>gain muscle</label>
         <description>I want to build some muscle mass.</description>
-        <iconPath>UI/WantIcons/Catharsis</iconPath>
+        <iconPath>UI/WantIcons/Muscle</iconPath>
         <reward>1500</reward>
         <commonality>1</commonality>
         <workerClass>WantsAndQuirks.WantWorker_GainMuscle</workerClass>
