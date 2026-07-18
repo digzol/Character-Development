@@ -13,8 +13,18 @@ namespace WantsAndQuirks
                 yield return null;
         }
 
-        public virtual bool CanBestowOn(Pawn pawn)
+        public virtual bool CanBestowOn(Pawn pawn, ThingDef item = null)
         {
+            if (def.isQuirk)
+            {
+                var quirks = pawn.GetWantsData().quirks;
+                for (int i = 0; i < quirks.Count; i++)
+                {
+                    var q = quirks[i];
+                    if (q.def == def && q.item == item)
+                        return false;
+                }
+            }
             return def.PassesRecipientFilter(pawn);
         }
 

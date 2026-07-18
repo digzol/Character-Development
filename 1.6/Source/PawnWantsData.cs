@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using RimWorld;
+using UnityEngine;
 using Verse;
 
 namespace WantsAndQuirks
@@ -11,6 +13,16 @@ namespace WantsAndQuirks
 
         public virtual string LabelCap => def.LabelCap;
         public virtual string Description => def.description;
+
+        public virtual Texture Icon
+        {
+            get
+            {
+                if (def.discoveryRequirementThing != null)
+                    return def.discoveryRequirementThing.uiIcon;
+                return def.Icon;
+            }
+        }
 
         public virtual void ExposeData()
         {
@@ -28,14 +40,39 @@ namespace WantsAndQuirks
     public class ActiveWantWithTarget : ActiveWant
     {
         public Def targetDef;
+        private string targetDefName;
+        private string targetDefTypeName;
 
         public override string LabelCap => def.label.Formatted(targetDef.label).CapitalizeFirst();
         public override string Description => def.description.Formatted(targetDef.label);
 
+        public override Texture Icon
+        {
+            get
+            {
+                if (targetDef is ThingDef tDef)
+                    return tDef.uiIcon;
+                if (targetDef is XenotypeDef xDef)
+                    return xDef.Icon;
+                return base.Icon;
+            }
+        }
+
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Defs.Look(ref targetDef, "targetDef");
+            if (Scribe.mode == LoadSaveMode.Saving)
+            {
+                targetDefName = targetDef.defName;
+                targetDefTypeName = targetDef.GetType().Name;
+            }
+            Scribe_Values.Look(ref targetDefName, "targetDef");
+            Scribe_Values.Look(ref targetDefTypeName, "targetDefType");
+            if (Scribe.mode == LoadSaveMode.LoadingVars)
+            {
+                var type = GenTypes.GetTypeInAnyAssembly(targetDefTypeName);
+                targetDef = GenDefDatabase.GetDefSilentFail(type, targetDefName);
+            }
         }
 
         public override bool IsCompleted(Pawn pawn, WantWorkerContext context)

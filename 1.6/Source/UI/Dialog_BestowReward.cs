@@ -38,7 +38,7 @@ namespace WantsAndQuirks
             Widgets.Label(new Rect(0f, 35f, inRect.width, descHeight), description);
 
             var pawns = PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_OfPlayerFaction
-                .Where(p => p.CanHaveWants() && node.def.Worker.CanBestowOn(p)).ToList();
+                .Where(p => p.CanHaveWants() && node.def.Worker.CanBestowOn(p, node.item)).ToList();
 
             var listTop = 35f + descHeight + 10f;
             var listRect = new Rect(0f, listTop, inRect.width, inRect.height - listTop - 50f);

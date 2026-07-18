@@ -3,15 +3,19 @@ using RimWorld;
 
 namespace WantsAndQuirks
 {
-    [HarmonyPatch(typeof(SkillRecord), nameof(SkillRecord.Level), MethodType.Setter)]
+    [HarmonyPatch(typeof(SkillRecord), nameof(SkillRecord.Learn))]
     public static class SkillRecord_Level_Patch
     {
-        public static void Postfix(SkillRecord __instance)
+        public static void Prefix(SkillRecord __instance, out int __state)
         {
-            var pawn = __instance.Pawn;
-            if (pawn.CanHaveWants())
+            __state = __instance.levelInt;
+        }
+
+        public static void Postfix(SkillRecord __instance, int __state)
+        {
+            if (__state != __instance.levelInt && __instance.Pawn.CanHaveWants())
             {
-                WantsAndQuirksUtility.CheckWants(pawn, new WantWorkerContext(triggerType: WantTriggerType.SkillIncreased, contextDef: __instance.def, contextAmount: __instance.Level));
+                WantsAndQuirksUtility.CheckWants(__instance.Pawn, new WantWorkerContext(triggerType: WantTriggerType.SkillIncreased, contextDef: __instance.def, contextAmount: __instance.levelInt));
             }
         }
     }

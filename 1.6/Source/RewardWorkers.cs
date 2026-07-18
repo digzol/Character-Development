@@ -7,7 +7,7 @@ namespace WantsAndQuirks
 {
     public class RewardWorker_Skill : RewardWorker
     {
-        public override bool CanBestowOn(Pawn pawn)
+        public override bool CanBestowOn(Pawn pawn, ThingDef item = null)
         {
             if (def.skill != null && (pawn.skills.GetSkill(def.skill).TotallyDisabled || pawn.skills.GetSkill(def.skill).Level >= 20))
             {
@@ -17,7 +17,7 @@ namespace WantsAndQuirks
             {
                 return false;
             }
-            return base.CanBestowOn(pawn);
+            return base.CanBestowOn(pawn, item);
         }
 
         public override void OnAcquired(Pawn pawn, Quirk quirk)
@@ -91,9 +91,9 @@ namespace WantsAndQuirks
 
     public class RewardWorker_HealScar : RewardWorker
     {
-        public override bool CanBestowOn(Pawn pawn)
+        public override bool CanBestowOn(Pawn pawn, ThingDef item = null)
         {
-            return base.CanBestowOn(pawn) && pawn.health.hediffSet.hediffs.Any(h => h.IsPermanent());
+            return base.CanBestowOn(pawn, item) && pawn.health.hediffSet.hediffs.Any(h => h.IsPermanent());
         }
 
         public override void OnAcquired(Pawn pawn, Quirk quirk)
@@ -108,9 +108,9 @@ namespace WantsAndQuirks
 
     public class RewardWorker_RestoreBodyPart : RewardWorker
     {
-        public override bool CanBestowOn(Pawn pawn)
+        public override bool CanBestowOn(Pawn pawn, ThingDef item = null)
         {
-            return base.CanBestowOn(pawn) && pawn.health.hediffSet.GetMissingPartsCommonAncestors().Any();
+            return base.CanBestowOn(pawn, item) && pawn.health.hediffSet.GetMissingPartsCommonAncestors().Any();
         }
 
         public override void OnAcquired(Pawn pawn, Quirk quirk)
@@ -125,9 +125,9 @@ namespace WantsAndQuirks
 
     public class RewardWorker_RandomPassion : RewardWorker
     {
-        public override bool CanBestowOn(Pawn pawn)
+        public override bool CanBestowOn(Pawn pawn, ThingDef item = null)
         {
-            return base.CanBestowOn(pawn) && pawn.skills.skills.Any(s => s.passion != Passion.Major && !s.TotallyDisabled);
+            return base.CanBestowOn(pawn, item) && pawn.skills.skills.Any(s => s.passion != Passion.Major && !s.TotallyDisabled);
         }
 
         public override void OnAcquired(Pawn pawn, Quirk quirk)
@@ -154,7 +154,15 @@ namespace WantsAndQuirks
         {
             if (ingestible.def == quirk.item)
             {
-                TryGainThought(pawn, quirk);
+                if (ThoughtMaker.MakeThought(quirk.def.thought) is Thought_Memory_LikesFood thought)
+                {
+                    thought.foodDef = quirk.item;
+                    pawn.needs?.mood?.thoughts?.memories?.TryGainMemory(thought);
+                }
+                else
+                {
+                    TryGainThought(pawn, quirk);
+                }
             }
         }
     }

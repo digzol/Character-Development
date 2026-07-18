@@ -14,9 +14,14 @@ namespace WantsAndQuirks
 
     public class WantWorker_RoomStat : WantWorker
     {
+        public override bool CanGenerate(Pawn pawn)
+        {
+            return pawn.ownership.OwnedRoom != null && base.CanGenerate(pawn);
+        }
+
         public override bool IsSatisfied(Pawn pawn)
         {
-            var room = pawn.ownership?.OwnedRoom;
+            var room = pawn.ownership.OwnedRoom;
             return room != null && room.GetStat(def.roomStat) >= def.roomStatThreshold;
         }
     }
@@ -284,7 +289,7 @@ namespace WantsAndQuirks
         public override bool CanGenerate(Pawn pawn) => GetRandomTarget(pawn) != null;
         public override Def GetRandomTarget(Pawn pawn)
         {
-            var undiscovered = DefDatabase<ThingDef>.AllDefsListForReading.Where(d => d.race != null && d.race.Animal && !DiscoveryCompat.IsDiscovered(d));
+            var undiscovered = DefDatabase<ThingDef>.AllDefsListForReading.Where(d => d.race != null && d.IsCorpse is false && d.race.Animal && !DiscoveryCompat.IsDiscovered(d));
             return undiscovered.TryRandomElement(out var result) ? result : null;
         }
         public override bool IsTargetDiscovered(Def target) => target is ThingDef animal && DiscoveryCompat.IsDiscovered(animal);
@@ -371,6 +376,7 @@ namespace WantsAndQuirks
 
     public class WantWorker_GetLovinWith : WantWorker
     {
+        public override bool CanGenerate(Pawn pawn) => GetRandomTargetPawn(pawn) != null && base.CanGenerate(pawn);
         public override Pawn GetRandomTargetPawn(Pawn pawn)
         {
             var partners = LovePartnerRelationUtility.ExistingLovePartners(pawn, allowDead: false);
@@ -385,14 +391,12 @@ namespace WantsAndQuirks
 
     public class WantWorker_BeFriendsWith : WantWorker
     {
+        public override bool CanGenerate(Pawn pawn) => GetRandomTargetPawn(pawn) != null && base.CanGenerate(pawn);
         public override Pawn GetRandomTargetPawn(Pawn pawn)
         {
-            var colonists = pawn.MapHeld?.mapPawns?.FreeColonistsSpawned;
-            if (colonists == null)
+            if (pawn.MapHeld == null)
                 return null;
-            colonists.AddRange(pawn.relations.RelatedPawns);
-            colonists = colonists.Where(x => x.RaceProps.Humanlike).Distinct().ToList();
-            var potential = colonists.Where(p => p != pawn && pawn.relations.OpinionOf(p) < 50);
+            var potential = pawn.MapHeld.mapPawns.FreeColonistsSpawned.Where(p => p != pawn && !pawn.relations.RelatedPawns.Contains(p) && pawn.relations.OpinionOf(p) < 50);
             return potential.TryRandomElement(out var result) ? result : null;
         }
         public override bool IsSatisfiedWithPawnTarget(Pawn pawn, Pawn targetPawn)
@@ -403,6 +407,7 @@ namespace WantsAndQuirks
 
     public class WantWorker_MarryLover : WantWorker
     {
+        public override bool CanGenerate(Pawn pawn) => GetRandomTargetPawn(pawn) != null && base.CanGenerate(pawn);
         public override Pawn GetRandomTargetPawn(Pawn pawn)
         {
             var fiance = pawn.relations.GetFirstDirectRelationPawn(PawnRelationDefOf.Fiance);
@@ -533,7 +538,7 @@ namespace WantsAndQuirks
     {
         public override Def GetRandomTarget(Pawn pawn)
         {
-            var discoveredAnimals = DefDatabase<ThingDef>.AllDefsListForReading.Where(d => d.race != null && d.race.Animal && DiscoveryCompat.IsDiscovered(d));
+            var discoveredAnimals = DefDatabase<ThingDef>.AllDefsListForReading.Where(d => d.race != null && d.IsCorpse is false && d.race.Animal && DiscoveryCompat.IsDiscovered(d));
             return discoveredAnimals.TryRandomElement(out var result) ? result : null;
         }
 

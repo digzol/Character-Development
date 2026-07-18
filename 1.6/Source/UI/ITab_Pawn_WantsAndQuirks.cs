@@ -81,23 +81,30 @@ namespace WantsAndQuirks
 
                 Widgets.DrawBoxSolid(wantRect, WantBgColor);
 
-                var iconRect = new Rect(wantRect.x + 10f, wantRect.y + 15f, 50f, 50f);
+                var iconRect = new Rect(wantRect.x + 10f, wantRect.y + 20f, 50f, 50f);
                 GUI.color = new Color(1f, 1f, 1f, 0.8f);
-                GUI.DrawTexture(iconRect, want.def.Icon);
+                var tex = want.Icon;
+                if (want is ActiveWantWithPawnTarget pt && pt.targetPawn != null)
+                {
+                    tex = PortraitsCache.Get(pt.targetPawn, new Vector2(50f, 50f), Rot4.South, cameraZoom: 1.2f);
+                }
+                if (tex != null)
+                {
+                    GUI.DrawTexture(iconRect, tex);
+                }
                 GUI.color = Color.white;
 
-                var textRect = new Rect(iconRect.xMax + 15f, wantRect.y + 10, wantRect.width - 70f - 140f, wantRect.height - 10f);
+                var textRect = new Rect(iconRect.xMax + 15f, wantRect.y + 5f, wantRect.width - 70f - 30f, 25f);
                 Text.Font = GameFont.Small;
-                Widgets.Label(new Rect(textRect.x, textRect.y, textRect.width, 32f), $"<i>{want.LabelCap}</i>");
+                Widgets.Label(textRect, $"<i>{want.LabelCap}</i>");
 
                 Text.Font = GameFont.Tiny;
                 GUI.color = new Color(0.9f, 0.9f, 0.9f);
-                Widgets.Label(new Rect(textRect.x, textRect.y + 20f, textRect.width, textRect.height - 20f), want.Description);
+                var descRect = new Rect(textRect.x, textRect.yMax, textRect.width, 32f);
+                Widgets.Label(descRect, want.Description);
                 GUI.color = Color.white;
 
-                var infoRect = new Rect(wantRect.xMax - 140f, wantRect.y + 15f, 110f, 50f);
-                Text.Font = GameFont.Tiny;
-                Text.Anchor = TextAnchor.MiddleCenter;
+                var infoRect = new Rect(textRect.x, descRect.yMax, textRect.width, 25f);
                 if (want.isMentalBreak)
                 {
                     GUI.color = MentalBreakTextColor;
@@ -106,18 +113,13 @@ namespace WantsAndQuirks
                 }
                 else
                 {
-                    Text.Font = GameFont.Small;
-                    Widgets.Label(new Rect(infoRect.x, infoRect.y, infoRect.width, 20f), "WQ_OnCompletion".Translate());
                     GUI.color = PointsColor;
-                    Text.Font = GameFont.Tiny;
-                    Widgets.Label(new Rect(infoRect.x, infoRect.y + 20f, infoRect.width, 30f), "WQ_CharacterPointsReward".Translate(want.def.reward));
+                    Widgets.Label(infoRect, "WQ_OnCompletion".Translate() + " " + "WQ_CharacterPointsReward".Translate(want.def.reward));
                     GUI.color = Color.white;
                 }
-                Text.Font = GameFont.Small;
-
                 Text.Anchor = TextAnchor.UpperLeft;
 
-                var btnRect = new Rect(wantRect.xMax - 25f, wantRect.y + 30f, 20f, 20f);
+                var btnRect = new Rect(wantRect.xMax - 25f, wantRect.y + 5f, 20f, 20f);
                 if (!want.isMentalBreak)
                 {
                     Text.Font = GameFont.Medium;
@@ -149,20 +151,27 @@ namespace WantsAndQuirks
             var listRect = new Rect(rect.x, curY, rect.width, rect.height - (curY - rect.y));
             Widgets.DrawBoxSolid(listRect, QuirkContainerColor);
 
-            var viewRect = new Rect(0f, 0f, listRect.width - 16f, data.quirks.Count * 30f);
+            var viewRect = new Rect(0f, 0f, listRect.width - 16f, data.quirks.Count * 45f);
             Widgets.BeginScrollView(listRect, ref quirksScrollPos, viewRect);
 
             var listY = 0f;
             for (int i = 0; i < data.quirks.Count; i++)
             {
                 var quirk = data.quirks[i];
-                var quirkRect = new Rect(5f, listY + 5f, viewRect.width, 25f);
+                var quirkRect = new Rect(5f, listY + 5f, viewRect.width, 40f);
 
                 Widgets.DrawBoxSolid(quirkRect, QuirkBgColor);
 
+                var iconRect = new Rect(quirkRect.x + 4f, quirkRect.y + 4f, 32f, 32f);
+                var tex = quirk.def.requiresItem && quirk.item?.uiIcon != null ? quirk.item.uiIcon : quirk.def.Icon;
+                if (tex != null)
+                {
+                    GUI.DrawTexture(iconRect, tex);
+                }
+
                 Text.Font = GameFont.Small;
                 Text.Anchor = TextAnchor.MiddleLeft;
-                Widgets.Label(new Rect(quirkRect.x + 5f, quirkRect.y, quirkRect.width - 30f, quirkRect.height), quirk.LabelCap);
+                Widgets.Label(new Rect(iconRect.xMax + 10f, quirkRect.y, quirkRect.width - 32f - 40f, quirkRect.height), quirk.LabelCap);
                 Text.Anchor = TextAnchor.UpperLeft;
                 if (Mouse.IsOver(quirkRect))
                 {
@@ -182,7 +191,7 @@ namespace WantsAndQuirks
                 GUI.color = Color.white;
                 Text.Font = GameFont.Small;
 
-                listY += 30f;
+                listY += 45f;
             }
 
             Widgets.EndScrollView();

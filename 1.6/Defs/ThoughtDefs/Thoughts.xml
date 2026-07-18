@@ -2,11 +2,12 @@
 <Defs>
   <ThoughtDef>
     <defName>WQ_Thought_LikesFood</defName>
+    <thoughtClass>WantsAndQuirks.Thought_Memory_LikesFood</thoughtClass>
     <durationDays>0.25</durationDays>
     <stages>
       <li>
-        <label>ate food</label>
-        <description>I really like food!</description>
+        <label>ate {0}</label>
+        <description>I really like {0}!</description>
         <baseMoodEffect>2</baseMoodEffect>
       </li>
     </stages>

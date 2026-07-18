@@ -126,22 +126,38 @@ namespace WantsAndQuirks
                 }
             }
 
-            FillRewardSlots(list, RewardRarity.Legendary, legendaryCount);
-            FillRewardSlots(list, RewardRarity.Rare, rareCount);
-            FillRewardSlots(list, RewardRarity.Uncommon, uncommonCount);
-            FillRewardSlots(list, RewardRarity.Common, commonCount);
+            FillRewardSlots(list, RewardRarity.Legendary, ref legendaryCount);
+            FillRewardSlots(list, RewardRarity.Rare, ref rareCount);
+            FillRewardSlots(list, RewardRarity.Uncommon, ref uncommonCount);
+            FillRewardSlots(list, RewardRarity.Common, ref commonCount);
+
+            while (list.Count < total)
+            {
+                var node = GenerateNodeForRarity(list, RewardRarity.Common) ??
+                           GenerateNodeForRarity(list, RewardRarity.Uncommon) ??
+                           GenerateNodeForRarity(list, RewardRarity.Rare) ??
+                           GenerateNodeForRarity(list, RewardRarity.Legendary);
+                if (node == null)
+                    break;
+                list.Add(node);
+            }
 
             State.rewardNodes = list;
         }
 
-        private static void FillRewardSlots(List<RewardNode> list, RewardRarity rarity, int count)
+        private static void FillRewardSlots(List<RewardNode> list, RewardRarity rarity, ref int count)
         {
-            for (int i = 0; i < count; i++)
+            var limit = count;
+            for (int i = 0; i < limit; i++)
             {
                 var node = GenerateNodeForRarity(list, rarity);
                 if (node != null)
                 {
                     list.Add(node);
+                }
+                else
+                {
+                    count--;
                 }
             }
         }
@@ -247,14 +263,14 @@ namespace WantsAndQuirks
         public static void AddQuirk(Pawn pawn, RewardDef def, ThingDef item)
         {
             var data = pawn.GetWantsData();
-            if (data.quirks.Any(q => q.def == def))
+            if (data.quirks.Any(q => q.def == def && q.item == item))
             {
                 return;
             }
             var quirk = new Quirk(def, item);
             if (def.isQuirk)
             {
-                pawn.GetWantsData().quirks.Add(quirk);
+                data.quirks.Add(quirk);
             }
             def.Worker.OnAcquired(pawn, quirk);
         }

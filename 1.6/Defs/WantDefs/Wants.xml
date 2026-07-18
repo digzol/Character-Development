@@ -447,6 +447,9 @@
         <targetTraits>
             <li>PE_FirearmProficiency</li>
         </targetTraits>
+        <invalidTraits>
+            <li>PE_HighTechProficiency</li>
+        </invalidTraits>
         <minimumTechLevel>Neolithic</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
@@ -475,6 +478,10 @@
         <targetTraits>
             <li>PE_AutomobileDrivingProficiency</li>
         </targetTraits>
+        <invalidTraits>
+            <li>PE_AerialPilotingProficiency</li>
+            <li>PE_OrbitalPilotingProficiency</li>
+        </invalidTraits>
         <minimumTechLevel>Industrial</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
@@ -489,6 +496,9 @@
         <targetTraits>
             <li>PE_AerialPilotingProficiency</li>
         </targetTraits>
+        <invalidTraits>
+            <li>PE_OrbitalPilotingProficiency</li>
+        </invalidTraits>
         <minimumTechLevel>Industrial</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
@@ -842,7 +852,7 @@
         <minimumTechLevel>Neolithic</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
-    <WantsAndQuirks.WantDef MayRequire="ferny.discoveries">
+    <WantsAndQuirks.WantDef>
         <defName>WQ_WantBondWithDiscoveredAnimal</defName>
         <label>bond with a {0}</label>
         <description>I want to bond with a {0}.</description>
@@ -910,7 +920,7 @@
         <minimumTechLevel>Medieval</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
-    <WantsAndQuirks.WantDef MayRequire="Ludeon.RimWorld.Biotech,ferny.discoveries">
+    <WantsAndQuirks.WantDef MayRequire="Ludeon.RimWorld.Biotech">
         <defName>WQ_WantBecomeXenotype</defName>
         <label>become {0}</label>
         <description>I want to become a {0}.</description>
@@ -922,7 +932,7 @@
         <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
     </WantsAndQuirks.WantDef>
 
-    <WantsAndQuirks.WantDef MayRequire="Ludeon.RimWorld.Royalty,ferny.discoveries">
+    <WantsAndQuirks.WantDef MayRequire="Ludeon.RimWorld.Royalty">
         <defName>WQ_WantLinkWithAnimaTree</defName>
         <label>link with an anima tree</label>
         <description>I want to link with an anima tree.</description>
@@ -934,7 +944,7 @@
         <discoveryRequirementThing>Plant_TreeAnima</discoveryRequirementThing>
     </WantsAndQuirks.WantDef>
 
-    <WantsAndQuirks.WantDef MayRequire="Ludeon.RimWorld.Ideology,ferny.discoveries">
+    <WantsAndQuirks.WantDef MayRequire="Ludeon.RimWorld.Ideology">
         <defName>WQ_WantConnectWithGuaranlenTree</defName>
         <label>connect with a guaranlen tree</label>
         <description>I want to connect with a guaranlen tree.</description>
