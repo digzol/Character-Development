@@ -633,4 +633,62 @@ namespace WantsAndQuirks
             return targetPawn == null || targetPawn.Dead || targetPawn.Destroyed;
         }
     }
+
+    public class WantWorker_LoseWeight : WantWorker
+    {
+        public override bool CanGenerate(Pawn pawn)
+        {
+            return RimBodyCompat.GetBodyFat(pawn) > 20f && base.CanGenerate(pawn);
+        }
+
+        public override bool IsSatisfied(Pawn pawn)
+        {
+            return RimBodyCompat.GetBodyFat(pawn) <= 15f;
+        }
+    }
+
+    public class WantWorker_GainMuscle : WantWorker
+    {
+        public override bool CanGenerate(Pawn pawn)
+        {
+            return RimBodyCompat.GetMuscleMass(pawn) < 20f && base.CanGenerate(pawn);
+        }
+
+        public override bool IsSatisfied(Pawn pawn)
+        {
+            return RimBodyCompat.GetMuscleMass(pawn) >= 25f;
+        }
+    }
+
+    public class WantWorker_DriveVehicle : WantWorker
+    {
+        public override bool IsCompleted(Pawn pawn, WantWorkerContext context)
+        {
+            return context.triggerType == WantTriggerType.BoardedVehicle;
+        }
+    }
+
+    public class WantWorker_AdvanceEra : WantWorker
+    {
+        public override bool IsCompleted(Pawn pawn, WantWorkerContext context) => context.triggerType == WantTriggerType.AdvancedEra;
+    }
+
+    public class WantWorker_EatDessert : WantWorker
+    {
+        public override bool IsCompleted(Pawn pawn, WantWorkerContext context)
+        {
+            return context.triggerType == WantTriggerType.FoodEaten && context.contextDef is ThingDef thingDef && thingDef.ingestible?.joyKind == DefsOf.VCE_Confectionery;
+        }
+    }
+
+    public class WantWorker_JoinDeserters : WantWorker
+    {
+        public override bool CanGenerate(Pawn pawn) => !DesertersCompat.IsDesertersActive() && base.CanGenerate(pawn);
+        public override bool IsSatisfied(Pawn pawn) => DesertersCompat.IsDesertersActive();
+    }
+
+    public class WantWorker_UseDeclassifier : WantWorker_ThoughtAny
+    {
+        public override bool CanGenerate(Pawn pawn) => DesertersCompat.IsDesertersActive() && base.CanGenerate(pawn);
+    }
 }

@@ -517,6 +517,25 @@
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef MayRequire="ferny.ProgressionEducation">
+        <defName>WQ_WantLearnSpeech</defName>
+        <label>learn how to speak</label>
+        <description>I want to learn how to speak.</description>
+        <iconPath>UI/WantIcons/Speak</iconPath>
+        <reward>2000</reward>
+        <commonality>0.8</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_HasTrait</workerClass>
+        <requiredTraits>
+            <li>PE_MuteProficiency</li>
+        </requiredTraits>
+        <targetTraits>
+            <li>PE_BasicSpeechProficiency</li>
+        </targetTraits>
+        <invalidTraits>
+            <li>PE_FluentSpeechProficiency</li>
+        </invalidTraits>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef MayRequire="ferny.ProgressionEducation">
         <defName>WQ_WantLearnFluentSpeech</defName>
         <label>learn to speak fluently</label>
         <description>I'd like to learn to speak fluently.</description>
@@ -1037,4 +1056,92 @@
         <workerClass>WantsAndQuirks.WantWorker_Die</workerClass>
         <isMentalBreakWant>true</isMentalBreakWant>
     </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef MayRequire="maux36.rimbody">
+        <defName>WQ_WantLoseWeight</defName>
+        <label>lose weight</label>
+        <description>I want to lose some body fat.</description>
+        <iconPath>UI/WantIcons/Catharsis</iconPath>
+        <reward>1500</reward>
+        <commonality>1</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_LoseWeight</workerClass>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef MayRequire="maux36.rimbody">
+        <defName>WQ_WantGainMuscle</defName>
+        <label>gain muscle</label>
+        <description>I want to build some muscle mass.</description>
+        <iconPath>UI/WantIcons/Catharsis</iconPath>
+        <reward>1500</reward>
+        <commonality>1</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_GainMuscle</workerClass>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef MayRequire="smashphil.vehicleframework">
+        <defName>WQ_WantDriveVehicle</defName>
+        <label>go for a drive</label>
+        <description>I want to go for a drive in a vehicle.</description>
+        <iconPath>UI/WantIcons/Drive</iconPath>
+        <reward>1000</reward>
+        <commonality>1</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_DriveVehicle</workerClass>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef MayRequireAnyOf="OskarPotocki.VFE.Tribals,ferny.noderesearch">
+        <defName>WQ_WantAdvanceEra</defName>
+        <label>advance our era</label>
+        <description>I want our colony to advance to the next technological era.</description>
+        <iconPath>UI/WantIcons/Discover</iconPath>
+        <reward>3000</reward>
+        <commonality>0.2</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_AdvanceEra</workerClass>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef MayRequire="vanillaexpanded.vcooking">
+        <defName>WQ_WantEatDessert</defName>
+        <label>eat a dessert</label>
+        <description>I want to eat a sweet dessert.</description>
+        <iconPath>UI/WantIcons/Meal</iconPath>
+        <reward>1000</reward>
+        <commonality>1</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_EatDessert</workerClass>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef MayRequire="OskarPotocki.VFE.Deserters">
+        <defName>WQ_WantJoinDeserters</defName>
+        <label>join the deserters</label>
+        <description>I want us to join the deserters and fight the empire.</description>
+        <iconPath>UI/WantIcons/FactionLeader</iconPath>
+        <reward>3000</reward>
+        <commonality>0.2</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_JoinDeserters</workerClass>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef MayRequire="OskarPotocki.VFE.Deserters">
+        <defName>WQ_WantUseDeclassifier</defName>
+        <label>use a declassifier</label>
+        <description>I want to use a deserter declassifier on an enemy noble.</description>
+        <iconPath>UI/WantIcons/Weapon</iconPath>
+        <reward>2000</reward>
+        <commonality>0.5</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_UseDeclassifier</workerClass>
+        <targetThoughts>
+            <li>VFED_UsedDeclassifier</li>
+        </targetThoughts>
+        <invalidNonViolent>true</invalidNonViolent>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef MayRequire="OskarPotocki.VFE.Pirates">
+        <defName>WQ_WantBecomeWarcasket</defName>
+        <label>become a warcasket</label>
+        <description>I want to be entombed in a warcasket.</description>
+        <iconPath>UI/WantIcons/Bionic</iconPath>
+        <reward>3000</reward>
+        <commonality>0.2</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_HasTrait</workerClass>
+        <targetTraits>
+            <li>VFEP_WarcasketTrait</li>
+        </targetTraits>
+    </WantsAndQuirks.WantDef>
+
 </Defs>

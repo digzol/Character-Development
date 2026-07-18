@@ -15,6 +15,8 @@ namespace WantsAndQuirks
         public static RewardDef WQ_Quirk_LovesPerson;
         public static RewardDef WQ_Quirk_LikesRecreationBuilding;
         public static ThoughtDef WQ_Thought_LikesRecreationBuilding;
+        [MayRequire("vanillaexpanded.vcooking")]
+        public static JoyKindDef VCE_Confectionery;
         public static SoundDef WQ_WantCompleted;
         static DefsOf() => DefOfHelper.EnsureInitializedInCtor(typeof(DefsOf));
     }

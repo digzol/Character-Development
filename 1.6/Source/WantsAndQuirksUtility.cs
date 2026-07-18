@@ -27,7 +27,9 @@ namespace WantsAndQuirks
         NewSettlement,
         FellInLove,
         LeftFaction,
-        Died
+        Died,
+        AdvancedEra,
+        BoardedVehicle
     }
 
     public struct WantWorkerContext
