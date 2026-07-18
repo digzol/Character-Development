@@ -25,6 +25,7 @@ namespace WantsAndQuirks
         public ThoughtDef thought;
         public SkillDef skill;
         public InspirationDef inspirationDef;
+        public GeneDef gene;
 
         [Unsaved(false)]
         private RewardWorker workerInt;

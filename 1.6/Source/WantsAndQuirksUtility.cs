@@ -63,6 +63,11 @@ namespace WantsAndQuirks
             return data;
         }
 
+        public static bool TryGetWantsData(this Pawn pawn, out PawnWantsData data)
+        {
+            return pawnData.TryGetValue(pawn, out data);
+        }
+
         public static bool CanHaveWants(this Pawn pawn)
         {
             return WantsAndQuirksMod.settings.enableWantsSystem && pawn.DestroyedOrNull() is false && pawn.RaceProps.Humanlike && pawn.IsColonist;
@@ -283,7 +288,7 @@ namespace WantsAndQuirks
         public static void AddQuirk(Pawn pawn, RewardDef def, ThingDef item, Pawn targetPawn = null)
         {
             var data = pawn.GetWantsData();
-            if (data.quirks.Any(q => q.def == def && q.item == item && q.pawnTarget == targetPawn))
+            if (data.HasQuirk(def, item, targetPawn))
             {
                 return;
             }
@@ -326,6 +331,19 @@ namespace WantsAndQuirks
         {
             var range = WantsAndQuirksMod.settings.wantGenerationFrequencyDays;
             return (int)(Rand.Range(range.min, (float)range.max) * GenDate.TicksPerDay);
+        }
+
+        public static bool IsGrantedGene(this Gene gene)
+        {
+            if (TryGetWantsData(gene.pawn, out var data))
+            {
+                for (int i = 0; i < data.grantedGenes.Count; i++)
+                {
+                    if (data.grantedGenes[i].gene == gene)
+                        return true;
+                }
+            }
+            return false;
         }
     }
 }

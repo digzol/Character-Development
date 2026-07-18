@@ -128,10 +128,31 @@ namespace WantsAndQuirks
         }
     }
 
+    public class GrantedGeneLink : IExposable
+    {
+        public Gene gene;
+        public Quirk quirk;
+
+        public GrantedGeneLink() { }
+
+        public GrantedGeneLink(Gene gene, Quirk quirk)
+        {
+            this.gene = gene;
+            this.quirk = quirk;
+        }
+
+        public void ExposeData()
+        {
+            Scribe_References.Look(ref gene, "gene");
+            Scribe_References.Look(ref quirk, "quirk");
+        }
+    }
+
     public class PawnWantsData : IExposable
     {
         public List<ActiveWant> activeWants;
         public List<Quirk> quirks;
+        public List<GrantedGeneLink> grantedGenes = new List<GrantedGeneLink>();
         public int nextWantTick;
 
         public PawnWantsData()
@@ -145,15 +166,29 @@ namespace WantsAndQuirks
         {
             Scribe_Collections.Look(ref activeWants, "activeWants", LookMode.Deep);
             Scribe_Collections.Look(ref quirks, "quirks", LookMode.Deep);
+            Scribe_Collections.Look(ref grantedGenes, "grantedGenes", LookMode.Deep);
             Scribe_Values.Look(ref nextWantTick, "nextWantTick", -1);
 
             if (Scribe.mode == LoadSaveMode.PostLoadInit)
             {
                 activeWants ??= new List<ActiveWant>();
                 quirks ??= new List<Quirk>();
+                grantedGenes ??= new List<GrantedGeneLink>();
                 activeWants.RemoveAll(w => w.def == null || (w is ActiveWantWithTarget t && t.targetDef == null) || (w is ActiveWantWithPawnTarget tp && tp.targetPawn == null));
                 quirks.RemoveAll(q => q.def == null || (q.def.requiresItem && q.item == null) || (q.def.requiresPawn && q.pawnTarget == null));
+                grantedGenes.RemoveAll(link => link.gene == null || link.quirk == null || !link.gene.IsGrantedGene());
             }
+        }
+
+        public bool HasQuirk(RewardDef def, ThingDef item, Pawn target)
+        {
+            for (int i = 0; i < quirks.Count; i++)
+            {
+                var q = quirks[i];
+                if (q.def == def && q.item == item && q.pawnTarget == target)
+                    return true;
+            }
+            return false;
         }
     }
 }

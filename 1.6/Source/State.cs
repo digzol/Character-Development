@@ -8,12 +8,14 @@ namespace WantsAndQuirks
         public static int characterPoints;
         public static int rewardPoints;
         public static List<RewardNode> rewardNodes = new List<RewardNode>();
+        public static int quirkLoadIDCounter;
 
         public static void ExposeData()
         {
             Scribe_Values.Look(ref characterPoints, "WQ_characterPoints", 0);
             Scribe_Values.Look(ref rewardPoints, "WQ_rewardPoints", 0);
             Scribe_Collections.Look(ref rewardNodes, "WQ_rewardNodes", LookMode.Deep);
+            Scribe_Values.Look(ref quirkLoadIDCounter, "WQ_quirkLoadIDCounter", 0);
             rewardNodes ??= new List<RewardNode>();
 
             if (Scribe.mode == LoadSaveMode.PostLoadInit)
@@ -31,6 +33,7 @@ namespace WantsAndQuirks
             characterPoints = 0;
             rewardPoints = 0;
             rewardNodes = new List<RewardNode>();
+            quirkLoadIDCounter = 0;
         }
     }
 }
