@@ -16,6 +16,7 @@ namespace WantsAndQuirks
         private static Color QuirkContainerColor => new ColorInt(123, 121, 118).ToColor;
         private static Color QuirkBgColor => new ColorInt(70, 68, 66).ToColor;
         private static Color PointsColor => new ColorInt(166, 187, 194).ToColor;
+        private static Color MentalBreakRectColor => new ColorInt(184, 133, 134).ToColor;
         private static Color MentalBreakTextColor => new ColorInt(57, 45, 45).ToColor;
 
         public ITab_Pawn_WantsAndQuirks()
@@ -79,7 +80,7 @@ namespace WantsAndQuirks
                 var want = data.activeWants[i];
                 var wantRect = new Rect(0f, listY, viewRect.width, 80f);
 
-                Widgets.DrawBoxSolid(wantRect, WantBgColor);
+                Widgets.DrawBoxSolid(wantRect, want.def.isMentalBreakWant ? MentalBreakRectColor : WantBgColor);
 
                 var iconRect = new Rect(wantRect.x + 10f, wantRect.y + 20f, 50f, 50f);
                 GUI.color = new Color(1f, 1f, 1f, 0.8f);
