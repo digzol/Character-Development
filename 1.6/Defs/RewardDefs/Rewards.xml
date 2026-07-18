@@ -79,9 +79,9 @@
 
     <WantsAndQuirks.RewardDef ParentName="WQ_RewardSkillBase">
         <defName>WQ_RewardSkill_Medicine</defName>
-        <iconPath>UI/RewardIcons/MedicineSkill</iconPath>
-        <label>improve medicine</label>
-        <description>Increases the medicine skill by 1 level.</description>
+        <iconPath>UI/RewardIcons/MedicalSkill</iconPath>
+        <label>improve medical</label>
+        <description>Increases the medical skill by 1 level.</description>
         <skill>Medicine</skill>
     </WantsAndQuirks.RewardDef>
 
@@ -256,14 +256,14 @@
         <isQuirk>true</isQuirk>
     </WantsAndQuirks.RewardDef>
 
-    <WantsAndQuirks.RewardDef>
+    <!-- <WantsAndQuirks.RewardDef>
         <defName>WQ_RewardHealScar</defName>
         <label>heal scar</label>
         <description>Miraculously heals a single permanent injury or scar.</description>
         <iconPath>UI/Icons/Medical/IconImmune</iconPath>
         <rarity>Rare</rarity>
         <workerClass>WantsAndQuirks.RewardWorker_HealScar</workerClass>
-    </WantsAndQuirks.RewardDef>
+    </WantsAndQuirks.RewardDef> -->
 
     <!-- <WantsAndQuirks.RewardDef>
         <defName>WQ_RewardRestoreBodyPart</defName>
@@ -341,7 +341,7 @@
         <description>Dislikes the company of {0}.</description>
         <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
         <iconPath>UI/Icons/Medical/IconImmune</iconPath>
-        <rarity>Uncommon</rarity>
+        <rarity>Common</rarity>
         <isQuirk>true</isQuirk>
         <requiresPawn>true</requiresPawn>
         <workerClass>WantsAndQuirks.RewardWorker_PawnRelation</workerClass>
