@@ -396,7 +396,6 @@ namespace WantsAndQuirks
                     if (!hasSignificantDrag && Vector2.Distance(Event.current.mousePosition, dragStartMousePos) < 5f)
                     {
                         ClaimReward(draggedNode);
-                        DefsOf.WQ_BubbleClick.PlayOneShotOnCamera();
                     }
                     draggedNode = null;
                     wasDraggingNode = false;
@@ -503,7 +502,7 @@ namespace WantsAndQuirks
                 Messages.Message("WQ_NoValidRecipients".Translate(), MessageTypeDefOf.RejectInput, false);
                 return;
             }
-
+            DefsOf.WQ_BubbleClick.PlayOneShotOnCamera();
             Find.WindowStack.Add(new Dialog_BestowReward(node, this, recipients));
         }
     }

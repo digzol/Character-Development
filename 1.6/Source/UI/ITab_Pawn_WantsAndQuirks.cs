@@ -22,7 +22,7 @@ namespace WantsAndQuirks
         public ITab_Pawn_WantsAndQuirks()
         {
             labelKey = "WQ_Wants";
-            size = new Vector2(600f, 390f);
+            size = new Vector2(600f, 413f);
         }
 
         public override bool IsVisible
@@ -39,7 +39,7 @@ namespace WantsAndQuirks
         public override void FillTab()
         {
             var pawn = SelPawn;
-            size = new Vector2(600f, 400f);
+            size = new Vector2(600f, 413f);
             var data = pawn.GetWantsData();
             var rect = new Rect(0f, 0f, size.x, size.y);
 
@@ -78,6 +78,7 @@ namespace WantsAndQuirks
 
             var outRect = new Rect(rect.x, curY, rect.width, rect.height - (curY - rect.y));
             var viewRect = new Rect(0f, 0f, outRect.width - 16f, data.activeWants.Count * 85f);
+            viewRect.height -= 5f;
             Widgets.BeginScrollView(outRect, ref wantsScrollPos, viewRect);
 
             var listY = 0f;
@@ -131,7 +132,7 @@ namespace WantsAndQuirks
                 {
                     var rerollRect = new Rect(btnRect.x - 25f, btnRect.y, 20f, 20f);
                     GUI.color = want.rerollCount >= WantsAndQuirksMod.settings.rerollsPerWant ? Color.gray : Color.white;
-                    if (Widgets.ButtonImage(rerollRect, ContentFinder<Texture2D>.Get("UI/Reroll")))
+                    if (WantsAndQuirksMod.settings.rerollsPerWant > 0 && Widgets.ButtonImage(rerollRect, ContentFinder<Texture2D>.Get("UI/Reroll")))
                     {
                         if (want.rerollCount < WantsAndQuirksMod.settings.rerollsPerWant)
                         {
@@ -153,8 +154,14 @@ namespace WantsAndQuirks
                     GUI.color = Color.white;
                     Text.Font = GameFont.Small;
                 }
-
-                listY += 85f;
+                if (i == data.activeWants.Count - 1)
+                {
+                    listY += 80f;
+                }
+                else
+                {
+                    listY += 85f;
+                }
             }
 
             Widgets.EndScrollView();
