@@ -9,7 +9,6 @@ namespace WantsAndQuirks
     {
         public WantDef def;
         public int assignedTick;
-        public bool isMentalBreak;
 
         public virtual string LabelCap => def.LabelCap;
         public virtual string Description => def.description;
@@ -28,7 +27,6 @@ namespace WantsAndQuirks
         {
             Scribe_Defs.Look(ref def, "def");
             Scribe_Values.Look(ref assignedTick, "assignedTick");
-            Scribe_Values.Look(ref isMentalBreak, "isMentalBreak", false);
         }
 
         public virtual bool IsCompleted(Pawn pawn, WantWorkerContext context)

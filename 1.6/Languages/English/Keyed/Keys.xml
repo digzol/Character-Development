@@ -14,6 +14,7 @@
   <WQ_NewWantGenerated>{0} wants something. Check {0_possessive} wants tab.</WQ_NewWantGenerated>
   <WQ_WantCompleted>{0} fulfilled a want: {1}</WQ_WantCompleted>
   <WQ_RewardPointEarned>{0} earned a reward point!</WQ_RewardPointEarned>
+  <WQ_RewardPointEarnedDebug>Colony earned a reward point! (debug)</WQ_RewardPointEarnedDebug>
   <WQ_NotEnoughRewardPoints>Not enough reward points.</WQ_NotEnoughRewardPoints>
   <WQ_PawnWants>{0}'s wants</WQ_PawnWants>
   <WQ_OnCompletion>On completion:</WQ_OnCompletion>
@@ -37,4 +38,8 @@
   <WQ_NoValidRecipients>There are no valid possible recipients for this reward.</WQ_NoValidRecipients>
   <WQ_WantsSubtitle>These desires can be fulfilled at any time, and do not expire.</WQ_WantsSubtitle>
   <WQ_AddQuirks>Add quirks</WQ_AddQuirks>
+  <WQ_EnableMentalBreakWants>Enable mental break wants</WQ_EnableMentalBreakWants>
+  <WQ_SkillIncreased>{0}'s {1} was increased by 1.</WQ_SkillIncreased>
+  <WQ_TraitGained>{0} gained the trait: {1}.</WQ_TraitGained>
+  <WQ_TraitRemoved>{0}'s trait was removed: {1}.</WQ_TraitRemoved>
 </LanguageData>

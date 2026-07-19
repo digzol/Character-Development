@@ -86,20 +86,66 @@ namespace WantsAndQuirks
             }
         }
 
-        public static void AddCharacterPoints(int amount)
+        public static bool HasTraumaticDesire(this Pawn pawn)
+        {
+            if (!pawn.TryGetWantsData(out var data))
+                return false;
+            for (int i = 0; i < data.activeWants.Count; i++)
+            {
+                if (data.activeWants[i].def.isMentalBreakWant)
+                    return true;
+            }
+            return false;
+        }
+
+        public static List<string> GetTraumaticDesireDefNames(this Pawn pawn)
+        {
+            var result = new List<string>();
+            if (!pawn.TryGetWantsData(out var data))
+                return result;
+            for (int i = 0; i < data.activeWants.Count; i++)
+            {
+                if (data.activeWants[i].def.isMentalBreakWant)
+                    result.Add(data.activeWants[i].def.defName);
+            }
+            return result;
+        }
+
+        public static void ResolveTraumaticDesire(this Pawn pawn, string defName)
+        {
+            if (!pawn.TryGetWantsData(out var data))
+                return;
+            for (int i = data.activeWants.Count - 1; i >= 0; i--)
+            {
+                if (data.activeWants[i].def.isMentalBreakWant && data.activeWants[i].def.defName == defName)
+                {
+                    data.activeWants.RemoveAt(i);
+                    return;
+                }
+            }
+        }
+
+        public static void AddCharacterPoints(Pawn pawn, int amount)
         {
             State.characterPoints = Mathf.Max(State.characterPoints + amount, 0);
             while (State.characterPoints >= WantsAndQuirksMod.settings.pointsNeededForReward)
             {
                 State.characterPoints -= WantsAndQuirksMod.settings.pointsNeededForReward;
                 State.rewardPoints++;
-                Messages.Message("WQ_RewardPointEarned".Translate(), null, MessageTypeDefOf.PositiveEvent, false);
+                if (pawn != null)
+                {
+                    Messages.Message("WQ_RewardPointEarned".Translate(pawn.Named("PAWN")), null, MessageTypeDefOf.PositiveEvent, false);
+                }
+                else
+                {
+                    Messages.Message("WQ_RewardPointEarnedDebug".Translate(), null, MessageTypeDefOf.PositiveEvent, false);
+                }
             }
         }
 
         public static void CompleteWant(Pawn pawn, PawnWantsData data, ActiveWant want)
         {
-            AddCharacterPoints(want.def.reward);
+            AddCharacterPoints(pawn, want.def.reward);
             if (PawnUtility.ShouldSendNotificationAbout(pawn))
             {
                 var text = !string.IsNullOrEmpty(want.def.fulfilledText) ? want.def.fulfilledText.Formatted(pawn.Named("PAWN"), want.LabelCap) : "WQ_WantCompleted".Translate(pawn.Named("PAWN"), want.LabelCap);
@@ -269,6 +315,10 @@ namespace WantsAndQuirks
         public static bool GenerateRandomWant(Pawn pawn, PawnWantsData data, bool sendNotification = true)
         {
             var availableDefs = DefDatabase<WantDef>.AllDefsListForReading.Where(x => !x.isMentalBreakWant && !data.activeWants.Any(w => w.def == x) && x.Worker.CanHaveWant(pawn) && x.Worker.CanGenerate(pawn)).ToList();
+            if (!WantsAndQuirksMod.settings.enableMentalBreakWants)
+            {
+                availableDefs.RemoveAll(d => d.isMentalBreakWant);
+            }
             if (availableDefs.TryRandomElementByWeight(x => x.commonality, out var chosenDef))
             {
                 var targetPawn = chosenDef.Worker.GetRandomTargetPawn(pawn);

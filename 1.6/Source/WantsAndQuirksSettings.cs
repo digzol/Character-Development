@@ -7,6 +7,7 @@ namespace WantsAndQuirks
     {
         public bool enableWantsSystem = true;
         public bool enableCharactersMenu = true;
+        public bool enableMentalBreakWants = true;
         public int bubblesPerRoll = 10;
         public bool rerollBubblesOnSelection = false;
         public int pointsNeededForReward = 1000;
@@ -18,6 +19,7 @@ namespace WantsAndQuirks
             base.ExposeData();
             Scribe_Values.Look(ref enableWantsSystem, "enableWantsSystem", true);
             Scribe_Values.Look(ref enableCharactersMenu, "enableCharactersMenu", true);
+            Scribe_Values.Look(ref enableMentalBreakWants, "enableMentalBreakWants", true);
             Scribe_Values.Look(ref bubblesPerRoll, "bubblesPerRoll", 10);
             Scribe_Values.Look(ref rerollBubblesOnSelection, "rerollBubblesOnSelection", false);
             Scribe_Values.Look(ref pointsNeededForReward, "pointsNeededForReward", 1000);
@@ -31,6 +33,7 @@ namespace WantsAndQuirks
             ls.Begin(inRect);
             ls.CheckboxLabeled("WQ_EnableWantsSystem".Translate(), ref enableWantsSystem);
             ls.CheckboxLabeled("WQ_EnableCharactersMenu".Translate(), ref enableCharactersMenu);
+            ls.CheckboxLabeled("WQ_EnableMentalBreakWants".Translate(), ref enableMentalBreakWants);
             ls.Label("WQ_BubblesPerRoll".Translate(bubblesPerRoll));
             bubblesPerRoll = (int)ls.Slider(bubblesPerRoll, 1, 50);
             ls.CheckboxLabeled("WQ_RerollBubblesOnSelection".Translate(), ref rerollBubblesOnSelection);

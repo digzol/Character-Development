@@ -40,18 +40,18 @@ namespace WantsAndQuirks
             ActiveWant newWant;
             if (targetPawn != null)
             {
-                newWant = new ActiveWantWithPawnTarget { def = chosen, targetPawn = targetPawn, assignedTick = Find.TickManager.TicksGame, isMentalBreak = true };
+                newWant = new ActiveWantWithPawnTarget { def = chosen, targetPawn = targetPawn, assignedTick = Find.TickManager.TicksGame };
             }
             else
             {
                 var targetDef = chosen.Worker.GetRandomTarget(pawn);
                 if (targetDef != null)
                 {
-                    newWant = new ActiveWantWithTarget { def = chosen, targetDef = targetDef, assignedTick = Find.TickManager.TicksGame, isMentalBreak = true };
+                    newWant = new ActiveWantWithTarget { def = chosen, targetDef = targetDef, assignedTick = Find.TickManager.TicksGame };
                 }
                 else
                 {
-                    newWant = new ActiveWant { def = chosen, assignedTick = Find.TickManager.TicksGame, isMentalBreak = true };
+                    newWant = new ActiveWant { def = chosen, assignedTick = Find.TickManager.TicksGame };
                 }
             }
 

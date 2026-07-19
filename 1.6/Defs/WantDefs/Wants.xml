@@ -582,6 +582,7 @@
         <workerClass>WantsAndQuirks.WantWorker_OpinionCount</workerClass>
         <opinionThreshold>20</opinionThreshold>
         <countThreshold>10</countThreshold>
+        <minimumColonists>10</minimumColonists>
         <!-- <isMentalBreakWant>true</isMentalBreakWant> -->
     </WantsAndQuirks.WantDef>
 
@@ -595,6 +596,7 @@
         <workerClass>WantsAndQuirks.WantWorker_OpinionCount</workerClass>
         <opinionThreshold>-20</opinionThreshold>
         <countThreshold>10</countThreshold>
+        <minimumColonists>10</minimumColonists>
         <isMentalBreakWant>true</isMentalBreakWant>
     </WantsAndQuirks.WantDef>
 

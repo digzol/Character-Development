@@ -101,18 +101,18 @@ namespace WantsAndQuirks
                 }
                 GUI.color = Color.white;
 
-                var textRect = new Rect(iconRect.xMax + 15f, wantRect.y + 5f, wantRect.width - 70f - 30f, 25f);
+                var textRect = new Rect(iconRect.xMax + 15f, wantRect.y + 5f, wantRect.width - 70f - 30f, 22f);
                 Text.Font = GameFont.Small;
                 Widgets.Label(textRect, $"<i>{want.LabelCap}</i>");
 
                 Text.Font = GameFont.Tiny;
-                GUI.color = new Color(0.9f, 0.9f, 0.9f);
+                GUI.color = new Color(0.7f, 0.7f, 0.7f);
                 var descRect = new Rect(textRect.x, textRect.yMax, textRect.width, 32f);
                 Widgets.Label(descRect, want.Description);
                 GUI.color = Color.white;
 
                 var infoRect = new Rect(textRect.x, descRect.yMax, textRect.width, 25f);
-                if (want.isMentalBreak)
+                if (want.def.isMentalBreakWant)
                 {
                     GUI.color = MentalBreakTextColor;
                     Widgets.Label(infoRect, "WQ_CausedByMentalBreak".Translate());
@@ -127,7 +127,7 @@ namespace WantsAndQuirks
                 Text.Anchor = TextAnchor.UpperLeft;
 
                 var btnRect = new Rect(wantRect.xMax - 25f, wantRect.y + 5f, 20f, 20f);
-                if (!want.isMentalBreak)
+                if (!want.def.isMentalBreakWant)
                 {
                     Text.Font = GameFont.Medium;
                     GUI.color = Color.gray;

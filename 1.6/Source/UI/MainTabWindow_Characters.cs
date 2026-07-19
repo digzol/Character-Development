@@ -262,7 +262,7 @@ namespace WantsAndQuirks
                 var rectPlus = new Rect(barRect.xMax - lineHeight, barRect.y - lineHeight, lineHeight, lineHeight);
                 if (Widgets.ButtonImage(rectPlus.ContractedBy(4f), TexButton.Plus))
                 {
-                    WantsAndQuirksUtility.AddCharacterPoints(100);
+                    WantsAndQuirksUtility.AddCharacterPoints(null, 100);
                 }
                 if (Mouse.IsOver(rectPlus))
                 {
@@ -271,7 +271,7 @@ namespace WantsAndQuirks
                 var rectMinus = new Rect(rectPlus.xMin - lineHeight, barRect.y - lineHeight, lineHeight, lineHeight);
                 if (Widgets.ButtonImage(rectMinus.ContractedBy(4f), TexButton.Minus))
                 {
-                    WantsAndQuirksUtility.AddCharacterPoints(-100);
+                    WantsAndQuirksUtility.AddCharacterPoints(null, -100);
                 }
                 if (Mouse.IsOver(rectMinus))
                 {

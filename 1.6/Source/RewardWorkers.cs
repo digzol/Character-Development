@@ -35,6 +35,7 @@ namespace WantsAndQuirks
                 skill = skills.RandomElement();
             }
             skill.Level++;
+            Messages.Message("WQ_SkillIncreased".Translate(pawn.Named("PAWN"), skill.def.label), pawn, MessageTypeDefOf.PositiveEvent);
         }
     }
 
@@ -228,6 +229,7 @@ namespace WantsAndQuirks
             {
                 var degree = PawnGenerator.RandomTraitDegree(traitDef);
                 pawn.story.traits.GainTrait(new Trait(traitDef, degree));
+                Messages.Message("WQ_TraitGained".Translate(pawn.Named("PAWN"), traitDef.label), pawn, MessageTypeDefOf.PositiveEvent);
             }
         }
     }
@@ -245,6 +247,7 @@ namespace WantsAndQuirks
             if (trait != null)
             {
                 pawn.story.traits.RemoveTrait(trait);
+                Messages.Message("WQ_TraitRemoved".Translate(pawn.Named("PAWN"), trait.Label), pawn, MessageTypeDefOf.PositiveEvent);
             }
         }
     }

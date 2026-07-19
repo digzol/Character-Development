@@ -36,6 +36,7 @@ namespace WantsAndQuirks
         public PreceptDef targetRitual;
         public string targetRitualRole;
         public bool isMentalBreakWant;
+        public int minimumColonists;
 
         [Unsaved(false)]
         private WantWorker workerInt;
