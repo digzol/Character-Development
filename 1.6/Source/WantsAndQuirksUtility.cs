@@ -292,27 +292,44 @@ namespace WantsAndQuirks
             return null;
         }
 
-        public static void AddWant(Pawn pawn, PawnWantsData data, WantDef def, Def targetDef = null, bool sendNotification = true)
+        public static void RerollWant(Pawn pawn, PawnWantsData data, ActiveWant want)
         {
-            var want = targetDef != null ? new ActiveWantWithTarget { def = def, targetDef = targetDef, assignedTick = Find.TickManager.TicksGame } : new ActiveWant { def = def, assignedTick = Find.TickManager.TicksGame };
-            data.activeWants.Add(want);
+            var newWant = GenerateRandomWant(pawn, data, false);
+            if (newWant == null)
+                return;
+            newWant.assignedTick = want.assignedTick;
+            newWant.rerollCount = want.rerollCount + 1;
+            data.activeWants[data.activeWants.IndexOf(want)] = newWant;
+        }
+
+        public static ActiveWant CreateWant(Pawn pawn, WantDef def, Def targetDef = null, Pawn targetPawn = null, bool sendNotification = true)
+        {
+            ActiveWant want;
+            if (targetPawn != null) want = new ActiveWantWithPawnTarget { def = def, targetPawn = targetPawn, assignedTick = Find.TickManager.TicksGame };
+            else if (targetDef != null) want = new ActiveWantWithTarget { def = def, targetDef = targetDef, assignedTick = Find.TickManager.TicksGame };
+            else want = new ActiveWant { def = def, assignedTick = Find.TickManager.TicksGame };
             if (sendNotification && PawnUtility.ShouldSendNotificationAbout(pawn))
             {
                 Messages.Message("WQ_NewWantGenerated".Translate(pawn.Named("PAWN")), pawn, MessageTypeDefOf.PositiveEvent, false);
             }
+            return want;
         }
 
-        public static void AddWantWithPawnTarget(Pawn pawn, PawnWantsData data, WantDef def, Pawn targetPawn, bool sendNotification = true)
+        public static ActiveWant AddWant(Pawn pawn, PawnWantsData data, WantDef def, Def targetDef = null, bool sendNotification = true)
         {
-            var want = new ActiveWantWithPawnTarget { def = def, targetPawn = targetPawn, assignedTick = Find.TickManager.TicksGame };
+            var want = CreateWant(pawn, def, targetDef, sendNotification: sendNotification);
             data.activeWants.Add(want);
-            if (sendNotification && PawnUtility.ShouldSendNotificationAbout(pawn))
-            {
-                Messages.Message("WQ_NewWantGenerated".Translate(pawn.Named("PAWN")), pawn, MessageTypeDefOf.PositiveEvent, false);
-            }
+            return want;
         }
 
-        public static bool GenerateRandomWant(Pawn pawn, PawnWantsData data, bool sendNotification = true)
+        public static ActiveWant AddWantWithPawnTarget(Pawn pawn, PawnWantsData data, WantDef def, Pawn targetPawn, bool sendNotification = true)
+        {
+            var want = CreateWant(pawn, def, null, targetPawn, sendNotification);
+            data.activeWants.Add(want);
+            return want;
+        }
+
+        public static ActiveWant GenerateRandomWant(Pawn pawn, PawnWantsData data, bool sendNotification = true)
         {
             var availableDefs = DefDatabase<WantDef>.AllDefsListForReading.Where(x => !x.isMentalBreakWant && !data.activeWants.Any(w => w.def == x) && x.Worker.CanHaveWant(pawn) && x.Worker.CanGenerate(pawn)).ToList();
             if (!WantsAndQuirksMod.settings.enableMentalBreakWants)
@@ -324,15 +341,16 @@ namespace WantsAndQuirks
                 var targetPawn = chosenDef.Worker.GetRandomTargetPawn(pawn);
                 if (targetPawn != null)
                 {
-                    AddWantWithPawnTarget(pawn, data, chosenDef, targetPawn, sendNotification);
-                    return true;
+                    return CreateWant(pawn, chosenDef, null, targetPawn, sendNotification);
                 }
-
                 var targetDef = chosenDef.Worker.GetRandomTarget(pawn);
-                AddWant(pawn, data, chosenDef, targetDef, sendNotification);
-                return true;
+                if (targetDef != null)
+                {
+                    return CreateWant(pawn, chosenDef, targetDef, sendNotification: sendNotification);
+                }
+                return CreateWant(pawn, chosenDef, sendNotification: sendNotification);
             }
-            return false;
+            return null;
         }
 
         public static void AddQuirk(Pawn pawn, RewardDef def, ThingDef item, Pawn targetPawn = null)
@@ -363,7 +381,11 @@ namespace WantsAndQuirks
 
             if (data.activeWants.Count < 4 && Find.TickManager.TicksGame >= data.nextWantTick)
             {
-                GenerateRandomWant(pawn, data);
+                var generated = GenerateRandomWant(pawn, data);
+                if (generated != null)
+                {
+                    data.activeWants.Add(generated);
+                }
                 data.nextWantTick = Find.TickManager.TicksGame + GetNextWantInterval();
             }
         }
@@ -373,7 +395,11 @@ namespace WantsAndQuirks
             data.nextWantTick = Find.TickManager.TicksGame + GetNextWantInterval();
             for (int i = 0; i < WantsAndQuirksMod.settings.startingWantsCount; i++)
             {
-                GenerateRandomWant(pawn, data, false);
+                var generated = GenerateRandomWant(pawn, data, false);
+                if (generated != null)
+                {
+                    data.activeWants.Add(generated);
+                }
             }
         }
 

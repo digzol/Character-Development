@@ -9,6 +9,7 @@ namespace WantsAndQuirks
     {
         public WantDef def;
         public int assignedTick;
+        public int rerollCount;
 
         public virtual string LabelCap => def.LabelCap;
         public virtual string Description => def.description;
@@ -27,6 +28,7 @@ namespace WantsAndQuirks
         {
             Scribe_Defs.Look(ref def, "def");
             Scribe_Values.Look(ref assignedTick, "assignedTick");
+            Scribe_Values.Look(ref rerollCount, "rerollCount");
         }
 
         public virtual bool IsCompleted(Pawn pawn, WantWorkerContext context)

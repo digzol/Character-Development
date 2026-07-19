@@ -341,13 +341,22 @@ namespace WantsAndQuirks
         }
     }
 
-    public class WantWorker_SkillLevel : WantWorker
+    public class WantWorker_SkillBase : WantWorker
     {
+        public override bool CanGenerate(Pawn pawn)
+        {
+            return pawn.skills.skills.Any(s => s.TotallyDisabled is false && s.Level < 20) && base.CanGenerate(pawn);
+        }
+
         public override Def GetRandomTarget(Pawn pawn)
         {
-            var skills = pawn.skills.skills.Where(s => s.Level < 20).Select(s => s.def);
+            var skills = pawn.skills.skills.Where(s => s.TotallyDisabled is false && s.Level < 20).Select(s => s.def);
             return skills.TryRandomElement(out var result) ? result : null;
         }
+    }
+
+    public class WantWorker_SkillLevel : WantWorker_SkillBase
+    {
         public override bool IsSatisfied(Pawn pawn)
         {
             if (def.targetSkill != null)
@@ -546,14 +555,8 @@ namespace WantsAndQuirks
         }
     }
 
-    public class WantWorker_ImproveSkill : WantWorker
+    public class WantWorker_ImproveSkill : WantWorker_SkillBase
     {
-        public override Def GetRandomTarget(Pawn pawn)
-        {
-            var skills = pawn.skills.skills.Where(s => s.Level < 20).Select(s => s.def);
-            return skills.TryRandomElement(out var result) ? result : null;
-        }
-
         public override bool IsCompleted(Pawn pawn, WantWorkerContext context)
         {
             return context.triggerType == WantTriggerType.SkillIncreased;

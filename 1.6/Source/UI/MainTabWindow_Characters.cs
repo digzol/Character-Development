@@ -396,6 +396,7 @@ namespace WantsAndQuirks
                     if (!hasSignificantDrag && Vector2.Distance(Event.current.mousePosition, dragStartMousePos) < 5f)
                     {
                         ClaimReward(draggedNode);
+                        DefsOf.WQ_BubbleClick.PlayOneShotOnCamera();
                     }
                     draggedNode = null;
                     wasDraggingNode = false;
@@ -411,6 +412,10 @@ namespace WantsAndQuirks
                 var nodeRect = new Rect(nodeCenter.x - r, nodeCenter.y - r, r * 2f, r * 2f);
 
                 GUI.color = GetBubbleColor(node.def.rarity);
+                if (Mouse.IsOver(nodeRect))
+                {
+                    GUI.color = Color.Lerp(GUI.color, Color.white, 0.3f);
+                }
                 GUI.DrawTexture(nodeRect, BubbleTex);
                 GUI.color = Color.white;
 

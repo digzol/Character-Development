@@ -42,4 +42,6 @@
   <WQ_SkillIncreased>{0}'s {1} was increased by 1.</WQ_SkillIncreased>
   <WQ_TraitGained>{0} gained the trait: {1}.</WQ_TraitGained>
   <WQ_TraitRemoved>{0}'s trait was removed: {1}.</WQ_TraitRemoved>
+  <WQ_RerollWantWithCount>Reroll want\n\nRerolls left: {0}</WQ_RerollWantWithCount>
+  <WQ_RerollsPerWant>Rerolls allowed per acquired want: {0}</WQ_RerollsPerWant>
 </LanguageData>
