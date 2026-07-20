@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using RimWorld;
 using Verse;
 
 namespace WantsAndQuirks
@@ -17,6 +18,11 @@ namespace WantsAndQuirks
         {
             if (!def.requiresPawn)
                 yield break;
+        }
+
+        public virtual bool CanGenerate()
+        {
+            return def.CanGenerate();
         }
 
         public virtual bool CanBestowOn(Pawn pawn, ThingDef item = null, Pawn targetPawn = null)

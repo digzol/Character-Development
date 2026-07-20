@@ -195,9 +195,9 @@ namespace WantsAndQuirks
             while (list.Count < total)
             {
                 var node = GenerateNodeForRarity(list, RewardRarity.Common) ??
-                           GenerateNodeForRarity(list, RewardRarity.Uncommon) ??
-                           GenerateNodeForRarity(list, RewardRarity.Rare) ??
-                           GenerateNodeForRarity(list, RewardRarity.Legendary);
+                            GenerateNodeForRarity(list, RewardRarity.Uncommon) ??
+                            GenerateNodeForRarity(list, RewardRarity.Rare) ??
+                            GenerateNodeForRarity(list, RewardRarity.Legendary);
                 if (node == null)
                     break;
                 list.Add(node);
@@ -256,6 +256,8 @@ namespace WantsAndQuirks
             var validDefs = DefDatabase<RewardDef>.AllDefsListForReading.Where(rDef =>
             {
                 if (rDef.rarity != rarity)
+                    return false;
+                if (!rDef.Worker.CanGenerate())
                     return false;
                 if (rDef.requiresItem)
                 {

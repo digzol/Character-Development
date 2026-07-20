@@ -13,6 +13,30 @@ namespace WantsAndQuirks
         public bool requiredTraitsAny;
         public List<GeneDef> invalidGenes;
         public bool invalidNonViolent;
+        public TechLevel minimumTechLevel = TechLevel.Undefined;
+        public TechLevel maximumTechLevel = TechLevel.Undefined;
+        public ThingDef discoveryRequirementThing;
+        public FactionDef discoveryRequirementFaction;
+        public XenotypeDef discoveryRequirementXenotype;
+
+        public virtual bool CanGenerate()
+        {
+            var tech = Faction.OfPlayer.def.techLevel;
+            if (minimumTechLevel != TechLevel.Undefined && (int)tech < (int)minimumTechLevel)
+                return false;
+            if (maximumTechLevel != TechLevel.Undefined && (int)tech > (int)maximumTechLevel)
+                return false;
+            if (DiscoveryCompat.IsActive)
+            {
+                if (discoveryRequirementThing != null && !DiscoveryCompat.IsDiscovered(discoveryRequirementThing))
+                    return false;
+                if (discoveryRequirementFaction != null && !DiscoveryCompat.IsDiscovered(discoveryRequirementFaction))
+                    return false;
+                if (discoveryRequirementXenotype != null && !DiscoveryCompat.IsDiscovered(discoveryRequirementXenotype))
+                    return false;
+            }
+            return true;
+        }
 
         public bool PassesRecipientFilter(Pawn pawn)
         {
