@@ -16,8 +16,6 @@ namespace WantsAndQuirks
         public RoomStatDef roomStat;
         public float roomStatThreshold;
         public float wealthThreshold;
-        public TechLevel minimumTechLevel = TechLevel.Undefined;
-        public TechLevel maximumTechLevel = TechLevel.Undefined;
         public string fulfilledText;
         public HediffDef targetHediff;
         public float targetHediffSeverity;
@@ -26,9 +24,6 @@ namespace WantsAndQuirks
         public List<TraitDef> targetTraits;
         public QualityCategory targetQuality;
         public int opinionThreshold;
-        public ThingDef discoveryRequirementThing;
-        public FactionDef discoveryRequirementFaction;
-        public XenotypeDef discoveryRequirementXenotype;
         public RecordDef targetRecord;
         public SkillDef targetSkill;
         public int skillLevelThreshold;
