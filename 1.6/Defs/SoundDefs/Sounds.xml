@@ -8,7 +8,7 @@
         <onCamera>True</onCamera>
         <grains>
           <li Class="AudioGrain_Clip">
-            <clipPath>UI/TinyBell</clipPath>
+            <clipPath>AchievedWant</clipPath>
           </li>
         </grains>
         <volumeRange>9~9</volumeRange>
@@ -25,7 +25,7 @@
         <onCamera>True</onCamera>
         <grains>
           <li Class="AudioGrain_Clip">
-            <clipPath>UI/TinyBell</clipPath>
+            <clipPath>ReloadWant</clipPath>
           </li>
         </grains>
         <volumeRange>9~9</volumeRange>
@@ -42,10 +42,10 @@
         <onCamera>True</onCamera>
         <grains>
           <li Class="AudioGrain_Clip">
-            <clipPath>UI/TinyBell</clipPath>
+            <clipPath>RewardBubble</clipPath>
           </li>
         </grains>
-        <volumeRange>9~9</volumeRange>
+        <volumeRange>20~20</volumeRange>
         <pitchRange>0.85~1.15</pitchRange>
       </li>
     </subSounds>
