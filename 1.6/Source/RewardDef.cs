@@ -26,6 +26,7 @@ namespace WantsAndQuirks
         public SkillDef skill;
         public InspirationDef inspirationDef;
         public GeneDef gene;
+        public string claimMessage;
 
         [Unsaved(false)]
         private RewardWorker workerInt;

@@ -29,7 +29,9 @@ namespace WantsAndQuirks
         LeftFaction,
         Died,
         AdvancedEra,
-        BoardedVehicle
+        BoardedVehicle,
+        AnimalTamed,
+        BuildingConstructed
     }
 
     public struct WantWorkerContext
@@ -305,9 +307,12 @@ namespace WantsAndQuirks
         public static ActiveWant CreateWant(Pawn pawn, WantDef def, Def targetDef = null, Pawn targetPawn = null, bool sendNotification = true)
         {
             ActiveWant want;
-            if (targetPawn != null) want = new ActiveWantWithPawnTarget { def = def, targetPawn = targetPawn, assignedTick = Find.TickManager.TicksGame };
-            else if (targetDef != null) want = new ActiveWantWithTarget { def = def, targetDef = targetDef, assignedTick = Find.TickManager.TicksGame };
-            else want = new ActiveWant { def = def, assignedTick = Find.TickManager.TicksGame };
+            if (targetPawn != null)
+                want = new ActiveWantWithPawnTarget { def = def, targetPawn = targetPawn, assignedTick = Find.TickManager.TicksGame };
+            else if (targetDef != null)
+                want = new ActiveWantWithTarget { def = def, targetDef = targetDef, assignedTick = Find.TickManager.TicksGame };
+            else
+                want = new ActiveWant { def = def, assignedTick = Find.TickManager.TicksGame };
             if (sendNotification && PawnUtility.ShouldSendNotificationAbout(pawn))
             {
                 Messages.Message("WQ_NewWantGenerated".Translate(pawn.Named("PAWN")), pawn, MessageTypeDefOf.PositiveEvent, false);
@@ -366,6 +371,10 @@ namespace WantsAndQuirks
                 data.quirks.Add(quirk);
             }
             def.Worker.OnAcquired(pawn, quirk);
+            if (!def.claimMessage.NullOrEmpty())
+            {
+                Messages.Message(def.claimMessage.Formatted(pawn.Named("PAWN")), pawn, MessageTypeDefOf.PositiveEvent);
+            }
         }
 
         public static void TickWants(Pawn pawn)
@@ -378,6 +387,14 @@ namespace WantsAndQuirks
             }
 
             CheckWants(pawn, new WantWorkerContext(WantTriggerType.None));
+
+            for (int i = data.activeWants.Count - 1; i >= 0; i--)
+            {
+                if (!data.activeWants[i].IsValid(pawn))
+                {
+                    data.activeWants.RemoveAt(i);
+                }
+            }
 
             if (data.activeWants.Count < 4 && Find.TickManager.TicksGame >= data.nextWantTick)
             {

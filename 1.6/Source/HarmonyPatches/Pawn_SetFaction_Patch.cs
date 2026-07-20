@@ -17,5 +17,13 @@ namespace WantsAndQuirks
                 }
             }
         }
+
+        public static void Postfix(Pawn __instance, Faction newFaction, Pawn recruiter)
+        {
+            if (newFaction == Faction.OfPlayer && __instance.RaceProps.Animal && recruiter != null && recruiter.CanHaveWants())
+            {
+                WantsAndQuirksUtility.CheckWants(recruiter, new WantWorkerContext(triggerType: WantTriggerType.AnimalTamed, contextDef: __instance.def));
+            }
+        }
     }
 }

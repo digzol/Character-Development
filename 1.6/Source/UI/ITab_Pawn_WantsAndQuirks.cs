@@ -130,18 +130,16 @@ namespace WantsAndQuirks
                 var btnRect = new Rect(wantRect.xMax - 25f, wantRect.y + 5f, 20f, 20f);
                 if (!want.def.isMentalBreakWant)
                 {
-                    var rerollRect = new Rect(btnRect.x - 25f, btnRect.y, 20f, 20f);
-                    GUI.color = want.rerollCount >= WantsAndQuirksMod.settings.rerollsPerWant ? Color.gray : Color.white;
-                    if (WantsAndQuirksMod.settings.rerollsPerWant > 0 && Widgets.ButtonImage(rerollRect, ContentFinder<Texture2D>.Get("UI/Reroll")))
+                    if (WantsAndQuirksMod.settings.rerollsPerWant > 0 && want.rerollCount < WantsAndQuirksMod.settings.rerollsPerWant)
                     {
-                        if (want.rerollCount < WantsAndQuirksMod.settings.rerollsPerWant)
+                        var rerollRect = new Rect(btnRect.x - 25f, btnRect.y, 20f, 20f);
+                        if (Widgets.ButtonImage(rerollRect, ContentFinder<Texture2D>.Get("UI/Reroll")))
                         {
                             WantsAndQuirksUtility.RerollWant(pawn, data, want);
                             DefsOf.WQ_RerollSound.PlayOneShotOnCamera();
                         }
+                        TooltipHandler.TipRegion(rerollRect, "WQ_RerollWantWithCount".Translate(WantsAndQuirksMod.settings.rerollsPerWant - want.rerollCount));
                     }
-                    TooltipHandler.TipRegion(rerollRect, "WQ_RerollWantWithCount".Translate(WantsAndQuirksMod.settings.rerollsPerWant - want.rerollCount));
-                    GUI.color = Color.white;
 
                     Text.Font = GameFont.Medium;
                     GUI.color = Color.gray;

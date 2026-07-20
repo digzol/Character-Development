@@ -35,6 +35,11 @@ namespace WantsAndQuirks
         {
             return def.Worker.IsCompleted(pawn, context);
         }
+
+        public virtual bool IsValid(Pawn pawn)
+        {
+            return def.Worker.IsValid(pawn);
+        }
     }
 
     public class ActiveWantWithTarget : ActiveWant
@@ -95,6 +100,13 @@ namespace WantsAndQuirks
             }
             return base.IsCompleted(pawn, context);
         }
+
+        public override bool IsValid(Pawn pawn)
+        {
+            if (targetDef != null && !def.Worker.IsValidWithTarget(pawn, targetDef))
+                return false;
+            return base.IsValid(pawn);
+        }
     }
 
     public class ActiveWantWithPawnTarget : ActiveWant
@@ -125,6 +137,13 @@ namespace WantsAndQuirks
                 return false;
             }
             return base.IsCompleted(pawn, context);
+        }
+
+        public override bool IsValid(Pawn pawn)
+        {
+            if (targetPawn != null && !def.Worker.IsValidWithPawnTarget(pawn, targetPawn))
+                return false;
+            return base.IsValid(pawn);
         }
     }
 

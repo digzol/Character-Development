@@ -1148,4 +1148,26 @@
         <discoveryRequirementThing>Plant_TreeGauranlen</discoveryRequirementThing>
     </WantsAndQuirks.WantDef>
 
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantTameAnimal</defName>
+        <label>tame a {0}</label>
+        <description>I'd like to tame a {0}.</description>
+        <iconPath>UI/WantIcons/Bond</iconPath>
+        <reward>1500</reward>
+        <commonality>1</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_TameAnimal</workerClass>
+        <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantBuildBuilding</defName>
+        <label>build a {0}</label>
+        <description>I'd like to build a {0}.</description>
+        <iconPath>UI/WantIcons/Make</iconPath>
+        <reward>1500</reward>
+        <commonality>1</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_BuildBuilding</workerClass>
+        <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
+    </WantsAndQuirks.WantDef>
+
 </Defs>

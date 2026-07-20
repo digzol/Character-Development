@@ -77,5 +77,11 @@ namespace WantsAndQuirks
     public virtual bool IsTargetDiscovered(Def target) => false;
 
     public virtual bool IsSatisfiedWithTarget(Pawn pawn, Def targetDef) => false;
+
+    public virtual bool IsValid(Pawn pawn) => true;
+
+    public virtual bool IsValidWithTarget(Pawn pawn, Def targetDef) => true;
+
+    public virtual bool IsValidWithPawnTarget(Pawn pawn, Pawn targetPawn) => true;
   }
 }

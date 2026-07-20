@@ -118,6 +118,7 @@
         <rarity>Common</rarity>
         <workerClass>WantsAndQuirks.RewardWorker_BoostImmuneSystem</workerClass>
         <hediff>WQ_BoostImmunity</hediff>
+        <claimMessage>{0}'s immune system will be boosted for the next 24 hours.</claimMessage>
     </WantsAndQuirks.RewardDef>
 
     <WantsAndQuirks.RewardDef>

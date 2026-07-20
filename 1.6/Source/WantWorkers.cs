@@ -109,12 +109,17 @@ namespace WantsAndQuirks
     {
         public override bool CanGenerate(Pawn pawn)
         {
-            return pawn.relations.GetFirstDirectRelationPawn(PawnRelationDefOf.Lover) != null && pawn.relations.GetFirstDirectRelationPawn(PawnRelationDefOf.Fiance) == null && pawn.GetFirstSpouse() == null;
+            return pawn.relations.GetFirstDirectRelationPawn(PawnRelationDefOf.Lover, x => !x.Dead) != null && pawn.relations.GetFirstDirectRelationPawn(PawnRelationDefOf.Fiance) == null && pawn.GetFirstSpouse() == null && base.CanGenerate(pawn);
         }
 
         public override bool IsSatisfied(Pawn pawn)
         {
             return pawn.relations.GetFirstDirectRelationPawn(PawnRelationDefOf.Fiance) != null || pawn.GetFirstSpouse() != null;
+        }
+
+        public override bool IsValid(Pawn pawn)
+        {
+            return pawn.relations.GetFirstDirectRelationPawn(PawnRelationDefOf.Lover, x => !x.Dead) != null || pawn.relations.GetFirstDirectRelationPawn(PawnRelationDefOf.Fiance, x => !x.Dead) != null || pawn.GetFirstSpouse() != null;
         }
     }
 
@@ -396,6 +401,10 @@ namespace WantsAndQuirks
             var thought = pawn.needs?.mood?.thoughts?.memories?.GetFirstMemoryOfDef(ThoughtDefOf.GotSomeLovin);
             return thought != null && thought.otherPawn == targetPawn;
         }
+        public override bool IsValidWithPawnTarget(Pawn pawn, Pawn targetPawn)
+        {
+            return targetPawn != null && !targetPawn.Dead && !targetPawn.Destroyed;
+        }
     }
 
     public class WantWorker_BeFriendsWith : WantWorker
@@ -419,15 +428,19 @@ namespace WantsAndQuirks
         public override bool CanGenerate(Pawn pawn) => GetRandomTargetPawn(pawn) != null && base.CanGenerate(pawn);
         public override Pawn GetRandomTargetPawn(Pawn pawn)
         {
-            var fiance = pawn.relations.GetFirstDirectRelationPawn(PawnRelationDefOf.Fiance);
+            var fiance = pawn.relations.GetFirstDirectRelationPawn(PawnRelationDefOf.Fiance, x => !x.Dead);
             if (fiance != null)
                 return fiance;
-            var lover = pawn.relations.GetFirstDirectRelationPawn(PawnRelationDefOf.Lover);
+            var lover = pawn.relations.GetFirstDirectRelationPawn(PawnRelationDefOf.Lover, x => !x.Dead);
             return lover;
         }
         public override bool IsSatisfiedWithPawnTarget(Pawn pawn, Pawn targetPawn)
         {
             return pawn.relations.DirectRelationExists(PawnRelationDefOf.Spouse, targetPawn);
+        }
+        public override bool IsValidWithPawnTarget(Pawn pawn, Pawn targetPawn)
+        {
+            return targetPawn != null && !targetPawn.Dead && !targetPawn.Destroyed;
         }
     }
 
@@ -635,6 +648,10 @@ namespace WantsAndQuirks
         {
             return targetPawn == null || targetPawn.Dead || targetPawn.Destroyed;
         }
+        public override bool IsValidWithPawnTarget(Pawn pawn, Pawn targetPawn)
+        {
+            return targetPawn == null || targetPawn.Dead || targetPawn.Destroyed || pawn.relations.OpinionOf(targetPawn) <= -20;
+        }
     }
 
     public class WantWorker_LoseWeight : WantWorker
@@ -693,5 +710,43 @@ namespace WantsAndQuirks
     public class WantWorker_UseDeclassifier : WantWorker_ThoughtAny
     {
         public override bool CanGenerate(Pawn pawn) => DesertersCompat.IsDesertersActive() && base.CanGenerate(pawn);
+    }
+
+    public class WantWorker_TameAnimal : WantWorker
+    {
+        public override bool CanGenerate(Pawn pawn)
+        {
+            return !pawn.WorkTagIsDisabled(WorkTags.Animals) && base.CanGenerate(pawn);
+        }
+
+        public override Def GetRandomTarget(Pawn pawn)
+        {
+            var tameableAnimals = DefDatabase<ThingDef>.AllDefsListForReading.Where(d => d.race != null && d.race.Animal && d.GetStatValueAbstract(StatDefOf.Wildness) < 1f && (!DiscoveryCompat.IsActive || DiscoveryCompat.IsDiscovered(d)));
+            return tameableAnimals.TryRandomElement(out var result) ? result : null;
+        }
+
+        public override bool IsCompleted(Pawn pawn, WantWorkerContext context)
+        {
+            return context.triggerType == WantTriggerType.AnimalTamed;
+        }
+    }
+
+    public class WantWorker_BuildBuilding : WantWorker
+    {
+        public override bool CanGenerate(Pawn pawn)
+        {
+            return pawn.skills.GetSkill(SkillDefOf.Construction).Level >= 5 && base.CanGenerate(pawn);
+        }
+
+        public override Def GetRandomTarget(Pawn pawn)
+        {
+            var buildings = DefDatabase<ThingDef>.AllDefsListForReading.Where(d => d.category == ThingCategory.Building && d.BuildableByPlayer && !d.IsFrame && !d.IsBlueprint && d.constructionSkillPrerequisite >= 5 && pawn.skills.GetSkill(SkillDefOf.Construction).Level >= d.constructionSkillPrerequisite && (d.researchPrerequisites.NullOrEmpty() || d.researchPrerequisites.All(r => r.IsFinished)));
+            return buildings.TryRandomElement(out var result) ? result : null;
+        }
+
+        public override bool IsCompleted(Pawn pawn, WantWorkerContext context)
+        {
+            return context.triggerType == WantTriggerType.BuildingConstructed;
+        }
     }
 }
