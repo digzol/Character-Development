@@ -21,11 +21,14 @@ namespace WantsAndQuirks
 
         public virtual bool CanGenerate()
         {
-            var tech = Faction.OfPlayer.def.techLevel;
-            if (minimumTechLevel != TechLevel.Undefined && (int)tech < (int)minimumTechLevel)
-                return false;
-            if (maximumTechLevel != TechLevel.Undefined && (int)tech > (int)maximumTechLevel)
-                return false;
+            if (!WantsAndQuirksMod.settings.disableTechLevelRestrictions)
+            {
+                var tech = Faction.OfPlayer.def.techLevel;
+                if (minimumTechLevel != TechLevel.Undefined && (int)tech < (int)minimumTechLevel)
+                    return false;
+                if (maximumTechLevel != TechLevel.Undefined && (int)tech > (int)maximumTechLevel)
+                    return false;
+            }
             if (DiscoveryCompat.IsActive)
             {
                 if (discoveryRequirementThing != null && !DiscoveryCompat.IsDiscovered(discoveryRequirementThing))

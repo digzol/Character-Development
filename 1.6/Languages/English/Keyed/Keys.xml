@@ -40,6 +40,7 @@
   <WQ_WantsSubtitle>These desires can be fulfilled at any time, and do not expire.</WQ_WantsSubtitle>
   <WQ_AddQuirks>Add quirks</WQ_AddQuirks>
   <WQ_EnableMentalBreakWants>Enable mental break wants</WQ_EnableMentalBreakWants>
+  <WQ_DisableTechLevelRestrictions>Disable tech level restrictions on wants and rewards</WQ_DisableTechLevelRestrictions>
   <WQ_SkillIncreased>{0}'s {1} was increased by 1.</WQ_SkillIncreased>
   <WQ_TraitGained>{0} gained the trait: {1}.</WQ_TraitGained>
   <WQ_TraitRemoved>{0}'s trait was removed: {1}.</WQ_TraitRemoved>

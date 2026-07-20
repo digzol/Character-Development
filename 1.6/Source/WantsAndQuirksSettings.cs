@@ -8,6 +8,7 @@ namespace WantsAndQuirks
         public bool enableWantsSystem = true;
         public bool enableCharactersMenu = true;
         public bool enableMentalBreakWants = true;
+        public bool disableTechLevelRestrictions = false;
         public int bubblesPerRoll = 10;
         public bool rerollBubblesOnSelection = false;
         public int rerollsPerWant = 2;
@@ -22,6 +23,7 @@ namespace WantsAndQuirks
             Scribe_Values.Look(ref enableWantsSystem, "enableWantsSystem", true);
             Scribe_Values.Look(ref enableCharactersMenu, "enableCharactersMenu", true);
             Scribe_Values.Look(ref enableMentalBreakWants, "enableMentalBreakWants", true);
+            Scribe_Values.Look(ref disableTechLevelRestrictions, "disableTechLevelRestrictions", false);
             Scribe_Values.Look(ref bubblesPerRoll, "bubblesPerRoll", 10);
             Scribe_Values.Look(ref rerollBubblesOnSelection, "rerollBubblesOnSelection", false);
             Scribe_Values.Look(ref rerollsPerWant, "rerollsPerWant", 2);
@@ -38,6 +40,7 @@ namespace WantsAndQuirks
             ls.CheckboxLabeled("WQ_EnableWantsSystem".Translate(), ref enableWantsSystem);
             ls.CheckboxLabeled("WQ_EnableCharactersMenu".Translate(), ref enableCharactersMenu);
             ls.CheckboxLabeled("WQ_EnableMentalBreakWants".Translate(), ref enableMentalBreakWants);
+            ls.CheckboxLabeled("WQ_DisableTechLevelRestrictions".Translate(), ref disableTechLevelRestrictions);
             ls.Label("WQ_BubblesPerRoll".Translate(bubblesPerRoll));
             bubblesPerRoll = (int)ls.Slider(bubblesPerRoll, 1, 50);
             ls.CheckboxLabeled("WQ_RerollBubblesOnSelection".Translate(), ref rerollBubblesOnSelection);
