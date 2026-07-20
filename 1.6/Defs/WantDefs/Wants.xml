@@ -430,9 +430,144 @@
         <description>Maybe I should bleed.</description>
         <iconPath>UI/WantIcons/Bleed</iconPath>
         <reward>1500</reward>
-        <commonality>0.5</commonality>
+        <commonality>0.3</commonality>
         <workerClass>WantsAndQuirks.WantWorker_Bleeding</workerClass>
         <targetHediffSeverity>0.4</targetHediffSeverity>
+        <isMentalBreakWant>true</isMentalBreakWant>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantWasImprisoned</defName>
+        <label>be imprisoned</label>
+        <description>I'm such a mess, I want them to lock me up.</description>
+        <iconPath>UI/WantIcons/Imprisoned</iconPath>
+        <reward>1500</reward>
+        <commonality>0.3</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_Thought</workerClass>
+        <completedByThought>HoldingMePrisoner</completedByThought>
+        <minimumTechLevel>Neolithic</minimumTechLevel>
+        <isMentalBreakWant>true</isMentalBreakWant>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantSeeCorpse</defName>
+        <label>see a corpse</label>
+        <description>I should be reminded of our mortality.</description>
+        <iconPath>UI/WantIcons/Corpse</iconPath>
+        <reward>1500</reward>
+        <commonality>0.4</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_Thought</workerClass>
+        <completedByThought>ObservedLayingCorpse</completedByThought>
+        <minimumTechLevel>Neolithic</minimumTechLevel>
+        <isMentalBreakWant>true</isMentalBreakWant>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantBanished</defName>
+        <label>banish somebody</label>
+        <description>I'm sick of the way things are around here.</description>
+        <iconPath>UI/WantIcons/Banish</iconPath>
+        <reward>1500</reward>
+        <commonality>0.3</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_Thought</workerClass>
+        <completedByThought>ColonistBanished</completedByThought>
+        <minimumTechLevel>Neolithic</minimumTechLevel>
+        <isMentalBreakWant>true</isMentalBreakWant>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantMurder</defName>
+        <label>murder one of us</label>
+        <description>I want to take my rage out on someone in the faction.</description>
+        <iconPath>UI/WantIcons/Murder</iconPath>
+        <reward>1500</reward>
+        <commonality>0.2</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_Thought</workerClass>
+        <completedByThought>KilledColonist</completedByThought>
+        <isMentalBreakWant>true</isMentalBreakWant>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantKillColonyAnimal</defName>
+        <label>kill a colony animal</label>
+        <description>I want to show them that nobody is safe.</description>
+        <iconPath>UI/WantIcons/Slaughter</iconPath>
+        <reward>2000</reward>
+        <commonality>0.2</commonality>
+        <invalidNonViolent>true</invalidNonViolent>
+        <isMentalBreakWant>true</isMentalBreakWant>
+        <workerClass>WantsAndQuirks.WantWorker_Thought</workerClass>
+        <completedByThought>KilledColonyAnimal</completedByThought>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantCutOutTongue</defName>
+        <label>cut out my tongue</label>
+        <description>I do not even deserve to speak.</description>
+        <iconPath>UI/WantIcons/Tongue</iconPath>
+        <reward>2000</reward>
+        <commonality>0.05</commonality>
+        <invalidNonViolent>true</invalidNonViolent>
+        <isMentalBreakWant>true</isMentalBreakWant>
+        <workerClass>WantsAndQuirks.WantWorker_Thought</workerClass>
+        <completedByThought>MissingTongue</completedByThought>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef MayRequire="Ludeon.RimWorld.Biotech">
+        <defName>WQ_WantKillChild</defName>
+        <label>kill a child</label>
+        <description>I want to show them that nobody is safe.</description>
+        <iconPath>UI/WantIcons/KidAbuse</iconPath>
+        <reward>2000</reward>
+        <commonality>0.05</commonality>
+        <invalidNonViolent>true</invalidNonViolent>
+        <isMentalBreakWant>true</isMentalBreakWant>
+        <workerClass>WantsAndQuirks.WantWorker_Thought</workerClass>
+        <completedByThought>KilledChild</completedByThought>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef MayRequire="dubwise.dubsbadhygiene">
+        <defName>WQ_WantDefecateInOpen</defName>
+        <label>defecate in the open</label>
+        <description>I want to defecate where others can see.</description>
+        <iconPath>UI/WantIcons/Defecate</iconPath>
+        <reward>2000</reward>
+        <commonality>0.2</commonality>
+        <invalidNonViolent>true</invalidNonViolent>
+        <isMentalBreakWant>true</isMentalBreakWant>
+        <workerClass>WantsAndQuirks.WantWorker_Thought</workerClass>
+        <completedByThought>openDefecation</completedByThought>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantCheatedOn</defName>
+        <label>be cheated on</label>
+        <description>I want to feel betrayed by someone I trust.</description>
+        <iconPath>UI/WantIcons/CheatedOn</iconPath>
+        <reward>1500</reward>
+        <commonality>0.2</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_ThoughtAny</workerClass>
+        <targetThoughts>
+            <li>CheatedOnMe</li>
+            <li>CheatedOnMeMood</li>
+        </targetThoughts>
+        <minimumTechLevel>Neolithic</minimumTechLevel>
+        <isMentalBreakWant>true</isMentalBreakWant>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantDivorced</defName>
+        <label>be divorced</label>
+        <description>I think my partner should divorce me.</description>
+        <iconPath>UI/WantIcons/Divorced</iconPath>
+        <reward>1500</reward>
+        <commonality>0.2</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_ThoughtAny</workerClass>
+        <targetThoughts>
+            <li>DivorcedMe</li>
+            <li>DivorcedMeMood</li>
+        </targetThoughts>
+        <minimumTechLevel>Neolithic</minimumTechLevel>
         <isMentalBreakWant>true</isMentalBreakWant>
     </WantsAndQuirks.WantDef>
 
@@ -625,8 +760,8 @@
 
     <WantsAndQuirks.WantDef>
         <defName>WQ_WantDeadRival</defName>
-        <label>dead rival {0}</label>
-        <description>I'd like {0} dead.</description>
+        <label>murder {0}</label>
+        <description>I'd finally like {0} dead.</description>
         <iconPath>UI/WantIcons/Murder</iconPath>
         <reward>2000</reward>
         <commonality>0.5</commonality>
@@ -685,9 +820,9 @@
         <defName>WQ_WantKillSomeone</defName>
         <label>kill someone</label>
         <description>I feel the urge to end someone's life.</description>
-        <iconPath>UI/WantIcons/Weapon</iconPath>
+        <iconPath>UI/WantIcons/Murder</iconPath>
         <reward>2000</reward>
-        <commonality>0.3</commonality>
+        <commonality>0.35</commonality>
         <workerClass>WantsAndQuirks.WantWorker_Record</workerClass>
         <targetRecord>KillsHumanlikes</targetRecord>
         <countThreshold>1</countThreshold>
@@ -1181,4 +1316,69 @@
         <completedByThought>FreedFromSlavery</completedByThought>
     </WantsAndQuirks.WantDef>
 
+        <defName>WQ_WantAttendWedding</defName>
+        <label>attend a wedding</label>
+        <description>I'd like to be in attendance for a wedding.</description>
+        <iconPath>UI/WantIcons/AttendWedding</iconPath>
+        <reward>1500</reward>
+        <commonality>0.3</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_Thought</workerClass>
+        <completedByThought>AttendedWedding</completedByThought>
+        <minimumTechLevel>Neolithic</minimumTechLevel>
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantNuzzle</defName>
+        <label>be nuzzled</label>
+        <description>I'd like to be nuzzled by someone sweet.</description>
+        <iconPath>UI/WantIcons/Nuzzle</iconPath>
+        <reward>700</reward>
+        <commonality>0.8</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_Thought</workerClass>
+        <completedByThought>Nuzzled</completedByThought>
+        <!-- <minimumTechLevel>Neolithic</minimumTechLevel> -->
+    </WantsAndQuirks.WantDef>
+
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantDeepTalk</defName>
+        <label>have a deep conversation</label>
+        <description>I'd like to have a meaningful conversation with someone.</description>
+        <iconPath>UI/WantIcons/DeepTalk</iconPath>
+        <reward>500</reward>
+        <commonality>0.4</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_Thought</workerClass>
+        <completedByThought>DeepTalk</completedByThought>
+        <minimumTechLevel>Neolithic</minimumTechLevel>
+    </WantsAndQuirks.WantDef>
+
+
+
+<!-- THOUGHTS TO DO
+
+core
+KilledMyFriend
+KilledMyRival
+KilledMyLover
+KilledMyFiance
+KilledMySpouse
+KilledMyFather
+KilledMyMother
+KilledMySon
+KilledMyDaughter
+KilledMyBrother
+KilledMySister
+KilledMyKin 
+
+biotech
+KilledMyBirthMother
+MyChildHappy
+MyChildrenHappy
+MyChildSad
+MyChildrenSad
+YoungstersHappy
+YoungstersSad
+MyParentHappy
+MyParentsHappy
+
+-->
 </Defs>
