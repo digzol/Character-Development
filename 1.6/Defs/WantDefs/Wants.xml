@@ -1145,7 +1145,7 @@
         <targetTraits>
             <li>VFEP_WarcasketTrait</li>
         </targetTraits>
-        <discoveryRequirementThing>Plant_TreeGauranlen</discoveryRequirementThing>
+        <discoveryRequirementThing>VFEP_WarcasketFoundry</discoveryRequirementThing>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef>
