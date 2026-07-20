@@ -986,6 +986,7 @@
         <isQuirk>true</isQuirk>
         <gene>VREStarjack_GravshipAffinity</gene>
         <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+        <minimumTechLevel>Spacer</minimumTechLevel>
     </WantsAndQuirks.RewardDef>
 
     <WantsAndQuirks.RewardDef MayRequire="vanillaracesexpanded.lycanthrope">
@@ -1378,5 +1379,4 @@
         <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
     </WantsAndQuirks.RewardDef>
 
-    <!-- WQ external gene rewards end -->
 </Defs>
