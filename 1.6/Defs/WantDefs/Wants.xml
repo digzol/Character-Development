@@ -539,7 +539,7 @@
         <completedByThought>openDefecation</completedByThought>
     </WantsAndQuirks.WantDef>
 
-    <WantsAndQuirks.WantDef>
+    <!-- <WantsAndQuirks.WantDef>
         <defName>WQ_WantCheatedOn</defName>
         <label>be cheated on</label>
         <description>I want to feel betrayed by someone I trust.</description>
@@ -559,7 +559,7 @@
         <defName>WQ_WantDivorced</defName>
         <label>be divorced</label>
         <description>I think my partner should divorce me.</description>
-        <iconPath>UI/WantIcons/Divorced</iconPath>
+        <iconPath>UI/WantIcons/Divorce</iconPath>
         <reward>1500</reward>
         <commonality>0.2</commonality>
         <workerClass>WantsAndQuirks.WantWorker_ThoughtAny</workerClass>
@@ -569,7 +569,7 @@
         </targetThoughts>
         <minimumTechLevel>Neolithic</minimumTechLevel>
         <isMentalBreakWant>true</isMentalBreakWant>
-    </WantsAndQuirks.WantDef>
+    </WantsAndQuirks.WantDef> -->
 
     <WantsAndQuirks.WantDef MayRequire="ferny.ProgressionEducation">
         <defName>WQ_WantLearnFirearms</defName>
