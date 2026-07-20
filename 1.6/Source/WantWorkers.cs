@@ -283,7 +283,7 @@ namespace WantsAndQuirks
 
     public class WantWorker_BecomeGrandparent : WantWorker
     {
-        public override bool CanGenerate(Pawn pawn) => pawn.relations != null && pawn.relations.ChildrenCount > 0;
+        public override bool CanGenerate(Pawn pawn) => pawn.relations != null && pawn.relations.ChildrenCount > 0 && !IsSatisfied(pawn);
         public override bool IsSatisfied(Pawn pawn)
         {
             if (pawn.relations == null)
@@ -391,6 +391,11 @@ namespace WantsAndQuirks
                 return pawn.skills.GetSkill(skill).Level >= def.skillLevelThreshold;
             }
             return false;
+        }
+        public override Def GetRandomTarget(Pawn pawn)
+        {
+            var skills = pawn.skills.skills.Where(s => !s.TotallyDisabled && s.Level < def.skillLevelThreshold).Select(s => s.def);
+            return skills.TryRandomElement(out var result) ? result : null;
         }
         public override bool IsCompleted(Pawn pawn, WantWorkerContext context)
         {
