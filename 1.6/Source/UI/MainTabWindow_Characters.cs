@@ -294,10 +294,10 @@ namespace WantsAndQuirks
             var maps = Find.Maps;
             for (int i = 0; i < maps.Count; i++)
             {
-                var colonists = maps[i].mapPawns.FreeColonists;
-                for (int j = 0; j < colonists.Count; j++)
+                var pawns = maps[i].mapPawns.SpawnedPawnsInFaction(Faction.OfPlayer);
+                for (int j = 0; j < pawns.Count; j++)
                 {
-                    var p = colonists[j];
+                    var p = pawns[j];
                     if (p.CanHaveWants() && p.GetWantsData().activeWants.Count > 0)
                     {
                         tempPawns.Add(p);

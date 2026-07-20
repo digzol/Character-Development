@@ -32,7 +32,7 @@ namespace WantsAndQuirks
                 if (!WantsAndQuirksMod.settings.enableCharactersMenu)
                     return false;
                 var pawn = SelPawn;
-                return pawn != null && pawn.CanHaveWants() && pawn.Faction == Faction.OfPlayer;
+                return pawn != null && pawn.CanHaveWants() && (pawn.Faction == Faction.OfPlayer || pawn.IsSlaveOfColony);
             }
         }
 

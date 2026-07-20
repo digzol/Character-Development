@@ -12,6 +12,19 @@ namespace WantsAndQuirks
         }
     }
 
+    public class WantWorker_FreedFromSlavery : WantWorker_Thought
+    {
+        public override bool CanGenerate(Pawn pawn)
+        {
+            return pawn.IsSlaveOfColony && base.CanGenerate(pawn);
+        }
+
+        public override bool IsSatisfied(Pawn pawn)
+        {
+            return !pawn.IsSlaveOfColony || base.IsSatisfied(pawn);
+        }
+    }
+
     public class WantWorker_RoomStat : WantWorker
     {
         public override bool CanGenerate(Pawn pawn)
@@ -415,7 +428,7 @@ namespace WantsAndQuirks
         {
             if (pawn.MapHeld == null)
                 return null;
-            var potential = pawn.MapHeld.mapPawns.FreeColonistsSpawned.Where(p => p != pawn && !pawn.relations.RelatedPawns.Contains(p) && pawn.relations.OpinionOf(p) < 50);
+            var potential = pawn.MapHeld.mapPawns.SpawnedPawnsInFaction(Faction.OfPlayer).Where(p => p.RaceProps.Humanlike && p != pawn && !pawn.relations.RelatedPawns.Contains(p) && pawn.relations.OpinionOf(p) < 50);
             return potential.TryRandomElement(out var result) ? result : null;
         }
         public override bool IsSatisfiedWithPawnTarget(Pawn pawn, Pawn targetPawn)

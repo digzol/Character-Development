@@ -72,7 +72,13 @@ namespace WantsAndQuirks
 
         public static bool CanHaveWants(this Pawn pawn)
         {
-            return WantsAndQuirksMod.settings.enableWantsSystem && pawn.DestroyedOrNull() is false && pawn.RaceProps.Humanlike && pawn.IsColonist;
+            if (!WantsAndQuirksMod.settings.enableWantsSystem || pawn.DestroyedOrNull() || !pawn.RaceProps.Humanlike || (!pawn.IsColonist && !pawn.IsSlaveOfColony))
+                return false;
+
+            if (AndroidsCompat.IsUnawakenedAndroid(pawn))
+                return false;
+
+            return true;
         }
 
         public static void CheckWants(Pawn pawn, WantWorkerContext context)

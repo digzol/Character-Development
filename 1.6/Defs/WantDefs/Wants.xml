@@ -1170,4 +1170,15 @@
         <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
     </WantsAndQuirks.WantDef>
 
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantFreedFromSlavery</defName>
+        <label>be freed from slavery</label>
+        <description>I'd like to be freed from my enslavement.</description>
+        <iconPath>UI/WantIcons/Catharsis</iconPath>
+        <reward>1500</reward>
+        <commonality>10</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_FreedFromSlavery</workerClass>
+        <completedByThought>FreedFromSlavery</completedByThought>
+    </WantsAndQuirks.WantDef>
+
 </Defs>

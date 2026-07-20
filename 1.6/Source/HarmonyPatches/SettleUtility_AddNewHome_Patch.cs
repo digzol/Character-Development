@@ -14,7 +14,7 @@ namespace WantsAndQuirks
             {
                 foreach (var map in Find.Maps)
                 {
-                    foreach (var pawn in map.mapPawns.FreeColonists)
+                    foreach (var pawn in map.mapPawns.SpawnedPawnsInFaction(Faction.OfPlayer))
                     {
                         if (pawn.CanHaveWants())
                         {

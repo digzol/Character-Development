@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using RimWorld;
 using Verse;
 
@@ -18,6 +19,8 @@ namespace WantsAndQuirks
         public ThingDef discoveryRequirementThing;
         public FactionDef discoveryRequirementFaction;
         public XenotypeDef discoveryRequirementXenotype;
+        public List<PawnRelationDef> requiredRelations;
+        public Gender? requiredRelationGender = null;
 
         public virtual bool CanGenerate()
         {
@@ -82,6 +85,17 @@ namespace WantsAndQuirks
                 if (requiredXenotypes != null && !requiredXenotypes.Contains(pawn.genes.Xenotype))
                     return false;
             }
+
+            if (requiredRelations != null)
+            {
+                var found = pawn.relations.RelatedPawns.Any(other =>
+                    !other.Dead &&
+                    (requiredRelationGender is null || other.gender == requiredRelationGender) &&
+                    pawn.GetRelations(other).Any(r => requiredRelations.Contains(r)));
+                if (!found)
+                    return false;
+            }
+
             return true;
         }
     }

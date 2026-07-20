@@ -189,7 +189,7 @@ namespace WantsAndQuirks
         public override IEnumerable<ThingDef> GetValidItems(Map map)
         {
             var weapons = map.listerThings.ThingsInGroup(ThingRequestGroup.Weapon).Select(t => t.def);
-            var eq = map.mapPawns.FreeColonists.SelectMany(p => p.equipment.AllEquipmentListForReading).Select(t => t.def);
+            var eq = map.mapPawns.SpawnedPawnsInFaction(Faction.OfPlayer).Where(p => p.RaceProps.Humanlike && p.equipment != null).SelectMany(p => p.equipment.AllEquipmentListForReading).Select(t => t.def);
             return weapons.Concat(eq).Distinct();
         }
     }
@@ -198,7 +198,7 @@ namespace WantsAndQuirks
     {
         public override IEnumerable<Pawn> GetValidPawns(Map map)
         {
-            return map.mapPawns.FreeColonistsSpawned;
+            return map.mapPawns.SpawnedPawnsInFaction(Faction.OfPlayer).Where(p => p.RaceProps.Humanlike);
         }
 
         public override bool CanBestowOn(Pawn pawn, ThingDef item = null, Pawn targetPawn = null)
