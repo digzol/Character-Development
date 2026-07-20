@@ -314,7 +314,25 @@ namespace WantsAndQuirks
             else if (targetDef != null)
                 want = new ActiveWantWithTarget { def = def, targetDef = targetDef, assignedTick = Find.TickManager.TicksGame };
             else
-                want = new ActiveWant { def = def, assignedTick = Find.TickManager.TicksGame };
+            {
+                var autoTargetPawn = def.Worker.GetRandomTargetPawn(pawn);
+                if (autoTargetPawn != null)
+                {
+                    want = new ActiveWantWithPawnTarget { def = def, targetPawn = autoTargetPawn, assignedTick = Find.TickManager.TicksGame };
+                }
+                else
+                {
+                    var autoTargetDef = def.Worker.GetRandomTarget(pawn);
+                    if (autoTargetDef != null)
+                    {
+                        want = new ActiveWantWithTarget { def = def, targetDef = autoTargetDef, assignedTick = Find.TickManager.TicksGame };
+                    }
+                    else
+                    {
+                        want = new ActiveWant { def = def, assignedTick = Find.TickManager.TicksGame };
+                    }
+                }
+            }
             if (sendNotification && PawnUtility.ShouldSendNotificationAbout(pawn))
             {
                 Messages.Message("WQ_NewWantGenerated".Translate(pawn.Named("PAWN")), pawn, MessageTypeDefOf.PositiveEvent, false);

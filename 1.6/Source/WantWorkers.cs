@@ -335,6 +335,7 @@ namespace WantsAndQuirks
 
     public class WantWorker_EatFood : WantWorker
     {
+        public override bool CanGenerate(Pawn pawn) => GetRandomTarget(pawn) != null && base.CanGenerate(pawn);
         public override Def GetRandomTarget(Pawn pawn)
         {
             var foods = DefDatabase<ThingDef>.AllDefsListForReading.Where(d => d.IsIngestible && d.ingestible.preferability >= FoodPreferability.MealSimple);
@@ -350,7 +351,7 @@ namespace WantsAndQuirks
     {
         public override bool CanGenerate(Pawn pawn)
         {
-            return pawn.skills.skills.Any(s => s.TotallyDisabled is false && s.Level < 20) && base.CanGenerate(pawn);
+            return pawn.skills.skills.Any(s => s.TotallyDisabled is false && s.Level < 20) && GetRandomTarget(pawn) != null && base.CanGenerate(pawn);
         }
 
         public override Def GetRandomTarget(Pawn pawn)
@@ -481,6 +482,7 @@ namespace WantsAndQuirks
 
     public class WantWorker_TakeSpecificDrug : WantWorker
     {
+        public override bool CanGenerate(Pawn pawn) => GetRandomTarget(pawn) != null && base.CanGenerate(pawn);
         public override Def GetRandomTarget(Pawn pawn)
         {
             var drugs = DefDatabase<ThingDef>.AllDefsListForReading.Where(d => d.IsDrug);
@@ -495,6 +497,7 @@ namespace WantsAndQuirks
 
     public class WantWorker_FallInLoveWithXenotype : WantWorker
     {
+        public override bool CanGenerate(Pawn pawn) => GetRandomTarget(pawn) != null && base.CanGenerate(pawn);
         public override Def GetRandomTarget(Pawn pawn)
         {
             var xenos = DefDatabase<XenotypeDef>.AllDefsListForReading;
@@ -586,6 +589,7 @@ namespace WantsAndQuirks
 
     public class WantWorker_BecomeXenotype : WantWorker
     {
+        public override bool CanGenerate(Pawn pawn) => GetRandomTarget(pawn) != null && base.CanGenerate(pawn);
         public override Def GetRandomTarget(Pawn pawn)
         {
             var discovered = DefDatabase<XenotypeDef>.AllDefsListForReading.Where(d => DiscoveryCompat.IsDiscovered(d) && pawn.genes?.Xenotype != d);
@@ -605,6 +609,7 @@ namespace WantsAndQuirks
 
     public class WantWorker_BondWithDiscoveredAnimal : WantWorker
     {
+        public override bool CanGenerate(Pawn pawn) => GetRandomTarget(pawn) != null && base.CanGenerate(pawn);
         public override Def GetRandomTarget(Pawn pawn)
         {
             var discoveredAnimals = DefDatabase<ThingDef>.AllDefsListForReading.Where(d => d.race != null && d.IsCorpse is false && d.race.Animal && DiscoveryCompat.IsDiscovered(d));
@@ -716,7 +721,7 @@ namespace WantsAndQuirks
     {
         public override bool CanGenerate(Pawn pawn)
         {
-            return !pawn.WorkTagIsDisabled(WorkTags.Animals) && base.CanGenerate(pawn);
+            return !pawn.WorkTagIsDisabled(WorkTags.Animals) && GetRandomTarget(pawn) != null && base.CanGenerate(pawn);
         }
 
         public override Def GetRandomTarget(Pawn pawn)
@@ -735,7 +740,7 @@ namespace WantsAndQuirks
     {
         public override bool CanGenerate(Pawn pawn)
         {
-            return pawn.skills.GetSkill(SkillDefOf.Construction).Level >= 5 && base.CanGenerate(pawn);
+            return pawn.skills.GetSkill(SkillDefOf.Construction).Level >= 5 && GetRandomTarget(pawn) != null && base.CanGenerate(pawn);
         }
 
         public override Def GetRandomTarget(Pawn pawn)

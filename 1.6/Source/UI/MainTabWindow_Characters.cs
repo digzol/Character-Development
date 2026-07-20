@@ -346,10 +346,10 @@ namespace WantsAndQuirks
         {
             Widgets.DrawBoxSolid(rect, CenterBgColor);
             var curY = rect.y;
-            Text.Font = GameFont.Medium;
+            Text.Font = GameFont.Small;
             Text.Anchor = TextAnchor.UpperCenter;
-            Widgets.Label(new Rect(rect.x, curY, rect.width, 30f), "WQ_AvailableRewards".Translate(State.rewardPoints));
-            curY += 30f;
+            Widgets.Label(new Rect(rect.x, curY, rect.width, 24f), "WQ_AvailableRewards".Translate(State.rewardPoints));
+            curY += 24f;
             Text.Anchor = TextAnchor.UpperLeft;
 
             var physicsRect = new Rect(rect.x, curY, rect.width, rect.height - 50f - (curY - rect.y));
