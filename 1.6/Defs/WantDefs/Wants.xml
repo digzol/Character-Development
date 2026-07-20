@@ -1316,6 +1316,7 @@
         <completedByThought>FreedFromSlavery</completedByThought>
     </WantsAndQuirks.WantDef>
 
+    <WantsAndQuirks.WantDef>
         <defName>WQ_WantAttendWedding</defName>
         <label>attend a wedding</label>
         <description>I'd like to be in attendance for a wedding.</description>
