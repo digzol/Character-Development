@@ -396,7 +396,7 @@ namespace WantsAndQuirks
                 }
             }
 
-            if (data.activeWants.Count < 4 && Find.TickManager.TicksGame >= data.nextWantTick)
+            if (data.activeWants.Count < WantsAndQuirksMod.settings.maxActiveWants && Find.TickManager.TicksGame >= data.nextWantTick)
             {
                 var generated = GenerateRandomWant(pawn, data);
                 if (generated != null)

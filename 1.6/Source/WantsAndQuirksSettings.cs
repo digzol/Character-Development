@@ -13,6 +13,7 @@ namespace WantsAndQuirks
         public int rerollsPerWant = 2;
         public int pointsNeededForReward = 1000;
         public int startingWantsCount = 1;
+        public int maxActiveWants = 4;
         public IntRange wantGenerationFrequencyDays = new IntRange(1, 20);
 
         public override void ExposeData()
@@ -26,6 +27,7 @@ namespace WantsAndQuirks
             Scribe_Values.Look(ref rerollsPerWant, "rerollsPerWant", 2);
             Scribe_Values.Look(ref pointsNeededForReward, "pointsNeededForReward", 1000);
             Scribe_Values.Look(ref startingWantsCount, "startingWantsCount", 1);
+            Scribe_Values.Look(ref maxActiveWants, "maxActiveWants", 4);
             Scribe_Values.Look(ref wantGenerationFrequencyDays, "wantGenerationFrequencyDays", new IntRange(1, 20));
         }
 
@@ -44,7 +46,9 @@ namespace WantsAndQuirks
             ls.Label("WQ_PointsNeededForReward".Translate(pointsNeededForReward));
             pointsNeededForReward = (int)ls.Slider(pointsNeededForReward, 100, 5000);
             ls.Label("WQ_StartingWantsCount".Translate(startingWantsCount));
-            startingWantsCount = (int)ls.Slider(startingWantsCount, 0, 4);
+            startingWantsCount = (int)ls.Slider(startingWantsCount, 0, 10);
+            ls.Label("WQ_MaxActiveWants".Translate(maxActiveWants));
+            maxActiveWants = (int)ls.Slider(maxActiveWants, 1, 10);
             ls.Label("WQ_WantGenerationFrequency".Translate(wantGenerationFrequencyDays.min, wantGenerationFrequencyDays.max));
             ls.IntRange(ref wantGenerationFrequencyDays, 1, 60);
             ls.End();

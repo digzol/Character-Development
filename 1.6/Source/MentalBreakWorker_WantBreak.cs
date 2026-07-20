@@ -30,7 +30,7 @@ namespace WantsAndQuirks
             var chosen = mentalWants.RandomElement();
             ActiveWant replaced = null;
 
-            if (data.activeWants.Count >= 4 || (data.activeWants.Count > 0 && Rand.Bool))
+            if (data.activeWants.Count >= WantsAndQuirksMod.settings.maxActiveWants || (data.activeWants.Count > 0 && Rand.Bool))
             {
                 replaced = data.activeWants.RandomElement();
                 data.activeWants.Remove(replaced);
