@@ -25,7 +25,7 @@
   <WQ_ProgressBarDesc>This bar will fill as you complete wants from characters.</WQ_ProgressBarDesc>
   <WQ_CharactersWithWants>Characters with unfulfilled wants:</WQ_CharactersWithWants>
   <WQ_WantsCount>{0} wants</WQ_WantsCount>
-  <WQ_AvailableRewards>Available rewards: {0}</WQ_AvailableRewards>
+  <WQ_AvailableRewards>You can claim {0} character modifier(s).</WQ_AvailableRewards>
   <WQ_ClaimInstruction>Click to claim and register to a character.\nMore rewards will appear here when existing bubbles are claimed.</WQ_ClaimInstruction>
   <WQ_QuirksInfoText>Bigger bubbles are more rare, while smaller ones may appear often.\n\nQuirks may be removed at any time through the wants menu on the effected character.</WQ_QuirksInfoText>
   <WQ_BestowReward>Bestow reward</WQ_BestowReward>

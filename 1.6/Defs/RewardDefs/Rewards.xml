@@ -468,4 +468,915 @@
         <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
     </WantsAndQuirks.RewardDef>
 
+    <WantsAndQuirks.RewardDef MayRequire="vanillaracesexpanded.pigskin">
+        <defName>WQ_Quirk_VRE_Coward</defName>
+        <label>coward</label>
+        <description>More likely to cower, hide, or break down under frightening pressure.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>VRE_Coward</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="vanillaracesexpanded.pigskin">
+        <defName>WQ_Quirk_VRE_Brave</defName>
+        <label>brave</label>
+        <description>More resilient to stress and more likely to face danger with composure.</description>
+        <rarity>Rare</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>VRE_Brave</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="sarg.alphagenes">
+        <defName>WQ_Quirk_AG_Beauty_Angelic</defName>
+        <label>angelic beauty</label>
+        <description>Possesses an almost pristine beauty that strongly affects how others see them.</description>
+        <rarity>Legendary</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>AG_Beauty_Angelic</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="sarg.alphagenes">
+        <defName>WQ_Quirk_AG_Beauty_VeryVeryUgly</defName>
+        <label>repulsive</label>
+        <description>Has a deeply unsettling appearance that strongly harms social impressions.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>AG_Beauty_VeryVeryUgly</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="sarg.alphagenes">
+        <defName>WQ_Quirk_AG_LargerBodySize</defName>
+        <label>larger</label>
+        <description>Has a larger body. Moves and works more slowly, is easier to spot while hunting, and is worse at dodging, but hits harder in melee, carries more, takes less incoming damage, and produces more mass, meat, and leather.</description>
+        <rarity>Rare</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>AG_LargerBodySize</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="sarg.alphagenes">
+        <defName>WQ_Quirk_AG_SmallerBodySize</defName>
+        <label>smaller</label>
+        <description>Has a smaller body. Moves and works faster, is harder to spot while hunting, and dodges better, but has less mass, carries less, hits less reliably in melee, and produces less meat and leather.</description>
+        <rarity>Rare</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>AG_SmallerBodySize</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="sarg.alphagenes">
+        <defName>WQ_Quirk_AG_TableResistance</defName>
+        <label>table resistance</label>
+        <description>Does not mind eating without a table.</description>
+        <rarity>Common</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>AG_TableResistance</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="sarg.alphagenes">
+        <defName>WQ_Quirk_AG_Clean</defName>
+        <label>clean</label>
+        <description>Naturally produces less filth during daily activity.</description>
+        <rarity>Rare</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>AG_Clean</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="sarg.alphagenes">
+        <defName>WQ_Quirk_AG_Filthy</defName>
+        <label>filthy</label>
+        <description>Naturally produces more filth during daily activity.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>AG_Filthy</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="sarg.alphagenes">
+        <defName>WQ_Quirk_AG_Stinky</defName>
+        <label>stinky</label>
+        <description>Produces an unpleasant smell that bothers nearby people.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>AG_Stinky</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="sarg.alphagenes">
+        <defName>WQ_Quirk_AG_Thalassophobia</defName>
+        <label>thalassophobia</label>
+        <description>Has an intense fear of water and may panic near bodies of water, marsh, or exposed rain.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>AG_Thalassophobia</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="sarg.alphagenes">
+        <defName>WQ_Quirk_AG_VolatileMood</defName>
+        <label>volatile</label>
+        <description>Experiences unpredictable mood shifts from day to day.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>AG_VolatileMood</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="sarg.alphagenes">
+        <defName>WQ_Quirk_AG_ReducedFertile</defName>
+        <label>reduced fertility</label>
+        <description>Has a reduced chance of becoming pregnant or impregnating others.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>AG_ReducedFertile</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="sarg.alphagenes">
+        <defName>WQ_Quirk_AG_Rowdy</defName>
+        <label>rowdy</label>
+        <description>Likes rough play fighting, whether or not the other person appreciates it.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>AG_Rowdy</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="sarg.alphagenes">
+        <defName>WQ_Quirk_AG_Enforcer</defName>
+        <label>enforcer</label>
+        <description>Is naturally better at bringing unruly people under control and making arrests.</description>
+        <rarity>Rare</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>AG_Enforcer</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="sarg.alphagenes">
+        <defName>WQ_Quirk_AG_GutturalVoice</defName>
+        <label>guttural voice</label>
+        <description>Speaks with a harsh, throat-heavy voice.</description>
+        <rarity>Common</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>AG_GutturalVoice</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="sarg.alphagenes">
+        <defName>WQ_Quirk_AG_GrowlingVoice</defName>
+        <label>growling voice</label>
+        <description>Speaks with a growling, snarling voice with animalistic undertones.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>AG_GrowlingVoice</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="lucius.eyegenes3">
+        <defName>WQ_Quirk_Eyes_Blue</defName>
+        <label>blue eyes</label>
+        <description>Has blue eyes.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>Eyes_Blue</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="lucius.eyegenes3">
+        <defName>WQ_Quirk_Eyes_BrightGreen</defName>
+        <label>bright green eyes</label>
+        <description>Has bright green eyes.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>Eyes_BrightGreen</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="lucius.eyegenes3">
+        <defName>WQ_Quirk_Eyes_BrightYellow</defName>
+        <label>bright yellow eyes</label>
+        <description>Has bright yellow eyes.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>Eyes_BrightYellow</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="lucius.eyegenes3">
+        <defName>WQ_Quirk_Eyes_Brown</defName>
+        <label>brown eyes</label>
+        <description>Has brown eyes.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>Eyes_Brown</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="lucius.eyegenes3">
+        <defName>WQ_Quirk_Eyes_Crimson</defName>
+        <label>crimson red eyes</label>
+        <description>Has crimson red eyes.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>Eyes_Crimson</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="lucius.eyegenes3">
+        <defName>WQ_Quirk_Eyes_Cyan</defName>
+        <label>cyan eyes</label>
+        <description>Has cyan eyes.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>Eyes_Cyan</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="lucius.eyegenes3">
+        <defName>WQ_Quirk_Eyes_DarkBrown</defName>
+        <label>dark brown eyes</label>
+        <description>Has dark brown eyes.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>Eyes_DarkBrown</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="lucius.eyegenes3">
+        <defName>WQ_Quirk_Eyes_DarkCyan</defName>
+        <label>dark cyan eyes</label>
+        <description>Has dark cyan eyes.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>Eyes_DarkCyan</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="lucius.eyegenes3">
+        <defName>WQ_Quirk_Eyes_DarkGray</defName>
+        <label>dark gray eyes</label>
+        <description>Has dark gray eyes.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>Eyes_DarkGray</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="lucius.eyegenes3">
+        <defName>WQ_Quirk_Eyes_DarkGreen</defName>
+        <label>dark green eyes</label>
+        <description>Has dark green eyes.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>Eyes_DarkGreen</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="lucius.eyegenes3">
+        <defName>WQ_Quirk_Eyes_DarkPink</defName>
+        <label>dark pink eyes</label>
+        <description>Has dark pink eyes.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>Eyes_DarkPink</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="lucius.eyegenes3">
+        <defName>WQ_Quirk_Eyes_DarkPurple</defName>
+        <label>dark purple eyes</label>
+        <description>Has dark purple eyes.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>Eyes_DarkPurple</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="lucius.eyegenes3">
+        <defName>WQ_Quirk_Eyes_DarkYellow</defName>
+        <label>dark yellow eyes</label>
+        <description>Has dark yellow eyes.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>Eyes_DarkYellow</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="lucius.eyegenes3">
+        <defName>WQ_Quirk_Eyes_DarkestGray</defName>
+        <label>darkest gray eyes</label>
+        <description>Has very dark gray eyes.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>Eyes_DarkestGray</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="lucius.eyegenes3">
+        <defName>WQ_Quirk_Eyes_DeepBlue</defName>
+        <label>deep blue eyes</label>
+        <description>Has deep blue eyes.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>Eyes_DeepBlue</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="lucius.eyegenes3">
+        <defName>WQ_Quirk_Eyes_DeepRed</defName>
+        <label>deep red eyes</label>
+        <description>Has deep red eyes.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>Eyes_DeepRed</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="lucius.eyegenes3">
+        <defName>WQ_Quirk_Eyes_Golden</defName>
+        <label>golden eyes</label>
+        <description>Has golden eyes.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>Eyes_Golden</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="lucius.eyegenes3">
+        <defName>WQ_Quirk_Eyes_Silver</defName>
+        <label>silver eyes</label>
+        <description>Has silver eyes.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>Eyes_Silver</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="lucius.eyegenes3">
+        <defName>WQ_Quirk_Eyes_Green</defName>
+        <label>green eyes</label>
+        <description>Has green eyes.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>Eyes_Green</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="lucius.eyegenes3">
+        <defName>WQ_Quirk_Eyes_LightBlue</defName>
+        <label>light blue eyes</label>
+        <description>Has light blue eyes.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>Eyes_LightBlue</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="lucius.eyegenes3">
+        <defName>WQ_Quirk_Eyes_LightBrown</defName>
+        <label>light brown eyes</label>
+        <description>Has light brown eyes.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>Eyes_LightBrown</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="lucius.eyegenes3">
+        <defName>WQ_Quirk_Eyes_LightGray</defName>
+        <label>light gray eyes</label>
+        <description>Has light gray eyes.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>Eyes_LightGray</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="lucius.eyegenes3">
+        <defName>WQ_Quirk_Eyes_LightPink</defName>
+        <label>light pink eyes</label>
+        <description>Has light pink eyes.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>Eyes_LightPink</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="lucius.eyegenes3">
+        <defName>WQ_Quirk_Eyes_LightPurple</defName>
+        <label>light purple eyes</label>
+        <description>Has light purple eyes.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>Eyes_LightPurple</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="lucius.eyegenes3">
+        <defName>WQ_Quirk_Eyes_LimeGreen</defName>
+        <label>lime green eyes</label>
+        <description>Has lime green eyes.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>Eyes_LimeGreen</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="lucius.eyegenes3">
+        <defName>WQ_Quirk_Eyes_OceanBlue</defName>
+        <label>ocean blue eyes</label>
+        <description>Has ocean blue eyes.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>Eyes_OceanBlue</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="lucius.eyegenes3">
+        <defName>WQ_Quirk_Eyes_Orange</defName>
+        <label>orange eyes</label>
+        <description>Has orange eyes.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>Eyes_Orange</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="lucius.eyegenes3">
+        <defName>WQ_Quirk_Eyes_Pink</defName>
+        <label>pink eyes</label>
+        <description>Has pink eyes.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>Eyes_Pink</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="lucius.eyegenes3">
+        <defName>WQ_Quirk_Eyes_Purple</defName>
+        <label>purple eyes</label>
+        <description>Has purple eyes.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>Eyes_Purple</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="lucius.eyegenes3">
+        <defName>WQ_Quirk_Eyes_SkyBlue</defName>
+        <label>sky blue eyes</label>
+        <description>Has sky blue eyes.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>Eyes_SkyBlue</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="lucius.eyegenes3">
+        <defName>WQ_Quirk_Eyes_White</defName>
+        <label>white eyes</label>
+        <description>Has white eyes.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>Eyes_White</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="lucius.eyegenes3">
+        <defName>WQ_Quirk_Eyes_Yellow</defName>
+        <label>yellow eyes</label>
+        <description>Has yellow eyes.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>Eyes_Yellow</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="V.Rooboid.Faun">
+        <defName>WQ_Quirk_RBSF_Mood_Reclusive</defName>
+        <label>reclusive</label>
+        <description>Feels happier in a smaller faction and less comfortable in a crowded one.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>RBSF_Mood_Reclusive</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="V.Rooboid.Faun">
+        <defName>WQ_Quirk_RBSF_Mechanophobia</defName>
+        <label>mechaphobia</label>
+        <description>Has a deep fear of mechanoids and may collapse when they are nearby, even allied ones.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>RBSF_Mechanophobia</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="vanillaracesexpanded.starjack">
+        <defName>WQ_Quirk_VREStarjack_GravshipAffinity</defName>
+        <label>gravship affinity</label>
+        <description>Performs especially well aboard gravships, with improved coordination, perception, and technical aptitude in zero gravity.</description>
+        <rarity>Rare</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>VREStarjack_GravshipAffinity</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="vanillaracesexpanded.lycanthrope">
+        <defName>WQ_Quirk_VRE_ChestFur</defName>
+        <label>chest fur</label>
+        <description>Grows thick fur on the chest.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>VRE_ChestFur</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="vanillaracesexpanded.lycanthrope">
+        <defName>WQ_Quirk_VRE_Territorial</defName>
+        <label>territorial</label>
+        <description>Feels calmer at home and increasingly uneasy when away from their own land.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>VRE_Territorial</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="vanillaracesexpanded.lycanthrope">
+        <defName>WQ_Quirk_VRE_Nocturnal</defName>
+        <label>nocturnal</label>
+        <description>Prefers being awake at night, gaining mood at night and losing mood during daytime wakefulness.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>VRE_Nocturnal</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="vanillaracesexpanded.hussar">
+        <defName>WQ_Quirk_VREH_Arrogant</defName>
+        <label>arrogant</label>
+        <description>Speaks without much filter, often saying things that rub others the wrong way.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>VREH_Arrogant</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="vanillaracesexpanded.highmate">
+        <defName>WQ_Quirk_VRE_Flirty</defName>
+        <label>flirty</label>
+        <description>Offers playful, affectionate words that can brighten moods and deepen bonds, but may also spark romances and breakups.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>VRE_Flirty</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="vanillaracesexpanded.genie">
+        <defName>WQ_Quirk_VRE_Curiosity_Shooting</defName>
+        <label>shooting curiosity</label>
+        <description>Finds learning shooting fun and does not lose the skill over time.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>VRE_Curiosity_Shooting</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="vanillaracesexpanded.genie">
+        <defName>WQ_Quirk_VRE_Curiosity_Melee</defName>
+        <label>melee curiosity</label>
+        <description>Finds learning melee fun and does not lose the skill over time.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>VRE_Curiosity_Melee</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="vanillaracesexpanded.genie">
+        <defName>WQ_Quirk_VRE_Curiosity_Construction</defName>
+        <label>construction curiosity</label>
+        <description>Finds learning construction fun and does not lose the skill over time.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>VRE_Curiosity_Construction</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="vanillaracesexpanded.genie">
+        <defName>WQ_Quirk_VRE_Curiosity_Mining</defName>
+        <label>mining curiosity</label>
+        <description>Finds learning mining fun and does not lose the skill over time.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>VRE_Curiosity_Mining</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="vanillaracesexpanded.genie">
+        <defName>WQ_Quirk_VRE_Curiosity_Cooking</defName>
+        <label>cooking curiosity</label>
+        <description>Finds learning cooking fun and does not lose the skill over time.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>VRE_Curiosity_Cooking</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="vanillaracesexpanded.genie">
+        <defName>WQ_Quirk_VRE_Curiosity_Plants</defName>
+        <label>plants curiosity</label>
+        <description>Finds learning plants fun and does not lose the skill over time.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>VRE_Curiosity_Plants</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="vanillaracesexpanded.genie">
+        <defName>WQ_Quirk_VRE_Curiosity_Animals</defName>
+        <label>animals curiosity</label>
+        <description>Finds learning animals fun and does not lose the skill over time.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>VRE_Curiosity_Animals</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="vanillaracesexpanded.genie">
+        <defName>WQ_Quirk_VRE_Curiosity_Crafting</defName>
+        <label>crafting curiosity</label>
+        <description>Finds learning crafting fun and does not lose the skill over time.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>VRE_Curiosity_Crafting</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="vanillaracesexpanded.genie">
+        <defName>WQ_Quirk_VRE_Curiosity_Artistic</defName>
+        <label>artistic curiosity</label>
+        <description>Finds learning artistic fun and does not lose the skill over time.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>VRE_Curiosity_Artistic</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="vanillaracesexpanded.genie">
+        <defName>WQ_Quirk_VRE_Curiosity_Medicine</defName>
+        <label>medicine curiosity</label>
+        <description>Finds learning medical fun and does not lose the skill over time.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>VRE_Curiosity_Medicine</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="vanillaracesexpanded.genie">
+        <defName>WQ_Quirk_VRE_Curiosity_Social</defName>
+        <label>social curiosity</label>
+        <description>Finds learning social fun and does not lose the skill over time.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>VRE_Curiosity_Social</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="vanillaracesexpanded.genie">
+        <defName>WQ_Quirk_VRE_Curiosity_Intellectual</defName>
+        <label>intellectual curiosity</label>
+        <description>Finds learning intellectual fun and does not lose the skill over time.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>VRE_Curiosity_Intellectual</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="det.stoneborn">
+        <defName>WQ_Quirk_DV_ExtendedMemory</defName>
+        <label>extended memory</label>
+        <description>Remembers good and bad events for longer and loses skills more slowly.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>DV_ExtendedMemory</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="det.stoneborn">
+        <defName>WQ_Quirk_DV_NarrowMemory</defName>
+        <label>narrow memory</label>
+        <description>Forgets good and bad events sooner and loses skills more quickly.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>DV_NarrowMemory</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="det.boglegs">
+        <defName>WQ_Quirk_DV_IntimidatingPresence</defName>
+        <label>intimidating presence</label>
+        <description>Has a threatening presence that makes slaves more likely to listen.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>DV_IntimidatingPresence</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="det.boglegs">
+        <defName>WQ_Quirk_DV_Silvertongued</defName>
+        <label>silvertongued</label>
+        <description>Speaks persuasively, improving social convincing and barter.</description>
+        <rarity>Rare</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>DV_Silvertongued</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="det.boglegs">
+        <defName>WQ_Quirk_DV_Materialistic</defName>
+        <label>materialistic</label>
+        <description>Craves more and richer goods, becoming unhappy when those desires are not met.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>DV_Materialistic</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="det.halffoot">
+        <defName>WQ_Quirk_DV_Pushover</defName>
+        <label>pushover</label>
+        <description>Is slowed much more by pain and injury.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>DV_Pushover</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="det.halffoot">
+        <defName>WQ_Quirk_DV_Aggression_Hotheaded</defName>
+        <label>hotheaded</label>
+        <description>Is more volatile and impulsive, with violent outbursts occurring more often.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>DV_Aggression_Hotheaded</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="det.brawnum">
+        <defName>WQ_Quirk_DV_RoughPlay</defName>
+        <label>rough play</label>
+        <description>May accidentally hurt partners during lovin' due to a larger body and rougher manner, but will make them happier.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>DV_RoughPlay</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="ReSplice.XOTR.Charmweavers">
+        <defName>WQ_Quirk_RS_Naturalist</defName>
+        <label>naturalist</label>
+        <description>Prefers to keep skin uncovered rather than wear clothing or armor.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>RS_Naturalist</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="VexedTrees980.RimElvesBiotech">
+        <defName>WQ_Quirk_RE_MentalFanaticism</defName>
+        <label>mental fanaticism</label>
+        <description>Develops extreme zeal, making negotiation much harder.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>RE_MentalFanaticism</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="ZzZomboRW.Commission.NuzzleGene">
+        <defName>WQ_Quirk_ZzZomboRW_Commission_PeriodicNuzzleGene</defName>
+        <label>nuzzle</label>
+        <description>Periodically seeks out other colonists for affectionate nuzzling.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>ZzZomboRW_Commission_PeriodicNuzzleGene</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="cyanobot.CyanobotsGenes">
+        <defName>WQ_Quirk_CYB_Carnivore</defName>
+        <label>carnivore</label>
+        <description>Prefers meat, gains less nutrition from plant foods, and can become unwell from eating too much vegetable matter.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>CYB_Carnivore</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="cyanobot.CyanobotsGenes">
+        <defName>WQ_Quirk_CYB_Herbivore</defName>
+        <label>herbivore</label>
+        <description>Prefers plant food, gains less nutrition from animal products, and can become unwell from eating too much meat or animal products.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>CYB_Herbivore</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="cyanobot.CyanobotsGenes">
+        <defName>WQ_Quirk_CYB_Cathemeral</defName>
+        <label>cathermal</label>
+        <description>Sleeps in frequent short naps rather than following a normal day-night rhythm.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>CYB_Cathemeral</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="cyanobot.CyanobotsGenes">
+        <defName>WQ_Quirk_CYB_Afamilial</defName>
+        <label>afamilial</label>
+        <description>Forms weaker emotional bonds with family members, including parents and children.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>CYB_Afamilial</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="cyanobot.CyanobotsGenes">
+        <defName>WQ_Quirk_CYB_Greedy</defName>
+        <label>greedy</label>
+        <description>Is strongly motivated by material wealth.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>CYB_Greedy</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="cyanobot.CyanobotsGenes">
+        <defName>WQ_Quirk_CYB_Abrasive</defName>
+        <label>abrasive</label>
+        <description>Has trouble minding words and anticipating others' reactions.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>CYB_Abrasive</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="cyanobot.CyanobotsGenes">
+        <defName>WQ_Quirk_CYB_Solitary</defName>
+        <label>recluse</label>
+        <description>Feels comfortable alone and stressed by large groups of people.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>CYB_Solitary</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="ClimatePreferenceGenes.Mod">
+        <defName>WQ_Quirk_ClimatePreference_SuperCold</defName>
+        <label>extreme cold climate preference</label>
+        <description>Is comfortable only in extremely cold climates and can suffer badly in warmer ones.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>ClimatePreference_SuperCold</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="ClimatePreferenceGenes.Mod">
+        <defName>WQ_Quirk_ClimatePreference_Cold</defName>
+        <label>cold climate preference</label>
+        <description>Is comfortable only in colder climates and can suffer badly in warmer ones.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>ClimatePreference_Cold</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="ClimatePreferenceGenes.Mod">
+        <defName>WQ_Quirk_ClimatePreference_Hot</defName>
+        <label>hot climate preference</label>
+        <description>Is comfortable only in warmer climates and can suffer badly in colder ones.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>ClimatePreference_Hot</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="ClimatePreferenceGenes.Mod">
+        <defName>WQ_Quirk_ClimatePreference_SuperHot</defName>
+        <label>extreme hot climate preference</label>
+        <description>Is comfortable only in extremely hot climates and can suffer badly in colder ones.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>ClimatePreference_SuperHot</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <!-- WQ external gene rewards end -->
 </Defs>
