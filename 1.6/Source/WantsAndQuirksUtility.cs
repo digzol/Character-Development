@@ -342,6 +342,7 @@ namespace WantsAndQuirks
             if (sendNotification && PawnUtility.ShouldSendNotificationAbout(pawn))
             {
                 Messages.Message("WQ_NewWantGenerated".Translate(pawn.Named("PAWN")), pawn, MessageTypeDefOf.PositiveEvent, false);
+                DefsOf.WQ_NewWantBell.PlayOneShotOnCamera();
             }
             return want;
         }

@@ -50,4 +50,21 @@
       </li>
     </subSounds>
   </SoundDef>
+
+  <SoundDef>
+    <defName>WQ_NewWantBell</defName>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <onCamera>True</onCamera>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>UI/TinyBell</clipPath>
+          </li>
+        </grains>
+        <volumeRange>9~9</volumeRange>
+        <pitchRange>0.85~1.15</pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
 </Defs>

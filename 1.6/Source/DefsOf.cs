@@ -20,6 +20,7 @@ namespace WantsAndQuirks
         public static SoundDef WQ_WantCompleted;
         public static SoundDef WQ_RerollSound;
         public static SoundDef WQ_BubbleClick;
+        public static SoundDef WQ_NewWantBell;
         public static MainButtonDef WQ_CharactersMenu;
         static DefsOf() => DefOfHelper.EnsureInitializedInCtor(typeof(DefsOf));
     }
