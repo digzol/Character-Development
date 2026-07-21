@@ -10,6 +10,7 @@ namespace WantsAndQuirks
     {
         private Vector2 wantsScrollPos;
         private Vector2 quirksScrollPos;
+        private int reorderableGroupID;
 
         private static Color BgColor => new ColorInt(28, 30, 31).ToColor;
         private static Color WantBgColor => new ColorInt(79, 82, 84).ToColor;
@@ -80,6 +81,16 @@ namespace WantsAndQuirks
             var viewRect = new Rect(0f, 0f, outRect.width - 16f, data.activeWants.Count * 85f);
             viewRect.height -= 5f;
             Widgets.BeginScrollView(outRect, ref wantsScrollPos, viewRect);
+
+            if (Event.current.type == EventType.Repaint)
+            {
+                reorderableGroupID = ReorderableWidget.NewGroup((int from, int to) =>
+                {
+                    var item = data.activeWants[from];
+                    data.activeWants.Insert(to, item);
+                    data.activeWants.RemoveAt((from < to) ? from : (from + 1));
+                }, ReorderableDirection.Vertical, outRect);
+            }
 
             var listY = 0f;
             for (int i = 0; i < data.activeWants.Count; i++)
@@ -152,6 +163,9 @@ namespace WantsAndQuirks
                     GUI.color = Color.white;
                     Text.Font = GameFont.Small;
                 }
+
+                ReorderableWidget.Reorderable(reorderableGroupID, wantRect);
+
                 if (i == data.activeWants.Count - 1)
                 {
                     listY += 80f;
