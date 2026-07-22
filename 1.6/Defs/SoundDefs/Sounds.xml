@@ -53,16 +53,16 @@
 
   <SoundDef>
     <defName>WQ_NewWantBell</defName>
-    <maxSimultaneous>1</maxSimultaneous>
+    <maxSimultaneous>10</maxSimultaneous>
     <subSounds>
       <li>
         <onCamera>True</onCamera>
         <grains>
           <li Class="AudioGrain_Clip">
-            <clipPath>UI/TinyBell</clipPath>
+            <clipPath>NewWant</clipPath>
           </li>
         </grains>
-        <volumeRange>9~9</volumeRange>
+        <volumeRange>25~25</volumeRange>
         <pitchRange>0.85~1.15</pitchRange>
       </li>
     </subSounds>

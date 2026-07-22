@@ -12,7 +12,7 @@
   <WQ_NoActiveWants>No active wants.</WQ_NoActiveWants>
   <WQ_CharacterPoints>Character points</WQ_CharacterPoints>
   <WQ_RewardPoints>Reward points: {0}</WQ_RewardPoints>
-  <WQ_NewWantGenerated>{0} wants something. Check {0_possessive} wants tab.</WQ_NewWantGenerated>
+  <WQ_NewWantGenerated>{0} has discovered a new want.</WQ_NewWantGenerated>
   <WQ_WantCompleted>{0} fulfilled a want: {1}</WQ_WantCompleted>
   <WQ_RewardPointEarned>{0} earned a reward point!</WQ_RewardPointEarned>
   <WQ_RewardPointEarnedDebug>Colony earned a reward point! (debug)</WQ_RewardPointEarnedDebug>
@@ -33,8 +33,8 @@
   <WQ_ScarHealed>{0}'s scar was miraculously healed.</WQ_ScarHealed>
   <WQ_PartRestored>{0}'s missing {1} was miraculously restored.</WQ_PartRestored>
   <WQ_PassionGained>{0} gained a new passion for {1}.</WQ_PassionGained>
-  <WQ_MentalBreakWantReplaced>{PAWN_labelShort} developed an obsessive want due to a mental break: {1} (replaced {PAWN_possessive} want: {2}).</WQ_MentalBreakWantReplaced>
-  <WQ_MentalBreakWantAdded>{PAWN_labelShort} developed an obsessive want due to a mental break: {1}.</WQ_MentalBreakWantAdded>
+  <WQ_MentalBreakWantReplaced>{PAWN_labelShort} developed a traumatic want due to a mental break: {1} (replaced {PAWN_possessive} want: {2}).</WQ_MentalBreakWantReplaced>
+  <WQ_MentalBreakWantAdded>{PAWN_labelShort} developed a traumatic want due to a mental break: {1}.</WQ_MentalBreakWantAdded>
   <WQ_ConfirmRemoveQuirk>Are you sure you want to remove the quirk {0}?</WQ_ConfirmRemoveQuirk>
   <WQ_NoValidRecipients>There are no valid possible recipients for this reward.</WQ_NoValidRecipients>
   <WQ_WantsSubtitle>These desires can be fulfilled at any time, and do not expire.</WQ_WantsSubtitle>

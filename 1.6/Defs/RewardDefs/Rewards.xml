@@ -363,17 +363,17 @@
     <WantsAndQuirks.RewardDef>
         <defName>WQ_RewardRandomTrait</defName>
         <label>random trait</label>
-        <description>Gains a random trait.</description>
-        <iconPath>UI/Icons/Medical/IconImmune</iconPath>
+        <description>Gain a random trait.</description>
+        <iconPath>UI/RewardIcons/RandomTrait</iconPath>
         <rarity>Legendary</rarity>
         <workerClass>WantsAndQuirks.RewardWorker_RandomTrait</workerClass>
     </WantsAndQuirks.RewardDef>
 
     <WantsAndQuirks.RewardDef>
         <defName>WQ_RewardRemoveTrait</defName>
-        <label>remove trait</label>
+        <label>remove random trait</label>
         <description>Removes a random trait.</description>
-        <iconPath>UI/Icons/Medical/IconImmune</iconPath>
+        <iconPath>UI/RewardIcons/RemoveTrait</iconPath>
         <rarity>Legendary</rarity>
         <workerClass>WantsAndQuirks.RewardWorker_RemoveTrait</workerClass>
     </WantsAndQuirks.RewardDef>
@@ -530,7 +530,7 @@
 
     <WantsAndQuirks.RewardDef MayRequire="sarg.alphagenes">
         <defName>WQ_Quirk_AG_TableResistance</defName>
-        <label>table resistance</label>
+        <label>table indifferent</label>
         <description>Does not mind eating without a table.</description>
         <rarity>Common</rarity>
         <isQuirk>true</isQuirk>
@@ -638,7 +638,7 @@
         <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
     </WantsAndQuirks.RewardDef>
 
-    <WantsAndQuirks.RewardDef MayRequire="lucius.eyegenes3">
+    <!-- <WantsAndQuirks.RewardDef MayRequire="lucius.eyegenes3">
         <defName>WQ_Quirk_Eyes_Blue</defName>
         <label>blue eyes</label>
         <description>Has blue eyes.</description>
@@ -956,7 +956,7 @@
         <isQuirk>true</isQuirk>
         <gene>Eyes_Yellow</gene>
         <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
-    </WantsAndQuirks.RewardDef>
+    </WantsAndQuirks.RewardDef> -->
 
     <WantsAndQuirks.RewardDef MayRequire="V.Rooboid.Faun">
         <defName>WQ_Quirk_RBSF_Mood_Reclusive</defName>

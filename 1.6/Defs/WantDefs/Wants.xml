@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
+
+
+
+    <MentalBreakDef>
+        <defName>WQ_MentalBreakWant</defName>
+        <label>existential crisis</label>
+        <mentalState>Wander_Sad</mentalState>
+        <baseCommonality>0.5</baseCommonality>
+        <intensity>Minor</intensity>
+        <workerClass>WantsAndQuirks.MentalBreakWorker_WantBreak</workerClass>
+    </MentalBreakDef>
+
+
     <WantsAndQuirks.WantDef>
         <defName>WQ_WantSeeAurora</defName>
         <label>see an aurora</label>
@@ -143,7 +156,7 @@
         <minimumTechLevel>Medieval</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
-    <WantsAndQuirks.WantDef>
+    <!-- <WantsAndQuirks.WantDef>
         <defName>WQ_WantNewOutfit</defName>
         <label>new outfit</label>
         <description>I could use a new piece of clothing.</description>
@@ -162,7 +175,7 @@
         <reward>200</reward>
         <commonality>1</commonality>
         <workerClass>WantsAndQuirks.WantWorker_EquipWeapon</workerClass>
-    </WantsAndQuirks.WantDef>
+    </WantsAndQuirks.WantDef> -->
 
     <WantsAndQuirks.WantDef>
         <defName>WQ_WantResurrection</defName>
@@ -382,7 +395,7 @@
         <minimumTechLevel>Industrial</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
-    <WantsAndQuirks.WantDef>
+    <!-- <WantsAndQuirks.WantDef>
         <defName>WQ_WantTryHumanMeat</defName>
         <label>try human meat</label>
         <description>Trying human meat sounds like a fun idea.</description>
@@ -395,15 +408,15 @@
             <li>AteHumanlikeMeatAsIngredient</li>
         </targetThoughts>
         <isMentalBreakWant>true</isMentalBreakWant>
-    </WantsAndQuirks.WantDef>
+    </WantsAndQuirks.WantDef> -->
 
     <WantsAndQuirks.WantDef>
         <defName>WQ_WantOverdose</defName>
         <label>overdose</label>
-        <description>Let's see what it feels like to overdose.</description>
+        <description>Maybe I should see what it feels like to overdose.</description>
         <iconPath>UI/WantIcons/Drugs</iconPath>
         <reward>2000</reward>
-        <commonality>0.5</commonality>
+        <commonality>0.6</commonality>
         <workerClass>WantsAndQuirks.WantWorker_HasHediff</workerClass>
         <targetHediff>DrugOverdose</targetHediff>
         <isMentalBreakWant>true</isMentalBreakWant>
@@ -413,7 +426,7 @@
     <WantsAndQuirks.WantDef>
         <defName>WQ_WantBlackoutDrunk</defName>
         <label>get blackout drunk</label>
-        <description>Just letting it all go would be fun, it'll take the edge off.</description>
+        <description>Maybe letting it all go would be fun, it'll take the edge off.</description>
         <iconPath>UI/WantIcons/Drunk</iconPath>
         <reward>1500</reward>
         <commonality>0.8</commonality>
@@ -430,7 +443,7 @@
         <description>Maybe I should bleed.</description>
         <iconPath>UI/WantIcons/Bleed</iconPath>
         <reward>1500</reward>
-        <commonality>0.3</commonality>
+        <commonality>0.4</commonality>
         <workerClass>WantsAndQuirks.WantWorker_Bleeding</workerClass>
         <targetHediffSeverity>0.4</targetHediffSeverity>
         <isMentalBreakWant>true</isMentalBreakWant>
@@ -439,10 +452,10 @@
     <WantsAndQuirks.WantDef>
         <defName>WQ_WantWasImprisoned</defName>
         <label>be imprisoned</label>
-        <description>I'm such a mess, I want them to lock me up.</description>
+        <description>Maybe I'm just a mess, they should lock me up.</description>
         <iconPath>UI/WantIcons/Imprisoned</iconPath>
         <reward>1500</reward>
-        <commonality>0.3</commonality>
+        <commonality>0.5</commonality>
         <workerClass>WantsAndQuirks.WantWorker_Thought</workerClass>
         <completedByThought>HoldingMePrisoner</completedByThought>
         <minimumTechLevel>Neolithic</minimumTechLevel>
@@ -452,10 +465,10 @@
     <WantsAndQuirks.WantDef>
         <defName>WQ_WantSeeCorpse</defName>
         <label>see a corpse</label>
-        <description>I should be reminded of our mortality.</description>
+        <description>Maybe I should be reminded of our mortality.</description>
         <iconPath>UI/WantIcons/Corpse</iconPath>
         <reward>1500</reward>
-        <commonality>0.4</commonality>
+        <commonality>0.6</commonality>
         <workerClass>WantsAndQuirks.WantWorker_Thought</workerClass>
         <completedByThought>ObservedLayingCorpse</completedByThought>
         <minimumTechLevel>Neolithic</minimumTechLevel>
@@ -468,7 +481,7 @@
         <description>I'm sick of the way things are around here.</description>
         <iconPath>UI/WantIcons/Banish</iconPath>
         <reward>1500</reward>
-        <commonality>0.3</commonality>
+        <commonality>0.4</commonality>
         <workerClass>WantsAndQuirks.WantWorker_Thought</workerClass>
         <completedByThought>ColonistBanished</completedByThought>
         <minimumTechLevel>Neolithic</minimumTechLevel>
@@ -478,7 +491,7 @@
     <WantsAndQuirks.WantDef>
         <defName>WQ_WantMurder</defName>
         <label>murder one of us</label>
-        <description>I want to take my rage out on someone in the faction.</description>
+        <description>Maybe I should take my rage out on someone in the faction.</description>
         <iconPath>UI/WantIcons/Murder</iconPath>
         <reward>1500</reward>
         <commonality>0.2</commonality>
@@ -487,7 +500,7 @@
         <isMentalBreakWant>true</isMentalBreakWant>
     </WantsAndQuirks.WantDef>
 
-    <WantsAndQuirks.WantDef>
+    <!-- <WantsAndQuirks.WantDef>
         <defName>WQ_WantKillColonyAnimal</defName>
         <label>kill a colony animal</label>
         <description>I want to show them that nobody is safe.</description>
@@ -498,12 +511,12 @@
         <isMentalBreakWant>true</isMentalBreakWant>
         <workerClass>WantsAndQuirks.WantWorker_Thought</workerClass>
         <completedByThought>KilledColonyAnimal</completedByThought>
-    </WantsAndQuirks.WantDef>
+    </WantsAndQuirks.WantDef> -->
 
     <WantsAndQuirks.WantDef>
         <defName>WQ_WantCutOutTongue</defName>
         <label>cut out my tongue</label>
-        <description>I do not even deserve to speak.</description>
+        <description>Maybe I do not even deserve to speak.</description>
         <iconPath>UI/WantIcons/Tongue</iconPath>
         <reward>2000</reward>
         <commonality>0.05</commonality>
@@ -516,7 +529,7 @@
     <WantsAndQuirks.WantDef MayRequire="Ludeon.RimWorld.Biotech">
         <defName>WQ_WantKillChild</defName>
         <label>kill a child</label>
-        <description>I want to show them that nobody is safe.</description>
+        <description>Maybe I want to show them that nobody is safe.</description>
         <iconPath>UI/WantIcons/KidAbuse</iconPath>
         <reward>2000</reward>
         <commonality>0.05</commonality>
@@ -529,7 +542,7 @@
     <WantsAndQuirks.WantDef MayRequire="dubwise.dubsbadhygiene">
         <defName>WQ_WantDefecateInOpen</defName>
         <label>defecate in the open</label>
-        <description>I want to defecate where others can see.</description>
+        <description>Maybe I want to defecate where others can see.</description>
         <iconPath>UI/WantIcons/Defecate</iconPath>
         <reward>2000</reward>
         <commonality>0.2</commonality>
@@ -727,7 +740,7 @@
         <description>I'm a failure, I'd like people to all see that.</description>
         <iconPath>UI/WantIcons/Disliked</iconPath>
         <reward>2000</reward>
-        <commonality>0.3</commonality>
+        <commonality>1</commonality>
         <workerClass>WantsAndQuirks.WantWorker_OpinionCount</workerClass>
         <opinionThreshold>-20</opinionThreshold>
         <countThreshold>10</countThreshold>
@@ -1054,10 +1067,10 @@
     <WantsAndQuirks.WantDef MayRequire="ferny.TraumaAndIntegrity">
         <defName>WQ_WantBecomeTempered</defName>
         <label>become tempered</label>
-        <description>I'd like to become tempered.</description>
-        <iconPath>UI/WantIcons/Catharsis</iconPath>
+        <description>I'm ready to take on the reality of the world.</description>
+        <iconPath>UI/WantIcons/Sad</iconPath>
         <reward>2500</reward>
-        <commonality>0.2</commonality>
+        <commonality>1</commonality>
         <workerClass>WantsAndQuirks.WantWorker_BecomeTempered</workerClass>
         <isMentalBreakWant>true</isMentalBreakWant>
     </WantsAndQuirks.WantDef>
@@ -1108,15 +1121,6 @@
         <targetRitual>TreeConnection</targetRitual>
         <discoveryRequirementThing>Plant_TreeGauranlen</discoveryRequirementThing>
     </WantsAndQuirks.WantDef>
-
-    <MentalBreakDef>
-        <defName>WQ_MentalBreakWant</defName>
-        <label>existential crisis</label>
-        <mentalState>Wander_Sad</mentalState>
-        <baseCommonality>1</baseCommonality>
-        <intensity>Minor</intensity>
-        <workerClass>WantsAndQuirks.MentalBreakWorker_WantBreak</workerClass>
-    </MentalBreakDef>
 
     <WantsAndQuirks.WantDef>
         <defName>WQ_WantHostDinnerParty</defName>
@@ -1203,6 +1207,7 @@
         <reward>1500</reward>
         <commonality>1</commonality>
         <workerClass>WantsAndQuirks.WantWorker_LoseWeight</workerClass>
+        <minimumTechLevel>Neolithic</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef MayRequire="maux36.rimbody">
@@ -1213,6 +1218,7 @@
         <reward>1500</reward>
         <commonality>1</commonality>
         <workerClass>WantsAndQuirks.WantWorker_GainMuscle</workerClass>
+        <minimumTechLevel>Neolithic</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef MayRequire="smashphil.vehicleframework">
@@ -1223,6 +1229,7 @@
         <reward>1000</reward>
         <commonality>1</commonality>
         <workerClass>WantsAndQuirks.WantWorker_DriveVehicle</workerClass>
+        <minimumTechLevel>Neolithic</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef MayRequireAnyOf="OskarPotocki.VFE.Tribals,ferny.noderesearch">
