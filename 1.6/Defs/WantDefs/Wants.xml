@@ -1042,8 +1042,8 @@
 
     <WantsAndQuirks.WantDef>
         <defName>WQ_WantNewEntertainmentBuilding</defName>
-        <label>a new {0} entertainment building</label>
-        <description>I would like a new {0} entertainment building in the colony.</description>
+        <label>new {0} recreation</label>
+        <description>I would like a new {0} recreation building in the colony.</description>
         <iconPath>UI/WantIcons/Bedroom</iconPath>
         <reward>1000</reward>
         <commonality>1</commonality>
