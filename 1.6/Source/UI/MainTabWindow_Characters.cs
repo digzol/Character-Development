@@ -234,12 +234,12 @@ namespace WantsAndQuirks
 
         private void DrawLeftPanel(Rect rect)
         {
-            var innerRect = rect.ContractedBy(10f);
+            var innerRect = new Rect(rect.x, rect.y + 10, rect.width - 20, rect.height - 10);
             var curY = innerRect.y;
 
             Text.Font = GameFont.Medium;
             Text.Anchor = TextAnchor.UpperCenter;
-            Widgets.Label(new Rect(innerRect.x, curY, innerRect.width, 30f), "WQ_CharacterPoints".Translate());
+            Widgets.Label(new Rect(innerRect.x, curY - 5, innerRect.width, 30f), "WQ_CharacterPoints".Translate());
             curY += 30f;
 
             var barRect = new Rect(innerRect.x, curY, innerRect.width, 24f);
@@ -449,7 +449,7 @@ namespace WantsAndQuirks
 
         private void DrawRightPanel(Rect rect)
         {
-            var innerRect = rect.ContractedBy(10f);
+            var innerRect = new Rect(rect.x + 20, rect.y + 10, rect.width - 20, rect.height - 10);
             Text.Font = GameFont.Small;
             Widgets.Label(innerRect, "WQ_QuirksInfoText".Translate());
         }
