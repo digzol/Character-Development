@@ -441,10 +441,10 @@
         <targetHediff>DrugOverdose</targetHediff>
         <isMentalBreakWant>true</isMentalBreakWant>
         <minimumTechLevel>Neolithic</minimumTechLevel>
-		<requiredTraitsAny>
+		<requiredTraits>
 			<DrugDesire>1</DrugDesire>
 			<DrugDesire>2</DrugDesire>
-		</requiredTraitsAny>
+		</requiredTraits>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef>
@@ -849,10 +849,10 @@
         <targetThoughts>
             <li>AnimaScream</li>
         </targetThoughts>
-		<requiredTraitsAny>
+		<requiredTraits>
 			<PsychicSensitivity>-1</PsychicSensitivity>
 			<PsychicSensitivity>-2</PsychicSensitivity>
-		</requiredTraitsAny>
+		</requiredTraits>
         <discoveryRequirementThing>Plant_TreeAnima</discoveryRequirementThing>
     </WantsAndQuirks.WantDef>
 
@@ -1202,10 +1202,10 @@
         <workerClass>WantsAndQuirks.WantWorker_TakeSpecificDrug</workerClass>
         <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
         <minimumTechLevel>Neolithic</minimumTechLevel>
-		<requiredTraitsAny>
+		<requiredTraits>
 			<DrugDesire>1</DrugDesire>
 			<DrugDesire>2</DrugDesire>
-		</requiredTraitsAny>
+		</requiredTraits>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef MayRequire="Ludeon.RimWorld.Biotech">
