@@ -12,10 +12,10 @@ namespace WantsAndQuirks
         public int bubblesPerRoll = 10;
         public bool rerollBubblesOnSelection = false;
         public int rerollsPerWant = 2;
-        public int pointsNeededForReward = 1000;
-        public int startingWantsCount = 1;
+        public int pointsNeededForReward = 800;
+        public int startingWantsCount = 0;
         public int maxActiveWants = 4;
-        public IntRange wantGenerationFrequencyDays = new IntRange(1, 20);
+        public IntRange wantGenerationFrequencyDays = new IntRange(1, 8);
 
         public override void ExposeData()
         {
@@ -27,10 +27,10 @@ namespace WantsAndQuirks
             Scribe_Values.Look(ref bubblesPerRoll, "bubblesPerRoll", 10);
             Scribe_Values.Look(ref rerollBubblesOnSelection, "rerollBubblesOnSelection", false);
             Scribe_Values.Look(ref rerollsPerWant, "rerollsPerWant", 2);
-            Scribe_Values.Look(ref pointsNeededForReward, "pointsNeededForReward", 1000);
-            Scribe_Values.Look(ref startingWantsCount, "startingWantsCount", 1);
+            Scribe_Values.Look(ref pointsNeededForReward, "pointsNeededForReward", 800);
+            Scribe_Values.Look(ref startingWantsCount, "startingWantsCount", 0);
             Scribe_Values.Look(ref maxActiveWants, "maxActiveWants", 4);
-            Scribe_Values.Look(ref wantGenerationFrequencyDays, "wantGenerationFrequencyDays", new IntRange(1, 20));
+            Scribe_Values.Look(ref wantGenerationFrequencyDays, "wantGenerationFrequencyDays", new IntRange(1, 8));
         }
 
         public void DoSettingsWindowContents(Rect inRect)
@@ -47,7 +47,7 @@ namespace WantsAndQuirks
             ls.Label("WQ_RerollsPerWant".Translate(rerollsPerWant));
             rerollsPerWant = (int)ls.Slider(rerollsPerWant, 0, 10);
             ls.Label("WQ_PointsNeededForReward".Translate(pointsNeededForReward));
-            pointsNeededForReward = (int)ls.Slider(pointsNeededForReward, 100, 5000);
+            pointsNeededForReward = (int)ls.Slider(pointsNeededForReward, 100, 3000);
             ls.Label("WQ_StartingWantsCount".Translate(startingWantsCount));
             startingWantsCount = (int)ls.Slider(startingWantsCount, 0, 10);
             ls.Label("WQ_MaxActiveWants".Translate(maxActiveWants));
