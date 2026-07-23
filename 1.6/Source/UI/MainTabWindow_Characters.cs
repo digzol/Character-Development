@@ -17,8 +17,8 @@ namespace WantsAndQuirks
         private static Color CenterBgColor = new ColorInt(53, 52, 52).ToColor;
         private static Color PawnRowColor = new ColorInt(40, 40, 40).ToColor;
         private static Color PawnBgColor = new ColorInt(91, 91, 91).ToColor;
-        private static Color ProgressBarBgColor = new ColorInt(63, 90, 114).ToColor;
-        private static Color ProgressBarFillColor = new ColorInt(153, 153, 153).ToColor;
+        private static Color ProgressBarBgColor = new ColorInt(62, 58, 58).ToColor;
+        private static Color ProgressBarFillColor = new ColorInt(63, 90, 114).ToColor;
         private static Color LegendaryBubbleColor = new Color(0.8f, 0.7f, 0.3f, 0.85f);
         private static Color RareBubbleColor = new Color(0.6f, 0.4f, 0.8f, 0.85f);
         private static Color UncommonBubbleColor = new Color(0.3f, 0.6f, 0.8f, 0.85f);
