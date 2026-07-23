@@ -9,7 +9,7 @@
   <WQ_MaxActiveWants>Maximum active wants: {0}</WQ_MaxActiveWants>
   <WQ_WantGenerationFrequency>Want generation frequency: {0} - {1} days</WQ_WantGenerationFrequency>
   <WQ_Wants>Wants</WQ_Wants>
-  <WQ_NoActiveWants>No active wants.</WQ_NoActiveWants>
+  <WQ_NoActiveWants>New wants will appear here periodically.</WQ_NoActiveWants>
   <WQ_CharacterPoints>Character points</WQ_CharacterPoints>
   <WQ_RewardPoints>Reward points: {0}</WQ_RewardPoints>
   <WQ_NewWantGenerated>{0} has discovered a new want.</WQ_NewWantGenerated>

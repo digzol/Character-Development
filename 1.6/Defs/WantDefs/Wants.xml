@@ -94,6 +94,9 @@
         <commonality>0.8</commonality>
         <workerClass>WantsAndQuirks.WantWorker_Bionic</workerClass>
         <minimumTechLevel>Industrial</minimumTechLevel>
+		<invalidTraits>
+			<li>BodyPurist</li>
+		</invalidTraits>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef>
@@ -232,6 +235,9 @@
         <commonality>0.5</commonality>
         <workerClass>WantsAndQuirks.WantWorker_BecomePsycaster</workerClass>
         <minimumTechLevel>Medieval</minimumTechLevel>
+		<invalidGenes>
+			<li MayRequire="Ludeon.RimWorld.BioTech">PsychicAbility_Deaf</li>
+		</invalidGenes>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef MayRequire="Ludeon.RimWorld.Biotech">
@@ -242,6 +248,10 @@
         <reward>8000</reward>
         <commonality>0.5</commonality>
         <workerClass>WantsAndQuirks.WantWorker_BecomeParent</workerClass>
+		<invalidXenotypes>
+			<li MayRequire="vanillaracesexpanded.android">VREA_AndroidBasic</li>
+			<li MayRequire="vanillaracesexpanded.android">VREA_AndroidAwakened</li>
+		</invalidXenotypes>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef MayRequire="Ludeon.RimWorld.Royalty">
@@ -299,6 +309,10 @@
         <commonality>0.5</commonality>
         <workerClass>WantsAndQuirks.WantWorker_HasHediff</workerClass>
         <targetHediff>PsychicBond</targetHediff>
+		<invalidXenotypes>
+			<li>Highmate</li>
+			<li MayRequire="vanillaracesexpanded.sanguophage">VRE_Bruxa</li>
+		</invalidXenotypes>
         <minimumTechLevel>Neolithic</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
@@ -393,6 +407,9 @@
         <workerClass>WantsAndQuirks.WantWorker_Bionic</workerClass>
         <countThreshold>6</countThreshold>
         <minimumTechLevel>Industrial</minimumTechLevel>
+		<invalidTraits>
+			<li>BodyPurist</li>
+		</invalidTraits>
     </WantsAndQuirks.WantDef>
 
     <!-- <WantsAndQuirks.WantDef>
@@ -447,6 +464,7 @@
         <workerClass>WantsAndQuirks.WantWorker_Bleeding</workerClass>
         <targetHediffSeverity>0.4</targetHediffSeverity>
         <isMentalBreakWant>true</isMentalBreakWant>
+		<invalidNonViolent>true</invalidNonViolent>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef>
@@ -498,6 +516,7 @@
         <workerClass>WantsAndQuirks.WantWorker_Thought</workerClass>
         <completedByThought>KilledColonist</completedByThought>
         <isMentalBreakWant>true</isMentalBreakWant>
+		<invalidNonViolent>true</invalidNonViolent>
     </WantsAndQuirks.WantDef>
 
     <!-- <WantsAndQuirks.WantDef>
@@ -520,10 +539,10 @@
         <iconPath>UI/WantIcons/Tongue</iconPath>
         <reward>2000</reward>
         <commonality>0.05</commonality>
-        <invalidNonViolent>true</invalidNonViolent>
         <isMentalBreakWant>true</isMentalBreakWant>
         <workerClass>WantsAndQuirks.WantWorker_Thought</workerClass>
         <completedByThought>MissingTongue</completedByThought>
+		<invalidNonViolent>true</invalidNonViolent>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef MayRequire="Ludeon.RimWorld.Biotech">
@@ -599,6 +618,7 @@
             <li>PE_HighTechProficiency</li>
         </invalidTraits>
         <minimumTechLevel>Neolithic</minimumTechLevel>
+		<invalidNonViolent>true</invalidNonViolent>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef MayRequire="ferny.ProgressionEducation">
@@ -613,6 +633,7 @@
             <li>PE_HighTechProficiency</li>
         </targetTraits>
         <minimumTechLevel>Industrial</minimumTechLevel>
+		<invalidNonViolent>true</invalidNonViolent>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef MayRequire="ferny.ProgressionEducation,SmashPhil.VehicleFramework">
@@ -729,9 +750,8 @@
         <commonality>0.5</commonality>
         <workerClass>WantsAndQuirks.WantWorker_OpinionCount</workerClass>
         <opinionThreshold>20</opinionThreshold>
-        <countThreshold>10</countThreshold>
-        <minimumColonists>10</minimumColonists>
-        <!-- <isMentalBreakWant>true</isMentalBreakWant> -->
+        <countThreshold>5</countThreshold>
+        <minimumColonists>5</minimumColonists>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef>
@@ -743,8 +763,8 @@
         <commonality>1</commonality>
         <workerClass>WantsAndQuirks.WantWorker_OpinionCount</workerClass>
         <opinionThreshold>-20</opinionThreshold>
-        <countThreshold>10</countThreshold>
-        <minimumColonists>10</minimumColonists>
+        <countThreshold>5</countThreshold>
+        <minimumColonists>5</minimumColonists>
         <isMentalBreakWant>true</isMentalBreakWant>
     </WantsAndQuirks.WantDef>
 
@@ -769,6 +789,9 @@
         <targetHediff>Joywire</targetHediff>
         <discoveryRequirementThing>Joywire</discoveryRequirementThing>
         <minimumTechLevel>Industrial</minimumTechLevel>
+		<invalidTraits>
+			<li>BodyPurist</li>
+		</invalidTraits>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef>
@@ -781,6 +804,7 @@
         <workerClass>WantsAndQuirks.WantWorker_DeadRival</workerClass>
         <isMentalBreakWant>true</isMentalBreakWant>
         <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
+		<invalidNonViolent>true</invalidNonViolent>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef>
@@ -801,6 +825,10 @@
         <reward>5000</reward>
         <commonality>0.5</commonality>
         <workerClass>WantsAndQuirks.WantWorker_BecomeGrandparent</workerClass>
+		<invalidXenotypes>
+			<li MayRequire="vanillaracesexpanded.android">VREA_AndroidBasic</li>
+			<li MayRequire="vanillaracesexpanded.android">VREA_AndroidAwakened</li>
+		</invalidXenotypes>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef MayRequire="Ludeon.RimWorld.Royalty">
@@ -814,6 +842,10 @@
         <targetThoughts>
             <li>AnimaScream</li>
         </targetThoughts>
+		<requiredTraitsAny>
+			<PsychicSensitivity>-1</PsychicSensitivity>
+			<PsychicSensitivity>-2</PsychicSensitivity>
+		</requiredTraitsAny>
         <discoveryRequirementThing>Plant_TreeAnima</discoveryRequirementThing>
     </WantsAndQuirks.WantDef>
 
@@ -1280,7 +1312,7 @@
         <defName>WQ_WantBecomeWarcasket</defName>
         <label>become a warcasket</label>
         <description>I'd like to be entombed in a warcasket.</description>
-        <iconPath>UI/WantIcons/Bionic</iconPath>
+        <iconPath>UI/WantIcons/Warcasket</iconPath>
         <reward>3000</reward>
         <commonality>0.2</commonality>
         <workerClass>WantsAndQuirks.WantWorker_HasTrait</workerClass>
