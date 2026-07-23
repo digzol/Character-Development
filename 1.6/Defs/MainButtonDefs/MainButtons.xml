@@ -3,7 +3,7 @@
   <MainButtonDef>
     <defName>WQ_CharactersMenu</defName>
     <label>characters</label>
-    <description>View characters wants and assign rewards.</description>
+    <description>View colonist wants and assign reward modifiers.</description>
     <tabWindowClass>WantsAndQuirks.MainTabWindow_Characters</tabWindowClass>
     <order>45</order>
   </MainButtonDef>
