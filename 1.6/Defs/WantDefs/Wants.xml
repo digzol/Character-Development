@@ -105,9 +105,12 @@
         <description>I'm interested in taking drugs.</description>
         <iconPath>UI/WantIcons/Drugs</iconPath>
         <reward>600</reward>
-        <commonality>1.2</commonality>
+        <commonality>0.6</commonality>
         <workerClass>WantsAndQuirks.WantWorker_TakeDrug</workerClass>
         <minimumTechLevel>Neolithic</minimumTechLevel>
+		<invalidTraits>
+			<DrugDesire>-1</DrugDesire>
+		</invalidTraits>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef>
@@ -438,6 +441,10 @@
         <targetHediff>DrugOverdose</targetHediff>
         <isMentalBreakWant>true</isMentalBreakWant>
         <minimumTechLevel>Neolithic</minimumTechLevel>
+		<requiredTraitsAny>
+			<DrugDesire>1</DrugDesire>
+			<DrugDesire>2</DrugDesire>
+		</requiredTraitsAny>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef>
@@ -1191,10 +1198,14 @@
         <description>I'd like to take some {0}.</description>
         <iconPath>UI/WantIcons/Drugs</iconPath>
         <reward>1500</reward>
-        <commonality>1.5</commonality>
+        <commonality>0.7</commonality>
         <workerClass>WantsAndQuirks.WantWorker_TakeSpecificDrug</workerClass>
         <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
         <minimumTechLevel>Neolithic</minimumTechLevel>
+		<requiredTraitsAny>
+			<DrugDesire>1</DrugDesire>
+			<DrugDesire>2</DrugDesire>
+		</requiredTraitsAny>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef MayRequire="Ludeon.RimWorld.Biotech">
@@ -1397,7 +1408,7 @@
         <description>I'd like a double bed.</description>
         <iconPath>UI/WantIcons/Bedroom</iconPath>
         <reward>1000</reward>
-        <commonality>0.8</commonality>
+        <commonality>1</commonality>
         <workerClass>WantsAndQuirks.WantWorker_DoubleBed</workerClass>
         <minimumTechLevel>Neolithic</minimumTechLevel>
     </WantsAndQuirks.WantDef>
