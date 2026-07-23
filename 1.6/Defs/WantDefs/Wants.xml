@@ -8,7 +8,7 @@
         <label>existential crisis</label>
         <mentalState>Wander_Sad</mentalState>
         <baseCommonality>0.5</baseCommonality>
-        <intensity>Minor</intensity>
+        <intensity>Major</intensity>
         <workerClass>WantsAndQuirks.MentalBreakWorker_WantBreak</workerClass>
     </MentalBreakDef>
 
@@ -1405,7 +1405,7 @@
     <WantsAndQuirks.WantDef>
         <defName>WQ_WantDoubleBed</defName>
         <label>a double bed</label>
-        <description>I'd like a double bed.</description>
+        <description>I'd like to be able to stretch out a bit.</description>
         <iconPath>UI/WantIcons/Bedroom</iconPath>
         <reward>1000</reward>
         <commonality>1</commonality>
