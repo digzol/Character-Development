@@ -62,7 +62,7 @@
             <clipPath>NewWant</clipPath>
           </li>
         </grains>
-        <volumeRange>25~25</volumeRange>
+        <volumeRange>45~45</volumeRange>
         <pitchRange>0.85~1.15</pitchRange>
       </li>
     </subSounds>

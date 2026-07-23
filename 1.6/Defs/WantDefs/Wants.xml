@@ -1372,7 +1372,7 @@
         <label>be nuzzled</label>
         <description>I'd like to be nuzzled by someone sweet.</description>
         <iconPath>UI/WantIcons/Nuzzle</iconPath>
-        <reward>700</reward>
+        <reward>500</reward>
         <commonality>0.8</commonality>
         <workerClass>WantsAndQuirks.WantWorker_Thought</workerClass>
         <completedByThought>Nuzzled</completedByThought>
