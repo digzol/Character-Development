@@ -1391,6 +1391,16 @@
         <minimumTechLevel>Neolithic</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
+    <WantsAndQuirks.WantDef>
+        <defName>WQ_WantDoubleBed</defName>
+        <label>a double bed</label>
+        <description>I'd like a double bed.</description>
+        <iconPath>UI/WantIcons/Bedroom</iconPath>
+        <reward>1000</reward>
+        <commonality>0.8</commonality>
+        <workerClass>WantsAndQuirks.WantWorker_DoubleBed</workerClass>
+        <minimumTechLevel>Neolithic</minimumTechLevel>
+    </WantsAndQuirks.WantDef>
 
 
 <!-- THOUGHTS TO DO

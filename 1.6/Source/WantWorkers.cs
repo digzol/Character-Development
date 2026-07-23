@@ -43,7 +43,7 @@ namespace WantsAndQuirks
     {
         public override bool CanGenerate(Pawn pawn)
         {
-            return pawn.ownership?.OwnedBed != null && !IsSatisfied(pawn);
+            return pawn.ownership.OwnedBed != null && !IsSatisfied(pawn);
         }
     }
 
@@ -549,7 +549,7 @@ namespace WantsAndQuirks
 
             var allJoyKinds = DefDatabase<JoyKindDef>.AllDefsListForReading;
             var missing = allJoyKinds.Where(j => existingJoyKinds == null || !existingJoyKinds.Contains(j));
-            return missing.TryRandomElement(out var result) ? result : null;
+            return missing.Where(x => DefDatabase<ThingDef>.AllDefs.Any(b => b.building?.joyKind == x)).TryRandomElement(out var result) ? result : null;
         }
         public override bool IsSatisfiedWithTarget(Pawn pawn, Def targetDef)
         {
@@ -770,6 +770,26 @@ namespace WantsAndQuirks
         public override bool IsCompleted(Pawn pawn, WantWorkerContext context)
         {
             return context.triggerType == WantTriggerType.BuildingConstructed;
+        }
+    }
+    
+    public class WantWorker_DoubleBed : WantWorker
+    {
+        public override bool CanGenerate(Pawn pawn)
+        {
+            var bed = pawn.ownership.OwnedBed;
+            return bed != null
+                && bed.SleepingSlotsCount < 2
+                && pawn.GetFirstSpouse() == null
+                && pawn.relations.GetFirstDirectRelationPawn(PawnRelationDefOf.Lover, x => !x.Dead) == null
+                && pawn.relations.GetFirstDirectRelationPawn(PawnRelationDefOf.Fiance, x => !x.Dead) == null
+                && base.CanGenerate(pawn);
+        }
+
+        public override bool IsSatisfied(Pawn pawn)
+        {
+            var bed = pawn.ownership.OwnedBed;
+            return bed != null && bed.SleepingSlotsCount >= 2;
         }
     }
 }
