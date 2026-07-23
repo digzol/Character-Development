@@ -157,7 +157,7 @@ namespace WantsAndQuirks
             if (PawnUtility.ShouldSendNotificationAbout(pawn))
             {
                 var text = !string.IsNullOrEmpty(want.def.fulfilledText) ? want.def.fulfilledText.Formatted(pawn.Named("PAWN"), want.LabelCap) : "WQ_WantCompleted".Translate(pawn.Named("PAWN"), want.LabelCap);
-                Messages.Message(text, pawn, MessageTypeDefOf.PositiveEvent, false);
+                Messages.Message(text, pawn, MessageTypeDefOf.SilentInput, false);
                 DefsOf.WQ_WantCompleted.PlayOneShotOnCamera();
             }
             data.activeWants.Remove(want);
@@ -341,7 +341,7 @@ namespace WantsAndQuirks
             }
             if (sendNotification && PawnUtility.ShouldSendNotificationAbout(pawn))
             {
-                Messages.Message("WQ_NewWantGenerated".Translate(pawn.Named("PAWN")), pawn, MessageTypeDefOf.PositiveEvent, false);
+                Messages.Message("WQ_NewWantGenerated".Translate(pawn.Named("PAWN")), pawn, MessageTypeDefOf.SilentInput, false);
                 DefsOf.WQ_NewWantBell.PlayOneShotOnCamera();
             }
             return want;
