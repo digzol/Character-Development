@@ -744,7 +744,7 @@ namespace WantsAndQuirks
 
         public override Def GetRandomTarget(Pawn pawn)
         {
-            var tameableAnimals = DefDatabase<ThingDef>.AllDefsListForReading.Where(d => d.race != null && d.race.Animal && d.GetStatValueAbstract(StatDefOf.Wildness) < 1f && (!DiscoveryCompat.IsActive || DiscoveryCompat.IsDiscovered(d)));
+            var tameableAnimals = DefDatabase<ThingDef>.AllDefsListForReading.Where(d => d.race != null && d.race.Animal && d.IsCorpse is false && d.GetStatValueAbstract(StatDefOf.Wildness) < 1f && (!DiscoveryCompat.IsActive || DiscoveryCompat.IsDiscovered(d)));
             return tameableAnimals.TryRandomElement(out var result) ? result : null;
         }
 
