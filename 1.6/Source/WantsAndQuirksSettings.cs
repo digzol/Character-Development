@@ -13,6 +13,7 @@ namespace WantsAndQuirks
         public bool rerollBubblesOnSelection = false;
         public int rerollsPerWant = 2;
         public int pointsNeededForReward = 800;
+        private string pointsNeededForRewardBuffer;
         public int startingWantsCount = 0;
         public int maxActiveWants = 4;
         public IntRange wantGenerationFrequencyDays = new IntRange(1, 8);
@@ -47,7 +48,7 @@ namespace WantsAndQuirks
             ls.Label("WQ_RerollsPerWant".Translate(rerollsPerWant));
             rerollsPerWant = (int)ls.Slider(rerollsPerWant, 0, 10);
             ls.Label("WQ_PointsNeededForReward".Translate(pointsNeededForReward));
-            pointsNeededForReward = (int)ls.Slider(pointsNeededForReward, 100, 3000);
+            ls.TextFieldNumeric(ref pointsNeededForReward, ref pointsNeededForRewardBuffer, 100, 3000);
             ls.Label("WQ_StartingWantsCount".Translate(startingWantsCount));
             startingWantsCount = (int)ls.Slider(startingWantsCount, 0, 10);
             ls.Label("WQ_MaxActiveWants".Translate(maxActiveWants));

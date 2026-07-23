@@ -12,13 +12,13 @@ namespace WantsAndQuirks
         private Vector2 quirksScrollPos;
         private int reorderableGroupID;
 
-        private static Color BgColor => new ColorInt(28, 30, 31).ToColor;
-        private static Color WantBgColor => new ColorInt(79, 82, 84).ToColor;
-        private static Color QuirkContainerColor => new ColorInt(123, 121, 118).ToColor;
-        private static Color QuirkBgColor => new ColorInt(70, 68, 66).ToColor;
-        private static Color PointsColor => new ColorInt(166, 187, 194).ToColor;
-        private static Color MentalBreakRectColor => new ColorInt(57, 45, 45).ToColor;
-        private static Color MentalBreakTextColor => new ColorInt(184, 133, 134).ToColor;
+        private static Color BgColor = new ColorInt(28, 30, 31).ToColor;
+        private static Color WantBgColor = new ColorInt(79, 82, 84).ToColor;
+        private static Color QuirkContainerColor = new ColorInt(38, 37, 35).ToColor;
+        private static Color QuirkBgColor = new ColorInt(70, 68, 66).ToColor;
+        private static Color PointsColor = new ColorInt(166, 187, 194).ToColor;
+        private static Color MentalBreakRectColor = new ColorInt(57, 45, 45).ToColor;
+        private static Color MentalBreakTextColor = new ColorInt(184, 133, 134).ToColor;
 
         public ITab_Pawn_WantsAndQuirks()
         {
