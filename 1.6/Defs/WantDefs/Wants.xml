@@ -955,7 +955,7 @@
     <WantsAndQuirks.WantDef>
         <defName>WQ_WantSkillLevel2</defName>
         <label>be good at {0}</label>
-        <description>I'd like to reach level 8 in my {0} skill.</description>
+        <description>I'd like to reach level 10 in my {0} skill.</description>
         <iconPath>UI/WantIcons/Skill</iconPath>
         <reward>2500</reward>
         <commonality>0.5</commonality>
