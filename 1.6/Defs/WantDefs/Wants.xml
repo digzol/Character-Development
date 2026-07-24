@@ -381,7 +381,7 @@
         <label>become rich</label>
         <description>I'd like our colony to become very wealthy (over 100,000 wealth).</description>
         <iconPath>UI/WantIcons/Money</iconPath>
-        <reward>2000</reward>
+        <reward>3500</reward>
         <commonality>0.5</commonality>
         <workerClass>WantsAndQuirks.WantWorker_ColonyWealth</workerClass>
         <minimumTechLevel>Neolithic</minimumTechLevel>
@@ -393,7 +393,7 @@
         <label>become extremely rich</label>
         <description>I'd like our colony to become extremely wealthy (over 300,000 wealth).</description>
         <iconPath>UI/WantIcons/Money</iconPath>
-        <reward>3000</reward>
+        <reward>5000</reward>
         <commonality>0.3</commonality>
         <workerClass>WantsAndQuirks.WantWorker_ColonyWealth</workerClass>
         <minimumTechLevel>Medieval</minimumTechLevel>
