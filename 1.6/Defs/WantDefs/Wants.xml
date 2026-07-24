@@ -887,7 +887,7 @@
         <label>discover {0}</label>
         <description>I've recently heard of the {0} and i'd like us to discover one.</description>
         <iconPath>UI/WantIcons/DiscoverAnimal</iconPath>
-        <reward>1500</reward>
+        <reward>2000</reward>
         <commonality>1</commonality>
         <workerClass>WantsAndQuirks.WantWorker_DiscoverAnimal</workerClass>
         <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
@@ -1338,7 +1338,7 @@
         <label>tame a {0}</label>
         <description>I'd like to tame a {0}.</description>
         <iconPath>UI/WantIcons/Bond</iconPath>
-        <reward>1500</reward>
+        <reward>3000</reward>
         <commonality>1</commonality>
         <workerClass>WantsAndQuirks.WantWorker_TameAnimal</workerClass>
         <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
