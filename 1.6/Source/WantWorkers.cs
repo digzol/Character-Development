@@ -844,7 +844,7 @@ namespace WantsAndQuirks
 
         public override Def GetRandomTarget(Pawn pawn)
         {
-            var buildings = DefDatabase<ThingDef>.AllDefsListForReading.Where(d => d.category == ThingCategory.Building && d.BuildableByPlayer && !d.IsFrame && !d.IsBlueprint && d.constructionSkillPrerequisite >= 5 && pawn.skills.GetSkill(SkillDefOf.Construction).Level >= d.constructionSkillPrerequisite && (d.researchPrerequisites.NullOrEmpty() || d.researchPrerequisites.All(r => r.IsFinished)));
+            var buildings = DefDatabase<ThingDef>.AllDefsListForReading.Where(d => d.category == ThingCategory.Building && d.BuildableByPlayer && !d.IsFrame && !d.IsBlueprint && !VEFCompat.IsHiddenDesignator(d) && d.constructionSkillPrerequisite >= 5 && pawn.skills.GetSkill(SkillDefOf.Construction).Level >= d.constructionSkillPrerequisite && (d.researchPrerequisites.NullOrEmpty() || d.researchPrerequisites.All(r => r.IsFinished)));
             return buildings.TryRandomElement(out var result) ? result : null;
         }
 
