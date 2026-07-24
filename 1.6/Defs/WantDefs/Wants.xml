@@ -324,7 +324,7 @@
         <label>cure cataracts</label>
         <description>I'd like my cataracts removed.</description>
         <iconPath>UI/WantIcons/Medical</iconPath>
-        <reward>1500</reward>
+        <reward>4000</reward>
         <commonality>1</commonality>
         <workerClass>WantsAndQuirks.WantWorker_CureHediff</workerClass>
         <targetHediff>Cataract</targetHediff>
@@ -336,7 +336,7 @@
         <label>cure hearing loss</label>
         <description>I'd like my hearing fixed.</description>
         <iconPath>UI/WantIcons/Medical</iconPath>
-        <reward>1500</reward>
+        <reward>4000</reward>
         <commonality>1</commonality>
         <workerClass>WantsAndQuirks.WantWorker_CureHediff</workerClass>
         <targetHediff>HearingLoss</targetHediff>
@@ -861,7 +861,7 @@
         <label>get rid of my asthma</label>
         <description>This asthma is killing me.</description>
         <iconPath>UI/WantIcons/Bionic</iconPath>
-        <reward>1500</reward>
+        <reward>4000</reward>
         <commonality>1</commonality>
         <workerClass>WantsAndQuirks.WantWorker_CureHediff</workerClass>
         <targetHediff>Asthma</targetHediff>
