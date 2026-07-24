@@ -238,7 +238,7 @@ namespace WantsAndQuirks
     {
         public override void OnAcquired(Pawn pawn, Quirk quirk)
         {
-            var traitDef = DefDatabase<TraitDef>.AllDefsListForReading.Where(t => !pawn.story.traits.HasTrait(t)).RandomElementWithFallback();
+            var traitDef = DefDatabase<TraitDef>.AllDefsListForReading.Where(t => !pawn.story.traits.HasTrait(t) && !ProgressionEducationCompat.IsProficiencyTrait(t)).RandomElementWithFallback();
             if (traitDef != null)
             {
                 var degree = PawnGenerator.RandomTraitDegree(traitDef);
@@ -252,17 +252,26 @@ namespace WantsAndQuirks
     {
         public override bool CanBestowOn(Pawn pawn, ThingDef item = null, Pawn targetPawn = null)
         {
-            return base.CanBestowOn(pawn, item, targetPawn) && pawn.story?.traits?.allTraits?.Any(t => !t.Suppressed) == true;
+            return base.CanBestowOn(pawn, item, targetPawn) && pawn.story.traits.allTraits.Any(t => !t.Suppressed && CanRemoveTrait(t)) == true;
         }
 
         public override void OnAcquired(Pawn pawn, Quirk quirk)
         {
-            var trait = pawn.story.traits.allTraits.Where(t => !t.Suppressed).RandomElementWithFallback();
+            var trait = pawn.story.traits.allTraits.Where(t => !t.Suppressed && CanRemoveTrait(t)).RandomElementWithFallback();
             if (trait != null)
             {
                 pawn.story.traits.RemoveTrait(trait);
                 Messages.Message("WQ_TraitRemoved".Translate(pawn.Named("PAWN"), trait.Label), pawn, MessageTypeDefOf.PositiveEvent);
             }
+        }
+
+        private static bool CanRemoveTrait(Trait trait)
+        {
+            if (ProgressionEducationCompat.Active && ProgressionEducationCompat.IsProficiencyTrait(trait.def))
+                return false;
+            if (trait.sourceGene != null)
+                return false;
+            return true;
         }
     }
 }
