@@ -97,9 +97,63 @@ namespace WantsAndQuirks
         public override bool IsCompleted(Pawn pawn, WantWorkerContext context) => context.triggerType == WantTriggerType.Resurrected;
     }
 
-    public class WantWorker_BondWithAnimal : WantWorker
+    public abstract class WantWorker_BondBase : WantWorker
     {
-        public override bool IsCompleted(Pawn pawn, WantWorkerContext context) => context.triggerType == WantTriggerType.BondedWithAnimal;
+        public static bool IsBondableAnimal(ThingDef def)
+        {
+            return def.race != null && !def.IsCorpse && def.race.Animal && def.race.trainability != null && def.race.trainability.intelligenceOrder >= TrainabilityDefOf.Intermediate.intelligenceOrder;
+        }
+
+        protected bool IsBondedTo(Pawn pawn, Pawn animal)
+        {
+            return !animal.Dead && pawn.relations.DirectRelationExists(PawnRelationDefOf.Bond, animal);
+        }
+
+        protected bool IsBondedTo(Pawn pawn, ThingDef animalDef)
+        {
+            var relations = pawn.relations.DirectRelations;
+            for (int i = 0; i < relations.Count; i++)
+            {
+                var rel = relations[i];
+                if (rel.def == PawnRelationDefOf.Bond && !rel.otherPawn.Dead && rel.otherPawn.def == animalDef)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        protected bool HasAnyAnimalBond(Pawn pawn)
+        {
+            var relations = pawn.relations.DirectRelations;
+            for (int i = 0; i < relations.Count; i++)
+            {
+                var rel = relations[i];
+                if (rel.def == PawnRelationDefOf.Bond && !rel.otherPawn.Dead && rel.otherPawn.RaceProps.Animal)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+    }
+
+    public class WantWorker_BondWithAnimal : WantWorker_BondBase
+    {
+        public override bool IsSatisfied(Pawn pawn) => HasAnyAnimalBond(pawn);
+
+        public override bool IsCompleted(Pawn pawn, WantWorkerContext context)
+        {
+            if (context.triggerType == WantTriggerType.BondedWithAnimal)
+            {
+                if (context.contextPawn is Pawn animal)
+                {
+                    return IsBondedTo(pawn, animal);
+                }
+                return IsSatisfied(pawn);
+            }
+            return IsSatisfied(pawn);
+        }
     }
 
     public class WantWorker_BecomePsycaster : WantWorker
@@ -638,33 +692,42 @@ namespace WantsAndQuirks
         }
     }
 
-    public class WantWorker_BondWithDiscoveredAnimal : WantWorker
+    public class WantWorker_BondWithDiscoveredAnimal : WantWorker_BondBase
     {
         public override bool CanGenerate(Pawn pawn) => GetRandomTarget(pawn) != null && base.CanGenerate(pawn);
         public override Def GetRandomTarget(Pawn pawn)
         {
-            var discoveredAnimals = DefDatabase<ThingDef>.AllDefsListForReading.Where(d => d.race != null && d.IsCorpse is false && d.race.Animal && DiscoveryCompat.IsDiscovered(d));
+            var discoveredAnimals = DefDatabase<ThingDef>.AllDefsListForReading.Where(d =>
+                IsBondableAnimal(d) &&
+                DiscoveryCompat.IsDiscovered(d) &&
+                !IsSatisfiedWithTarget(pawn, d));
             return discoveredAnimals.TryRandomElement(out var result) ? result : null;
         }
 
         public override bool IsSatisfiedWithTarget(Pawn pawn, Def targetDef)
         {
-            if (targetDef is ThingDef animalDef && pawn.relations != null)
+            if (targetDef is ThingDef animalDef)
             {
-                foreach (var rel in pawn.relations.DirectRelations)
-                {
-                    if (rel.def == PawnRelationDefOf.Bond && rel.otherPawn.def == animalDef)
-                    {
-                        return true;
-                    }
-                }
+                return IsBondedTo(pawn, animalDef);
             }
             return false;
         }
 
         public override bool IsCompleted(Pawn pawn, WantWorkerContext context)
         {
-            return context.triggerType == WantTriggerType.BondedWithAnimal;
+            if (context.triggerType == WantTriggerType.BondedWithAnimal)
+            {
+                if (context.contextPawn is Pawn animal)
+                {
+                    return IsBondedTo(pawn, animal);
+                }
+                if (context.contextDef is ThingDef animalDef)
+                {
+                    return IsSatisfiedWithTarget(pawn, animalDef);
+                }
+                return true;
+            }
+            return false;
         }
     }
 

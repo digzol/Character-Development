@@ -11,7 +11,7 @@ namespace WantsAndQuirks
         {
             if (__result && humanlike.CanHaveWants())
             {
-                WantsAndQuirksUtility.CheckWants(humanlike, new WantWorkerContext(triggerType: WantTriggerType.BondedWithAnimal, contextDef: animal.def));
+                WantsAndQuirksUtility.CheckWants(humanlike, new WantWorkerContext(triggerType: WantTriggerType.BondedWithAnimal, contextDef: animal.def, contextPawn: animal));
             }
         }
     }
