@@ -200,6 +200,19 @@ namespace WantsAndQuirks
 
     public class WantWorker_HasTrait : WantWorker
     {
+        public override bool CanGenerate(Pawn pawn)
+        {
+            if (!base.CanGenerate(pawn))
+                return false;
+            for (int i = 0; i < def.targetTraits.Count; i++)
+            {
+                var trait = def.targetTraits[i];
+                if (ProgressionEducationCompat.Active && ProgressionEducationCompat.IsProficiencyTrait(trait) && !ProgressionEducationCompat.IsProficiencyTraitEnabled(trait))
+                    return false;
+            }
+            return true;
+        }
+
         public override bool IsSatisfied(Pawn pawn)
         {
             if (def.targetTraits.NullOrEmpty() || pawn.story?.traits == null)

@@ -196,6 +196,20 @@ namespace WantsAndQuirks
 
     public class RewardWorker_PawnRelation : RewardWorker
     {
+        public override bool CanGenerate()
+        {
+            if (!base.CanGenerate()) return false;
+            int humanlikeCount = 0;
+            foreach (var map in Find.Maps)
+            {
+                if (map.IsPlayerHome)
+                {
+                    humanlikeCount += map.mapPawns.SpawnedPawnsInFaction(Faction.OfPlayer).Count(p => p.RaceProps.Humanlike);
+                }
+            }
+            return humanlikeCount >= 2;
+        }
+
         public override IEnumerable<Pawn> GetValidPawns(Map map)
         {
             return map.mapPawns.SpawnedPawnsInFaction(Faction.OfPlayer).Where(p => p.RaceProps.Humanlike);

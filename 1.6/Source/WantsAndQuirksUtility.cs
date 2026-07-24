@@ -75,6 +75,9 @@ namespace WantsAndQuirks
             if (!WantsAndQuirksMod.settings.enableWantsSystem || pawn.DestroyedOrNull() || !pawn.RaceProps.Humanlike || (!pawn.IsColonist && !pawn.IsSlaveOfColony))
                 return false;
 
+            if (pawn.DevelopmentalStage == DevelopmentalStage.Baby || pawn.DevelopmentalStage == DevelopmentalStage.Newborn)
+                return false;
+
             if (AndroidsCompat.IsUnawakenedAndroid(pawn))
                 return false;
 
