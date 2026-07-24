@@ -34,16 +34,25 @@ namespace WantsAndQuirks
 
         public static void ImproveComposure(Pawn pawn)
         {
-            if (!therapyActive)
+            if (!therapyActive || HasComposure(pawn, out var need) is false)
                 return;
-            pawn.needs.TryGetNeed(stabilityNeedDef).CurLevelPercentage += 0.05f;
+            need.CurLevelPercentage += 0.05f;
         }
 
         public static bool HasHighComposure(Pawn pawn)
         {
+            if (!therapyActive || HasComposure(pawn, out var need) is false)
+                return false;
+            return need.CurLevelPercentage >= 0.6f;
+        }
+
+        public static bool HasComposure(Pawn pawn, out Need need)
+        {
+            need = null;
             if (!therapyActive)
                 return false;
-            return pawn.needs.TryGetNeed(stabilityNeedDef).CurLevelPercentage >= 0.6f;
+            need = pawn.needs.TryGetNeed(stabilityNeedDef);
+            return need != null;
         }
 
         public static bool HasTraumaticTrait(Pawn pawn)

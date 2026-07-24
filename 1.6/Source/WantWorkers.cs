@@ -229,6 +229,11 @@ namespace WantsAndQuirks
 
     public class WantWorker_ImproveComposure : WantWorker
     {
+        public override bool CanGenerate(Pawn pawn)
+        {
+            return base.CanGenerate(pawn) && TherapyCompat.HasComposure(pawn, out _);
+        }
+        
         public override bool IsSatisfied(Pawn pawn) => TherapyCompat.HasHighComposure(pawn);
     }
 
