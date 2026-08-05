@@ -1339,6 +1339,47 @@
         <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
     </WantsAndQuirks.RewardDef>
 
+
+    <WantsAndQuirks.RewardDef MayRequire="Goji.GojisMiscGenes">
+        <defName>WQ_Quirk_Goji_Hoarder</defName>
+        <label>hoarder</label>
+        <description>Feels happiest with belongings piled nearby and moves cleanly through cluttered spaces.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>Goji_Hoarder</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="Goji.GojisMiscGenes">
+        <defName>WQ_Quirk_Goji_MotionSickness</defName>
+        <label>motion sickness</label>
+        <description>Becomes weak and miserable for a while after high-speed travel such as drop pods, shuttles, or gravships.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>Goji_MotionSickness</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="Goji.GojisMiscGenes">
+        <defName>WQ_Quirk_Goji_Parroting</defName>
+        <label>parroting</label>
+        <description>Compulsively mimics social interactions, responding in kind to what others say or do.</description>
+        <rarity>Uncommon</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>Goji_Parroting</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
+    <WantsAndQuirks.RewardDef MayRequire="Goji.GojisMiscGenes">
+        <defName>WQ_Quirk_Goji_RouteMemory</defName>
+        <label>route memory</label>
+        <description>Remembers paths, shortcuts, and safe crossings, making familiar caravan routes faster.</description>
+        <rarity>Rare</rarity>
+        <isQuirk>true</isQuirk>
+        <gene>Goji_RouteMemory</gene>
+        <workerClass>WantsAndQuirks.RewardWorker_GeneQuirk</workerClass>
+    </WantsAndQuirks.RewardDef>
+
     <WantsAndQuirks.RewardDef MayRequire="ClimatePreferenceGenes.Mod">
         <defName>WQ_Quirk_ClimatePreference_SuperCold</defName>
         <label>extreme cold climate preference</label>

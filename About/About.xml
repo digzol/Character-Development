@@ -34,5 +34,6 @@
         <li>ZzZomboRW.Commission.NuzzleGene</li>
         <li>cyanobot.CyanobotsGenes</li>
         <li>ClimatePreferenceGenes.Mod</li>
+        <li>Goji.GojisMiscGenes</li>
     </loadAfter>
 </ModMetaData>
