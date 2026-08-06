@@ -18,7 +18,7 @@ namespace WantsAndQuirks
         {
             get
             {
-                if (def.discoveryRequirementThing != null)
+                if (def.discoveryRequirementThing != null && !def.preferIconPath)
                     return def.discoveryRequirementThing.uiIcon;
                 return def.Icon;
             }
