@@ -10,6 +10,7 @@ namespace WantsAndQuirks
     {
         public Type workerClass = typeof(WantWorker);
         public string iconPath;
+        public bool preferIconPath;
         public int reward = 1000;
         public float commonality = 1f;
         public ThoughtDef completedByThought;
