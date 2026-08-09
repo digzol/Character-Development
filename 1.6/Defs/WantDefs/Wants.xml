@@ -1151,8 +1151,8 @@
 
     <WantsAndQuirks.WantDef MayRequire="Ludeon.RimWorld.Ideology">
         <defName>WQ_WantConnectWithGuaranlenTree</defName>
-        <label>connect with a guaranlen tree</label>
-        <description>I'd like to connect with a guaranlen tree.</description>
+        <label>connect with a gauranlen tree</label>
+        <description>I'd like to connect with a gauranlen tree.</description>
         <iconPath>UI/WantIcons/Catharsis</iconPath>
         <reward>1500</reward>
         <commonality>0.2</commonality>
