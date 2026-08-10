@@ -19,7 +19,7 @@
         <description>I'd like to see an aurora in the sky.</description>
         <iconPath>UI/WantIcons/Aurora</iconPath>
         <reward>1200</reward>
-        <commonality>1</commonality>
+        <commonality>0.65</commonality>
         <workerClass>WantsAndQuirks.WantWorker_SeeAurora</workerClass>
     </WantsAndQuirks.WantDef>
 
