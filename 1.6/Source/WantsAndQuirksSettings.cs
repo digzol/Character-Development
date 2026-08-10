@@ -12,7 +12,7 @@ namespace WantsAndQuirks
         public int bubblesPerRoll = 10;
         public bool rerollBubblesOnSelection = false;
         public int rerollsPerWant = 2;
-        public int pointsNeededForReward = 800;
+        public int pointsNeededForReward = 1000;
         private string pointsNeededForRewardBuffer;
         public int startingWantsCount = 0;
         public int maxActiveWants = 4;
@@ -28,7 +28,7 @@ namespace WantsAndQuirks
             Scribe_Values.Look(ref bubblesPerRoll, "bubblesPerRoll", 10);
             Scribe_Values.Look(ref rerollBubblesOnSelection, "rerollBubblesOnSelection", false);
             Scribe_Values.Look(ref rerollsPerWant, "rerollsPerWant", 2);
-            Scribe_Values.Look(ref pointsNeededForReward, "pointsNeededForReward", 800);
+            Scribe_Values.Look(ref pointsNeededForReward, "pointsNeededForReward", 1000);
             Scribe_Values.Look(ref startingWantsCount, "startingWantsCount", 0);
             Scribe_Values.Look(ref maxActiveWants, "maxActiveWants", 4);
             Scribe_Values.Look(ref wantGenerationFrequencyDays, "wantGenerationFrequencyDays", new IntRange(1, 8));
