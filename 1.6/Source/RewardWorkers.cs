@@ -238,7 +238,7 @@ namespace WantsAndQuirks
     {
         public override void OnAcquired(Pawn pawn, Quirk quirk)
         {
-            var traitDef = DefDatabase<TraitDef>.AllDefsListForReading.Where(t => !pawn.story.traits.HasTrait(t) && !ProgressionEducationCompat.IsProficiencyTrait(t)).RandomElementWithFallback();
+            var traitDef = DefDatabase<TraitDef>.AllDefsListForReading.Where(t => !pawn.story.traits.HasTrait(t) && !(ProgressionEducationCompat.Active && ProgressionEducationCompat.IsProficiencyTrait(t))).RandomElementWithFallback();
             if (traitDef != null)
             {
                 var degree = PawnGenerator.RandomTraitDegree(traitDef);
