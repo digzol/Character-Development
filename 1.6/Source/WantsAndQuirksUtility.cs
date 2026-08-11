@@ -416,6 +416,8 @@ namespace WantsAndQuirks
                 InitializePawnWants(pawn, data);
             }
 
+            bool wasAtCapacity = data.activeWants.Count >= WantsAndQuirksMod.settings.maxActiveWants;
+
             CheckWants(pawn, new WantWorkerContext(WantTriggerType.None));
 
             for (int i = data.activeWants.Count - 1; i >= 0; i--)
@@ -426,7 +428,20 @@ namespace WantsAndQuirks
                 }
             }
 
-            if (data.activeWants.Count < WantsAndQuirksMod.settings.maxActiveWants && Find.TickManager.TicksGame >= data.nextWantTick)
+            bool isAtCapacity = data.activeWants.Count >= WantsAndQuirksMod.settings.maxActiveWants;
+            if (wasAtCapacity && !isAtCapacity)
+            {
+                data.nextWantTick = Find.TickManager.TicksGame + GetNextWantInterval();
+                return;
+            }
+
+            if (isAtCapacity)
+            {
+                data.nextWantTick = Find.TickManager.TicksGame + GetNextWantInterval();
+                return;
+            }
+
+            if (Find.TickManager.TicksGame >= data.nextWantTick)
             {
                 var generated = GenerateRandomWant(pawn, data);
                 if (generated != null)
