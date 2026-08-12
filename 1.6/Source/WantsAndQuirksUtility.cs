@@ -55,6 +55,7 @@ namespace WantsAndQuirks
     public static class WantsAndQuirksUtility
     {
         private static readonly ConditionalWeakTable<Pawn, PawnWantsData> pawnData = new ConditionalWeakTable<Pawn, PawnWantsData>();
+        public static readonly ConditionalWeakTable<Message, Pawn> wantMessages = new ConditionalWeakTable<Message, Pawn>();
         public static PawnWantsData GetWantsData(this Pawn pawn)
         {
             if (!pawnData.TryGetValue(pawn, out var data))
@@ -160,7 +161,9 @@ namespace WantsAndQuirks
             if (PawnUtility.ShouldSendNotificationAbout(pawn))
             {
                 var text = !string.IsNullOrEmpty(want.def.fulfilledText) ? want.def.fulfilledText.Formatted(pawn.Named("PAWN"), want.LabelCap) : "WQ_WantCompleted".Translate(pawn.Named("PAWN"), want.LabelCap);
-                Messages.Message(text, pawn, MessageTypeDefOf.SilentInput, false);
+                var msg = new Message(text, MessageTypeDefOf.SilentInput, pawn);
+                wantMessages.Add(msg, pawn);
+                Messages.Message(msg);
                 DefsOf.WQ_WantCompleted.PlayOneShotOnCamera();
             }
             data.activeWants.Remove(want);
@@ -319,32 +322,59 @@ namespace WantsAndQuirks
         {
             ActiveWant want;
             if (targetPawn != null)
-                want = new ActiveWantWithPawnTarget { def = def, targetPawn = targetPawn, assignedTick = Find.TickManager.TicksGame };
+                want = new ActiveWantWithPawnTarget
+                {
+                    def = def,
+                    targetPawn = targetPawn,
+                    assignedTick = Find.TickManager.TicksGame
+                };
             else if (targetDef != null)
-                want = new ActiveWantWithTarget { def = def, targetDef = targetDef, assignedTick = Find.TickManager.TicksGame };
+                want = new ActiveWantWithTarget
+                {
+                    def = def,
+                    targetDef = targetDef,
+                    assignedTick = Find.TickManager.TicksGame
+                };
             else
             {
                 var autoTargetPawn = def.Worker.GetRandomTargetPawn(pawn);
                 if (autoTargetPawn != null)
                 {
-                    want = new ActiveWantWithPawnTarget { def = def, targetPawn = autoTargetPawn, assignedTick = Find.TickManager.TicksGame };
+                    want = new ActiveWantWithPawnTarget
+                    {
+                        def = def,
+                        targetPawn = autoTargetPawn,
+                        assignedTick = Find.TickManager.TicksGame
+                    };
                 }
                 else
                 {
                     var autoTargetDef = def.Worker.GetRandomTarget(pawn);
                     if (autoTargetDef != null)
                     {
-                        want = new ActiveWantWithTarget { def = def, targetDef = autoTargetDef, assignedTick = Find.TickManager.TicksGame };
+                        want = new ActiveWantWithTarget
+                        {
+                            def = def,
+                            targetDef = autoTargetDef,
+                            assignedTick = Find.TickManager.TicksGame
+                        };
                     }
                     else
                     {
-                        want = new ActiveWant { def = def, assignedTick = Find.TickManager.TicksGame };
+                        want = new ActiveWant
+                        {
+                            def = def,
+                            assignedTick = Find.TickManager.TicksGame
+                        };
                     }
                 }
             }
             if (sendNotification && PawnUtility.ShouldSendNotificationAbout(pawn))
             {
-                Messages.Message("WQ_NewWantGenerated".Translate(pawn.Named("PAWN")), pawn, MessageTypeDefOf.SilentInput, false);
+                var text = "WQ_NewWantGenerated".Translate(pawn.Named("PAWN"));
+                var msg = new Message(text, MessageTypeDefOf.SilentInput, pawn);
+                wantMessages.Add(msg, pawn);
+                Messages.Message(msg);
                 DefsOf.WQ_NewWantBell.PlayOneShotOnCamera();
             }
             return want;
