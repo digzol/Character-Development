@@ -18,8 +18,8 @@
         <label>see an aurora</label>
         <description>I'd like to see an aurora in the sky.</description>
         <iconPath>UI/WantIcons/Aurora</iconPath>
-        <reward>1200</reward>
-        <commonality>0.65</commonality>
+        <reward>1000</reward>
+        <commonality>0.5</commonality>
         <workerClass>WantsAndQuirks.WantWorker_SeeAurora</workerClass>
     </WantsAndQuirks.WantDef>
 
@@ -118,8 +118,8 @@
         <label>feel catharsis</label>
         <description>I'd like to feel a burden lifted off of me.</description>
         <iconPath>UI/WantIcons/Catharsis</iconPath>
-        <reward>1000</reward>
-        <commonality>1</commonality>
+        <reward>350</reward>
+        <commonality>0.5</commonality>
         <workerClass>WantsAndQuirks.WantWorker_Thought</workerClass>
         <completedByThought>Catharsis</completedByThought>
     </WantsAndQuirks.WantDef>
@@ -1272,7 +1272,7 @@
         <reward>1000</reward>
         <commonality>1</commonality>
         <workerClass>WantsAndQuirks.WantWorker_DriveVehicle</workerClass>
-        <minimumTechLevel>Neolithic</minimumTechLevel>
+        <minimumTechLevel>Industrial</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef MayRequireAnyOf="OskarPotocki.VFE.Tribals,ferny.noderesearch">
@@ -1395,7 +1395,7 @@
         <label>have a deep conversation</label>
         <description>I'd like to have a meaningful conversation with someone.</description>
         <iconPath>UI/WantIcons/DeepTalk</iconPath>
-        <reward>500</reward>
+        <reward>200</reward>
         <commonality>0.4</commonality>
         <workerClass>WantsAndQuirks.WantWorker_Thought</workerClass>
         <completedByThought>DeepTalk</completedByThought>
