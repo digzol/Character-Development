@@ -7,11 +7,13 @@ namespace WantsAndQuirks
     public class WantsAndQuirksMod : Mod
     {
         public static WantsAndQuirksSettings settings;
+        public static Harmony harmony;
 
         public WantsAndQuirksMod(ModContentPack pack) : base(pack)
         {
             settings = GetSettings<WantsAndQuirksSettings>();
-            new Harmony("WantsAndQuirksMod").PatchAll();
+            harmony = new Harmony("WantsAndQuirksMod");
+            harmony.PatchAll();
         }
 
         public override void DoSettingsWindowContents(Rect inRect)

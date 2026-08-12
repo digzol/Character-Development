@@ -9,14 +9,29 @@ namespace WantsAndQuirks
     {
         public static void Postfix()
         {
-            if (Message_Draw_Patch.drawingMessage == null)
+            var msg = Message_Draw_Patch.drawingMessage;
+            if (msg == null)
+            {
                 return;
-            if (!WantsAndQuirksUtility.wantMessages.TryGetValue(Message_Draw_Patch.drawingMessage, out var pawn))
+            }
+            if (!Messages.IsLive(msg))
+            {
+                Message_Draw_Patch.drawingMessage = null;
                 return;
+            }
+            if (!WantsAndQuirksUtility.wantMessages.TryGetValue(msg, out var pawn))
+            {
+                Message_Draw_Patch.drawingMessage = null;
+                return;
+            }
             if (!pawn.CanHaveWants())
+            {
+                Message_Draw_Patch.drawingMessage = null;
                 return;
+            }
             Find.MainTabsRoot.SetCurrentTab(DefsOf.WQ_CharactersMenu);
             InspectPaneUtility.OpenTab(typeof(ITab_Pawn_WantsAndQuirks));
+            Message_Draw_Patch.drawingMessage = null;
         }
     }
 }

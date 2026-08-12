@@ -10,12 +10,10 @@ namespace WantsAndQuirks
 
         public static void Prefix(Message __instance)
         {
-            drawingMessage = __instance;
-        }
-
-        public static void Postfix()
-        {
-            drawingMessage = null;
+            if (WantsAndQuirksUtility.wantMessages.TryGetValue(__instance, out _))
+            {
+                drawingMessage = __instance;
+            }
         }
     }
 }
