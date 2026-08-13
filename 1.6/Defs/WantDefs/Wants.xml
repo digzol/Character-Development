@@ -220,6 +220,9 @@
         <workerClass>WantsAndQuirks.WantWorker_Thought</workerClass>
         <completedByThought>AttendedParty</completedByThought>
         <minimumTechLevel>Medieval</minimumTechLevel>
+        <invalidHediffs>
+            <li MayRequire="Ludeon.RimWorld.Anomaly">Inhumanized</li>
+        </invalidHediffs>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef>
@@ -572,6 +575,9 @@
         <isMentalBreakWant>true</isMentalBreakWant>
         <workerClass>WantsAndQuirks.WantWorker_Thought</workerClass>
         <completedByThought>KilledChild</completedByThought>
+        <invalidHediffs>
+            <li MayRequire="Ludeon.RimWorld.Anomaly">Inhumanized</li>
+        </invalidHediffs>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef MayRequire="dubwise.dubsbadhygiene">
@@ -1406,6 +1412,9 @@
         <workerClass>WantsAndQuirks.WantWorker_Thought</workerClass>
         <completedByThought>AttendedWedding</completedByThought>
         <minimumTechLevel>Neolithic</minimumTechLevel>
+        <invalidHediffs>
+            <li MayRequire="Ludeon.RimWorld.Anomaly">Inhumanized</li>
+        </invalidHediffs>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef>
@@ -1417,6 +1426,9 @@
         <commonality>0.8</commonality>
         <workerClass>WantsAndQuirks.WantWorker_Thought</workerClass>
         <completedByThought>Nuzzled</completedByThought>
+        <invalidHediffs>
+            <li MayRequire="Ludeon.RimWorld.Anomaly">Inhumanized</li>
+        </invalidHediffs>
         <!-- <minimumTechLevel>Neolithic</minimumTechLevel> -->
     </WantsAndQuirks.WantDef>
 
