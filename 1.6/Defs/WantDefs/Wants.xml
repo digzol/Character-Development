@@ -445,6 +445,7 @@
 			<DrugDesire>1</DrugDesire>
 			<DrugDesire>2</DrugDesire>
 		</requiredTraits>
+		<requiredTraitsAny>true</requiredTraitsAny>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef>
@@ -853,6 +854,7 @@
 			<PsychicSensitivity>-1</PsychicSensitivity>
 			<PsychicSensitivity>-2</PsychicSensitivity>
 		</requiredTraits>
+		<requiredTraitsAny>true</requiredTraitsAny>
         <discoveryRequirementThing>Plant_TreeAnima</discoveryRequirementThing>
     </WantsAndQuirks.WantDef>
 
@@ -1206,6 +1208,7 @@
 			<DrugDesire>1</DrugDesire>
 			<DrugDesire>2</DrugDesire>
 		</requiredTraits>
+		<requiredTraitsAny>true</requiredTraitsAny>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef MayRequire="Ludeon.RimWorld.Biotech">
