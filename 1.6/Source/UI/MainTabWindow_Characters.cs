@@ -34,11 +34,34 @@ namespace WantsAndQuirks
         public override void PreOpen()
         {
             base.PreOpen();
+            ValidateRewardNodes();
+            RemoveWantsWithNullPawns();
             if (State.rewardNodes.Count == 0)
             {
                 WantsAndQuirksUtility.GenerateGlobalRewardBubbles();
             }
             InitPhysics();
+        }
+
+        private void ValidateRewardNodes()
+        {
+            foreach (var node in State.rewardNodes.Where(n => n.def.requiresPawn && n.pawnTarget == null).ToList())
+            {
+                State.rewardNodes.Remove(node);
+                var replacement = WantsAndQuirksUtility.GenerateSingleRewardBubble(State.rewardNodes);
+                if (replacement != null)
+                {
+                    State.rewardNodes.Add(replacement);
+                }
+            }
+        }
+
+        private void RemoveWantsWithNullPawns()
+        {
+            foreach (var p in Find.Maps.SelectMany(m => m.mapPawns.SpawnedPawnsInFaction(Faction.OfPlayer)).Where(p => p.CanHaveWants()))
+            {
+                p.GetWantsData().activeWants.RemoveAll(w => w is ActiveWantWithPawnTarget tp && tp.targetPawn == null);
+            }
         }
 
         public override void WindowUpdate()
