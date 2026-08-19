@@ -87,7 +87,7 @@
 
     <WantsAndQuirks.WantDef>
         <defName>WQ_WantBionic</defName>
-        <label>get a bionic</label>
+        <label>have a bionic</label>
         <description>I'd like a bionic implant installed.</description>
         <iconPath>UI/WantIcons/Bionic</iconPath>
         <reward>2000</reward>
@@ -457,6 +457,7 @@
 			<DrugDesire>1</DrugDesire>
 			<DrugDesire>2</DrugDesire>
 		</requiredTraits>
+		<requiredTraitsAny>true</requiredTraitsAny>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef>
@@ -557,7 +558,7 @@
         <description>Maybe I do not even deserve to speak.</description>
         <iconPath>UI/WantIcons/Tongue</iconPath>
         <reward>2000</reward>
-        <commonality>0.05</commonality>
+        <commonality>0.03</commonality>
         <isMentalBreakWant>true</isMentalBreakWant>
         <workerClass>WantsAndQuirks.WantWorker_Thought</workerClass>
         <completedByThought>MissingTongue</completedByThought>
@@ -570,7 +571,7 @@
         <description>Maybe I want to show them that nobody is safe.</description>
         <iconPath>UI/WantIcons/KidAbuse</iconPath>
         <reward>2000</reward>
-        <commonality>0.05</commonality>
+        <commonality>0.025</commonality>
         <invalidNonViolent>true</invalidNonViolent>
         <isMentalBreakWant>true</isMentalBreakWant>
         <workerClass>WantsAndQuirks.WantWorker_Thought</workerClass>
@@ -877,6 +878,7 @@
 			<PsychicSensitivity>-1</PsychicSensitivity>
 			<PsychicSensitivity>-2</PsychicSensitivity>
 		</requiredTraits>
+		<requiredTraitsAny>true</requiredTraitsAny>
         <discoveryRequirementThing>Plant_TreeAnima</discoveryRequirementThing>
     </WantsAndQuirks.WantDef>
 
@@ -1239,6 +1241,7 @@
 			<DrugDesire>1</DrugDesire>
 			<DrugDesire>2</DrugDesire>
 		</requiredTraits>
+		<requiredTraitsAny>true</requiredTraitsAny>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef MayRequire="Ludeon.RimWorld.Biotech">
