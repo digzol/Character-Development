@@ -390,7 +390,8 @@ namespace WantsAndQuirks
         public override bool CanGenerate(Pawn pawn) => GetRandomTarget(pawn) != null;
         public override Def GetRandomTarget(Pawn pawn)
         {
-            var undiscovered = DefDatabase<FactionDef>.AllDefsListForReading.Where(d => !d.isPlayer && d.hidden is false && !DiscoveryCompat.IsDiscovered(d));
+            var meetable = Find.WorldObjects.Settlements.Where(s => s.Faction != null).Select(s => s.Faction.def).ToHashSet();
+            var undiscovered = DefDatabase<FactionDef>.AllDefsListForReading.Where(d => !d.isPlayer && d.hidden is false && meetable.Contains(d) && !DiscoveryCompat.IsDiscovered(d));
             return undiscovered.TryRandomElement(out var result) ? result : null;
         }
         public override bool IsTargetDiscovered(Def target) => target is FactionDef faction && DiscoveryCompat.IsDiscovered(faction);
