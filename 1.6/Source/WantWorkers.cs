@@ -6,6 +6,11 @@ namespace WantsAndQuirks
 {
     public class WantWorker_Thought : WantWorker
     {
+        public override bool CanGenerate(Pawn pawn)
+        {
+            return ThoughtUtility.CanGetThought(pawn, def.completedByThought, true) && base.CanGenerate(pawn);
+        }
+
         public override bool IsSatisfied(Pawn pawn)
         {
             return pawn.needs?.mood?.thoughts?.memories?.GetFirstMemoryOfDef(def.completedByThought) != null;
@@ -244,6 +249,23 @@ namespace WantsAndQuirks
 
     public class WantWorker_ThoughtAny : WantWorker
     {
+        public override bool CanGenerate(Pawn pawn)
+        {
+            if (def.targetThoughts.NullOrEmpty())
+                return false;
+
+            var canGetThought = false;
+            foreach (var t in def.targetThoughts)
+            {
+                if (ThoughtUtility.CanGetThought(pawn, def.completedByThought, true))
+                {
+                    canGetThought = true;
+                    break;
+                }
+            }
+            return canGetThought && base.CanGenerate(pawn);
+        }
+
         public override bool IsSatisfied(Pawn pawn)
         {
             if (def.targetThoughts.NullOrEmpty() || pawn.needs?.mood?.thoughts?.memories == null)
