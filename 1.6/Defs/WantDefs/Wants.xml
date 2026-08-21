@@ -202,6 +202,9 @@
         <reward>1500</reward>
         <commonality>0.5</commonality>
         <workerClass>WantsAndQuirks.WantWorker_BondWithAnimal</workerClass>
+        <invalidTraits>
+            <li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_AnimalHater</li>
+        </invalidTraits>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef>
@@ -893,6 +896,9 @@
         <commonality>1</commonality>
         <workerClass>WantsAndQuirks.WantWorker_DiscoverAnimal</workerClass>
         <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
+        <invalidTraits>
+            <li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_AnimalHater</li>
+        </invalidTraits>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef MayRequire="ferny.discoveries">
@@ -1068,6 +1074,9 @@
         <commonality>0.5</commonality>
         <workerClass>WantsAndQuirks.WantWorker_BondWithDiscoveredAnimal</workerClass>
         <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
+        <invalidTraits>
+            <li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_AnimalHater</li>
+        </invalidTraits>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef>
@@ -1345,6 +1354,9 @@
         <commonality>1</commonality>
         <workerClass>WantsAndQuirks.WantWorker_TameAnimal</workerClass>
         <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
+        <invalidTraits>
+            <li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_AnimalHater</li>
+        </invalidTraits>
     </WantsAndQuirks.WantDef>
 
     <WantsAndQuirks.WantDef>
@@ -1390,6 +1402,9 @@
         <commonality>0.8</commonality>
         <workerClass>WantsAndQuirks.WantWorker_Thought</workerClass>
         <completedByThought>Nuzzled</completedByThought>
+        <invalidTraits>
+            <li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_AnimalHater</li>
+        </invalidTraits>
         <!-- <minimumTechLevel>Neolithic</minimumTechLevel> -->
     </WantsAndQuirks.WantDef>
 
