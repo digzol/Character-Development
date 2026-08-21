@@ -203,6 +203,7 @@
         <commonality>0.5</commonality>
         <workerClass>WantsAndQuirks.WantWorker_BondWithAnimal</workerClass>
         <invalidTraits>
+			<li>Psychopath</li>
             <li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_AnimalHater</li>
         </invalidTraits>
     </WantsAndQuirks.WantDef>
@@ -1075,6 +1076,7 @@
         <workerClass>WantsAndQuirks.WantWorker_BondWithDiscoveredAnimal</workerClass>
         <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
         <invalidTraits>
+			<li>Psychopath</li>
             <li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_AnimalHater</li>
         </invalidTraits>
     </WantsAndQuirks.WantDef>
@@ -1403,6 +1405,7 @@
         <workerClass>WantsAndQuirks.WantWorker_Thought</workerClass>
         <completedByThought>Nuzzled</completedByThought>
         <invalidTraits>
+			<li>Psychopath</li>
             <li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_AnimalHater</li>
         </invalidTraits>
         <!-- <minimumTechLevel>Neolithic</minimumTechLevel> -->
@@ -1417,6 +1420,9 @@
         <commonality>0.4</commonality>
         <workerClass>WantsAndQuirks.WantWorker_Thought</workerClass>
         <completedByThought>DeepTalk</completedByThought>
+        <invalidTraits>
+			<li>Psychopath</li>
+        </invalidTraits>
         <minimumTechLevel>Neolithic</minimumTechLevel>
     </WantsAndQuirks.WantDef>
 
